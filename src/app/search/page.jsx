@@ -183,7 +183,6 @@ function SelectOffer() {
       <div
         onClick={() => {
           setIsShow(!isShow);
-          console.log(isShow); // Add this to check the state change
         }}
         className="border z-10 cursor-pointer border-red-700 px-2 py-1.5 rounded-md flex items-center gap-2"
       >
