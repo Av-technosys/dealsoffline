@@ -42,7 +42,7 @@ const NavBar = () => {
                     <img src="./nav/search.svg" alt="" />
                   </div>
                 </Link>
-                <Link href={"/vendor-dashbord"} className="hidden md:flex items-center gap-2">
+                <Link href={"/vendor-login/signup"} className="hidden md:flex items-center gap-2">
                   <p className="font-semibold">Partner with us</p>
                   <img src="./nav/shop.svg" alt="" />
                 </Link>
@@ -230,7 +230,7 @@ function MobileMenu() {
         <Search size={20} />
       </Link>
       <div>
-        <Link href={"/vendor-dashbord"} className="  flex items-center gap-2 text-red-700 font-medium pt-2 underline">
+        <Link href={"/vendor-login/signup"} className="  flex items-center gap-2 text-red-700 font-medium pt-2 underline">
           <p>Partner with us</p>
           <img src="./nav/shop.svg" alt="asdf" />
         </Link>

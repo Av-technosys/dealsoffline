@@ -14,6 +14,7 @@ const PromoteMyStoreSection = React.lazy(() => import('@/components/PromoteMySto
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, CheckCheck } from "lucide-react";
+import Image from "next/image";
 const DynamicContent = () => {
   const params = useSearchParams();
   const num = parseInt(params.get("form") || "1", 10); // Ensure it's a number
@@ -30,8 +31,8 @@ const DynamicContent = () => {
     <>
       <VendorOnbordForm num={num} />
       {!hideAnimation && (
-        <div className="block md:hidden">
-          <img src="./swipe-animation.gif" alt="Swipe Animation" className="-mt-10 mx-auto h-12" />
+        <div className="block relative md:hidden">
+          <Image src="/swipe-animation.gif" alt="Swipe Animation" fill={true} className="-mt-10 mx-auto h-12" />
         </div>
       )}
 
@@ -45,7 +46,7 @@ const DynamicContent = () => {
         <div className="h-8"></div>
         {
           num === 5 ?
-          <VendorFooterBarFinal num={num} /> : <VendorFooterBar num={num} />
+            <VendorFooterBarFinal num={num} /> : <VendorFooterBar num={num} />
         }
       </Suspense>
     </>
@@ -72,6 +73,8 @@ const VendorFooterBarFinal = ({ num }) => {
   const showBack = num != 1
   return (
     <div className=' w-full max-w-5xl px-4 mx-auto justify-between flex gap-4 items-center' >
+
+      <img src="/swipe-animation.gif" alt="Swipe Animation" className="hidden" />
       {showBack &&
         <Link href={`/vendor-dashbord?form=${String(num) - 1}`} className=' flex items-center gap-2 w-fit rounded-md text-red-700 border-red-700 border px-4 py-2' >
           <p className=' font-semibold'>Back</p>
