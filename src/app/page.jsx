@@ -8,6 +8,7 @@ const Page = () => {
     <div>
       <div className="relative flex flex-col h-full justify-between gap-6 w-full min-h-screen">
         <NavBarBG />
+        
         <img
           src="./hero-bg.png"
           className="absolute top-0 -z-10 h-full w-full left-0 object-cover"
