@@ -6,12 +6,32 @@ import { Share2 } from "lucide";
 import { Share2Icon, ThumbsUp, X } from "lucide-react";
 import Link from "next/link";
 import React, { useState } from "react";
+import CreateUserDialog from "@/components/createUserDialog";
+import GetCreateOTP from "@/components/createUserOTP";
+import GetPsswordOTP from "@/components/changePassOTP";
+import LoginDialog from "@/components/loginUserDialog";
+import ChangePassDialog from "@/components/changePassDialog";
 
 const Page = () => {
+  const [isCreateUser, setIsCreateUser] = React.useState(false);
+  const [isUserLogin, setIsUserLogin] = React.useState(false);
+  const [isPassOTP, setIsPassOTP] = React.useState(false);
+  const [isCreateOTP, setIsCreateOTP] = React.useState(false);
+  const [isUerPassword, setIsUerPassword] = React.useState(false);
   return (
     <div>
       <div className="relative flex flex-col h-full justify-center gap-6 w-full min-h-screen">
         <NavBar />
+
+        <CreateUserDialog isOpen={isCreateUser} handleOTPDialog={setIsCreateOTP} setUserLogin={setIsUserLogin} setIsOpen={setIsCreateUser} />
+        <GetCreateOTP isOpen={isCreateOTP} setIsOpen={setIsCreateOTP} />
+        <GetPsswordOTP isOpen={isPassOTP} setIsOpen={setIsPassOTP} handleOTPDialog={setIsUerPassword} />
+
+        <LoginDialog isOpen={isUserLogin} handleCreateAccount={setIsCreateUser} handleOTPDialog={setIsPassOTP} setIsOpen={setIsUserLogin} />
+        <ChangePassDialog isOpen={isUerPassword} setIsOpen={setIsUerPassword} />
+
+
+
         <img
           src="./hero-bg.png"
           className="absolute top-0 -z-10 h-full w-full left-0 object-cover"
@@ -130,9 +150,9 @@ const Page = () => {
               })
             }
           </div>
-          <ProductList />
-          <ProductList />
-          <ProductList />
+          <ProductList setIsUserLogin={setIsUserLogin} />
+          <ProductList setIsUserLogin={setIsUserLogin} />
+          <ProductList setIsUserLogin={setIsUserLogin} />
         </div>
       </div>
 
@@ -306,10 +326,10 @@ const navBarData = [
   },
 ];
 
-function ProductList() {
+function ProductList({ setIsUserLogin }) {
   return (
-    <Link
-      href="/store"
+    <div
+      onClick={setIsUserLogin}
       className="w-full max-w-7xl flex-col md:flex-row p-6 bg-white border rounded-lg flex gap-4 items-center"
     >
       <img src="./category1.png" className="" alt="" />
@@ -330,14 +350,14 @@ function ProductList() {
             <p className=" md:text-xl" >MI Road</p>
           </div>
           <div className=" mt-1 flex gap-2 items-center justify-between" >
-            <p className=" text-2xl md:text-4xl font-medium" >35% Off on food items <span className=" text-lg  font-normal" > (Valid till 28th dec)</span> </p>
+            <p className=" text-xl md:text-4xl font-medium" >35% Off on food items <span className=" text-lg  font-normal" > (Valid till 28th dec)</span> </p>
             <div className=" flex flex-col items-center justify-center" >
-              <ThumbsUp />
+              <ThumbsUp size={20} />
               <p className=" text-sm font-semibold" >45K</p>
             </div>
           </div>
         </div>
-        <div className=" flex md:text-lg flex-col gap-2 md:flex-row" >
+        <div className=" flex text-base  md:text-lg flex-col gap-2 md:flex-row" >
           <div className=" flex gap-1 items-center" >
             <img src="./time.png" alt="" />
             <p>Mon - Fri (11:00 AM - 08:00 PM)</p>
@@ -347,11 +367,11 @@ function ProductList() {
             <p>+91 - 8112XXXXXX</p>
           </div>
           <div className=" flex flex-col items-center justify-center self-end ml-auto" >
-            <Share2Icon />
+            <Share2Icon size={20} />
             <p className=" text-sm font-semibold" >40K</p>
           </div>
         </div>
       </div>
-    </Link>
+    </div>
   );
 }

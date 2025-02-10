@@ -1,14 +1,17 @@
 import React from 'react'
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from './ui/dialog'
+import Link from 'next/link';
 
-const CreateUserDialog = ({ isOpen, setIsOpen, handleOTPDialog, setUserLogin }) => {
-    function handleOTP(){
+const LoginDialog = ({ isOpen, setIsOpen, handleOTPDialog,handleCreateAccount }) => {
+
+    function handleCreateAccountDialog(){
+        setIsOpen(false);
+        handleCreateAccount(true);
+    }
+
+    function handleForgotPassword(){
         setIsOpen(false);
         handleOTPDialog(true);
-    }
-    function handleUserLogin(){
-        setIsOpen(false);
-        setUserLogin(true);
     }
     return (
         <Dialog open={isOpen}>
@@ -16,22 +19,29 @@ const CreateUserDialog = ({ isOpen, setIsOpen, handleOTPDialog, setUserLogin }) 
             <DialogContent>
                 <DialogHeader className={"flex flex-col space-y-1.5 items-center text-center sm:text-left"} >
                     <img src="./user-login.svg" className=' size-24 mx-auto' alt="" />
-                    <DialogTitle className="text-center" >Create Account for WalkInTown</DialogTitle>
+                    <DialogTitle className="text-center" >Log In to WalkinTown </DialogTitle>
                     <DialogDescription className="text-center" >
-                        Please enter your Email id/User Id Or Phone numbers to receive the verification code.
+                        Please login to continue
                     </DialogDescription>
                     <div className=' max-w-80 flex flex-col mx-auto items-center gap-2' >
                         <input type="text" placeholder='User Id' className=' w-full border py-2 px-3 text-gray-700 rounded-md' />
                         <input type="text" placeholder='Password' className=' w-full border py-2 px-3 text-gray-700 rounded-md' />
-                        <input type="text" placeholder='Phone Number' className=' w-full border py-2 px-3 text-gray-700 rounded-md' />
-                        <p onClick={handleOTP} className='cursor-pointer w-full bg-red-700 text-white text-center font-semibold py-2 px-3 rounded-md' >Send OTP</p>
+                        {/* <input type="text" placeholder='Phone Number' className=' w-full border py-2 px-3 text-gray-700 rounded-md' /> */}
+                        <Link href={"/store"} className='cursor-pointer w-full bg-red-700 text-white text-center font-semibold py-2 px-3 rounded-md' >Login</Link>
                     </div>
-                    <div className=' flex items-center gap-2' >
+                    <div className=' w-full flex-col md:flex-row flex items-center gap-4 justify-center' >
+                        <div className=' flex items-center gap-2' >
+                            <input type="checkbox" className=" size-4" />
+                            <p>Remember Password</p>
+                        </div>
+                        <p onClick={handleForgotPassword} className=' cursor-pointer text-red-600' >Forgot Password ?</p>
+                    </div>
+                    <div className=' flex w-full my-6 items-center gap-2' >
                         <div className=' w-full h-0.5 bg-gray-200' ></div>
                         <p>or</p>
                         <div className=' w-full h-0.5 bg-gray-200' ></div>
                     </div>
-                    <p>Already have an account ?<span onClick={handleUserLogin} className=' cursor-pointer text-red-600' > Log In </span></p>
+                    <p>Don’t have an account ? <span onClick={handleCreateAccountDialog} className=' cursor-pointer text-red-600' > Create Account</span></p>
                     <p className=' text-center text-sm' >By proceeding, you agree to WalkIn Town <span className=' text-red-700' >Terms of Service</span> and acknowledge WalkIn Town <span className=' text-red-700' >Privacy Policy.</span></p>
                 </DialogHeader>
                 {/* <DialogFooter>
@@ -43,4 +53,4 @@ const CreateUserDialog = ({ isOpen, setIsOpen, handleOTPDialog, setUserLogin }) 
     )
 }
 
-export default CreateUserDialog
+export default LoginDialog

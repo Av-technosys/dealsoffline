@@ -30,7 +30,7 @@ export default function ShopDetailsSection() {
               <img src="./nav/beauty.png" alt="" />
             </div>
             <div className="border flex items-center gap-1 border-black px-3 py-1 text-sm rounded font-semibold text-black">
-              Home Decore
+              Home Decor
               <img src="./nav/home-decore.png" alt="" />
             </div>
 

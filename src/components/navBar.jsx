@@ -22,7 +22,7 @@ const NavBar = () => {
       "image": "./nav/kids.png"
     },
     {
-      "label": "Home Decore",
+      "label": "Home Decor",
       "image": "./nav/home-decore.png"
     },
     {
@@ -41,7 +41,7 @@ const NavBar = () => {
             </Link>
 
 
-            <div className="md:flex justify-between hidden gap-4">
+            <div className="xl:flex justify-between hidden gap-4">
               {
                 navMenue.map((data, index) => {
                   return <div
@@ -56,7 +56,7 @@ const NavBar = () => {
               }
               {showMegaMenu && <WomenBox />}
             </div>
-            <div className=" ml-auto hidden md:flex items-center gap-4 ">
+            <div className=" ml-auto hidden xl:flex items-center gap-4 ">
               <Link href={"/search"} className=" border  border-black rounded py-2 px-3 flex items-center gap-3">
                 <img src="./nav/search.png" alt="" />
                 <p className="font-medium text-gray-400">Search</p>
@@ -71,8 +71,11 @@ const NavBar = () => {
                 <img src="./nav/hand-shake.png" alt="" />
                 <p className="font-medium text-white">Partner with us</p>
               </Link>
+              <Link href={"/user-dashbord"} className=" size-8 cursor-pointer" >
+                <img src="./nav/navUser.svg" alt="" />
+              </Link>
             </div>
-            <div onClick={() => setOpenMobileMenu(!openMobileMenu)} className=" block md:hidden ml-auto" >
+            <div onClick={() => setOpenMobileMenu(!openMobileMenu)} className=" block xl:hidden ml-auto" >
               {
                 openMobileMenu ? <X size={20} /> : <Menu size={20} />
               }
@@ -218,10 +221,13 @@ function MobileMenu() {
         <p>Search here</p>
         <Search size={20} />
       </Link>
-      <div>
+      <div className=" flex w-full py-4 items-center justify-between" >
         <Link href={"/vendor-login/signup"} className="  flex items-center gap-2 text-red-700 font-medium pt-2 underline">
           <p>Partner with us</p>
-          <img src="./nav/shop.svg" alt="asdf" />
+          {/* <img src="./nav/shop.svg" alt="asdf" /> */}
+        </Link>
+        <Link href="/user-dashbord" >
+          <img src="./nav/navUser.svg" className=" size-6" alt="" />
         </Link>
       </div>
 

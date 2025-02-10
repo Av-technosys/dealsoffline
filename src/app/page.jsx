@@ -1,6 +1,10 @@
 "use client";
+import ChangePassDialog from "@/components/changePassDialog";
+import GetPsswordOTP from "@/components/changePassOTP";
 import CreateUserDialog from "@/components/createUserDialog";
+import GetCreateOTP from "@/components/createUserOTP";
 import Footer from "@/components/footer";
+import LoginDialog from "@/components/loginUserDialog";
 import NavBar from "@/components/navBar";
 import { ChevronLeftCircle, MapPin } from "lucide";
 import { ChevronLeftCircleIcon, ChevronRightCircleIcon, MapPinIcon } from "lucide-react";
@@ -10,7 +14,8 @@ import React from "react";
 const Page = () => {
   const [isCreateUser, setIsCreateUser] = React.useState(false);
   const [isUserLogin, setIsUserLogin] = React.useState(false);
-  const [isOTP, setIsOTP] = React.useState(false);
+  const [isPassOTP, setIsPassOTP] = React.useState(false);
+  const [isCreateOTP, setIsCreateOTP] = React.useState(false);
   const [isUerPassword, setIsUerPassword] = React.useState(false);
   return (
     <div>
@@ -18,14 +23,18 @@ const Page = () => {
         <NavBar />
 
 
-        {/* <CreateUserDialog isOpen={isCreateUser} handleOTPDialog={setIsOTP} setIsOpen={setIsCreateUser} /> */}
+        <CreateUserDialog isOpen={isCreateUser} handleOTPDialog={setIsCreateOTP} setUserLogin={setIsUserLogin} setIsOpen={setIsCreateUser} />
+        <GetCreateOTP isOpen={isCreateOTP} setIsOpen={setIsCreateOTP} />
+        <GetPsswordOTP isOpen={isPassOTP} setIsOpen={setIsPassOTP} handleOTPDialog={setIsUerPassword} />
+
+        <LoginDialog isOpen={isUserLogin} handleCreateAccount={setIsCreateUser} handleOTPDialog={setIsPassOTP} setIsOpen={setIsUserLogin} />
+        <ChangePassDialog isOpen={isUerPassword} setIsOpen={setIsUerPassword} />
 
         <img
           src="./hero-bg.png"
           className="absolute top-0 -z-10 h-full w-full left-0 object-cover"
           alt=""
         />
-        {/* <div className="absolute top-0 h-36 left-0 w-full bg-gradient-to-b from-black to-transparent"></div> */}
         <div className="  flex container justify-center px-6 md:px-4 flex-col">
           <p className="text-4xl md:text-5xl uppercase font-semibold text-white">
             weekend sale
@@ -42,8 +51,8 @@ const Page = () => {
       <ExploreCategory />
 
 
-      <PopularDetails />
-      <PopularStores />
+      <PopularDetails setIsUserLogin={setIsUserLogin} />
+      <PopularStores setIsUserLogin={setIsUserLogin} />
 
 
       <div className="flex flex-col bg-white gap-14 px-4 py-12 pb-20 md:px-6">
@@ -420,7 +429,7 @@ function ExploreCategory() {
   )
 }
 
-function PopularDetails() {
+function PopularDetails({setIsUserLogin}) {
   const zudioList = [
     "Women Fassion",
     "Kids Wear",
@@ -454,7 +463,7 @@ function PopularDetails() {
       {/* Cards */}
 
       <div className=" flex gap-2 mt-4 items-center overflow-x-scroll hide-scrollbar" >
-        <div className="h-96 w-60 md:w-72 rounded-md  shrink-0 py-6 px-4 flex z-10 flex-col bg-black">
+        <div onClick={() => setIsUserLogin(true)} className="h-96 w-60 md:w-72 rounded-md  shrink-0 py-6 px-4 flex z-10 flex-col bg-black">
           <div className=" text-white flex  justify-between gap-2 mb-4 items-center">
             <p className=" text-4xl font-semibold" >Zudio</p>
             <p className=" text-2xl font-semibold" >18%off</p>
@@ -476,7 +485,7 @@ function PopularDetails() {
           </div>
         </div>
 
-        <div className=" w-60 md:w-72 h-96 rounded-md shrink-0 overflow-hidden relative" >
+        <div onClick={()=>{setIsUserLogin(true)}} className=" w-60 md:w-72 h-96 rounded-md shrink-0 overflow-hidden relative" >
           <img src="./w1.png" className=" absolute top-0 left-0 w-full h-full object-cover" alt="" />
           <div className=" bg-gradient-to-b from-transparent to-black absolute top-0 left-0 w-full h-full"></div>
           <div className=" absolute bottom-6 left-4 flex flex-col gap-1" >
@@ -484,7 +493,7 @@ function PopularDetails() {
             <p className=" text-white font-semibold text-lg" >Karin Store</p>
           </div>
         </div>
-        <div className=" w-60 md:w-72 h-96 rounded-md shrink-0 overflow-hidden relative" >
+        <div onClick={()=>{setIsUserLogin(true)}} className=" w-60 md:w-72 h-96 rounded-md shrink-0 overflow-hidden relative" >
           <img src="./w2.png" className=" absolute top-0 left-0 w-full h-full object-cover" alt="" />
           <div className=" bg-gradient-to-b from-transparent to-black absolute top-0 left-0 w-full h-full"></div>
           <div className=" absolute bottom-6 left-4 flex flex-col gap-1" >
@@ -492,7 +501,7 @@ function PopularDetails() {
             <p className=" text-white font-semibold text-lg" >Samanth Store</p>
           </div>
         </div>
-        <div className=" w-60 md:w-72 h-96 rounded-md shrink-0 overflow-hidden relative" >
+        <div onClick={()=>{setIsUserLogin(true)}} className=" w-60 md:w-72 h-96 rounded-md shrink-0 overflow-hidden relative" >
           <img src="./w3.png" className=" absolute top-0 left-0 w-full h-full object-cover" alt="" />
           <div className=" bg-gradient-to-b from-transparent to-black absolute top-0 left-0 w-full h-full"></div>
           <div className=" absolute bottom-6 left-4 flex flex-col gap-1" >
@@ -509,7 +518,7 @@ function PopularDetails() {
   </div>
 }
 
-function PopularStores() {
+function PopularStores({setIsUserLogin}) {
   const zudioList = [
     "Women",
     "Kids Wear",
@@ -540,7 +549,7 @@ function PopularStores() {
 
       {/* Cards */}
 
-      <div className=" flex gap-2 mt-4 items-center overflow-x-scroll hide-scrollbar" >
+      <div onClick={()=>{setIsUserLogin(true)}} className=" flex gap-2 mt-4 items-center overflow-x-scroll hide-scrollbar" >
         <div className="h-96 w-60 md:w-72 rounded-md  shrink-0 py-6 px-4 flex z-10 flex-col bg-black">
           <div className=" text-white flex  justify-between gap-2 mb-4 items-center">
             <p className=" text-4xl font-semibold" >Shreeji</p>
@@ -563,7 +572,7 @@ function PopularStores() {
           </div>
         </div>
 
-        <div className=" w-60  md:w-72 h-96 rounded-md shrink-0 overflow-hidden relative" >
+        <div onClick={()=>{setIsUserLogin(true)}} className=" w-60  md:w-72 h-96 rounded-md shrink-0 overflow-hidden relative" >
           <img src="./w1.png" className=" absolute top-0 left-0 w-full h-full object-cover" alt="" />
           <div className=" bg-gradient-to-b from-transparent to-black absolute top-0 left-0 w-full h-full"></div>
           <div className=" absolute bottom-6 left-4 flex flex-col gap-1" >
@@ -574,7 +583,7 @@ function PopularStores() {
             <p className=" text-white font-semibold text-lg" >Karin Store</p>
           </div>
         </div>
-        <div className=" w-60 md:w-72 h-96 rounded-md shrink-0 overflow-hidden relative" >
+        <div onClick={()=>{setIsUserLogin(true)}} className=" w-60 md:w-72 h-96 rounded-md shrink-0 overflow-hidden relative" >
           <img src="./w2.png" className=" absolute top-0 left-0 w-full h-full object-cover" alt="" />
           <div className=" bg-gradient-to-b from-transparent to-black absolute top-0 left-0 w-full h-full"></div>
           <div className=" absolute bottom-6 left-4 flex flex-col gap-1" >
@@ -585,7 +594,7 @@ function PopularStores() {
             <p className=" text-white font-semibold text-lg" >Samanth Store</p>
           </div>
         </div>
-        <div className=" z-20 w-60 md:w-72 h-96 rounded-md shrink-0 overflow-hidden relative" >
+        <div onClick={()=>{setIsUserLogin(true)}} className=" z-20 w-60 md:w-72 h-96 rounded-md shrink-0 overflow-hidden relative" >
           <img src="./w3.png" className=" absolute top-0 left-0 w-full h-full object-cover" alt="" />
           <div className=" bg-gradient-to-b from-transparent to-black absolute top-0 left-0 w-full h-full"></div>
           <div className=" absolute bottom-6 left-4 flex flex-col gap-1" >
