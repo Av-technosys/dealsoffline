@@ -26,7 +26,7 @@ const NavBar = () => {
       "image": "./nav/home-decore.png"
     },
     {
-      "label": "Home Appliences",
+      "label": "Home Appliances",
       "image": "./nav/home-appliences.png"
     }
   ]
@@ -41,7 +41,7 @@ const NavBar = () => {
             </Link>
 
 
-            <div className="xl:flex justify-between hidden gap-4">
+            <div className="xl:flex justify-between hidden gap-3">
               {
                 navMenue.map((data, index) => {
                   return <div
@@ -49,7 +49,7 @@ const NavBar = () => {
                     className="cursor-pointer flex items-center gap-1"
                     onClick={() => setShowMegaMenu(!showMegaMenu)}
                   >
-                    <p className="font-medium">{data.label}</p>
+                    <p className="font-medium text-sm">{data.label}</p>
                     <img src={data.image} alt="" />
                   </div>
                 })
@@ -67,9 +67,9 @@ const NavBar = () => {
                   <img src="./map-pin.svg" alt="" />
                 </div>
               </Link>
-              <Link href={"/vendor-login/signup"} className="bg-red-700 rounded py-2 px-3 flex items-center gap-3">
+              <Link href={"/vendor-login/signup"} className="bg-red-700 rounded py-2 px-3 flex items-center gap-2">
                 <img src="./nav/hand-shake.png" alt="" />
-                <p className="font-medium text-white">Partner with us</p>
+                <p className="font-medium text-sm text-white">Partner with us</p>
               </Link>
               <Link href={"/user-dashbord"} className=" size-8 cursor-pointer" >
                 <img src="./nav/navUser.svg" alt="" />
@@ -190,7 +190,7 @@ function WomenBox() {
   return (
     <div
       id="megaMenu"
-      className="absolute top-12 shadow-md left-0 w-full max-w-3xl mx-auto p-4 border flex  bg-white flex-wrap gap-6 rounded-md z-50"
+      className="absolute top-12 shadow-md left-0 w-full max-w-3xl mx-auto p-4 border grid grid-cols-4  bg-white  gap-6 rounded-md z-50"
     >
       {navBarData.map((data) => {
         return (
