@@ -1,151 +1,211 @@
-import { BadgePercent, BadgePercentIcon, CalendarDays, CircleUser, History, Menu, Pencil, Plus, ShapesIcon, Sigma, User } from "lucide-react"
+import { ArrowRight, BadgePercent, BadgePercentIcon, BookImage, CalendarDays, CalendarDaysIcon, CameraIcon, Check, ChevronLeft, ChevronLeftIcon, ChevronRightIcon, CircleUser, CopyPlus, History, Menu, Pencil, PencilLineIcon, Plus, ShapesIcon, Sigma, User } from "lucide-react"
+import WomenBox from "./womenBook"
+import Link from "next/link"
 
 export default function OfferDetailsSection() {
-  return <div className=' max-w-6xl px-4 mt-12 mx-auto w-full flex flex-col gap-4' >
-    <div className=' w-fit mx-auto items-center flex flex-col gap-4' >
-      <p className=' text-3xl md:text-4xl font-medium text-center' >Product & Offer Details</p>
-      <p className=' text-gray-600 text-center' >Create deals & offers</p>
+  return <div className=' max-w-6xl px-4 mt-12 mx-auto flex-col w-full flex gap-4' >
+    <div className=' flex flex-col gap-16 md:flex-row' >
+      <div className='flex md:max-w-60 md:mt-28 shrink-0 flex-col gap-4' >
+        <div className=' max-w-60 relative items-center justify-center aspect-square flex shrink-0 flex-col gap-4 border border-gray-600 rounded-md ' >
+          <div className=" absolute bottom-0 right-0 translate-y-1/2 translate-x-1/2 size-16 bg-black p-1 flex items-center justify-center rounded-full" >
+            <CameraIcon className=' text-white' size={36} />
+          </div>
+          {/* <p>Upload your image here</p> */}
+          <img src="./store-pic.jpg" className=" h-full w-full object-cover" alt="" />
+        </div>
+        <div className="flex flex-col">
+          <p className="font-semibold text-xl">Product Categories</p>
+          <p className=" text-gray-600" >Select Categories for Shop</p>
+          <div className="flex w-full mt-3 flex-wrap gap-2">
+            <div className="border flex items-center gap-1 border-black px-3 py-1 text-sm rounded font-semibold text-black">
+              Men
+              <img src="./men.svg" alt="" />
+            </div>
+            <WomenBox />
+            <div className=" flex items-center gap-1 bg-red-200 px-3 py-1 text-sm rounded font-semibold text-black">
+              Kids
+              <img src="./nav/kids.png" alt="" />
+            </div>
+            <div className=" bg-red-200 flex items-center gap-1  px-3 py-1 text-sm rounded font-semibold text-black">
+              Beauty
+              <img src="./nav/beauty.png" alt="" />
+            </div>
+            <div className="border flex items-center gap-1 border-black px-3 py-1 text-sm rounded font-semibold text-black">
+              Home Decore
+              <img src="./nav/home-decore.png" alt="" />
+            </div>
+
+            <div className="border flex items-center gap-1 border-black px-3 py-1 text-sm rounded font-semibold text-black">
+              Home Appliances
+              <img src="./nav/home-appliences.png" alt="" />
+            </div>
+            <div className="border flex items-center gap-1 border-black px-3 py-1 text-sm rounded font-semibold text-black">
+              Electronics
+              <img src="./nav/electronics.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div  >
+        <div className=' w-full flex flex-col gap-4' >
+          <p className=' text-3xl md:text-4xl font-medium ' >Product & Offer Details</p>
+          <p className=' text-gray-600 ' >Create deals & offers</p>
+        </div>
+        <div className=' flex mt-6 flex-col gap-6 w-full' >
+          <div className=" w-full flex flex-col md:flex-row gap-4" >
+            <div className=' w-full flex flex-col gap-1' >
+              <p className={``}>Offer Type <span className=' text-red-700' >*</span></p>
+              <select className=' w-full text-sm bg-white rounded-md p-2 border ' >
+                <option value="" >Select Offer Type</option>
+                <option value="1" >One Time</option>
+                <option value="2" >Recurring</option>
+              </select>
+            </div>
+            <InputFild label={"Discount"} inputName={"10%"} />
+          </div>
+
+          <div className=" w-full flex flex-col md:flex-row gap-4" >
+            <div className=' w-full flex flex-col gap-1' >
+              <p className={``}>Validity From<span className=' text-red-700' >*</span></p>
+              <div className=" flex   w-full text-sm bg-white rounded-md p-2 justify-between  border ">
+                <input defaultValue={"01/04/2025"} />
+                <CalendarDaysIcon />
+              </div>
+            </div>
+
+
+            <div className=' w-full flex flex-col gap-1' >
+              <p className={``}>Validity Till<span className=' text-red-700' >*</span></p>
+              <div className=" flex   w-full text-sm bg-white rounded-md p-2 justify-between  border ">
+                <input defaultValue={"01/05/2025"} />
+                <CalendarDaysIcon />
+              </div>
+            </div>
+
+
+          </div>
+
+          <div className=" w-full flex flex-col md:flex-row gap-4" >
+
+            <div className=" w-full flex flex-col gap-4" >
+              <div className=' w-full flex flex-col gap-1' >
+                <p className={``}>Offer Type <span className=' text-red-700' >*</span></p>
+                <select className=' w-full text-sm bg-white rounded-md p-2 border ' >
+                  <option value="" >Select Offer Type</option>
+                  <option value="1" >One Time</option>
+                  <option value="2" >Recurring</option>
+                </select>
+
+                {/* <input type='text' className=' w-full text-sm rounded-md p-2 border ' /> */}
+                {/* <div className=' flex gap-2 mt-4 items-center' >
+                  <input type='checkbox' className=" size-4" ></input>
+                  <p className=' text-gray-600 text-sm' >Same as phone number</p>
+                </div> */}
+              </div>
+              <InputFild label={"Discount"} inputName={"10%"} />
+            </div>
+
+            <div className=" w-full flex flex-col gap-1" >
+              <p className={``}>Offer Description <span className=' text-red-700' >*</span></p>
+
+              <textarea defaultValue={"Get it soon"} className=" p-2 border w-full min-h-32 rounded h-full" />
+            </div>
+          </div>
+        </div>
+        <div className=' mt-6  flex flex-col gap-8 md:flex-row' >
+          <div className=' max-w-2xl overflow-x-scroll px-2 hide-scrollbar flex relative gap-2 w-full' >
+            <div className=' relative rounded-md cursor-pointer h-28 w-36 shrink-0 items-center flex gap-2 px-3 border border-black py-1.5' >
+              <p className='  text-black text-sm  text-center' >Upload image here</p>
+              <BookImage size={20} className=" absolute bottom-0 right-0 bg-black p-1 rounded size-7 text-white" />
+            </div>
+            <div className=" w-36 shrink-0 relative" >
+              <img src='./v2.png' />
+              <PencilLineIcon size={20} className=" absolute bottom-0 right-0 bg-white p-1 rounded size-7 text-black" />
+            </div>
+            <div className=" w-36 shrink-0 relative" >
+              <img src='./v3.png' />
+              <PencilLineIcon size={20} className=" absolute bottom-0 right-0 bg-white p-1 rounded size-7 text-black" />
+            </div>            <div className=" w-36 shrink-0 relative" >
+              <img src='./v4.png' />
+              <PencilLineIcon size={20} className=" absolute bottom-0 right-0 bg-white p-1 rounded size-7 text-black" />
+            </div>            <div className=" w-36 shrink-0 relative" >
+              <img src='./v5.png' />
+              <PencilLineIcon size={20} className=" absolute bottom-0 right-0 bg-white p-1 rounded size-7 text-black" />
+            </div>            <div className=" w-36 shrink-0 relative" >
+              <img src='./v2.png' />
+              <PencilLineIcon size={20} className=" absolute bottom-0 right-0 bg-white p-1 rounded size-7 text-black" />
+            </div>            <div className=" w-36 shrink-0 relative" >
+              <img src='./v3.png' />
+              <PencilLineIcon size={20} className=" absolute bottom-0 right-0 bg-white p-1 rounded size-7 text-black" />
+            </div>
+          </div>
+        </div>
+
+        <OfferBottonBts />
+      </div>
     </div>
-    <div className=' flex flex-col gap-8 ' >
-      <div className=' flex flex-col gap-3' >
-        <p className=' text-xl font-semibold' >Offer Details</p>
-        <p className=' text-gray-600' >Select your offer details</p>
+    <div className=' overflow-x-scroll hide-scrollbar' >
+      <p>Offer History</p>
+      <div className=' border rounded-md  w-[72rem]' >
+        <div className=' grid bg-red-700 text-white py-2 grid-cols-7' >
+          <div className=' flex gap-2 items-center justify-center' >
+            <p>Type</p>
+            <ShapesIcon size={18} />
+          </div>
+          <div className=' flex gap-2 items-center justify-center' >
+            <p>Category</p>
+            <Menu size={18} />
+          </div>
+          <div className=' flex gap-2 items-center justify-center' >
+            <p>Discount</p>
+            <BadgePercent size={18} />
+          </div>
+          <div className=' flex gap-2 items-center justify-center' >
+            <p>Validity</p>
+            <CalendarDays size={18} />
+          </div>
+          <div className=' flex gap-2 items-center justify-center' >
+            <p>Offer Display</p>
+            <BadgePercentIcon size={18} />
+          </div>
+          <div className=' flex gap-2 items-center justify-center' >
+            <p>Offer Status</p>
+            {/* <CalendarDays size={18} /> */}
+          </div>
+          <div className=' flex gap-2 items-center justify-center' >
+            <p>Edit the offer</p>
+            <Pencil size={18} />
+          </div>
+        </div>
+        {
+          offerData.map((data, idx) => {
+            return (
+              <OfferDetailList key={idx} data={data} idx={idx} />
+            )
+          })
+        }
       </div>
-      <div className='py-2 w-full flex-wrap  flex items-center gap-4 mx-auto ' >
-        <div className=' w-56 flex flex-col gap-1' >
-          <p className={``}>Offer Type <span className=' text-red-700' >*</span></p>
-          <select type='text' className=' w-full text-sm rounded-md bg-white p-2 border ' />
+      <div className=" mt-6 flex justify-center gap-2">
+        <div className=" border rounded-md p-1" >
+          <ChevronLeftIcon size={18} />
         </div>
-        <div className=' w-56 flex flex-col gap-1' >
-          <p className={``}>Category  <span className=' text-red-700' >*</span></p>
-          <input type='text' className=' w-full text-sm rounded-md p-2 border ' />
+        <div className=" border rounded-md py-1 px-3 bg-gray-100" >
+          <p>1</p>
         </div>
-        <div className=' w-40 flex flex-col gap-1' >
-          <p className={``}>Discount  <span className=' text-red-700' >*</span></p>
-          <input type='text' className=' w-full text-sm rounded-md p-2 border ' />
+        <div className=" border text-gray-600 rounded-md py-1 px-2" >
+          <p>2</p>
         </div>
-        <div className=' w-56 flex flex-col gap-1' >
-          <p className={``}>Validity  <span className=' text-red-700' >*</span></p>
-          <input type='text' className=' w-full text-sm rounded-md p-2 border ' />
+        <div className=" border text-gray-600 rounded-md py-1 px-2" >
+          <p>3</p>
         </div>
-        <div className=' w-56 flex flex-col gap-1' >
-          <p className={`opacity-0`}>Validity  <span className=' text-red-700' >*</span></p>
-          <input type='text' className=' w-full text-sm rounded-md p-2 border ' />
+        <div className=" border text-gray-600 rounded-md py-1 px-2" >
+          <p>4</p>
         </div>
-        <div className=' w-56 flex flex-col gap-1' >
-          <p className={``}>Offer Display <span className=' text-red-700' >*</span></p>
-          <input type='text' className=' w-full text-sm rounded-md p-2 border ' />
-        </div>
-        <div className=' w-56 flex flex-col gap-1' >
-          <p className={``}>Offer Display <span className=' text-red-700' >*</span></p>
-          <input type='text' className=' w-full text-sm rounded-md p-2 border ' />
-        </div>
-        <div className=' w-56 flex flex-col gap-1' >
-          <p className={``}>Offer Display <span className=' text-red-700' >*</span></p>
-          <input type='text' className=' w-full text-sm rounded-md p-2 border ' />
-        </div>
-        <div className=' w-16 flex flex-col justify-start gap-1' >
-          <p className={``}>Status <span className=' text-red-700' >*</span></p>
-          <input type='checkbox' className='' ></input>
-        </div>
-        <div className=' w-24 flex flex-col justify-start gap-1' >
-          <div className=' border border-red-700 flex justify-center items-center gap-2 px-2 py-1 rounded-md text-red-700 ' >
-            <p>Add</p>
-            <Plus size={18} />
-          </div>
-          <div className=' border  flex justify-center items-center gap-2 px-2 py-1 rounded-md text-gray-300 ' >
-            <p>Update</p>
-            <History size={18} />
-          </div>
-        </div>
-      </div>
-      <div className=' overflow-x-scroll hide-scrollbar' >
-        <p>Offer History</p>
-        <div className=' border rounded-md  w-[72rem]' >
-          <div className=' grid bg-red-700 text-white py-2 grid-cols-7' >
-            <div className=' flex gap-2 items-center justify-center' >
-              <p>Type</p>
-              <ShapesIcon size={18} />
-            </div>
-            <div className=' flex gap-2 items-center justify-center' >
-              <p>Category</p>
-              <Menu size={18} />
-            </div>
-            <div className=' flex gap-2 items-center justify-center' >
-              <p>Discount</p>
-              <BadgePercent size={18} />
-            </div>
-            <div className=' flex gap-2 items-center justify-center' >
-              <p>Validity</p>
-              <CalendarDays size={18} />
-            </div>
-            <div className=' flex gap-2 items-center justify-center' >
-              <p>Offer Display</p>
-              <BadgePercentIcon size={18} />
-            </div>
-            <div className=' flex gap-2 items-center justify-center' >
-              <p>Offer Status</p>
-              {/* <CalendarDays size={18} /> */}
-            </div>
-            <div className=' flex gap-2 items-center justify-center' >
-              <p>Edit the offer</p>
-              <Pencil size={18} />
-            </div>
-          </div>
-          {
-            offerData.map((data, idx) => {
-              return (
-                <OfferDetailList key={idx} data={data} idx={idx} />
-              )
-            })
-          }
+        <div className=" border rounded-md p-1" >
+          <ChevronRightIcon size={18} />
         </div>
       </div>
-
-      <div className=' overflow-x-scroll hide-scrollbar' >
-
-        <div className=' rounded-md border' >
-          <div className=' w-full justify-between flex items-center p-2' >
-            <p className=' text-red-700 text-xl'>Transaction History</p>
-            <div className=' border p-2 rounded border-red-700 gap-2 flex items-center' >
-              <p className=' text-sm'>Select Date</p>
-              <CalendarDays color='#b91c1c' size={18} />
-            </div>
-          </div>
-          <div className=' border  overflow-x-scroll w-[72rem]' >
-            <div className=' grid bg-red-700 text-white py-2 grid-cols-5' >
-              <div className=' flex gap-2 items-center justify-center' >
-                <p>Sr.no</p>
-                {/* <Shapes size={18} /> */}
-              </div>
-              <div className=' flex gap-2 items-center justify-center' >
-                <p>User Name</p>
-                <User size={18} />
-              </div>
-              <div className=' flex gap-2 items-center justify-center' >
-                <p>Total</p>
-                <Sigma size={18} />
-              </div>
-              <div className=' flex gap-2 items-center justify-center' >
-                <p>Status</p>
-                <User size={18} />
-              </div>
-              <div className=' flex gap-2 items-center justify-center' >
-                <p>Date</p>
-                <CalendarDays size={18} />
-              </div>
-            </div>
-            {
-              orderData.map((data, idx) => {
-                return (
-                  <OrderDetailList key={idx} data={data} idx={idx} />
-                )
-              })
-            }
-          </div>
-        </div>
-      </div>
-
     </div>
   </div>
 }
@@ -175,42 +235,6 @@ function OfferDetailList({ data, idx }) {
     </div>
   </div>
 }
-function OrderDetailList({ data, idx }) {
-  return <div className={`grid  text-black py-2 grid-cols-5 ${idx % 2 == 0 ? "bg-gray-100" : "bg-white"} `} >
-    <div className=' flex gap-2 items-center justify-center' >
-      <p className=' text-sm text-center' >{data.sr_no}</p>
-    </div>
-    <div className=' flex gap-2 items-center' >
-      <div className=' rounded-md bg-gray-200 size-8 flex items-center justify-center' >
-        <CircleUser color='#b91c1c' size={16} />
-      </div>
-      <p className=' text-sm' >{data.user_name}</p>
-    </div>
-    <div className=' flex gap-2 items-center justify-center' >
-      <p className=' text-sm text-center' >{data.total}</p>
-    </div>
-    <div className=' flex gap-2 items-center justify-center' >
-      {
-        data.status == "Processing" ? <Processing /> : <Delivered />
-      }
-      {/* <Processing /> */}
-    </div>
-    <div className=' flex gap-2 items-center justify-center' >
-      <p className=' text-sm text-center' >{data.date}</p>
-    </div>
-
-  </div>
-}
-
-
-function Processing() {
-  return <div className=' text-sm py-0.5 px-2 rounded-lg mx-auto bg-yellow-50 text-yellow-600' >Processing</div>
-}
-
-function Delivered() {
-  return <div className=' text-sm py-0.5 px-2 rounded-lg mx-auto bg-red-50 text-red-600' >Delivered</div>
-}
-
 const offerData = [
   {
     "type": "Discount",
@@ -255,55 +279,35 @@ const offerData = [
 ]
 
 
-const orderData = [
-  {
-    "sr_no": 1,
-    "user_name": "Naveen Sharma",
-    "total": "Rs 10,000",
-    "status": "Processing",
-    "date": "9 Jan 2025"
-  },
-  {
-    "sr_no": 2,
-    "user_name": "Rajesh Sah",
-    "total": "Rs 7,000",
-    "status": "Processing",
-    "date": "9 Jan 2025"
-  },
-  {
-    "sr_no": 3,
-    "user_name": "Shreya Sah",
-    "total": "Rs 2,000",
-    "status": "Delivered",
-    "date": "7 Dec 2025"
-  },
-  {
-    "sr_no": 4,
-    "user_name": "Shruti Kumari",
-    "total": "Rs 22,000",
-    "status": "Processing",
-    "date": "9 Dec 2023"
-  },
-  {
-    "sr_no": 5,
-    "user_name": "Rohit Raj",
-    "total": "Rs 25,000",
-    "status": "Delivered",
-    "date": "12 Dec 2025"
-  },
-  {
-    "sr_no": 6,
-    "user_name": "Mohan Sharma",
-    "total": "Rs 3,000",
-    "status": "Processing",
-    "date": "9 Jan 2025"
-  },
-  {
-    "sr_no": 7,
-    "user_name": "Prachi Gupta",
-    "total": "Rs 10,000",
-    "status": "Processing",
-    "date": "29 Jan 2025"
-  }
-]
+function InputFild({ label, inputName, same, notNsc, disable }) {
+  return <div className=' w-full flex flex-col gap-1' >
+    <p className={`${disable && " text-gray-400"}`}>{label} {!notNsc && <span className=' text-red-700' >*</span>}</p>
+    <input type='text' defaultValue={inputName} className=' w-full text-sm rounded-md p-2 border ' />
+    {
+      same && <div className=' flex gap-2 mt-4 items-center' >
+        <input type='checkbox' className=" size-4" ></input>
+        <p className=' text-gray-600 text-sm' >Same as phone number</p>
+      </div>
+    }
+  </div>
+}
 
+
+const OfferBottonBts = ({ num }) => {
+  // console.log(num)
+  const showBack = num != 1
+  return (
+      <div className=' w-full mt-12 max-w-5xl mx-auto justify-end flex gap-4 items-center' >
+          {showBack &&
+              <div className=' flex items-center gap-2 w-fit rounded-md text-red-700 border-red-700 border px-4 py-2' >
+                  <p className=' font-semibold'>Create New</p>
+                  <CopyPlus size={20} />
+              </div>
+          }
+          <div className=' w-fit  rounded-md text-white flex items-center gap-2 bg-red-700 px-4 py-2' >
+              <p className=' font-semibold'>Save Offer</p>
+              <Check color='white' size={20} />
+          </div>
+      </div>
+  )
+}

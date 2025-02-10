@@ -6,12 +6,12 @@ export default function WomenBox() {
   return (
     <div
       onClick={() => setIsShow(!isShow)}
-      className="border  cursor-pointer relative flex items-center gap-1 border-red-700 px-1.5 py-0.5 text-xs rounded-md font-semibold text-red-700"
+      className="  cursor-pointer relative flex bg-red-200 items-center gap-1 px-3 py-1 text-sm rounded  font-semibold "
     >
       Women
-      <img src="./women.svg" alt="" />
+      <img src="./nav/women.png" alt="" />
       {isShow && (
-        <div className=" z-10 shadow-md shadow-gray-600 absolute flex gap-4 flex-wrap w-96 md:w-[36rem] bg-white top-6 border px-4 py-3 rounded-md  -left-1 text-black font-normal">
+        <div className=" z-10 shadow-md shadow-gray-600 absolute flex gap-4 flex-wrap w-96 md:w-[36rem] bg-white top-8 border px-4 py-3 rounded-md  -left-1 text-black font-normal">
           {navBarData.map((data, idx) => {
             return (
               <div key={idx} className=" flex flex-col gap-1">

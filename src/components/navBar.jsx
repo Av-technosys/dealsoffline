@@ -6,94 +6,83 @@ import React, { useState } from "react";
 const NavBar = () => {
   const [showMegaMenu, setShowMegaMenu] = React.useState(false);
   const [openMobileMenu, setOpenMobileMenu] = React.useState(false);
+
+  const navMenue = [
+    {
+      "label": "Men",
+      "image": "./nav/men.png",
+      "toggleMenu": true
+    },
+    {
+      "label": "Women",
+      "image": "./nav/women.png"
+    },
+    {
+      "label": "Kids",
+      "image": "./nav/kids.png"
+    },
+    {
+      "label": "Home Decore",
+      "image": "./nav/home-decore.png"
+    },
+    {
+      "label": "Home Appliences",
+      "image": "./nav/home-appliences.png"
+    }
+  ]
+
   return (
-    <div>
-      <div className="max-w-7xl relative w-full mx-auto px-6 py-6">
+    <div className=" absolute left-0 top-0 bg-white w-full px-6 py-5" >
+      <div className="max-w-7xl relative w-full mx-auto">
         <div className="flex justify-between ">
-          <div className="flex gap-6 w-full md:flex-row">
-            <Link href={"/"} className="border px-4 w-fit h-fit py-1">
-              LOGO
+          <div className="flex items-center gap-6 w-full md:flex-row">
+            <Link href={"/"} className=" font-semibold uppercase px-4 w-fit h-fit py-1">
+              <img src="./logo.svg" alt="" />
             </Link>
 
-            <div className=" relative flex flex-col w-full gap-2">
-              <div className="flex items-center flex-col md:flex-row w-full  gap-6">
-                <Link
-                  href={"/search"}
-                  className=" hidden md:flex items-center border h-10 border-red-700 rounded-md overflow-hidden"
-                >
-                  <div className="flex items-center px-2 gap-2">
-                    <span className="text-lg">
-                      <img src="./nav/search-gray.svg" alt="" />
-                    </span>
-                    <p className="text-sm text-gray-600">
-                      What are you looking for?
-                    </p>
-                  </div>
-                  <div className="flex items-center px-2 gap-2 ml-6">
-                    <span className="text-lg">
-                      <img src="./nav/location.svg" alt="" />
-                    </span>
-                    <p className="text-sm text-gray-600">Current Location</p>
-                  </div>
-                  <div className="flex items-center justify-center h-full bg-red-700 px-2">
-                    <img src="./nav/mike.svg" alt="" />
-                  </div>
-                  <div className="flex items-center justify-center h-full bg-red-700 px-2">
-                    <img src="./nav/search.svg" alt="" />
-                  </div>
-                </Link>
-                <Link href={"/vendor-login/signup"} className="hidden md:flex items-center gap-2">
-                  <p className="font-semibold">Partner with us</p>
-                  <img src="./nav/shop.svg" alt="" />
-                </Link>
-                <div className=" md:block hidden ml-auto self-end">
-                  <img src="./nav/user.svg" alt="" />
-                </div>
-              </div>
-              <div className="md:flex justify-between hidden gap-4 mt-6">
-                <div
-                  className="cursor-pointer flex items-center gap-1"
-                  onClick={() => setShowMegaMenu(!showMegaMenu)}
-                >
-                  <p className="font-semibold">Women</p>
-                  <img src="./nav/women.svg" alt="" />
-                  <img src="./nav/chowdown.svg" alt="" />
-                </div>
-                <div className="cursor-pointer flex items-center gap-1">
-                  <p className="font-semibold">Men</p>
-                  <img src="./nav/men.svg" alt="" />
-                  <img src="./nav/chowdown.svg" alt="" />
-                </div>
-                <div className="cursor-pointer flex items-center gap-1">
-                  <p className="font-semibold">Kids</p>
-                  <img src="./nav/kids.svg" alt="" />
-                  <img src="./nav/chowdown.svg" alt="" />
-                </div>
-                <div className="cursor-pointer flex items-center gap-1">
-                  <p className="font-semibold">Home & Living</p>
-                  <img src="./nav/homeandliving.svg" alt="" />
-                  <img src="./nav/chowdown.svg" alt="" />
-                </div>
-                <div className="cursor-pointer flex items-center gap-1">
-                  <p className="font-semibold">beauty</p>
-                  <img src="./nav/beauty.svg" alt="" />
-                  <img src="./nav/chowdown.svg" alt="" />
-                </div>
-                <div className="cursor-pointer flex items-center gap-1">
-                  <p className="font-semibold">Home Appliances</p>
-                  <img src="./nav/homeapplience.svg" alt="" />
-                  <img src="./nav/chowdown.svg" alt="" />
-                </div>
-                <div className="cursor-pointer flex items-center gap-1">
-                  <p className="font-semibold">Personal Electronics</p>
-                  <img src="./nav/chowdown.svg" alt="" />
-                </div>
-              </div>
 
+            <div className="md:flex justify-between hidden gap-4">
+              {
+                navMenue.map((data, index) => {
+                  return <div
+                    key={index}
+                    className="cursor-pointer flex items-center gap-1"
+                    onClick={() => setShowMegaMenu(!showMegaMenu)}
+                  >
+                    <p className="font-medium">{data.label}</p>
+                    <img src={data.image} alt="" />
+                  </div>
+                })
+              }
               {showMegaMenu && <WomenBox />}
             </div>
+            <div className=" ml-auto hidden md:flex items-center gap-4 ">
+              <Link href={"/search"} className=" border  border-black rounded py-2 px-3 flex items-center gap-3">
+                <img src="./nav/search.png" alt="" />
+                <p className="font-medium text-gray-400">Search</p>
+                <div className=" px-3 border-l border-black flex items-center gap-2 ">
+
+                  <img src="./search-locaion.svg" alt="" />
+                  <p className="font-medium">Jaipur</p>
+                  <img src="./map-pin.svg" alt="" />
+                </div>
+              </Link>
+              <Link href={"/vendor-login/signup"} className="bg-red-700 rounded py-2 px-3 flex items-center gap-3">
+                <img src="./nav/hand-shake.png" alt="" />
+                <p className="font-medium text-white">Partner with us</p>
+              </Link>
+            </div>
+            <div onClick={() => setOpenMobileMenu(!openMobileMenu)} className=" block md:hidden ml-auto" >
+              {
+                openMobileMenu ? <X size={20} /> : <Menu size={20} />
+              }
+            </div>
+            {
+              openMobileMenu && <MobileMenu />
+            }
           </div>
-          <div className="flex gap-2 relative items-center md:hidden">
+
+          {/* <div className="flex gap-2 relative items-center md:hidden">
             <User color="#000" />
             <div
               onClick={() => setOpenMobileMenu(!openMobileMenu)}
@@ -102,7 +91,7 @@ const NavBar = () => {
               {openMobileMenu ? <X size={20} /> : <Menu size={20} />}
             </div>
             {openMobileMenu && <MobileMenu />}
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
@@ -198,12 +187,12 @@ function WomenBox() {
   return (
     <div
       id="megaMenu"
-      className="absolute top-28 shadow-md left-0 w-full max-w-3xl mx-auto p-4 border flex  bg-white flex-wrap gap-6 rounded-md z-50"
+      className="absolute top-12 shadow-md left-0 w-full max-w-3xl mx-auto p-4 border flex  bg-white flex-wrap gap-6 rounded-md z-50"
     >
       {navBarData.map((data) => {
         return (
           <div key={data.title} className="flex w-fit flex-col gap-1">
-            <p className="text-xl font-semibold text-red-700">Indiwear</p>
+            <p className="text-xl font-semibold text-red-700">{data.title}</p>
             {data.items.map((item) => {
               return (
                 <p key={item} className="text-gray-500 ">
@@ -221,7 +210,7 @@ function WomenBox() {
 function MobileMenu() {
   const [showSubMenu, setShowSubMenu] = useState(false);
   return (
-    <div className=" z-50 h-[80vh] overflow-y-scroll w-60 bg-white text-black p-4 border absolute top-16 -right-4">
+    <div className=" z-50 h-[80vh] overflow-y-scroll w-60 bg-white text-black p-4 border absolute top-12 -right-4">
       <Link
         href={"/search"}
         className=" border flex gap-2 items-center justify-between text-gray-300 rounded-md border-red-700 px-3 pt-1.5"

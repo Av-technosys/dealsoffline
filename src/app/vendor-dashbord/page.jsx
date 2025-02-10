@@ -13,11 +13,11 @@ const PromoteMyStoreSection = React.lazy(() => import('@/components/PromoteMySto
 
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, CheckCheck } from "lucide-react";
+import { ArrowLeft, CheckCheck } from "lucide-react";
 import Image from "next/image";
 const DynamicContent = () => {
   const params = useSearchParams();
-  const num = parseInt(params.get("form") || "1", 10); // Ensure it's a number
+  const num = parseInt(params.get("form") || "1", 10);
   const [hideAnimation, setHideAnimation] = useState(false);
 
   useEffect(() => {
@@ -40,12 +40,12 @@ const DynamicContent = () => {
       <Suspense fallback={<div>Loading...</div>}>
         {num === 1 && <ProfileSection />}
         {num === 2 && <ShopDetailsSection />}
-        {num === 3 && <BankDetailsSection />}
-        {num === 4 && <OfferDetailsSection />}
-        {num === 5 && <PromoteMyStoreSection />}
+        {/* {num === 3 && <BankDetailsSection />} */}
+        {num === 3 && <OfferDetailsSection />}
+        {num === 4 && <PromoteMyStoreSection />}
         <div className="h-8"></div>
         {
-          num === 5 ?
+          num === 4 ?
             <VendorFooterBarFinal num={num} /> : <VendorFooterBar num={num} />
         }
       </Suspense>

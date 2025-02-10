@@ -2,21 +2,23 @@
 import Footer from "@/components/footer";
 import NavBar from "@/components/navBar";
 import NavBarBG from "@/components/navBarBG";
+import { Share2 } from "lucide";
+import { Share2Icon, ThumbsUp, X } from "lucide-react";
 import Link from "next/link";
 import React, { useState } from "react";
 
 const Page = () => {
   return (
     <div>
-      <div className="relative flex flex-col h-full justify-between gap-6 w-full min-h-screen">
-        <NavBarBG />
+      <div className="relative flex flex-col h-full justify-center gap-6 w-full min-h-screen">
+        <NavBar />
         <img
           src="./hero-bg.png"
           className="absolute top-0 -z-10 h-full w-full left-0 object-cover"
           alt=""
         />
-        <div className="absolute top-0 h-36 left-0 w-full bg-gradient-to-b from-black to-transparent"></div>
-        <div className=" -translate-y-full flex container justify-center px-6 md:px-4 flex-col">
+        {/* <div className="absolute top-0 h-36 left-0 w-full bg-gradient-to-b from-black to-transparent"></div> */}
+        <div className=" flex container justify-center px-6 md:px-4 flex-col">
           <p className="text-4xl md:text-5xl uppercase font-semibold text-white">
             weekend sale
           </p>
@@ -28,127 +30,105 @@ const Page = () => {
           </p>
         </div>
       </div>
-      <div className="flex">
-        <div className="py-12 px-6 w-full max-w-72 border-r border-gray-300 hidden md:flex flex-col gap-4">
-          <div className="flex flex-col gap-3">
-            <p className="font-semibold text-lg">Types</p>
-            <div className="flex w-full flex-wrap gap-2">
-              <WomenBox />
-              <div className="border flex items-center gap-1 border-gray-600 px-1.5 py-0.5 text-xs rounded-md font-semibold text-gray-500">
+      <div className="flex justify-center">
+        <div className="py-10 px-6 w-full max-w-72 hidden md:flex flex-col gap-4">
+          <div className="flex flex-col gap-0">
+            <p className="font-semibold text-lg">Product Categories</p>
+            <p className=" text-sm text-gray-600" >Select Categories for Shop</p>
+            <div className="flex w-full mt-3 flex-wrap gap-2">
+              <div className="border flex items-center gap-1 border-black px-2.5 py-0.5 text-xs rounded font-semibold text-black">
                 Men
                 <img src="./men.svg" alt="" />
               </div>
-              <div className="border flex items-center gap-1 border-gray-600 px-1.5 py-0.5 text-xs rounded-md font-semibold text-gray-500">
+              <WomenBox />
+              <div className=" flex items-center gap-1 border border-black px-2.5 py-0.5 text-xs rounded font-semibold text-black">
                 Kids
-                <img src="./kids.svg" alt="" />
+                <img src="./nav/kids.png" alt="" />
               </div>
-              <div className="border flex items-center gap-1 border-gray-600 px-1.5 py-0.5 text-xs rounded-md font-semibold text-gray-500">
-                Home & Living
-                <img src="./home-and-living.svg" alt="" />
-              </div>
-              <div className="border flex items-center gap-1 border-gray-600 px-1.5 py-0.5 text-xs rounded-md font-semibold text-gray-500">
+              <div className=" border border-black flex items-center gap-1  px-2.5 py-0.5 text-xs rounded font-semibold text-black">
                 Beauty
-                <img src="./beauty.svg" alt="" />
+                <img src="./nav/beauty.png" alt="" />
               </div>
-              <div className="border flex items-center gap-1 border-gray-600 px-1.5 py-0.5 text-xs rounded-md font-semibold text-gray-500">
+              <div className="border flex items-center gap-1 border-black px-2.5 py-0.5 text-xs rounded font-semibold text-black">
+                Home Decore
+                <img src="./nav/home-decore.png" alt="" />
+              </div>
+
+              <div className="border flex items-center gap-1 border-black px-2.5 py-0.5 text-xs rounded font-semibold text-black">
                 Home Appliances
-                <img src="./home-applience.svg" alt="" />
+                <img src="./nav/home-appliences.png" alt="" />
               </div>
-              <div className="border flex items-center gap-1 border-gray-600 px-1.5 py-0.5 text-xs rounded-md font-semibold text-gray-500">
-                Personal Electronics
-                <img src="./personal-electronics.svg" alt="" />
+              <div className="border flex items-center gap-1 border-black px-2.5 py-0.5 text-xs rounded font-semibold text-black">
+                Electronics
+                <img src="./nav/electronics.png" alt="" />
               </div>
             </div>
           </div>
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col mt-6 gap-0">
             <p className="font-semibold text-lg">Brands</p>
-            <div className="flex w-full flex-wrap gap-2">
-              <div className="border flex items-center gap-1 border-red-700 px-1.5 py-0.5 text-xs rounded-md font-semibold text-red-700">
-                Puma
-              </div>
-              <div className="border flex items-center gap-1 border-gray-600 px-1.5 py-0.5 text-xs rounded-md font-semibold text-gray-500">
-                Zara
-              </div>
-              <div className="border flex items-center gap-1 border-red-700 px-1.5 py-0.5 text-xs rounded-md font-semibold text-red-700">
-                H & M
-              </div>
-
-              <div className="border flex items-center gap-1 border-gray-600 px-1.5 py-0.5 text-xs rounded-md font-semibold text-gray-500">
-                Forever 21
-              </div>
-              <div className="border flex items-center gap-1 border-gray-600 px-1.5 py-0.5 text-xs rounded-md font-semibold text-gray-500">
-                Mango
-              </div>
-              <div className="border flex items-center gap-1 border-gray-600 px-1.5 py-0.5 text-xs rounded-md font-semibold text-gray-500">
-                Gap
-              </div>
-              <div className="border flex items-center gap-1 border-gray-600 px-1.5 py-0.5 text-xs rounded-md font-semibold text-gray-500">
-                Vero Moda
-              </div>
-              <div className="border flex items-center gap-1 border-red-700 px-1.5 py-0.5 text-xs rounded-md font-semibold text-red-700">
-                Levi's
-              </div>
-              <div className="border flex items-center gap-1 border-gray-600 px-1.5 py-0.5 text-xs rounded-md font-semibold text-gray-500">
-                Zalando
-              </div>
-              <div className="border flex items-center gap-1 border-gray-600 px-1.5 py-0.5 text-xs rounded-md font-semibold text-gray-500">
-                Marks & spencer
-              </div>
+            <p className=" text-sm text-gray-600" >Select your Trusted Brand</p>
+            <div className="flex w-full mt-3 flex-wrap gap-2">
+              <div className=" py-1 px-2  bg-red-200 font-semibold text-sm rounded-md" >Zara</div>
+              {
+                ["H&M", "Puma", "Forever 21", "Gap", "Snitch", "Levi’s", "Marks & Spencer"].map((data) => {
+                  return (
+                    <div key={data} className=" py-1 px-2 border border-black font-semibold text-sm rounded-md" >{data}</div>
+                  )
+                })
+              }
             </div>
-            <div className="-mt-1 flex items-center gap-1 px-1.5 py-0.5 text-xs rounded-md font-semibold text-red-700">
+            <div className=" mt-1 flex items-center gap-1 px-1.5 py-0.5 text-xs rounded-md font-semibold text-red-700">
               See More
             </div>
 
-            <SelectOffer />
+            <p className="font-semibold mt-6 text-lg">Area/Location</p>
+            <p className=" text-sm text-gray-600" >Explore Shops in your Defined Area</p>
+            <div className="flex w-full mt-3 flex-wrap gap-2">
+              <div className=" py-1 px-2  bg-red-200 font-semibold text-sm rounded-md" >Vaishali Nagar</div>
+              {
+                ["Jagatpura", "Civil Lines", "C- Scheme", "Malviya Nagar", "Mansarovar", "Ajmer Road"].map((data) => {
+                  return (
+                    <div key={data} className=" py-1 px-2 border border-black font-semibold text-sm rounded-md" >{data}</div>
+                  )
+                })
+              }
+            </div>
+
             <div className="flex flex-col gap-1 mt-2">
               <p className="font-semibold text-lg mt-2">Suggested</p>
               <div className="flex gap-3 items-center">
                 <SuggestionBox />
 
-                <p className="text-primary-gray">Ongoing offer</p>
+                <p className="">Ongoing offer</p>
               </div>
               <div className="flex gap-3 items-center">
                 <SuggestionBox />
-                <p className="text-primary-gray">Closing soon</p>
+                <p className=" font-medium">Closing soon</p>
               </div>
               <div className="flex gap-3 items-center">
                 <SuggestionBox />
-                <p className="text-primary-gray">Upcoming Offers</p>
+                <p className=" font-medium">Upcoming Offers</p>
               </div>
               <div className="flex gap-3 items-center">
                 <SuggestionBox />
-                <p className="text-primary-gray">Closing Today</p>
+                <p className=" font-medium">Closing Today</p>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="py-12 px-6 flex flex-col w-full gap-6">
+        <div className="py-10 max-w-7xl px-6 flex flex-col w-full gap-3">
           <div className="flex gap-2 flex-wrap items-center">
-            <div className="border border-red-700 gap-2 rounded-md bg-red-600/20 flex items-center px-2 py-1.5">
-              <p className="text-red-700">Jaipur</p>
-              <div className="p-2 rounded-md bg-red-700">
-                <img src="./cross.svg" alt="" />
-              </div>
-            </div>
-            <div className="border border-red-700 gap-2 rounded-md bg-red-600/20 flex items-center px-2 py-1.5">
-              <p className="text-red-700">Mi Road</p>
-              <div className="p-2 rounded-md bg-red-700">
-                <img src="./cross.svg" alt="" />
-              </div>
-            </div>
-            <div className="border border-red-700 gap-2 rounded-md bg-red-600/20 flex items-center px-2 py-1.5">
-              <p className="text-red-700">Tops</p>
-              <div className="p-2 rounded-md bg-red-700">
-                <img src="./cross.svg" alt="" />
-              </div>
-            </div>
-            <div className="border border-red-700 gap-2 rounded-md bg-red-600/20 flex items-center px-2 py-1.5">
-              <p className="text-red-700">Jeans</p>
-              <div className="p-2 rounded-md bg-red-700">
-                <img src="./cross.svg" alt="" />
-              </div>
-            </div>
+            {
+              ["Women", "Zara", "Vaishali Nagar"].map((data) => {
+                return (
+                  <div key={data} className=" gap-1 justify-center rounded-md bg-red-200 font-semibold flex items-center px-2 py-1.5">
+                    <p className="text-red-950">{data}</p>
+                    <X className="text-red-950" size={18} />
+                  </div>
+                )
+              })
+            }
           </div>
           <ProductList />
           <ProductList />
@@ -164,61 +144,61 @@ const Page = () => {
 export default Page;
 
 function SuggestionBox() {
-  return <input type="checkbox" className=" size-4" />;
+  return <input type="checkbox" className=" size-3.5" />;
 }
 
-function SelectOffer() {
-  const [isShow, setIsShow] = useState(false);
-  const list = [
-    "Flat",
-    "Buy one get one",
-    "Tiered",
-    "Cash Back",
-    "Lucky Gift",
-    "Free Rewards",
-    "Bogo",
-  ];
-  return (
-    <div className=" relative">
-      <div
-        onClick={() => {
-          setIsShow(!isShow);
-        }}
-        className="border z-10 cursor-pointer border-red-700 px-2 py-1.5 rounded-md flex items-center gap-2"
-      >
-        <img src="./red-percentage.svg" className="h-4 w-4" alt="" />
-        <p className="font-semibold w-full">Offer</p>
-        <img src="./chow-down-red.svg" className="h-4 w-4" alt="" />
-      </div>
+// function SelectOffer() {
+//   const [isShow, setIsShow] = useState(false);
+//   const list = [
+//     "Flat",
+//     "Buy one get one",
+//     "Tiered",
+//     "Cash Back",
+//     "Lucky Gift",
+//     "Free Rewards",
+//     "Bogo",
+//   ];
+//   return (
+//     <div className=" relative">
+//       <div
+//         onClick={() => {
+//           setIsShow(!isShow);
+//         }}
+//         className="border z-10 cursor-pointer border-red-700 px-2 py-1.5 rounded-md flex items-center gap-2"
+//       >
+//         <img src="./red-percentage.svg" className="h-4 w-4" alt="" />
+//         <p className="font-semibold w-full">Offer</p>
+//         <img src="./chow-down-red.svg" className="h-4 w-4" alt="" />
+//       </div>
 
-      {isShow && (
-        <div className=" absolute p-2 top-10 bg-white border-red-700 left-0 w-full border rounded-md flex flex-col gap-2">
-          {list.map((item) => {
-            return (
-              <div
-                key={item}
-                className=" border border-red-300 rounded-sm px-2 py-1 w-full flex gap-2 items-center    "
-              >
-                <input type="checkbox" className=" size-4" />
-                <p className=" font-semibold">{item}</p>
-              </div>
-            );
-          })}
-        </div>
-      )}
-    </div>
-  );
-}
+//       {isShow && (
+//         <div className=" absolute p-2 top-10 bg-white border-red-700 left-0 w-full border rounded-md flex flex-col gap-2">
+//           {list.map((item) => {
+//             return (
+//               <div
+//                 key={item}
+//                 className=" border border-red-300 rounded-sm px-2 py-1 w-full flex gap-2 items-center    "
+//               >
+//                 <input type="checkbox" className=" size-4" />
+//                 <p className=" font-semibold">{item}</p>
+//               </div>
+//             );
+//           })}
+//         </div>
+//       )}
+//     </div>
+//   );
+// }
 
 function WomenBox() {
   const [isShow, setIsShow] = useState(false);
   return (
     <div
       onClick={() => setIsShow(!isShow)}
-      className="border  cursor-pointer relative flex items-center gap-1 border-red-700 px-1.5 py-0.5 text-xs rounded-md font-semibold text-red-700"
+      className="  cursor-pointer relative flex bg-red-200 items-center gap-1 px-3 py-1 text-sm rounded  font-semibold "
     >
       Women
-      <img src="./women.svg" alt="" />
+      <img src="./nav/women.png" alt="" />
       {isShow && (
         <div className=" z-10 shadow-md shadow-gray-600 absolute flex gap-4 flex-wrap w-96 md:w-[36rem] bg-white top-6 border px-4 py-3 rounded-md  -left-1 text-black font-normal">
           {navBarData.map((data) => {
@@ -330,34 +310,46 @@ function ProductList() {
   return (
     <Link
       href="/store"
-      className="w-full flex-col md:flex-row p-4 bg-white rounded-md flex gap-4 items-center"
+      className="w-full max-w-7xl flex-col md:flex-row p-6 bg-white border rounded-lg flex gap-4 items-center"
     >
       <img src="./category1.png" className="" alt="" />
-      <div className="flex w-full gap-4 md:gap-4 flex-col">
-        <div className="flex w-full gap-4 justify-between">
-          <p className="text-xl font-semibold">Lifestyle</p>
-          <img src="./view-more.svg" alt="" />
+      <div className="flex w-full justify-between h-full gap-4 md:gap-4 flex-col">
+        <div className=" flex flex-col gap-1 w-full" >
+          <div className="flex w-full gap-4 justify-between">
+            <p className=" text-2xl md:text-3xl font-semibold">Lifestyle</p>
+            <div className=" flex items-center gap-1">
+              <img src="./golden-star.svg" className=" size-6 md:size-8" alt="" />
+              <p className=" text-2xl md:text-4xl font-semibold" >3.9</p>
+            </div>
+          </div>
+          <p className="text-primary-gray md:text-lg max-w-80">
+            A unit of is one of the biggest brand in the tops in women wears.
+          </p>
+          <div className=" mt-1 flex gap-2 items-center" >
+            <img src="./right-circle.png" className=" size-6 md:size-8" />
+            <p className=" md:text-xl" >MI Road</p>
+          </div>
+          <div className=" mt-1 flex gap-2 items-center justify-between" >
+            <p className=" text-2xl md:text-4xl font-medium" >35% Off on food items <span className=" text-lg  font-normal" > (Valid till 28th dec)</span> </p>
+            <div className=" flex flex-col items-center justify-center" >
+              <ThumbsUp />
+              <p className=" text-sm font-semibold" >45K</p>
+            </div>
+          </div>
         </div>
-        <div className="flex items-center gap-1">
-          <img src="./rating.svg" alt="" />
-          <p className="font-semibold">3.9</p>
-        </div>
-        <p className="text-primary-gray text-lg leading-8">
-          A unit of is one of the biggest brand in the tops in women wears.
-        </p>
-        <div className="items-center flex flex-wrap gap-2">
-          <img src="./red-percentage.svg" className="h-4 w-4" alt="" />
-          <p className="text-red-600 font-semibold">35% Off on food items</p>
-          <p className="text-primary-gray text-xs">(Valid till 28th dec)</p>
-        </div>
-        <div className="items-center flex flex-wrap gap-2">
-          <img src="./clock.svg" className="h-4 w-4" alt="" />
-          <p className="text-primary-gray font-semibold">Mon - Fri</p>
-          <p className="text-primary-gray text-xs">(11:00 AM - 08:00 PM)</p>
-        </div>
-        <div className="items-center flex flex-wrap gap-2">
-          <img src="./phone.svg" className="h-4 w-4" alt="" />
-          <p className="text-primary-gray">+91 - 8112XXXXXX</p>
+        <div className=" flex md:text-lg flex-col gap-2 md:flex-row" >
+          <div className=" flex gap-1 items-center" >
+            <img src="./time.png" alt="" />
+            <p>Mon - Fri (11:00 AM - 08:00 PM)</p>
+          </div>
+          <div className=" flex gap-1 items-center" >
+            <img src="./phone-red.png" alt="" />
+            <p>+91 - 8112XXXXXX</p>
+          </div>
+          <div className=" flex flex-col items-center justify-center self-end ml-auto" >
+            <Share2Icon />
+            <p className=" text-sm font-semibold" >40K</p>
+          </div>
         </div>
       </div>
     </Link>

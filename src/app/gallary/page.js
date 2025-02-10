@@ -1,5 +1,6 @@
 import Footer from "@/components/footer";
 import NavBar from "@/components/navBar";
+import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
@@ -24,9 +25,10 @@ const Page = () => {
 
         <Link
           href={"/store"}
-          className=" border text-center min-w-28 border-red-700 w-fit text-xl cursor-pointer rounded-md px-3 py-3 text-red-700 font-semibold"
+          className=" flex items-center justify-center gap-2 border text-center min-w-28 border-red-700 w-fit text-xl cursor-pointer rounded-md px-4 mt-4 py-2 text-red-700 font-semibold"
         >
-          Back
+          <ArrowLeft size={20} />
+          <p>Back</p>
         </Link>
 
         <div className=" h-4"></div>
