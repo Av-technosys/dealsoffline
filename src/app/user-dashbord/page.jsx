@@ -9,8 +9,8 @@ const Page = () => {
 
             <div className=' max-w-6xl px-4 mt-12 mx-auto w-full flex flex-col gap-4' >
 
-                <div className=' flex flex-col h-full gap-20 md:flex-row ' >
-                    <div className="  h-full flex md:justify-end md:items-end  mt-auto " >
+                <div className=' flex flex-col h-full items-center gap-20 md:flex-row ' >
+                    <div className="  h-full flex md:justify-end md:items-end" >
                         <div className=' max-w-60 w-full relative items-center justify-center p-4 aspect-square flex shrink-0 flex-col gap-4 border border-gray-600 rounded-md ' >
                             <div className=" absolute bottom-0 right-0 translate-y-1/2 translate-x-1/2 size-16 bg-black p-1 flex items-center justify-center rounded-full" >
                                 <CameraIcon className=' text-white' size={36} />

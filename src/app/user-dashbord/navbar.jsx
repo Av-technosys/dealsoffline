@@ -11,16 +11,16 @@ const UserNavBar = () => {
         </div>
         <div className=' flex items-center flex-col md:flex-row gap-2' >
           <div className='w-full  flex items-center gap-2' >
-            <Link href={'/vendor-setting'} className=' w-full justify-center flex items-center gap-2 border border-red-700 px-3 py-1.5 text-red-700 rounded-md' >
+            <div className=' w-full justify-center flex items-center gap-2 border border-red-700 px-3 py-1.5 text-red-700 rounded-md' >
               <p className=' font-medium' >Setting</p>
               <Settings size={20} color='#b91c1c' />
-            </Link>
+            </div>
           </div>
           <div className=' w-full flex items-center gap-2'>
-            <Link href={"/vendor-dashbord?form=4"} className=' w-full justify-center flex items-center gap-2 border bg-red-700 px-3 py-1.5 text-white rounded-md' >
+            <div className=' w-full justify-center flex items-center gap-2 border bg-red-700 px-3 py-1.5 text-white rounded-md' >
               <p className=' font-medium' >Profile</p>
               <User size={20} color='white' />
-            </Link>
+            </div>
             <div className=' mx-3 relative' >
               <Bell size={20} color='#4b5563' />
               <p className=' size-5 flex items-center justify-center bg-red-700 rounded-full text-white absolute -top-3 -right-2 text-xs font-semibold  ' >4</p>

@@ -4,13 +4,20 @@ import Link from "next/link";
 import React, { useState } from "react";
 import NavBar from "@/components/navBar";
 import { ChevronDownIcon, ChevronLeftCircleIcon, ChevronRightCircle, Clock, CornerUpRightIcon, Phone, Star } from "lucide-react";
+import PartnerLoginDialog from "@/components/partnerLoginDialog";
+import PartnerLoginOTPDialog from "@/components/partnerLoginOTPDialog";
 
 
 const Page = () => {
-
+  const [isPartnerLogin, setIsPartnerLogin] = React.useState(false);
+  const [isPartnerOTP, setIsPartnerOTP] = React.useState(false);
   return (
     <div>
-      <NavBar />
+      <NavBar setIsPartnerLogin={setIsPartnerLogin} />
+
+
+      <PartnerLoginDialog isOpen={isPartnerLogin} setIsOpen={setIsPartnerLogin} handleOTPDialog={setIsPartnerOTP} />
+      <PartnerLoginOTPDialog isOpen={isPartnerOTP} setIsOpen={setIsPartnerOTP} />
 
       <div className=" max-w-7xl mx-auto w-full mt-12  px-6 md:px-4 flex flex-col gap-16">
         <div className="flex md:border-2 flex-col md:px-4 py-4 mt-12 rounded-xl  gap-6 md:flex-row">

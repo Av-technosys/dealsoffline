@@ -3,7 +3,7 @@ import { Menu, Search, User, X } from "lucide-react";
 import Link from "next/link";
 import React, { useState } from "react";
 
-const NavBar = () => {
+const NavBar = ({setIsPartnerLogin}) => {
   const [showMegaMenu, setShowMegaMenu] = React.useState(false);
   const [openMobileMenu, setOpenMobileMenu] = React.useState(false);
 
@@ -67,10 +67,10 @@ const NavBar = () => {
                   <img src="./map-pin.svg" alt="" />
                 </div>
               </Link>
-              <Link href={"/vendor-login/signup"} className="bg-red-700 rounded py-2 px-3 flex items-center gap-2">
+              <div onClick={()=>{setIsPartnerLogin(true)}} className="bg-red-700 rounded py-2 px-3 flex items-center gap-2">
                 <img src="./nav/hand-shake.png" alt="" />
                 <p className="font-medium text-sm text-white">Partner with us</p>
-              </Link>
+              </div>
               <Link href={"/user-dashbord"} className=" size-8 cursor-pointer" >
                 <img src="./nav/navUser.svg" alt="" />
               </Link>
@@ -81,7 +81,7 @@ const NavBar = () => {
               }
             </div>
             {
-              openMobileMenu && <MobileMenu />
+              openMobileMenu && <MobileMenu setIsPartnerLogin={setIsPartnerLogin} />
             }
           </div>
 
@@ -210,7 +210,7 @@ function WomenBox() {
   );
 }
 
-function MobileMenu() {
+function MobileMenu({setIsPartnerLogin}) {
   const [showSubMenu, setShowSubMenu] = useState(false);
   return (
     <div className=" z-50 h-[80vh] overflow-y-scroll w-60 bg-white text-black p-4 border absolute top-12 -right-4">
@@ -222,10 +222,10 @@ function MobileMenu() {
         <Search size={20} />
       </Link>
       <div className=" flex w-full py-4 items-center justify-between" >
-        <Link href={"/vendor-login/signup"} className="  flex items-center gap-2 text-red-700 font-medium pt-2 underline">
+        <div onClick={()=>{setIsPartnerLogin(true)}} className="  flex items-center gap-2 text-red-700 font-medium pt-2 underline">
           <p>Partner with us</p>
           {/* <img src="./nav/shop.svg" alt="asdf" /> */}
-        </Link>
+        </div>
         <Link href="/user-dashbord" >
           <img src="./nav/navUser.svg" className=" size-6" alt="" />
         </Link>

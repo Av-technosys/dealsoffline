@@ -6,6 +6,8 @@ import GetCreateOTP from "@/components/createUserOTP";
 import Footer from "@/components/footer";
 import LoginDialog from "@/components/loginUserDialog";
 import NavBar from "@/components/navBar";
+import PartnerLoginDialog from "@/components/partnerLoginDialog";
+import PartnerLoginOTPDialog from "@/components/partnerLoginOTPDialog";
 import { ChevronLeftCircle, MapPin } from "lucide";
 import { ChevronLeftCircleIcon, ChevronRightCircleIcon, MapPinIcon } from "lucide-react";
 import Link from "next/link";
@@ -17,10 +19,12 @@ const Page = () => {
   const [isPassOTP, setIsPassOTP] = React.useState(false);
   const [isCreateOTP, setIsCreateOTP] = React.useState(false);
   const [isUerPassword, setIsUerPassword] = React.useState(false);
+  const [isPartnerLogin, setIsPartnerLogin] = React.useState(false);
+  const [isPartnerOTP, setIsPartnerOTP] = React.useState(false);
   return (
     <div>
       <div className="relative flex justify-center flex-col h-full  gap-6 w-full min-h-screen">
-        <NavBar />
+        <NavBar setIsPartnerLogin={setIsPartnerLogin} />
 
 
         <CreateUserDialog isOpen={isCreateUser} handleOTPDialog={setIsCreateOTP} setUserLogin={setIsUserLogin} setIsOpen={setIsCreateUser} />
@@ -29,6 +33,10 @@ const Page = () => {
 
         <LoginDialog isOpen={isUserLogin} handleCreateAccount={setIsCreateUser} handleOTPDialog={setIsPassOTP} setIsOpen={setIsUserLogin} />
         <ChangePassDialog isOpen={isUerPassword} setIsOpen={setIsUerPassword} />
+
+
+        <PartnerLoginDialog isOpen={isPartnerLogin} setIsOpen={setIsPartnerLogin} handleOTPDialog={setIsPartnerOTP} />
+        <PartnerLoginOTPDialog isOpen={isPartnerOTP} setIsOpen={setIsPartnerOTP} />
 
         <img
           src="./hero-bg.png"

@@ -89,12 +89,12 @@ export default function OfferDetailsSection() {
           <div className=" w-full flex flex-col md:flex-row gap-4" >
 
             <div className=" w-full flex flex-col gap-4" >
+              <InputFild label={"Offer Title"} inputName={"Get it soon."} />
               <div className=' w-full flex flex-col gap-1' >
                 <p className={``}>Offer Type <span className=' text-red-700' >*</span></p>
                 <select className=' w-full text-sm bg-white rounded-md p-2 border ' >
-                  <option value="" >Select Offer Type</option>
-                  <option value="1" >One Time</option>
-                  <option value="2" >Recurring</option>
+                  <option value="" >Live</option>
+                  <option value="1" >Not Live</option>
                 </select>
 
                 {/* <input type='text' className=' w-full text-sm rounded-md p-2 border ' /> */}
@@ -103,7 +103,6 @@ export default function OfferDetailsSection() {
                   <p className=' text-gray-600 text-sm' >Same as phone number</p>
                 </div> */}
               </div>
-              <InputFild label={"Discount"} inputName={"10%"} />
             </div>
 
             <div className=" w-full flex flex-col gap-1" >
@@ -297,17 +296,17 @@ const OfferBottonBts = ({ num }) => {
   // console.log(num)
   const showBack = num != 1
   return (
-      <div className=' w-full mt-12 max-w-5xl mx-auto justify-end flex gap-4 items-center' >
-          {showBack &&
-              <div className=' flex items-center gap-2 w-fit rounded-md text-red-700 border-red-700 border px-4 py-2' >
-                  <p className=' font-semibold'>Create New</p>
-                  <CopyPlus size={20} />
-              </div>
-          }
-          <div className=' w-fit  rounded-md text-white flex items-center gap-2 bg-red-700 px-4 py-2' >
-              <p className=' font-semibold'>Save Offer</p>
-              <Check color='white' size={20} />
-          </div>
+    <div className=' w-full mt-12 max-w-5xl mx-auto justify-end flex gap-4 items-center' >
+      {showBack &&
+        <div className=' flex items-center gap-2 w-fit rounded-md text-red-700 border-red-700 border px-4 py-2' >
+          <p className=' font-semibold'>Create New</p>
+          <CopyPlus size={20} />
+        </div>
+      }
+      <div className=' w-fit  rounded-md text-white flex items-center gap-2 bg-red-700 px-4 py-2' >
+        <p className=' font-semibold'>Save Offer</p>
+        <Check color='white' size={20} />
       </div>
+    </div>
   )
 }
