@@ -2,7 +2,7 @@ import { Bell, ChartNoAxesCombined, Settings, User } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
 
-const VendorNavBar = () => {
+const VendorNavBar = ({ page }) => {
   return (
     <div className=' border-b-4 w-full'>
       <div className=' flex flex-col md:flex-row justify-between max-w-7xl w-full mx-auto md:items-center gap-6 py-3 px-4' >
@@ -11,19 +11,19 @@ const VendorNavBar = () => {
         </div>
         <div className=' flex items-center flex-col md:flex-row gap-2' >
           <div className='w-full  flex items-center gap-2' >
-            <Link href={'/vendor-setting'} className=' w-full justify-center flex items-center gap-2 border border-red-700 px-3 py-1.5 text-red-700 rounded-md' >
+            <Link href={'/vendor-setting'} className={`w-full justify-center px-3 py-2 border flex items-center gap-2  rounded-md ${page === "setting" ? "bg-red-700 text-white":"text-red-700"} `} >
               <p className=' font-medium' >Settings</p>
-              <Settings size={20} color='#b91c1c' />
+              <Settings size={20} />
             </Link>
-            <Link href={"/vendor-report"} className='w-full justify-center flex items-center gap-2 border border-red-700 px-3 py-1.5 text-red-700 rounded-md' >
+            <Link href={'/vendor-report'} className={`w-full justify-center px-3 py-2 border flex items-center gap-2  rounded-md ${page === "report" ? "bg-red-700 text-white":"text-red-700"} `} >
               <p className=' font-medium' >Reports</p>
               <ChartNoAxesCombined size={20} color='#b91c1c' />
             </Link>
           </div>
           <div className=' w-full flex items-center gap-2'>
-            <Link href={"/vendor-dashbord?form=4"} className=' w-full justify-center flex items-center gap-2 border bg-red-700 px-3 py-1.5 text-white rounded-md' >
+            <Link href={'/vendor-dashbord'} className={`w-full justify-center px-3 py-2 border flex items-center gap-2  rounded-md ${page === "dashbord" ? "bg-red-700 text-white":"text-red-700"} `} >
               <p className=' font-medium' >Profile</p>
-              <User size={20} color='white' />
+              <User size={20} />
             </Link>
             <div className=' mx-3 relative' >
               <Bell size={20} color='#4b5563' />

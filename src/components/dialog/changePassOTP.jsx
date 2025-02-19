@@ -1,6 +1,7 @@
 import React from 'react'
-import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from './ui/dialog'
+import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from './../ui/dialog'
 import Link from 'next/link';
+import { X } from 'lucide-react';
 
 const GetPsswordOTP = ({ isOpen, setIsOpen, handleOTPDialog }) => {
   function handleChangePass() {
@@ -12,6 +13,7 @@ const GetPsswordOTP = ({ isOpen, setIsOpen, handleOTPDialog }) => {
       {/* <DialogTrigger>Open</DialogTrigger> */}
       <DialogContent>
         <DialogHeader className={"flex flex-col space-y-1.5 items-center text-center sm:text-left"} >
+          <X onClick={() => setIsOpen(false)} className=' absolute top-4 right-4 cursor-pointer' />
           <img src="./user-login.svg" className=' size-24 mx-auto' alt="" />
           <DialogTitle className="text-center" >Enter OTP</DialogTitle>
           <DialogDescription className="text-center" >
@@ -20,8 +22,8 @@ const GetPsswordOTP = ({ isOpen, setIsOpen, handleOTPDialog }) => {
           <div className=' max-w-80 flex flex-col mx-auto items-center gap-2' >
             <div className=' w-full flex items-center justify-center gap-3' >
               {
-                [1,2,3,4].map((data)=>{
-                  return(
+                [1, 2, 3, 4].map((data) => {
+                  return (
                     <div key={data} className=' size-12 rounded-lg border border-red-600' ></div>
                   )
                 })

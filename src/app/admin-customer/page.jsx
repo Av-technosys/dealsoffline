@@ -1,21 +1,36 @@
+"use client"
 import React from 'react'
-import NavBar from './navBar'
 import { BadgeCheck, ChevronDown, ChevronLeft, ChevronRight, Mail, Phone, Search, Tag, UserRound, UserRoundIcon } from 'lucide-react';
+import NavBar from '../admin/navBar';
+import { SelectBrand } from '@/components/select/brands';
+import { SelectLocation } from '@/components/select/location';
+import { SelectCities } from '@/components/select/cities';
+import DeleteVendor from '@/components/dialog/admin/vendorDeleteConfirm';
+import UserProfileDialog from '@/components/dialog/userProfileDialog';
+import UserSettingDialog from '@/components/dialog/userSettingDialog';
+import Footer from '@/components/footer';
 
 const Page = () => {
+    const [isDeleteVendor, setIsDeleteVendor] = React.useState(false);
+    const [isUserOpen, setIsUserOpen] = React.useState(false);
+    const [isUserSetting, setIsUserSetting] = React.useState(false);
     return (
         <div>
-            <NavBar />
+            <UserProfileDialog isOpen={isUserOpen} setIsOpen={setIsUserOpen} handleOTPDialog={setIsUserSetting} />
+            <UserSettingDialog isOpen={isUserSetting} setIsOpen={setIsUserSetting} handleUserProfile={setIsUserOpen} />
+            <NavBar page="customer" />
+            <DeleteVendor isOpen={isDeleteVendor} setIsOpen={setIsDeleteVendor} />
             <div className=' w-full overflow-x-scroll hide-scrollbar' >
-                <VendorList />
+                <VendorList setIsUserOpen={setIsUserOpen} setIsDeleteVendor={setIsDeleteVendor} />
             </div>
+            <Footer />
         </div>
     )
 }
 
 export default Page;
 
-function VendorList() {
+function VendorList({setIsDeleteVendor,setIsUserOpen}) {
     const data = [
         {
             "name": "Naveen Sharma",
@@ -76,23 +91,9 @@ function VendorList() {
                     <img src='./customer-list-red.svg' className=' size-9' />
                 </div>
                 <div className=' flex gap-2 items-center' >
-                    <div className=' border flex items-center gap-1 border-gray-700 text-red-600 py-2 px-2 rounded-md' >
-                        <Tag size={18} />
-                        <p className=' text-gray-700 text-sm font-semibold' >
-                            Brands
-                        </p>
-                        <ChevronDown size={18} />
-                    </div>
-                    <div className=' flex gap-2 items-center' >
-                        <div className=' border flex items-center gap-1 border-gray-700 text-red-600 py-2 px-2 rounded-md' >
-                            {/* <Tag size={18} /> */}
-                            <img src='./map-pin.svg' />
-                            <p className=' text-gray-700 text-sm font-semibold' >
-                                City
-                            </p>
-                            <ChevronDown size={18} />
-                        </div>
-                    </div>
+                    <SelectBrand />
+                    <SelectLocation />
+                    <SelectCities />
                     <div className=' flex gap-2 items-center' >
                         <div className=' border flex items-center gap-1 border-gray-700 text-red-600 py-2 px-2 rounded-md' >
                             <Search size={18} />
@@ -155,20 +156,20 @@ function VendorList() {
                                 {/* <input type="checkbox" className=" size-3.5 mx-auto border border-red-700 " />
                                 <input type="checkbox" className=" size-3.5 mx-auto border border-red-700 " /> */}
                                 <div className=' flex items-center justify-center' >
-                                    <img src='./edit-list.svg' />
-                                    <img src='./bin.svg' />
+                                    <img onClick={() => setIsUserOpen(true)} src='./edit-list.svg' />
+                                    <img onClick={() => setIsDeleteVendor(true)} src='./bin.svg' />
                                 </div>
                             </div>
                         )
                     })
                 }
                 <div className=' flex  items-center justify-center gap-2 py-4' >
-                    <ChevronLeft  className=' border rounded-md p-1 ' size={28} />
+                    <ChevronLeft className=' border rounded-md p-1 ' size={28} />
                     <div className=' border rounded-md p-1 shrink-0 size-7 flex items-center justify-center bg-gray-200 ' >1</div>
                     <div className=' border rounded-md p-1 shrink-0 size-7 flex items-center justify-center' >2</div>
                     <div className=' border rounded-md p-1 shrink-0 size-7 flex items-center justify-center' >3</div>
                     <div className=' border rounded-md p-1 shrink-0 size-7 flex items-center justify-center' >4</div>
-                    <ChevronRight  className=' border rounded-md p-1 ' size={28} />
+                    <ChevronRight className=' border rounded-md p-1 ' size={28} />
                 </div>
             </div>
         </div>

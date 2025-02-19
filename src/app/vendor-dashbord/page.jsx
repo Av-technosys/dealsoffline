@@ -15,6 +15,7 @@ import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, CheckCheck } from "lucide-react";
 import Image from "next/image";
+import Footer from "@/components/footer";
 const DynamicContent = () => {
   const params = useSearchParams();
   const num = parseInt(params.get("form") || "1", 10);
@@ -56,12 +57,13 @@ const DynamicContent = () => {
 const Page = () => {
   return (
     <div className="flex flex-col gap-6 w-full">
-      <VendorNavBar />
+      <VendorNavBar page={"dashbord"} />
       <Suspense fallback={<div>Loading content...</div>}>
         <DynamicContent />
       </Suspense>
+      <Footer />
 
-      <div className="h-60"></div>
+      {/* <div className="h-60"></div> */}
     </div>
   );
 };

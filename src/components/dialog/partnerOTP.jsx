@@ -1,0 +1,54 @@
+import React from 'react';
+import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from './../ui/dialog';
+import Link from 'next/link';
+import { Check, LockKeyhole, Save, X } from 'lucide-react';
+
+const PartnerOTPCreateAccount = ({ isOpen, setIsOpen, handleNextDialog }) => {
+    return (
+        <Dialog open={isOpen}>
+            <DialogContent className="max-w-5xl w-full p-0 overflow-hidden">
+                <DialogHeader className="hidden">
+                </DialogHeader>
+                {/* <DialogTitle className="hidden"></DialogTitle> */}
+                <div className=' w-full h-full grid md:grid-cols-2 ' >
+                    <img className=' w-full hidden lg:block' src="./login-page-bg.png" alt="" />
+                        <div className=' w-full h-full p-4 flex flex-col items-center justify-center gap-3' >
+                            <X onClick={() => setIsOpen(false)} className=' absolute top-4 right-4 cursor-pointer' />
+                            <img src="./user-login.svg" className=' size-32 mx-auto' alt="" />
+                            <DialogTitle className="text-center text-3xl flex items-center gap-2 font-semibold" >
+                                <p>Enter OTP</p>
+                                <LockKeyhole className=' text-red-700' />
+                            </DialogTitle>
+                            <p className="text-center" >
+                                A 4 digit code has been sent to you
+                            </p>
+                            <div className=' max-w-80 flex flex-col mx-auto items-center gap-2' >
+                                <div className=' w-full flex items-center justify-center gap-3' >
+                                    {
+                                        [1, 2, 3, 4].map((data) => {
+                                            return (
+                                                <div key={data} className=' size-12 rounded-lg border border-red-600' ></div>
+                                            )
+                                        })
+                                    }
+                                </div>
+                                <div onClick={() => { setIsOpen(false); handleNextDialog(true) }} className='cursor-pointer w-full bg-red-700 text-white text-center font-semibold flex gap-2 items-center justify-center py-2 px-3 rounded-md' >
+                                    <p>Verify OTP</p>
+                                    <Check size={20} />
+                                </div>
+                            </div>
+                            <p>Request code again<span className=' text-red-600' > 00:59s</span></p>
+                            <div className=' flex items-center gap-2' >
+                                <div className=' w-full h-0.5 bg-gray-200' ></div>
+                                <p>or</p>
+                                <div className=' w-full h-0.5 bg-gray-200' ></div>
+                            </div>
+                            <p className=' text-center text-sm' >Edit phone number <span className=' text-red-700' >+91-9012345678</span></p>
+                        </div>
+                    </div>
+            </DialogContent>
+        </Dialog>
+    );
+};
+
+export default PartnerOTPCreateAccount;

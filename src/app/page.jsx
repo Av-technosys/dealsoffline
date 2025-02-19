@@ -1,17 +1,19 @@
 "use client";
-import ChangePassDialog from "@/components/changePassDialog";
-import GetPsswordOTP from "@/components/changePassOTP";
-import CreateUserDialog from "@/components/createUserDialog";
-import GetCreateOTP from "@/components/createUserOTP";
+import ChangePassDialog from "@/components/dialog/changePassDialog";
+import GetPsswordOTP from "@/components/dialog/changePassOTP";
+import CreateUserDialog from "@/components/dialog/createUserDialog";
+import GetCreateOTP from "@/components/dialog/createUserOTP";
+import LoginDialog from "@/components/dialog/loginUserDialog";
+import PartnerLoginDialog from "@/components/dialog/partnerLoginDialog";
+import PartnerLoginOTPDialog from "@/components/dialog/partnerLoginOTPDialog";
+import UserProfileDialog from "@/components/dialog/userProfileDialog";
+import UserSettingDialog from "@/components/dialog/userSettingDialog";
 import Footer from "@/components/footer";
-import LoginDialog from "@/components/loginUserDialog";
-import NavBar from "@/components/navBar";
-import PartnerLoginDialog from "@/components/partnerLoginDialog";
-import PartnerLoginOTPDialog from "@/components/partnerLoginOTPDialog";
+import NavBar from "@/components/nav/navBar";
 import { ChevronLeftCircle, MapPin } from "lucide";
 import { ChevronLeftCircleIcon, ChevronRightCircleIcon, MapPinIcon } from "lucide-react";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const Page = () => {
   const [isCreateUser, setIsCreateUser] = React.useState(false);
@@ -21,23 +23,44 @@ const Page = () => {
   const [isUerPassword, setIsUerPassword] = React.useState(false);
   const [isPartnerLogin, setIsPartnerLogin] = React.useState(false);
   const [isPartnerOTP, setIsPartnerOTP] = React.useState(false);
+
+
+  // For location
+  const [location, setLocation] = useState(null);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setLocation(position.coords);
+        },
+        (err) => {
+          setError(err.message);
+        }
+      );
+    } else {
+      setError('Geolocation is not supported by this browser.');
+    }
+  }, [])
+
+
   return (
     <div>
       <div className="relative flex justify-center flex-col h-full  gap-6 w-full min-h-screen">
-        <NavBar setIsPartnerLogin={setIsPartnerLogin} />
+        <NavBar />
 
 
         <CreateUserDialog isOpen={isCreateUser} handleOTPDialog={setIsCreateOTP} setUserLogin={setIsUserLogin} setIsOpen={setIsCreateUser} />
-        <GetCreateOTP isOpen={isCreateOTP} setIsOpen={setIsCreateOTP} />
+        <GetCreateOTP isOpen={isCreateOTP} setIsOpen={setIsCreateOTP} handleUserLogin={setIsUserLogin} />
         <GetPsswordOTP isOpen={isPassOTP} setIsOpen={setIsPassOTP} handleOTPDialog={setIsUerPassword} />
 
         <LoginDialog isOpen={isUserLogin} handleCreateAccount={setIsCreateUser} handleOTPDialog={setIsPassOTP} setIsOpen={setIsUserLogin} />
-        <ChangePassDialog isOpen={isUerPassword} setIsOpen={setIsUerPassword} />
+        <ChangePassDialog isOpen={isUerPassword} setIsOpen={setIsUerPassword} handleUserLogin={setIsUserLogin} />
 
 
         <PartnerLoginDialog isOpen={isPartnerLogin} setIsOpen={setIsPartnerLogin} handleOTPDialog={setIsPartnerOTP} />
         <PartnerLoginOTPDialog isOpen={isPartnerOTP} setIsOpen={setIsPartnerOTP} />
-
         <img
           src="./hero-bg.png"
           className="absolute top-0 -z-10 h-full w-full left-0 object-cover"
@@ -59,8 +82,8 @@ const Page = () => {
       <ExploreCategory />
 
 
-      <PopularDetails setIsUserLogin={setIsUserLogin} />
-      <PopularStores setIsUserLogin={setIsUserLogin} />
+      <PopularDetails setIsUserLogin={setIsPartnerLogin} />
+      <PopularStores setIsUserLogin={setIsPartnerLogin} />
 
 
       <div className="flex flex-col bg-white gap-14 px-4 py-12 pb-20 md:px-6">
@@ -437,7 +460,7 @@ function ExploreCategory() {
   )
 }
 
-function PopularDetails({setIsUserLogin}) {
+function PopularDetails({ setIsUserLogin }) {
   const zudioList = [
     "Women Fassion",
     "Kids Wear",
@@ -465,7 +488,7 @@ function PopularDetails({setIsUserLogin}) {
     <div className=" max-w-7xl justify-center mx-auto items-center gap-2 flex flex-row ">
       {/* <img src="./backword-btn.png" className=" z-20 h-6 w-auto" alt="" /> */}
       {/* <div className=" p-2 border border-black rounded-full"> */}
-        <ChevronLeftCircleIcon />
+      <ChevronLeftCircleIcon />
       {/* </div> */}
 
       {/* Cards */}
@@ -493,7 +516,7 @@ function PopularDetails({setIsUserLogin}) {
           </div>
         </div>
 
-        <div onClick={()=>{setIsUserLogin(true)}} className=" w-60 md:w-72 h-96 rounded-md shrink-0 overflow-hidden relative" >
+        <div onClick={() => { setIsUserLogin(true) }} className=" w-60 md:w-72 h-96 rounded-md shrink-0 overflow-hidden relative" >
           <img src="./w1.png" className=" absolute top-0 left-0 w-full h-full object-cover" alt="" />
           <div className=" bg-gradient-to-b from-transparent to-black absolute top-0 left-0 w-full h-full"></div>
           <div className=" absolute bottom-6 left-4 flex flex-col gap-1" >
@@ -501,7 +524,7 @@ function PopularDetails({setIsUserLogin}) {
             <p className=" text-white font-semibold text-lg" >Karin Store</p>
           </div>
         </div>
-        <div onClick={()=>{setIsUserLogin(true)}} className=" w-60 md:w-72 h-96 rounded-md shrink-0 overflow-hidden relative" >
+        <div onClick={() => { setIsUserLogin(true) }} className=" w-60 md:w-72 h-96 rounded-md shrink-0 overflow-hidden relative" >
           <img src="./w2.png" className=" absolute top-0 left-0 w-full h-full object-cover" alt="" />
           <div className=" bg-gradient-to-b from-transparent to-black absolute top-0 left-0 w-full h-full"></div>
           <div className=" absolute bottom-6 left-4 flex flex-col gap-1" >
@@ -509,7 +532,7 @@ function PopularDetails({setIsUserLogin}) {
             <p className=" text-white font-semibold text-lg" >Samanth Store</p>
           </div>
         </div>
-        <div onClick={()=>{setIsUserLogin(true)}} className=" w-60 md:w-72 h-96 rounded-md shrink-0 overflow-hidden relative" >
+        <div onClick={() => { setIsUserLogin(true) }} className=" w-60 md:w-72 h-96 rounded-md shrink-0 overflow-hidden relative" >
           <img src="./w3.png" className=" absolute top-0 left-0 w-full h-full object-cover" alt="" />
           <div className=" bg-gradient-to-b from-transparent to-black absolute top-0 left-0 w-full h-full"></div>
           <div className=" absolute bottom-6 left-4 flex flex-col gap-1" >
@@ -526,7 +549,7 @@ function PopularDetails({setIsUserLogin}) {
   </div>
 }
 
-function PopularStores({setIsUserLogin}) {
+function PopularStores({ setIsUserLogin }) {
   const zudioList = [
     "Women",
     "Kids Wear",
@@ -557,7 +580,7 @@ function PopularStores({setIsUserLogin}) {
 
       {/* Cards */}
 
-      <div onClick={()=>{setIsUserLogin(true)}} className=" flex gap-2 mt-4 items-center overflow-x-scroll hide-scrollbar" >
+      <div onClick={() => { setIsUserLogin(true) }} className=" flex gap-2 mt-4 items-center overflow-x-scroll hide-scrollbar" >
         <div className="h-96 w-60 md:w-72 rounded-md  shrink-0 py-6 px-4 flex z-10 flex-col bg-black">
           <div className=" text-white flex  justify-between gap-2 mb-4 items-center">
             <p className=" text-4xl font-semibold" >Shreeji</p>
@@ -580,7 +603,7 @@ function PopularStores({setIsUserLogin}) {
           </div>
         </div>
 
-        <div onClick={()=>{setIsUserLogin(true)}} className=" w-60  md:w-72 h-96 rounded-md shrink-0 overflow-hidden relative" >
+        <div onClick={() => { setIsUserLogin(true) }} className=" w-60  md:w-72 h-96 rounded-md shrink-0 overflow-hidden relative" >
           <img src="./w1.png" className=" absolute top-0 left-0 w-full h-full object-cover" alt="" />
           <div className=" bg-gradient-to-b from-transparent to-black absolute top-0 left-0 w-full h-full"></div>
           <div className=" absolute bottom-6 left-4 flex flex-col gap-1" >
@@ -591,7 +614,7 @@ function PopularStores({setIsUserLogin}) {
             <p className=" text-white font-semibold text-lg" >Karin Store</p>
           </div>
         </div>
-        <div onClick={()=>{setIsUserLogin(true)}} className=" w-60 md:w-72 h-96 rounded-md shrink-0 overflow-hidden relative" >
+        <div onClick={() => { setIsUserLogin(true) }} className=" w-60 md:w-72 h-96 rounded-md shrink-0 overflow-hidden relative" >
           <img src="./w2.png" className=" absolute top-0 left-0 w-full h-full object-cover" alt="" />
           <div className=" bg-gradient-to-b from-transparent to-black absolute top-0 left-0 w-full h-full"></div>
           <div className=" absolute bottom-6 left-4 flex flex-col gap-1" >
@@ -599,18 +622,18 @@ function PopularStores({setIsUserLogin}) {
               <img src="./golden-star.png" className=" size-12" alt="" />
               <p>4.2</p>
             </div>
-            <p className=" text-white font-semibold text-lg" >Samanth Store</p>
+            <p className=" text-white font-semibold text-lg" >Radhe-Krishnan Store</p>
           </div>
         </div>
-        <div onClick={()=>{setIsUserLogin(true)}} className=" z-20 w-60 md:w-72 h-96 rounded-md shrink-0 overflow-hidden relative" >
-          <img src="./w3.png" className=" absolute top-0 left-0 w-full h-full object-cover" alt="" />
+        <div onClick={() => { setIsUserLogin(true) }} className=" z-20 w-60 md:w-72 h-96 rounded-md shrink-0 overflow-hidden relative" >
+          <img src="./khushi-kirana-store.png" className=" absolute top-0 left-0 w-full h-full object-cover" alt="" />
           <div className=" bg-gradient-to-b from-transparent to-black absolute top-0 left-0 w-full h-full"></div>
           <div className=" absolute bottom-6 left-4 flex flex-col gap-1" >
             <div className=" font-semibold flex  text-white text-5xl" >
               <img src="./golden-star.png" className=" size-12" alt="" />
               <p>3.2</p>
             </div>
-            <p className=" text-white font-semibold text-lg" >Krishna Group</p>
+            <p className=" text-white font-semibold text-lg" >Khushi Kirana Store</p>
           </div>
         </div>
       </div>

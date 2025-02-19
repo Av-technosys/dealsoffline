@@ -1,18 +1,26 @@
 "use client";
+import BrandsShowMore from "@/components/dialog/brandsShowMore";
+import ChangePassDialog from "@/components/dialog/changePassDialog";
+import GetPsswordOTP from "@/components/dialog/changePassOTP";
+import CreateUserDialog from "@/components/dialog/createUserDialog";
+import GetCreateOTP from "@/components/dialog/createUserOTP";
+import BeautyMenu from "@/components/dialog/filter/beauty";
+import ElectronicsMenu from "@/components/dialog/filter/electronics";
+import HomeAppliencesMenu from "@/components/dialog/filter/homeAppliences";
+import HomeDecoreMenu from "@/components/dialog/filter/homeDecore";
+import MenuKids from "@/components/dialog/filter/kid";
+import MenMenu from "@/components/dialog/filter/men";
+import WomenMenu from "@/components/dialog/filter/women";
+import LocationShowMore from "@/components/dialog/locationSeeMore";
+import LoginDialog from "@/components/dialog/loginUserDialog";
+import PartnerLoginDialog from "@/components/dialog/partnerLoginDialog";
+import PartnerLoginOTPDialog from "@/components/dialog/partnerLoginOTPDialog";
 import Footer from "@/components/footer";
-import NavBar from "@/components/navBar";
-import NavBarBG from "@/components/navBarBG";
-import { Share2 } from "lucide";
+import NavBar from "@/components/nav/navBar";
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Share2Icon, ThumbsUp, X } from "lucide-react";
-import Link from "next/link";
 import React, { useState } from "react";
-import CreateUserDialog from "@/components/createUserDialog";
-import GetCreateOTP from "@/components/createUserOTP";
-import GetPsswordOTP from "@/components/changePassOTP";
-import LoginDialog from "@/components/loginUserDialog";
-import ChangePassDialog from "@/components/changePassDialog";
-import PartnerLoginDialog from "@/components/partnerLoginDialog";
-import PartnerLoginOTPDialog from "@/components/partnerLoginOTPDialog";
+
 
 const Page = () => {
   const [isCreateUser, setIsCreateUser] = React.useState(false);
@@ -25,14 +33,16 @@ const Page = () => {
   return (
     <div>
       <div className="relative flex flex-col h-full justify-center gap-6 w-full min-h-screen">
-        <NavBar setIsPartnerLogin={setIsPartnerLogin} />
+        <NavBar />
+
 
         <CreateUserDialog isOpen={isCreateUser} handleOTPDialog={setIsCreateOTP} setUserLogin={setIsUserLogin} setIsOpen={setIsCreateUser} />
-        <GetCreateOTP isOpen={isCreateOTP} setIsOpen={setIsCreateOTP} />
+        <GetCreateOTP isOpen={isCreateOTP} setIsOpen={setIsCreateOTP} handleUserLogin={setIsUserLogin} />
         <GetPsswordOTP isOpen={isPassOTP} setIsOpen={setIsPassOTP} handleOTPDialog={setIsUerPassword} />
 
         <LoginDialog isOpen={isUserLogin} handleCreateAccount={setIsCreateUser} handleOTPDialog={setIsPassOTP} setIsOpen={setIsUserLogin} />
-        <ChangePassDialog isOpen={isUerPassword} setIsOpen={setIsUerPassword} />
+        <ChangePassDialog isOpen={isUerPassword} setIsOpen={setIsUerPassword} handleUserLogin={setIsUserLogin} />
+
 
         <PartnerLoginDialog isOpen={isPartnerLogin} setIsOpen={setIsPartnerLogin} handleOTPDialog={setIsPartnerOTP} />
         <PartnerLoginOTPDialog isOpen={isPartnerOTP} setIsOpen={setIsPartnerOTP} />
@@ -55,37 +65,33 @@ const Page = () => {
           </p>
         </div>
       </div>
-      <div className="flex justify-center">
-        <div className="py-10 px-6 w-full max-w-72 hidden md:flex flex-col gap-4">
+      <div className="flex flex-col lg:flex-row justify-center">
+        <div className="lg:py-10 px-6 w-full lg:max-w-72 lg:flex flex-col gap-4">
           <div className="flex flex-col gap-0">
-            <p className="font-semibold text-lg">Product Categories</p>
-            <p className=" text-sm text-gray-600" >Select Categories for Shop</p>
-            <div className="flex w-full mt-3 flex-wrap gap-2">
-              <div className="border flex items-center gap-1 border-black px-2.5 py-0.5 text-xs rounded font-semibold text-black">
-                Men
-                <img src="./men.svg" alt="" />
-              </div>
-              <WomenBox />
-              <div className=" flex items-center gap-1 border border-black px-2.5 py-0.5 text-xs rounded font-semibold text-black">
-                Kids
-                <img src="./nav/kids.png" alt="" />
-              </div>
-              <div className=" border border-black flex items-center gap-1  px-2.5 py-0.5 text-xs rounded font-semibold text-black">
-                Beauty
-                <img src="./nav/beauty.png" alt="" />
-              </div>
-              <div className="border flex items-center gap-1 border-black px-2.5 py-0.5 text-xs rounded font-semibold text-black">
-                Home Decore
-                <img src="./nav/home-decore.png" alt="" />
-              </div>
+            <p className="font-semibold mt-12 text-lg">Product Categories</p>
+            <p className=" hidden lg:block text-sm text-gray-600" >Select Categories for Shop</p>
+            <div className="flex overflow-x-auto w-full mt-3 md:flex-wrap gap-2">
 
-              <div className="border flex items-center gap-1 border-black px-2.5 py-0.5 text-xs rounded font-semibold text-black">
-                Home Appliances
-                <img src="./nav/home-appliences.png" alt="" />
+              <div className="shrink-0" >
+                <MenMenu />
               </div>
-              <div className="border flex items-center gap-1 border-black px-2.5 py-0.5 text-xs rounded font-semibold text-black">
-                Electronics
-                <img src="./nav/electronics.png" alt="" />
+              <div className="shrink-0">
+                <WomenMenu />
+              </div>
+              <div className="shrink-0">
+                <MenuKids />
+              </div>
+              <div className="shrink-0">
+                <BeautyMenu />
+              </div>
+              <div className="shrink-0">
+                <HomeDecoreMenu />
+              </div>
+              <div className="shrink-0">
+                <HomeAppliencesMenu />
+              </div>
+              <div className="shrink-0">
+                <ElectronicsMenu />
               </div>
             </div>
           </div>
@@ -93,33 +99,32 @@ const Page = () => {
             <p className="font-semibold text-lg">Brands</p>
             <p className=" text-sm text-gray-600" >Select your Trusted Brand</p>
             <div className="flex w-full mt-3 flex-wrap gap-2">
-              <div className=" py-1 px-2  bg-red-200 font-semibold text-sm rounded-md" >Zara</div>
-              {
+              {/* <div className=" py-1 px-2  bg-red-200 font-semibold text-sm rounded-md" >Zara</div> */}
+              {/* {
                 ["H&M", "Puma", "Forever 21", "Gap", "Snitch", "Levi’s", "Marks & Spencer"].map((data) => {
                   return (
                     <div key={data} className=" py-1 px-2 border border-black font-semibold text-sm rounded-md" >{data}</div>
                   )
                 })
-              }
-            </div>
-            <div className=" mt-1 flex items-center gap-1 px-1.5 py-0.5 text-xs rounded-md font-semibold text-red-700">
-              See More
+              } */}
+              {/* {
+                ["h&m", "puma", "forever", "gap", "gap"].map((data, ind) => {
+                  return (
+                    // <div key={data} className=" py-1 px-2 border border-black font-semibold text-sm rounded-md" >{data}</div>
+                    <div key={ind} className=" h-8 w-auto py-1 px-2 border border-black font-semibold text-sm rounded-md" >
+                      <img key={data} className=" w-full h-full " src={`/companies-logo/${data}.png`} alt="" />
+                    </div>
+                  )
+                })
+              } */}
+              <SearchByBrand />
             </div>
 
             <p className="font-semibold mt-6 text-lg">Area/Location</p>
-            <p className=" text-sm text-gray-600" >Explore Shops in your Defined Area</p>
-            <div className="flex w-full mt-3 flex-wrap gap-2">
-              <div className=" py-1 px-2  bg-red-200 font-semibold text-sm rounded-md" >Vaishali Nagar</div>
-              {
-                ["Jagatpura", "Civil Lines", "C- Scheme", "Malviya Nagar", "Mansarovar", "Ajmer Road"].map((data) => {
-                  return (
-                    <div key={data} className=" py-1 px-2 border border-black font-semibold text-sm rounded-md" >{data}</div>
-                  )
-                })
-              }
-            </div>
+            <p className=" hidden lg:block text-sm text-gray-600" >Explore Shops in your Defined Area</p>
+            <SearchByLoaction />
 
-            <div className="flex flex-col gap-1 mt-2">
+            <div className=" hidden lg:flex flex-col gap-1 mt-2">
               <p className="font-semibold text-lg mt-2">Suggested</p>
               <div className="flex gap-3 items-center">
                 <SuggestionBox />
@@ -139,25 +144,15 @@ const Page = () => {
                 <p className=" font-medium">Closing Today</p>
               </div>
             </div>
+            <div className=" border border-red-700 text-red-700 duration-200 hover:bg-red-700 px-4 py-2 rounded-md cursor-pointer hover:text-white text-center font-semibold mt-6" >Apply</div>
           </div>
         </div>
 
         <div className="py-10 max-w-7xl px-6 flex flex-col w-full gap-3">
-          <div className="flex gap-2 flex-wrap items-center">
-            {
-              ["Women", "Zara", "Vaishali Nagar"].map((data) => {
-                return (
-                  <div key={data} className=" gap-1 justify-center rounded-md bg-red-200 font-semibold flex items-center px-2 py-1.5">
-                    <p className="text-red-950">{data}</p>
-                    <X className="text-red-950" size={18} />
-                  </div>
-                )
-              })
-            }
-          </div>
-          <ProductList setIsUserLogin={setIsUserLogin} />
-          <ProductList setIsUserLogin={setIsUserLogin} />
-          <ProductList setIsUserLogin={setIsUserLogin} />
+          <AllAppliedFilter />
+          <ProductList setIsUserLogin={setIsPartnerLogin} />
+          <ProductList setIsUserLogin={setIsPartnerLogin} />
+          <ProductList setIsUserLogin={setIsPartnerLogin} />
         </div>
       </div>
 
@@ -172,82 +167,26 @@ function SuggestionBox() {
   return <input type="checkbox" className=" size-3.5" />;
 }
 
-// function SelectOffer() {
-//   const [isShow, setIsShow] = useState(false);
-//   const list = [
-//     "Flat",
-//     "Buy one get one",
-//     "Tiered",
-//     "Cash Back",
-//     "Lucky Gift",
-//     "Free Rewards",
-//     "Bogo",
-//   ];
-//   return (
-//     <div className=" relative">
-//       <div
-//         onClick={() => {
-//           setIsShow(!isShow);
-//         }}
-//         className="border z-10 cursor-pointer border-red-700 px-2 py-1.5 rounded-md flex items-center gap-2"
-//       >
-//         <img src="./red-percentage.svg" className="h-4 w-4" alt="" />
-//         <p className="font-semibold w-full">Offer</p>
-//         <img src="./chow-down-red.svg" className="h-4 w-4" alt="" />
-//       </div>
-
-//       {isShow && (
-//         <div className=" absolute p-2 top-10 bg-white border-red-700 left-0 w-full border rounded-md flex flex-col gap-2">
-//           {list.map((item) => {
-//             return (
-//               <div
-//                 key={item}
-//                 className=" border border-red-300 rounded-sm px-2 py-1 w-full flex gap-2 items-center    "
-//               >
-//                 <input type="checkbox" className=" size-4" />
-//                 <p className=" font-semibold">{item}</p>
-//               </div>
-//             );
-//           })}
-//         </div>
-//       )}
-//     </div>
-//   );
-// }
-
-function WomenBox() {
-  const [isShow, setIsShow] = useState(false);
+function AllAppliedFilter() {
+  const [allFilter, setAllFilter] = useState(["Women", "Zara", "Vaishali Nagar"]);
+  function handleRemove(item) {
+    setAllFilter(allFilter.filter((data) => data !== item))
+  }
   return (
-    <div
-      onClick={() => setIsShow(!isShow)}
-      className="  cursor-pointer relative flex bg-red-200 items-center gap-1 px-3 py-1 text-sm rounded  font-semibold "
-    >
-      Women
-      <img src="./nav/women.png" alt="" />
-      {isShow && (
-        <div className=" z-10 shadow-md shadow-gray-600 absolute flex gap-4 flex-wrap w-96 md:w-[36rem] bg-white top-6 border px-4 py-3 rounded-md  -left-1 text-black font-normal">
-          {navBarData.map((data) => {
-            return (
-              <div key={data.title} className=" flex flex-col gap-1">
-                <p className=" text-xl font-semibold text-red-700">
-                  {data.title}
-                </p>
-                {data.items.map((item) => {
-                  return (
-                    <p className=" text-gray-500  font-semibold" key={item}>
-                      {item}
-                    </p>
-                  );
-                })}
-              </div>
-            );
-          })}
-        </div>
-      )}
+    <div className="flex gap-2 flex-wrap items-center">
+      {
+        allFilter.map((data) => {
+          return (
+            <div key={data} className=" gap-1 justify-center rounded-md bg-red-200 font-semibold flex items-center px-2 py-1.5">
+              <p className="text-red-950">{data}</p>
+              <X onClick={() => handleRemove(data)} className=" cursor-pointer text-red-950" size={18} />
+            </div>
+          )
+        })
+      }
     </div>
-  );
+  )
 }
-
 const navBarData = [
   {
     title: "Indiwear",
@@ -335,7 +274,7 @@ function ProductList({ setIsUserLogin }) {
   return (
     <div
       onClick={setIsUserLogin}
-      className="w-full max-w-7xl flex-col md:flex-row p-6 bg-white border rounded-lg flex gap-4 items-center"
+      className="w-full max-w-7xl flex-col cursor-pointer md:flex-row p-6 bg-white border rounded-lg flex gap-4 items-center"
     >
       <img src="./category1.png" className="" alt="" />
       <div className="flex w-full justify-between h-full gap-4 md:gap-4 flex-col">
@@ -379,4 +318,86 @@ function ProductList({ setIsUserLogin }) {
       </div>
     </div>
   );
+}
+
+function SearchByLoaction() {
+  const locations = [
+    "Vaishali Nagar",
+    "Jagatpura",
+    "Civil Lines",
+    "C- Scheme",
+    "Malviya Nagar",
+    "Mansarovar",
+    "Ajmer Road",
+    "fort lake",
+    "amer fort",
+    "jal mahal",
+    "mukesh art gallary",
+    "nargadh fort",
+    "Khatu sham ji",
+
+  ]
+  const [selectedFields, setSelectedFields] = useState([]);
+  const handleCheckboxChange = (value) => {
+    if (selectedFields.includes(value)) {
+      setSelectedFields(selectedFields.filter((item) => item !== value));
+    } else {
+      setSelectedFields([...selectedFields, value]);
+    }
+  }
+  return (
+    <div className="flex w-full mt-3 overflow-x-auto md:flex-wrap gap-2">
+      {/* <div className=" py-1 px-2 shrink-0 flex items-center justify-center bg-red-200 font-semibold text-sm rounded-md" >Vaishali Nagar</div> */}
+      {
+        locations?.slice(0, 6).map((data) => {
+          const isPresect = selectedFields.includes(data);
+          return (
+            <div onClick={() => handleCheckboxChange(data)} key={data} className={`shrink-0 cursor-pointer py-1 px-2 border border-black font-semibold text-sm rounded-md ${isPresect ? "bg-red-200" : ""}`} >{data}</div>
+          )
+        })
+      }
+      <LocationShowMore selectedFields={selectedFields} setSelectedFields={setSelectedFields} itemsToShow={locations.slice(6)} />
+    </div>
+  )
+}
+
+
+function SearchByBrand() {
+  const brands = [
+    "./companies-logo/zara.png",
+    "./companies-logo/h&m.png",
+    "./companies-logo/puma.png",
+    "./companies-logo/forever.png",
+    "./companies-logo/gap.png",
+    "./companies-logo/gap.png",
+    "./companies-logo/h&m.png",
+    "./companies-logo/puma.png",
+    "./companies-logo/forever.png",
+    "./companies-logo/gap.png",
+    "./companies-logo/gap.png"
+  ];
+  const [selectedFields, setSelectedFields] = useState([]);
+  const handleCheckboxChange = (value) => {
+    if (selectedFields.includes(value)) {
+      setSelectedFields(selectedFields.filter((item) => item !== value));
+    } else {
+      setSelectedFields([...selectedFields, value]);
+    }
+  }
+  return (
+    <div className="flex w-full mt-3 overflow-x-auto md:flex-wrap gap-2">
+      {/* <div className=" py-1 px-2 shrink-0 flex items-center justify-center bg-red-200 font-semibold text-sm rounded-md" >Vaishali Nagar</div> */}
+      {
+        brands?.slice(0, 6).map((data, idx) => {
+          const isPresect = selectedFields.includes(data);
+          console.log(data)
+          return (
+            <div onClick={() => handleCheckboxChange(data)} key={idx} className={`h-8 w-auto py-1 px-2 border border-black font-semibold text-sm rounded-md ${isPresect ? "bg-red-200" : ""}`} >
+              <img key={data} className=" w-full h-full " src={data} alt="" />
+            </div>)
+        })
+      }
+      <BrandsShowMore selectedFields={selectedFields} setSelectedFields={setSelectedFields} itemsToShow={brands.slice(6)} />
+    </div>
+  )
 }

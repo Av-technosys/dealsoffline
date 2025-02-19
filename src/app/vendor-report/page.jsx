@@ -1,3 +1,4 @@
+import Footer from '@/components/footer'
 import VendorNavBar from '@/components/vendorNavBar'
 import { ChartPie, ChevronDown } from 'lucide-react'
 import React from 'react'
@@ -5,7 +6,7 @@ import React from 'react'
 const Page = () => {
     return (
         <div>
-            <VendorNavBar />
+            <VendorNavBar page={"report"} />
             <div className=' max-w-7xl w-full px-4 mt-6 mx-auto flex flex-col gap-4' >
                 <p className=' text-2xl font-semibold' >Reports</p>
                 <div className=' flex flex-col md:flex-row gap-4' >
@@ -98,6 +99,7 @@ const Page = () => {
                     <div className=' w-full h-48 bg-gray-200 animate-pulse rounded-xl' ></div>
                 </div>
             </div>
+            <Footer />
         </div>
     )
 }

@@ -1,23 +1,25 @@
 import React from 'react'
-import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from './ui/dialog'
+import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from './../ui/dialog'
 import Link from 'next/link';
+import { Button } from '../ui/button';
+import { X } from 'lucide-react';
 
-const LoginDialog = ({ isOpen, setIsOpen, handleOTPDialog,handleCreateAccount }) => {
+const LoginDialog = ({ isOpen, setIsOpen, handleOTPDialog, handleCreateAccount }) => {
 
-    function handleCreateAccountDialog(){
+    function handleCreateAccountDialog() {
         setIsOpen(false);
         handleCreateAccount(true);
     }
 
-    function handleForgotPassword(){
+    function handleForgotPassword() {
         setIsOpen(false);
         handleOTPDialog(true);
     }
     return (
         <Dialog open={isOpen}>
-            {/* <DialogTrigger>Open</DialogTrigger> */}
             <DialogContent>
                 <DialogHeader className={"flex flex-col space-y-1.5 items-center text-center sm:text-left"} >
+                    <X onClick={() => setIsOpen(false)} className=' absolute top-4 right-4 cursor-pointer' />
                     <img src="./user-login.svg" className=' size-24 mx-auto' alt="" />
                     <DialogTitle className="text-center" >Log In to WalkinTown </DialogTitle>
                     <DialogDescription className="text-center" >
@@ -27,7 +29,7 @@ const LoginDialog = ({ isOpen, setIsOpen, handleOTPDialog,handleCreateAccount })
                         <input type="text" placeholder='User Id' className=' w-full border py-2 px-3 text-gray-700 rounded-md' />
                         <input type="text" placeholder='Password' className=' w-full border py-2 px-3 text-gray-700 rounded-md' />
                         {/* <input type="text" placeholder='Phone Number' className=' w-full border py-2 px-3 text-gray-700 rounded-md' /> */}
-                        <Link href={"/store"} className='cursor-pointer w-full bg-red-700 text-white text-center font-semibold py-2 px-3 rounded-md' >Login</Link>
+                        <Link href={"/vendor-dashbord"} className='cursor-pointer w-full bg-red-700 text-white text-center font-semibold py-2 px-3 rounded-md' >Login</Link>
                     </div>
                     <div className=' w-full flex-col md:flex-row flex items-center gap-4 justify-center' >
                         <div className=' flex items-center gap-2' >

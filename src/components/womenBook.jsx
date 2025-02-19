@@ -11,7 +11,7 @@ export default function WomenBox() {
       Women
       <img src="./nav/women.png" alt="" />
       {isShow && (
-        <div className=" z-10 shadow-md shadow-gray-600 absolute flex gap-4 flex-wrap w-96 md:w-[36rem] bg-white top-8 border px-4 py-3 rounded-md  -left-1 text-black font-normal">
+        <div className=" z-10 shadow-md shadow-gray-600 absolute grid grid-cols-3 gap-4 w-96 md:w-[36rem] bg-white top-8 border px-4 py-3 rounded-md  -left-1 text-black font-normal">
           {navBarData.map((data, idx) => {
             return (
               <div key={idx} className=" flex flex-col gap-1">

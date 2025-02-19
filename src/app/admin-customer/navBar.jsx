@@ -16,10 +16,10 @@ const NavBar = () => {
                     <p className=' font-semibold' >Vendor</p>
                     <img src="./vendor-store-red.svg" alt="" />
                 </Link>
-                <Link href={'/admin-customer'} className=' py-2 px-3 border-2 rounded-md border-red-600 text-red-600 flex items-center gap-2 ' >
-                    <p className=' font-semibold' >Customers</p>
-                    <img src="./costmer.svg" alt="" />
-                </Link>
+                <Link href={'/admin-customer'} className={`py-2 px-3  rounded-md flex items-center gap-2 ${page === "customer" ? "bg-red-700 text-white" : "border-red-600 border-2 text-red-600"} `} >
+                        <p className=' font-semibold' >Customers</p>
+                        <img src="./costmer.svg" alt="" />
+                    </Link>
                 <img src="./bell.svg" alt="" />
             </div>
         </div>

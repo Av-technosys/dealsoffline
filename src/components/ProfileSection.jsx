@@ -1,16 +1,27 @@
+"use client";
+import React from "react";
+import TermsAndConditionVendorDetailsDialog from "./dialog/termsAndConditionVendorDetails";
 import InputFild from "./inputFild";
 import { CameraIcon } from "lucide-react";
 
 export default function ProfileSection() {
+  const [isChecked, setIsChecked] = React.useState(false);
+  const [userImage, setUserImage] = React.useState(null)
+  function handleImageUpload(e) {
+    setUserImage(e.target.files[0])
+  }
   return <div className=' max-w-6xl px-4 mt-12 mx-auto w-full flex flex-col gap-4' >
 
     <div className=' flex flex-col h-full gap-20 md:flex-row ' >
       <div className="  h-full flex md:justify-end md:items-end  mt-auto " >
-        <div className=' max-w-60 w-full relative items-center justify-center p-4 aspect-square flex shrink-0 flex-col gap-4 border border-gray-600 rounded-md ' >
-          <div className=" absolute bottom-0 right-0 translate-y-1/2 translate-x-1/2 size-16 bg-black p-1 flex items-center justify-center rounded-full" >
+        <div className='max-w-60 w-full relative items-center justify-center aspect-square flex shrink-0 flex-col gap-4 border border-gray-600 rounded-md ' >
+          {
+            userImage ? <img src={URL.createObjectURL(userImage)} className=" h-full rounded-md w-full object-cover" alt="" /> : <p className=' p-4' >Upload your image here</p>
+          }
+          <div className=" absolute bottom-0 right-0 translate-y-1/2 translate-x-1/2 size-16 bg-red-700 p-1 flex items-center justify-center rounded-full" >
             <CameraIcon className=' text-white' size={36} />
           </div>
-          <p>Upload your image here</p>
+          <input onChange={handleImageUpload} type='file' accept='image/*' className=' absolute opacity-0 w-full h-full inset-0' />
         </div>
       </div>
       <div className=" flex flex-col gap-12" >
@@ -24,6 +35,9 @@ export default function ProfileSection() {
             <InputFild label={"Email ID/ User ID"} inputName={"naveensharma@gmail.com"} />
             <InputFildNumber label={"Phone Number"} inputName={"91-9012345678"} />
             <InputFild label={"WhatsApp Number"} inputName={"91-9012345678"} same={true} />
+          </div>
+          <div className=" mt-6" >
+            <TermsAndConditionVendorDetailsDialog isChecked={isChecked} setIsChecked={setIsChecked} />
           </div>
 
         </div>

@@ -1,176 +1,66 @@
-import React from 'react'
-import NavBar from './navBar'
-import { BadgeCheck, ChevronDown, ChevronLeft, ChevronRight, Mail, Phone, Search, Tag, UserRound, UserRoundIcon } from 'lucide-react';
+"use client"
+import CreateAccountThankYou from '@/components/dialog/createAccountThankyouDialog'
+import PasswordChanged from '@/components/dialog/partnerChangePassOTP'
+import PartnerCreateAccount from '@/components/dialog/partnerCreateAccount'
+import PartnerOTPCreateAccount from '@/components/dialog/partnerOTP'
+import PartnerOTPResetPass from '@/components/dialog/partnerOTPResetPass'
+import PartnerResetPass from '@/components/dialog/partnerResetPass'
+import { LogIn } from 'lucide-react'
+import Link from 'next/link'
+import React, { useState } from 'react'
 
 const Page = () => {
+    const [isPartnerReset, setIsPartnerPass] = useState(false);
+    const [isPartnerOTPCreateAccount, setIspartnerOTPCreateAccount] = useState(false);
+    const [isPartnerCreateAccount, setIsPartnerCreateAccount] = useState(false);
+    const [isCreateAccountThankYou, setIsCreateAccountThankYou] = useState(false);
+    const [isPartnerOTPReset, setIsPartnerOTPReset] = useState(false);
+    const [isPassChanged, setIsPassChanged] = useState(false);
     return (
         <div>
-            <NavBar />
-            <div className=' w-full overflow-x-scroll hide-scrollbar' >
-                <VendorList />
-            </div>
-        </div>
-    )
-}
+            <PartnerResetPass isOpen={isPartnerReset} setIsOpen={setIsPartnerPass} handleNext={setIsPassChanged} />
+            <PartnerOTPCreateAccount isOpen={isPartnerOTPCreateAccount} setIsOpen={setIspartnerOTPCreateAccount} handleNextDialog={setIsCreateAccountThankYou} />
 
-export default Page;
+            <PartnerOTPResetPass isOpen={isPartnerOTPReset} setIsOpen={setIsPartnerOTPReset} handleNextDialog={setIsPartnerPass} />
 
-function VendorList() {
-    const data = [
-        {
-            "name": "Naveen Sharma",
-            "phone": "+91-9012345678",
-            "email": "naveensharma@gmail.com"
-        },
-        {
-            "name": "Piya Sharma",
-            "phone": "+91-8043215670",
-            "email": "piyasharma@gmail.com"
-        },
-        {
-            "name": "Shruti Kumari",
-            "phone": "+91-9012345678",
-            "email": "shruti1kumari@gmail.com"
-        },
-        {
-            "name": "Isha Kumari",
-            "phone": "+91-9928245678",
-            "email": "Isha2umari@gmail.com"
-        },
-        {
-            "name": "Aysuh Anand",
-            "phone": "+91-6086245678",
-            "email": "aysuhanand2@gmail.com"
-        },
-        {
-            "name": "Sanika Shinde",
-            "phone": "+91-9095671230",
-            "email": "sanikashinde23@gmail.com"
-        },
-        {
-            "name": "Dhanashree Lungare",
-            "phone": "+91-7055545678",
-            "email": "dhanashreelungare@gmail.com"
-        },
-        {
-            "name": "Ankit Agrwal",
-            "phone": "+91-9543225678",
-            "email": "ankitagrwal@gmail.com"
-        },
-        {
-            "name": "Ritika Joshi",
-            "phone": "+91-8292085539",
-            "email": "ritikajosh27@gmail.com"
-        },
-        {
-            "name": "Ashish Raj",
-            "phone": "+91-9430456483",
-            "email": "ashish29raj@gmail.com"
-        }
-    ]
-    return (
-        <div className=' min-w-[80rem] w-full max-w-7xl flex flex-col mx-auto mt-6 border rounded-md ' >
-            <div className=' flex justify-between items-center p-4 gap-6' >
-                <div className=' flex gap-2 items-center' >
-                    <p className=' text-3xl font-semibold' >Vendor List</p>
-                    <img src='./vendor-store-red.svg' />
-                </div>
-                <div className=' flex gap-2 items-center' >
-                    <div className=' border flex items-center gap-1 border-gray-700 text-red-600 py-2 px-2 rounded-md' >
-                        <Tag size={18} />
-                        <p className=' text-gray-700 text-sm font-semibold' >
-                            Brands
-                        </p>
-                        <ChevronDown size={18} />
-                    </div>
-                    <div className=' flex gap-2 items-center' >
-                        <div className=' border flex items-center gap-1 border-gray-700 text-red-600 py-2 px-2 rounded-md' >
-                            {/* <Tag size={18} /> */}
-                            <img src='./map-pin.svg' />
-                            <p className=' text-gray-700 text-sm font-semibold' >
-                                City
-                            </p>
-                            <ChevronDown size={18} />
+            <PartnerCreateAccount isOpen={isPartnerCreateAccount} setIsOpen={setIsPartnerCreateAccount} handleOTPDialog={setIspartnerOTPCreateAccount} />
+            <CreateAccountThankYou isOpen={isCreateAccountThankYou} setIsOpen={setIsCreateAccountThankYou} />
+
+            <PasswordChanged isOpen={isPassChanged} setIsOpen={setIsPassChanged} />
+
+            <div className=' flex items-center h-screen' >
+                <img src="./login-page-bg.png" className=' hidden lg:block w-full h-full' alt="" />
+                <div className=' w-full' >
+                    <div className={"flex flex-col gap-2 items-center text-center sm:text-left"} >
+                        {/* <X onClick={() => setIsOpen(false)} className=' absolute top-4 right-4 cursor-pointer' /> */}
+                        <img src="./user-login.svg" className=' size-32 mx-auto' alt="" />
+                        <div className=' flex items-center gap-2' >
+                            <p className="text-center text-3xl font-semibold max-w-96 md:max-w-none" >Log In to Admin Dashboard </p>
+                            <img src='./shop.svg' className=' hidden md:block size-8' />
                         </div>
-                    </div>
-                    <div className=' flex gap-2 items-center' >
-                        <div className=' border flex items-center gap-1 border-gray-700 text-red-600 py-2 px-2 rounded-md' >
-                            <Search size={18} />
-                            {/* <p className=' text-gray-700 text-sm font-semibold' >
-                                Search
-                            </p> */}
-                            <input type='text' className=' text-gray-700 text-sm font-semibold max-w-24 ' placeholder='Search' />
-                        </div>
-                    </div>
-                    <div className=' flex gap-2 items-center' >
-                        <div className=' border flex items-center gap-1 border-gray-700 text-red-600 py-2 px-2 rounded-md' >
-                            {/* <Tag size={18} /> */}
-                            <p className=' text-gray-700 text-sm font-semibold' >
-                                Export
-                            </p>
-                            <img src='./export.svg' />
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div className=' w-full p-4 bg-red-700 text-white grid grid-cols-7 gap-2 ' >
-                    <div className=' flex gap-1 items-center' >
-                        <p className=' font-semibold' >Store Name</p>
-                        <img src='./vendor-store-white.svg' />
-                    </div>
-                    <div className=' flex gap-1 items-center' >
-                        <p className=' font-semibold' >Customer Name</p>
-                        <UserRoundIcon size={18} />
-                    </div>
-                    <div className=' flex gap-1 items-center' >
-                        <p className=' font-semibold' >Contact</p>
-                        <Phone size={18} />
-                    </div>
-                    <div className=' flex gap-1 items-center' >
-                        <p className=' font-semibold' >Email ID</p>
-                        <Mail size={18} />
-                    </div>
-                    <div className=' flex gap-1 justify-center items-center' >
-                        <p className=' font-semibold' >Active</p>
-                        <img src="./contact-check.svg" alt="" />
-                    </div>
-                    <div className=' flex gap-1 justify-center items-center' >
-                        <p className=' font-semibold' >Verified</p>
-                        <BadgeCheck size={18} />
-                    </div>
-                    <div className=' flex gap-1 items-center justify-center' >
-                        <p className=' font-semibold' >Action</p>
-                        <img src="./action.svg" alt="" />
-                    </div>
-                </div>
-                {
-                    data.map((item, idx) => {
-                        return (
-                            <div key={idx} className={` border-b w-full p-4 grid grid-cols-7 gap-2  ${idx % 2 != 0 ? "bg-gray-100" : "bg-white"}`} >
-                                <p>Happy Shoppy</p>
-                                <p>{item.name}</p>
-                                <p>{item.phone}</p>
-                                <p className=' text-sm overflow-x-scroll hide-scrollbar' >{item.email}</p>
-                                <input type="checkbox" className=" size-3.5 mx-auto border border-red-700 " />
-                                <input type="checkbox" className=" size-3.5 mx-auto border border-red-700 " />
-                                <div className=' flex items-center justify-center' >
-                                    <img src='./edit-list.svg' />
-                                    <img src='./bin.svg' />
+                        {/* <p className=" -mt-2 mb-2 text-center" >
+                            Please login to continue
+                        </p> */}
+                        <div className=' max-w-96 mt-4 flex flex-col mx-auto items-center gap-4' >
+                            <input type="text" placeholder='User Id' className=' w-full border py-2 px-3 text-gray-700 rounded-md' />
+                            <input type="text" placeholder='Password' className=' w-full border py-2 px-3 text-gray-700 rounded-md' />
+                            <div className=' w-full flex-col md:flex-row flex md:items-center gap-4 md:justify-center' >
+                                <div className=' flex items-center gap-2' >
+                                    <input type="checkbox" className=" size-4" />
+                                    <p>Remember Password</p>
                                 </div>
+                                <p onClick={() => setIsPartnerOTPReset(true)} className=' mr-auto md:mr-auto cursor-pointer text-red-600' >Forgot Password ?</p>
                             </div>
-                        )
-                    })
-                }
-                <div className=' flex  items-center justify-center gap-2 py-4' >
-                    <ChevronLeft  className=' border rounded-md p-1 ' size={28} />
-                    <div className=' border rounded-md p-1 shrink-0 size-7 flex items-center justify-center bg-gray-200 ' >1</div>
-                    <div className=' border rounded-md p-1 shrink-0 size-7 flex items-center justify-center' >2</div>
-                    <div className=' border rounded-md p-1 shrink-0 size-7 flex items-center justify-center' >3</div>
-                    <div className=' border rounded-md p-1 shrink-0 size-7 flex items-center justify-center' >4</div>
-                    <ChevronRight  className=' border rounded-md p-1 ' size={28} />
+                            <Link href={"/admin/vendor"} className='cursor-pointer flex items-center justify-center gap-2 w-full bg-red-700 text-white text-center font-semibold py-2 px-3 rounded-md' >
+                                <p>Login</p>
+                                <LogIn size={20} />
+                            </Link>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     )
 }
+
+export default Page

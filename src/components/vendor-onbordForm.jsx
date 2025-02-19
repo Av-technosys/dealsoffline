@@ -27,7 +27,7 @@ export default VendorOnbordForm;
 
 function Line({ isRed }) {
     return (
-        <div className={` h-1.5 mt-7 w-20 rounded bg-gray-300`} ></div>
+        <div className={` h-1.5 mt-7 w-20 rounded  ${isRed ? "bg-red-200" : "bg-gray-300"} `} ></div>
     )
 }
 

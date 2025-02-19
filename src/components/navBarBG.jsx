@@ -199,7 +199,7 @@ function WomenBox() {
   return (
     <div
       id="megaMenu"
-      className="absolute top-10 z-50 shadow-md left-0 w-full max-w-3xl mx-auto p-4 border flex  bg-white flex-wrap gap-6 rounded-md"
+      className="absolute top-10 z-50 shadow-md left-0 w-full max-w-3xl mx-auto p-4 border grid grid-cols-3  bg-white flex-wrap gap-6 rounded-md"
     >
       {navBarData.map((data) => {
         return (
