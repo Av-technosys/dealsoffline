@@ -82,7 +82,7 @@ export default function ShopDetailsSection({ path }) {
       </div>
 
       <div>
-        <div className=' w-fit flex flex-col gap-4' >
+        <div className=' w-fit flex flex-col gap-6 md:gap-12' >
           <p className=' text-3xl md:text-4xl font-medium ' >Business Details</p>
           <p className=' text-gray-600 ' >Fill the Details to get more business Opportunities</p>
         </div>

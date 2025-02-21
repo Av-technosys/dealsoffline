@@ -19,7 +19,7 @@ const UserNavBar = ({ path, setIsUserNotification, setIsUserProfile, setIsUserSe
         <div className=' flex items-center flex-row gap-2' >
           <div className='w-full  flex items-center gap-2' >
             <div onClick={() => { handleSwitch(setIsUserSetting) }} className={`w-full cursor-pointer justify-center flex items-center gap-2 border border-red-700 px-3 py-1.5 text-red-700 rounded-md ${path == "setting" && "bg-red-700 text-white"}`} >
-              <p className=' font-medium' >Setting</p>
+              <p className=' font-medium' >Settings</p>
               <Settings size={20} />
             </div>
           </div>

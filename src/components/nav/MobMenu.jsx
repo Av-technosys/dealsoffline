@@ -3,30 +3,18 @@ import { motion } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
 import Link from "next/link";
 
-export default function MobMenu({ Menus,setIsUserProfile }) {
+export default function MobMenu({ Menus, setIsUserProfile }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [clicked, setClicked] = useState(null);
   const toggleDrawer = () => {
     setIsOpen(!isOpen);
-    setClicked(null);
   };
 
   const handleOpenUserProfile = () => {
     setIsOpen(!isOpen);
-    setClicked(null);
-    setIsUserProfile(true)
+    setTimeout(() => {
+      setIsUserProfile(true)
+    }, 500);
   }
-
-  const subMenuDrawer = {
-    enter: {
-      height: "auto",
-      overflow: "hidden",
-    },
-    exit: {
-      height: 0,
-      overflow: "hidden",
-    },
-  };
 
   return (
     <div>
@@ -69,52 +57,70 @@ export default function MobMenu({ Menus,setIsUserProfile }) {
 
 
           {Menus.map(({ label, subMenu }, i) => {
-            const isClicked = clicked === i;
             const hasSubMenu = subMenu?.length;
             // const hasSubMenu = true;
             return (
-              <div key={i} className="">
-                <span
-                  className="flex items-center justify-between p-4 hover:bg-white/5 rounded-md cursor-pointer relative"
-                  onClick={() => setClicked(isClicked ? null : i)}
-                >
-                  {label}
-                  {hasSubMenu && (
-                    <ChevronDown
-                      className={`ml-auto ${isClicked && "rotate-180"} `}
-                    />
-                  )}
-                </span>
-                {hasSubMenu && (
-                  <motion.ul
-                    initial="exit"
-                    animate={isClicked ? "enter" : "exit"}
-                    variants={subMenuDrawer}
-                    className="ml-5"
-                  >
-                    {subMenu.map(({ title, items }, i) => (
-                      <div
-                        key={i}
-                        className="p-2 hover:bg-white/5 rounded-md text-red-500 cursor-pointer"
-                      >
-                        {/* <Icon size={17} /> */}
-                        {title}
-                        <div className=" pl-2 flex flex-col gap-1 text-gray-700" >
-                          {
-                            items.map(({ name, slug }, i) => (
-                              <Link href={slug} key={i}>{name}</Link>
-                            ))
-                          }
-                        </div>
-                      </div>
-                    ))}
-                  </motion.ul>
-                )}
-              </div>
+              <ShowNavElements hasSubMenu={hasSubMenu} i={i} label={label} subMenu={subMenu} key={i} />
             );
           })}
         </ul>
       </motion.div>
     </div>
   );
+}
+
+
+function ShowNavElements({ label, subMenu, hasSubMenu, i }) {
+  const subMenuDrawer = {
+    enter: {
+      height: "auto",
+      overflow: "hidden",
+    },
+    exit: {
+      height: 0,
+      overflow: "hidden",
+    },
+  };
+  const [clicked, setClicked] = useState(null);
+  const isClicked = clicked === i;
+  return (
+    <div className="">
+      <span
+        className="flex items-center justify-between p-4 hover:bg-white/5 rounded-md cursor-pointer relative"
+        onClick={() => setClicked(isClicked ? null : i)}
+      >
+        {label}
+        {hasSubMenu && (
+          <ChevronDown
+            className={`ml-auto ${isClicked && "rotate-180"} `}
+          />
+        )}
+      </span>
+      {hasSubMenu && (
+        <motion.ul
+          initial="exit"
+          animate={isClicked ? "enter" : "exit"}
+          variants={subMenuDrawer}
+          className="ml-5"
+        >
+          {subMenu.map(({ title, items }, i) => (
+            <div
+              key={i}
+              className="p-2 hover:bg-white/5 rounded-md text-red-500 cursor-pointer"
+            >
+              {/* <Icon size={17} /> */}
+              {title}
+              <div className=" pl-2 flex flex-col gap-1 text-gray-700" >
+                {
+                  items.map(({ name, slug }, i) => (
+                    <Link href={slug} key={i}>{name}</Link>
+                  ))
+                }
+              </div>
+            </div>
+          ))}
+        </motion.ul>
+      )}
+    </div>
+  )
 }

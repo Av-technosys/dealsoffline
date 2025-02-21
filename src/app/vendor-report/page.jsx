@@ -75,13 +75,13 @@ const Page = () => {
                             </div>
                             <div className=' mt-6 flex flex-col gap-1' >
                                 <p className=' text-gray-500 font-semibold ' >
-                                    Canceled
+                                    Cancelled
                                 </p>
                                 <p>0</p>
                             </div>
                             <div className=' mt-6 flex flex-col gap-1' >
                                 <p className=' text-gray-500 font-semibold ' >
-                                    Demaged
+                                    Damaged
                                 </p>
                                 <p>0</p>
                             </div>
