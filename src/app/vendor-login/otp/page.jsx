@@ -1,5 +1,6 @@
 "use client"
 import InputFild from '@/components/inputFild';
+import { InputOTPComponent } from '@/components/ui/otp';
 import { Check, MessageCircleMore, SendHorizontal, X } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react'
@@ -27,12 +28,7 @@ function SignUp() {
                     <div className=' justify-center flex items-center gap-2 text-2xl font-semibold ring-offset-red-700 text-center'>Enter OTP <MessageCircleMore size={22} className=' text-red-700' /></div>
                     <p className=' text-gray-600  text-center' >A 4 digit code has been sent to you</p>
                 </div>
-                <div className=' flex items-center justify-center gap-4' >
-                    <div className=' size-10 border border-red-700 rounded-md' ></div>
-                    <div className=' size-10 border border-red-700 rounded-md' ></div>
-                    <div className=' size-10 border border-red-700 rounded-md' ></div>
-                    <div className=' size-10 border border-red-700 rounded-md' ></div>
-                </div>
+               <InputOTPComponent />
                 <Link href={"/vendor-login/thankyou"} className=' w-full py-2 px-4 flex items-center justify-center gap-3 bg-red-700 text-white rounded-md' >
                     <p>Verify OTP</p>
                     <Check size={18} />

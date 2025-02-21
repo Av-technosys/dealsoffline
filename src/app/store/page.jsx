@@ -27,7 +27,7 @@ const Page = () => {
   return (
     <div>
       <NavBar />
-      
+
       <CreateUserDialog isOpen={isCreateUser} handleOTPDialog={setIsCreateOTP} setUserLogin={setIsUserLogin} setIsOpen={setIsCreateUser} />
       <GetCreateOTP isOpen={isCreateOTP} setIsOpen={setIsCreateOTP} handleUserLogin={setIsUserLogin} />
       <GetPsswordOTP isOpen={isPassOTP} setIsOpen={setIsPassOTP} handleOTPDialog={setIsUerPassword} />
@@ -453,15 +453,74 @@ function ReviewUs() {
 
 
 function StoreMenuNavBar() {
+  const [subMenuNameToShow, setSubMenuNameToShow] = useState(null);
+  const [showSubMenu, setShowSubMenu] = useState(false);
   return (
     <div className=" relative flex flex-wrap w-full gap-3 items-center" >
       {
         Menus.map((menu, i) => {
           const [storeSubMenu] = storeMenu.filter((item) => item.lable === menu.lable);
           return (
-            <StoreMenuNavItem key={i} storeMenu={storeSubMenu} menu={menu} />
+            <StoreMenuNavItem subMenuNameToShow={subMenuNameToShow} setShowSubMenu={setShowSubMenu} setSubMenuNameToShow={setSubMenuNameToShow} key={i} storeMenu={storeSubMenu} menu={menu} />
           )
         })
+      }
+      {
+        showSubMenu && <div className=" block lg:hidden rounded-md bg-gray-50 py-3 px-4 w-full absolute -bottom-3 translate-y-full min-h-64" >
+          {
+            Menus.map((menu, i) => {
+              if (menu.label === subMenuNameToShow) {
+                const [storeSubMenu] = storeMenu.filter((item) => item.label === subMenuNameToShow);
+                const allStoreSubMenu = menu.subMenu;
+                return (
+                  <StoreMenuSubItem key={i} storeSubMenu={allStoreSubMenu} filteredSubMenu={storeSubMenu} />
+                )
+              } else {
+                return
+              }
+            })
+          }
+        </div>
+      }
+
+    </div>
+  )
+}
+function StoreMenuSubItem({ storeSubMenu,filteredSubMenu }) {
+  return (
+    <div className="flex flex-col" >
+      {
+        storeSubMenu.map((item, i) => {
+          const filterSubNavItems = filteredSubMenu?.subMenu.filter((submenu) => submenu.title === item.title);
+          return (
+            <MobileNavList key={i} navItems={item}  filterSubNavItems={filterSubNavItems} />
+          )
+        })
+      }
+    </div>
+  )
+}
+
+
+function MobileNavList({ navItems, filterSubNavItems }) {
+  const [showFullMenu, setShowFullMenu] = useState(false);
+  return (
+    <div>
+      <div onClick={() => setShowFullMenu((prev) => !prev)} className=" border-b py-2 flex gap-2 justify-between items-center" >
+        <p className=" text-red-700 font-semibold">{navItems.title}</p>
+        <ChevronDownIcon size={20} className={` ${showFullMenu && "rotate-180"} duration-200 transition-all`} />
+      </div>
+      {
+        showFullMenu && <div className=" flex flex-col border-b py-2 gap-1 pl-2" >
+          {
+            navItems.items.map((item, i) => {
+              const isAvailable = Array.isArray(filterSubNavItems) &&  filterSubNavItems[0]?.items.some((subitem) => subitem.name === item.name);
+              return (
+                <p className={` text-sm  ${isAvailable ? "text-black" : " text-gray-400"} `} key={i} >{item.name}</p>
+              )
+            })
+          }
+        </div>
       }
     </div>
   )

@@ -2,6 +2,7 @@ import React from 'react'
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '../ui/dialog'
 import Link from 'next/link';
 import { X } from 'lucide-react';
+import { InputOTPComponent } from '../ui/otp';
 
 const GetCreateOTP = ({ isOpen, setIsOpen, handleUserLogin }) => {
   return (
@@ -16,15 +17,7 @@ const GetCreateOTP = ({ isOpen, setIsOpen, handleUserLogin }) => {
             A 4 digit code has been sent to you
           </DialogDescription>
           <div className=' max-w-80 flex flex-col mx-auto items-center gap-2' >
-            <div className=' w-full flex items-center justify-center gap-3' >
-              {
-                [1, 2, 3, 4].map((data) => {
-                  return (
-                    <div key={data} className=' size-12 rounded-lg border border-red-600' ></div>
-                  )
-                })
-              }
-            </div>
+            <InputOTPComponent />
             <div onClick={() =>{setIsOpen(false); handleUserLogin(true)}} className='cursor-pointer w-full bg-red-700 text-white text-center font-semibold py-2 px-3 rounded-md' >Verify OTP</div>
           </div>
           <p>Request code again<span className=' text-red-600' > 00:59s</span></p>

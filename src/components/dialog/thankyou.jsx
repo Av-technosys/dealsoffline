@@ -23,7 +23,7 @@ const ThankYou = ({ isOpen, setIsOpen, handleOTPDialog, setUserLogin }) => {
                     </DialogDescription>
                     <div className=' max-w-80 flex flex-col mx-auto items-center gap-2' >
                         <input type="text" placeholder='User Id' className=' w-full border py-2 px-3 text-gray-700 rounded-md' />
-                        <input type="text" placeholder='Password' className=' w-full border py-2 px-3 text-gray-700 rounded-md' />
+                        <input type="password" placeholder='Password' className=' w-full border py-2 px-3 text-gray-700 rounded-md' />
                         <input type="text" placeholder='Phone Number' className=' w-full border py-2 px-3 text-gray-700 rounded-md' />
                         <p onClick={handleOTP} className='cursor-pointer w-full bg-red-700 text-white text-center font-semibold py-2 px-3 rounded-md' >Send OTP</p>
                     </div>
