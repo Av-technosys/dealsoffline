@@ -13,7 +13,7 @@ const Page = () => {
                 <InputFild label={"Email"} inputName={"Email"} />
                 <InputFild label={"Password"} inputName={"Password"} notNsc />
             </div>
-            <Link href={'/admin'} className=' w-full justify-center flex items-center gap-2 border border-red-700 px-3 py-1.5 text-red-700 rounded-md mt-4' >
+            <Link href={'/admin'} className=' w-full justify-center flex items-center gap-2 border border-primary-red px-3 py-1.5 text-primary-red rounded-md mt-4' >
               <p className=' font-medium' >Login</p>
               <ArrowRight size={20} color='#b91c1c' />
             </Link>

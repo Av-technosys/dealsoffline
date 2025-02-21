@@ -22,13 +22,13 @@ const PartnerLoginOTPDialog = ({ isOpen, setIsOpen, handleOTPDialog, setUserLogi
                     </div>
                     <div className='flex flex-col py-4 px-4 justify-center w-full md:w-1/2 max-w-96 mx-auto  shrink-0 space-y-3 items-center text-center sm:text-left' >
                         <X onClick={() => setIsOpen(false)} className=' absolute top-4 right-4 cursor-pointer' />
-                        <CircleUserRound className=' text-red-700 size-16  ' strokeWidth={1} />
+                        <CircleUserRound className=' text-primary-red size-16  ' strokeWidth={1} />
                         <DialogTitle className="text-center" >Welcome to</DialogTitle>
                         <p className=' text-5xl text-red-800  font-semibold' >WalkinTown</p>
                         <div className=' flex w-full items-center gap-2' >
-                            <div className=' w-full h-0.5 bg-red-700' ></div>
+                            <div className=' w-full h-0.5 bg-primary-red' ></div>
                             <p className=' whitespace-nowrap' >Let’s get your number Verified.</p>
-                            <div className=' w-full h-0.5 bg-red-700' ></div>
+                            <div className=' w-full h-0.5 bg-primary-red' ></div>
                         </div>
                         <DialogDescription className="text-center" >
                             A 4 digit code has been sent to you
@@ -38,22 +38,22 @@ const PartnerLoginOTPDialog = ({ isOpen, setIsOpen, handleOTPDialog, setUserLogi
                                 {
                                     [1, 2, 3, 4].map((data) => {
                                         return (
-                                            <div key={data} className=' size-12 flex items-center justify-center text-2xl rounded-lg border border-red-600' >0</div>
+                                            <div key={data} className=' size-12 flex items-center justify-center text-2xl rounded-lg border border-primary-red' >0</div>
                                         )
                                     })
                                 }
                             </div> */}
                             <InputOTPComponent />
-                            <Link href={"/store"} className='cursor-pointer w-full bg-red-700 text-white text-center font-semibold py-2 px-3 rounded-md' >Verify OTP</Link>
+                            <Link href={"/store"} className='cursor-pointer w-full bg-primary-red text-white text-center font-semibold py-2 px-3 rounded-md' >Verify OTP</Link>
                         </div>
                         <div className=' flex flex-col mx-auto items-center gap-0' >
-                            <p>Request code again<span className=' text-red-600' > 00:59s</span></p>
+                            <p>Request code again<span className=' text-primary-red' > 00:59s</span></p>
                             <div className=' flex w-full items-center gap-2' >
                                 <div className=' w-full h-0.5 bg-gray-200' ></div>
                                 <p>or</p>
                                 <div className=' w-full h-0.5 bg-gray-200' ></div>
                             </div>
-                            <p className=' text-center text-sm' >Edit phone number <span className=' text-red-700' >+91-9012345678</span></p>
+                            <p className=' text-center text-sm' >Edit phone number <span className=' text-primary-red' >+91-9012345678</span></p>
                         </div>
                     </div>
                 </DialogHeader>

@@ -17,20 +17,15 @@ export default function ShopDetailsSection({ path }) {
   function handleImageUpload(e) {
     setUserImage(e.target.files[0])
   }
-
-
-  function handleApplyFilter() {
-
-  }
   const [isChecked, setIsChecked] = React.useState(false);
   return <div className=' px-4 max-w-5xl md:mt-12 mx-auto w-full flex flex-col gap-4' >
-    <div className=' flex flex-col gap-16 md:gap-20 md:flex-row' >
+    <div className=' flex flex-col gap-16 md:gap-20 lg:flex-row' >
       <div className=' flex md:max-w-60 md:mt-28 shrink-0 flex-col gap-4' >
         <div className=' max-w-44 md:max-w-60 w-full relative items-center justify-center aspect-square flex shrink-0 flex-col gap-4 border border-gray-600 rounded-md ' >
           {
             userImage ? <img src={URL.createObjectURL(userImage)} className=" h-full rounded-md w-full object-cover" alt="" /> : <p className=' text-center p-4' >Upload your image here</p>
           }
-          <div className=" absolute bottom-0 right-0 translate-y-1/2 translate-x-1/2 size-16 bg-red-700 p-1 flex items-center justify-center rounded-full" >
+          <div className=" absolute bottom-0 right-0 translate-y-1/2 translate-x-1/2 size-16 bg-primary-red p-1 flex items-center justify-center rounded-full" >
             <CameraIcon className=' text-white' size={36} />
           </div>
           <input onChange={handleImageUpload} type='file' accept='image/*' className=' absolute opacity-0 w-full h-full inset-0' />
@@ -74,7 +69,7 @@ export default function ShopDetailsSection({ path }) {
 
             <SearchByBrand path="vendor" />
           </div>
-          {/* <div onClick={handleApplyFilter} className=" border border-red-700 flex gap-2 items-center justify-center duration-200 bg-red-700 px-4 py-2 rounded-md cursor-pointer text-white text-center font-semibold mt-6" >
+          {/* <div onClick={handleApplyFilter} className=" border border-primary-red flex gap-2 items-center justify-center duration-200 bg-primary-red px-4 py-2 rounded-md cursor-pointer text-white text-center font-semibold mt-6" >
             <p>Save</p>
             <Save size={20} />
           </div> */}
@@ -89,7 +84,7 @@ export default function ShopDetailsSection({ path }) {
         <div className=' flex mt-6 flex-col gap-2 w-full' >
           <InputFild label={"Shop Name"} />
           <div className=' flex flex-col gap-1' >
-            <p className=" font-semibold" >Shop Description <span className=' text-red-700' >*</span></p>
+            <p className=" font-semibold" >Shop Description <span className=' text-primary-red' >*</span></p>
             <textarea rows={4} type='text' className=' text-sm rounded-md p-2 border ' />
           </div>
           <InputFild label={"Address"} />
@@ -107,21 +102,21 @@ export default function ShopDetailsSection({ path }) {
           </div>
           <div className=' w-full flex flex-col md:flex-row gap-4'  >
             <div className=' w-full flex flex-col gap-1' >
-              <p className=" font-semibold" >Location/Area* <span className=' text-red-700' >*</span></p>
+              <p className=" font-semibold" >Location/Area* <span className=' text-primary-red' >*</span></p>
               <select rows={4} type='text' className=' bg-white text-sm rounded-md p-2 border ' />
             </div>
             <InputFild label={"GST Number"} notNsc={true} />
           </div>
           <div className=' w-full flex flex-col md:flex-row gap-4'  >
             <div className=' w-full flex justify-between flex-col gap-1' >
-              <p className=" font-semibold" >WalkIn Town Additional Discount <span className=' text-red-700' >*</span></p>
+              <p className=" font-semibold" >WalkIn Town Additional Discount <span className=' text-primary-red' >*</span></p>
               <input type='text' className=' bg-white text-sm rounded-md p-2 border ' />
               <div className="mt-2">
                 <TermsAndConditioBusinessDetailsnDialog isChecked={isChecked} setIsChecked={setIsChecked} />
               </div>
             </div>
             <div className=' w-full flex flex-col gap-1' >
-              <div className=' flex gap-1 items-center' >Subscription Plan <span className=' text-red-700' >*</span><Info size={18} color="#666" /></div>
+              <div className=' flex gap-1 items-center' >Subscription Plan <span className=' text-primary-red' >*</span><Info size={18} color="#666" /></div>
               <div className=' flex flex-col gap-1' >
                 <div className=' flex gap-1 items-center' >
                   <input name='radio' type='radio' defaultChecked className=' w-fit' />

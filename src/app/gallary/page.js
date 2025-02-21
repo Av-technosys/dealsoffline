@@ -25,7 +25,7 @@ const Page = () => {
 
         <Link
           href={"/store"}
-          className=" flex items-center justify-center gap-2 border text-center min-w-28 border-red-700 w-fit text-xl cursor-pointer rounded-md px-4 mt-4 py-2 text-red-700 font-semibold"
+          className=" flex items-center justify-center gap-2 border text-center min-w-28 border-primary-red w-fit text-xl cursor-pointer rounded-md px-4 mt-4 py-2 text-primary-red font-semibold"
         >
           <ArrowLeft size={20} />
           <p>Back</p>

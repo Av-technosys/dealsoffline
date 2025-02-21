@@ -5,10 +5,10 @@ import { CalendarForm } from "./datePicker"
 
 export default function OfferDetailsSection() {
   return <div className=' max-w-6xl px-4 md:mt-12 mx-auto flex-col w-full flex gap-4' >
-    <div className=' flex flex-col gap-12 md:gap-16 md:flex-row' >
+    <div className=' flex flex-col gap-12 md:gap-16 lg:flex-row' >
       <div className='flex md:max-w-60 md:mt-28 shrink-0 flex-col gap-4' >
         <div className=' max-w-44 md:max-w-60 relative items-center justify-center aspect-square flex shrink-0 flex-col gap-4 border border-gray-600 rounded-md ' >
-          <div className=" absolute bottom-0 right-0 translate-y-1/2 translate-x-1/2 size-16 bg-red-700 p-1 flex items-center justify-center rounded-full" >
+          <div className=" absolute bottom-0 right-0 translate-y-1/2 translate-x-1/2 size-16 bg-primary-red p-1 flex items-center justify-center rounded-full" >
             <CameraIcon className=' text-white' size={36} />
           </div>
           <img src="./store-pic.jpg" className=" h-full w-full object-cover" alt="" />
@@ -24,24 +24,24 @@ export default function OfferDetailsSection() {
         <div className=' flex mt-4 flex-col gap-4 w-full' >
           <div className=" w-full flex flex-col md:flex-row gap-4" >
             <div className=' w-full flex flex-col gap-1' >
-              <p className={` font-semibold`}>Offer <span className=' text-red-700' >*</span></p>
+              <p className={` font-semibold`}>Offer <span className=' text-primary-red' >*</span></p>
               <input className=" w-full text-sm bg-white rounded-md p-2 border " ></input>
             </div>
           </div>
           <div className=" w-full flex flex-col gap-1" >
-            <p className={` font-semibold`}>Offer Description <span className=' text-red-700' >*</span></p>
+            <p className={` font-semibold`}>Offer Description <span className=' text-primary-red' >*</span></p>
 
             <textarea defaultValue={"Get it soon"} className=" p-2 border w-full min-h-32 rounded h-full" />
           </div>
 
           <div className=" w-full flex flex-col md:flex-row gap-4" >
             <div className=' w-full flex flex-col gap-1' >
-              <p className={` font-semibold`}>Validity From<span className=' text-red-700' >*</span></p>
+              <p className={` font-semibold`}>Validity From<span className=' text-primary-red' >*</span></p>
               <CalendarForm />
             </div>
 
             <div className=' w-full flex flex-col gap-1' >
-              <p className={` font-semibold`}>Validity Till<span className=' text-red-700' >*</span></p>
+              <p className={` font-semibold`}>Validity Till<span className=' text-primary-red' >*</span></p>
               <CalendarForm />
 
             </div>
@@ -53,7 +53,7 @@ export default function OfferDetailsSection() {
           </div>
         </div>
         <div className=' mt-2  flex flex-col gap-2' >
-          <p>Select Template/Image for Offer Display<span className=' text-red-700' >*</span></p>
+          <p>Select Template/Image for Offer Display<span className=' text-primary-red' >*</span></p>
           <div className=" w-full gap-2 items-center flex" >
             <ChevronLeftCircle className="shrink-0" size={20} />
 
@@ -91,7 +91,7 @@ export default function OfferDetailsSection() {
       <div className=' overflow-x-scroll hide-scrollbar' >
 
         <div className=' border rounded-md  w-[70rem]' >
-          <div className=' grid bg-red-700 text-white py-2 grid-cols-7' >
+          <div className=' grid bg-primary-red text-white py-2 grid-cols-7' >
             <div className=' flex gap-2 items-center justify-center' >
               <p>Offer Image</p>
               <Image size={18} />
@@ -107,7 +107,7 @@ export default function OfferDetailsSection() {
             <div className=' flex gap-2 items-center justify-center' >
               <p>Status</p>
               <div className=" border bg-gray-50 p-0.5" >
-                <Check size={18} className=" text-red-700" />
+                <Check size={18} className=" text-primary-red" />
               </div>
             </div>
             <div className=' flex gap-2 items-center justify-center' >
@@ -215,7 +215,7 @@ const offerData = [
 
 function InputFild({ label, inputName, same, notNsc, disable }) {
   return <div className=' w-full flex flex-col gap-1' >
-    <p className={`${disable && " text-gray-400"}`}>{label} {!notNsc && <span className=' text-red-700' >*</span>}</p>
+    <p className={`${disable && " text-gray-400"}`}>{label} {!notNsc && <span className=' text-primary-red' >*</span>}</p>
     <input type='text' defaultValue={inputName} className=' w-full text-sm rounded-md p-2 border ' />
     {
       same && <div className=' flex gap-2 mt-4 items-center' >
@@ -233,12 +233,12 @@ const OfferBottonBts = ({ num }) => {
   return (
     <div className=' w-full mt-12 max-w-5xl mx-auto justify-end flex gap-4 items-center' >
       {showBack &&
-        <div className=' flex items-center gap-2 w-fit rounded-md text-red-700 border-red-700 border px-4 py-2' >
+        <div className=' flex items-center gap-2 w-fit rounded-md text-primary-red border-primary-red border px-4 py-2' >
           <p className=' font-semibold'>Create New</p>
           <CopyPlus size={20} />
         </div>
       }
-      <div className=' w-fit  rounded-md text-white flex items-center gap-2 bg-red-700 px-4 py-2' >
+      <div className=' w-fit  rounded-md text-white flex items-center gap-2 bg-primary-red px-4 py-2' >
         <p className=' font-semibold'>Save Offer</p>
         <Check color='white' size={20} />
       </div>

@@ -12,8 +12,8 @@ export  default function BankDetailsSection() {
           <p className=' text-3xl font-medium text-center md:text-left' >Bank Info</p>
           <p className=' text-gray-600 text-center md:text-left' >Set Up Your Bank Info</p>
           <img src='./qr.png' />
-          <div className=' flex items-center gap-2 border rounded border-red-700 px-3 py-1.5'>
-            <p className=' text-red-700' >Generate a QR code</p>
+          <div className=' flex items-center gap-2 border rounded border-primary-red px-3 py-1.5'>
+            <p className=' text-primary-red' >Generate a QR code</p>
             <ScanQrCode size={18} color='#b91c1c' />
           </div>
         </div>

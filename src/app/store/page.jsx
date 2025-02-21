@@ -40,7 +40,7 @@ const Page = () => {
       <PartnerLoginOTPDialog isOpen={isPartnerOTP} setIsOpen={setIsPartnerOTP} />
 
       <div className=" max-w-7xl mx-auto w-full mt-12  px-6 md:px-4 flex flex-col gap-8">
-        <div className="flex md:border-2 flex-col md:px-4 py-4 mt-12 rounded-xl  gap-6 md:flex-row">
+        <div className="flex md:border-2 flex-col md:px-4 py-4 mt-12 rounded-xl  gap-6 lg:flex-row">
           <div className="flex w-full max-w-xl flex-col gap-4">
             <div className="w-full h-full rounded-md overflow-hidden ">
               <img src="./hero-main.png" className="w-full h-full object-cover" alt="" />
@@ -143,11 +143,11 @@ function AllOffers() {
     <div className=" border w-full p-4 rounded-lg " >
       <p className=" text-4xl font-semibold py-2" >All Offers</p>
       <div className=" items-center w-full border-b-2 border-gray-200 py-2 flex gap-2" >
-        <div className=" size-3 bg-red-700 shrink-0" ></div>
+        <div className=" size-3 bg-primary-red shrink-0" ></div>
         <p className=" font-medium" >Ongoing offers</p>
-        <div className=" size-3 border border-red-700 shrink-0" ></div>
+        <div className=" size-3 border border-primary-red shrink-0" ></div>
         <p className=" font-medium" >Closing soon</p>
-        <div className=" size-3 border border-red-700 shrink-0" ></div>
+        <div className=" size-3 border border-primary-red shrink-0" ></div>
         <p className=" font-medium" >Upcoming Offers</p>
       </div>
       <div className=" flex mt-3 max-h-96 hide-scrollbar overflow-y-scroll px-2  flex-col gap-2" >
@@ -507,7 +507,7 @@ function MobileNavList({ navItems, filterSubNavItems }) {
   return (
     <div>
       <div onClick={() => setShowFullMenu((prev) => !prev)} className=" border-b py-2 flex gap-2 justify-between items-center" >
-        <p className=" text-red-700 font-semibold">{navItems.title}</p>
+        <p className=" text-primary-red font-semibold">{navItems.title}</p>
         <ChevronDownIcon size={20} className={` ${showFullMenu && "rotate-180"} duration-200 transition-all`} />
       </div>
       {

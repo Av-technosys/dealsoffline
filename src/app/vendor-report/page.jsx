@@ -9,10 +9,10 @@ const Page = () => {
             <VendorNavBar page={"report"} />
             <div className=' max-w-7xl w-full px-4 mt-6 mx-auto flex flex-col gap-4' >
                 <p className=' text-2xl font-semibold' >Reports</p>
-                <div className=' flex flex-col md:flex-row gap-4' >
+                <div className=' flex flex-col lg:flex-row gap-4' >
                     <div className=' w-full rounded-lg shadow-md p-4' >
                         <div className=' w-full flex gap-4 items-center justify-between' >
-                            <div className=' text-white bg-red-700 p-1 rounded-xl size-9 flex items-center justify-center' >
+                            <div className=' text-white bg-primary-red p-1 rounded-xl size-9 flex items-center justify-center' >
                                 <ChartPie size={20} />
                             </div>
                             <div className=' flex items-center gap-2' >

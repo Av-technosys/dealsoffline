@@ -18,19 +18,19 @@ const UserNavBar = ({ path, setIsUserNotification, setIsUserProfile, setIsUserSe
         </div>
         <div className=' flex items-center flex-row gap-2' >
           <div className='w-full  flex items-center gap-2' >
-            <div onClick={() => { handleSwitch(setIsUserSetting) }} className={`w-full cursor-pointer justify-center flex items-center gap-2 border border-red-700 px-3 py-1.5 text-red-700 rounded-md ${path == "setting" && "bg-red-700 text-white"}`} >
+            <div onClick={() => { handleSwitch(setIsUserSetting) }} className={`w-full cursor-pointer justify-center flex items-center gap-2 border border-primary-red px-3 py-1.5 text-primary-red rounded-md ${path == "setting" && "bg-primary-red text-white"}`} >
               <p className=' font-medium' >Settings</p>
               <Settings size={20} />
             </div>
           </div>
           <div className=' w-full flex items-center gap-2'>
-            <div onClick={() => { handleSwitch(setIsUserProfile) }} className={`w-full cursor-pointer justify-center flex items-center gap-2 border border-red-700 px-3 py-1.5 text-red-700 rounded-md ${path == "profile" && "bg-red-700 text-white"}`} >
+            <div onClick={() => { handleSwitch(setIsUserProfile) }} className={`w-full cursor-pointer justify-center flex items-center gap-2 border border-primary-red px-3 py-1.5 text-primary-red rounded-md ${path == "profile" && "bg-primary-red text-white"}`} >
               <p className=' font-medium' >Profile</p>
               <User size={20} />
             </div>
             <div onClick={() => { handleSwitch(setIsUserNotification) }} className=' mx-3 relative' >
               <Bell size={20} color='#4b5563' />
-              <p className=' size-5 flex items-center justify-center bg-red-700 rounded-full text-white absolute -top-3 -right-2 text-xs font-semibold  ' >4</p>
+              <p className=' size-5 flex items-center justify-center bg-primary-red rounded-full text-white absolute -top-3 -right-2 text-xs font-semibold  ' >4</p>
             </div>
           </div>
         </div>

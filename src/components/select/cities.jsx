@@ -34,7 +34,7 @@ export function SelectCities() {
 
 function Label() {
     return (
-        <div className='flex items-center gap-1 border-gray-700 text-red-600' >
+        <div className='flex items-center gap-1 border-gray-700 text-primary-red' >
             <MapPin size={18} />
             <p className=' text-gray-700 text-sm font-semibold' >
                 City

@@ -49,9 +49,9 @@ const Page = () => {
                                     <input type="checkbox" className=" size-4" />
                                     <p>Remember Password</p>
                                 </div>
-                                <p onClick={() => setIsPartnerOTPReset(true)} className=' mr-auto md:mr-auto cursor-pointer text-red-600' >Forgot Password ?</p>
+                                <p onClick={() => setIsPartnerOTPReset(true)} className=' mr-auto md:mr-auto cursor-pointer text-primary-red' >Forgot Password ?</p>
                             </div>
-                            <Link href={"/admin/vendor"} className='cursor-pointer flex items-center justify-center gap-2 w-full bg-red-700 text-white text-center font-semibold py-2 px-3 rounded-md' >
+                            <Link href={"/admin/vendor"} className='cursor-pointer flex items-center justify-center gap-2 w-full bg-primary-red text-white text-center font-semibold py-2 px-3 rounded-md' >
                                 <p>Login</p>
                                 <LogIn size={20} />
                             </Link>

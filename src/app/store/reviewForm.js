@@ -30,7 +30,7 @@ function DialogDemo() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <div className="border border-red-700 flex gap-1  md:self-end min-w-40 items-center  justify-center cursor-pointer shrink-0 self-start text-red-700 px-2 py-2 rounded-md">
+        <div className="border border-primary-red flex gap-1  md:self-end min-w-40 items-center  justify-center cursor-pointer shrink-0 self-start text-primary-red px-2 py-2 rounded-md">
           <p className="whitespace-nowrap">Review Us</p>
           <img src="./red-plus.svg" alt="" />
         </div>
@@ -76,7 +76,7 @@ function DialogDemo() {
         >
           <DialogClose>
             {" "}
-            <div className=" border border-red-700 px-3 py-2 flex gap-1 items-center justify-center font-medium rounded-md bg-red-100 text-red-700">
+            <div className=" border border-primary-red px-3 py-2 flex gap-1 items-center justify-center font-medium rounded-md bg-red-100 text-primary-red">
               Cancel <X size={20} />
             </div>
           </DialogClose>

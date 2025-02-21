@@ -18,15 +18,15 @@ const GetCreateOTP = ({ isOpen, setIsOpen, handleUserLogin }) => {
           </DialogDescription>
           <div className=' max-w-80 flex flex-col mx-auto items-center gap-2' >
             <InputOTPComponent />
-            <div onClick={() =>{setIsOpen(false); handleUserLogin(true)}} className='cursor-pointer w-full bg-red-700 text-white text-center font-semibold py-2 px-3 rounded-md' >Verify OTP</div>
+            <div onClick={() =>{setIsOpen(false); handleUserLogin(true)}} className='cursor-pointer w-full bg-primary-red text-white text-center font-semibold py-2 px-3 rounded-md' >Verify OTP</div>
           </div>
-          <p>Request code again<span className=' text-red-600' > 00:59s</span></p>
+          <p>Request code again<span className=' text-primary-red' > 00:59s</span></p>
           <div className=' flex items-center gap-2' >
             <div className=' w-full h-0.5 bg-gray-200' ></div>
             <p>or</p>
             <div className=' w-full h-0.5 bg-gray-200' ></div>
           </div>
-          <p className=' text-center text-sm' >Edit phone number <span className=' text-red-700' >+91-9012345678</span></p>
+          <p className=' text-center text-sm' >Edit phone number <span className=' text-primary-red' >+91-9012345678</span></p>
         </DialogHeader>
       </DialogContent>
     </Dialog>

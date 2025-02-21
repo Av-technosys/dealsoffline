@@ -44,7 +44,7 @@ export default function MobMenu({ Menus, setIsUserProfile }) {
             </Link>
 
             <div className=" w-full flex gap-4 items-center justify-between" >
-              <Link href={"/partner-login"} className="bg-red-700 w-full h-10 justify-center rounded py-2 px-3 flex items-center gap-2">
+              <Link href={"/partner-login"} className="bg-primary-red w-full h-10 justify-center rounded py-2 px-3 flex items-center gap-2">
                 <img src="./nav/hand-shake.png" alt="" />
                 <p className="font-medium whitespace-nowrap text-sm text-white">Partner with us</p>
               </Link>

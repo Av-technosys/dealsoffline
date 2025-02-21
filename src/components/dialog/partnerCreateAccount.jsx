@@ -26,7 +26,7 @@ const PartnerCreateAccount = ({ isOpen, setIsOpen, handleOTPDialog, setUserLogin
                             <input type="text" placeholder='User Id' className=' w-full border py-2 px-3 text-gray-700 rounded-md' />
                             <input type="password" placeholder='Password' className=' w-full border py-2 px-3 text-gray-700 rounded-md' />
                             <input type="text" placeholder='Phone Number' className=' w-full border py-2 px-3 text-gray-700 rounded-md' />
-                            <div onClick={() => { setIsOpen(false); handleOTPDialog(true) }} className='cursor-pointer w-full bg-red-700 text-white text-center font-semibold flex items-center gap-2 justify-center py-2 px-3 rounded-md' >
+                            <div onClick={() => { setIsOpen(false); handleOTPDialog(true) }} className='cursor-pointer w-full bg-primary-red text-white text-center font-semibold flex items-center gap-2 justify-center py-2 px-3 rounded-md' >
                                 <p>Send OTP</p>
                                 <SendHorizontal size={18} />
                             </div>
@@ -36,8 +36,8 @@ const PartnerCreateAccount = ({ isOpen, setIsOpen, handleOTPDialog, setUserLogin
                             <p>or</p>
                             <div className=' w-full h-0.5 bg-gray-200' ></div>
                         </div>
-                        <p>Already have an account ?<span onClick={() => setIsOpen(false)} className=' cursor-pointer text-red-600' > Log In </span></p>
-                        <p className=' text-center text-sm' >By proceeding, you agree to WalkIn Town <span className=' text-red-700' >Terms of Service</span> and acknowledge WalkIn Town <span className=' text-red-700' >Privacy Policy.</span></p>
+                        <p>Already have an account ?<span onClick={() => setIsOpen(false)} className=' cursor-pointer text-primary-red' > Log In </span></p>
+                        <p className=' text-center text-sm' >By proceeding, you agree to WalkIn Town <span className=' text-primary-red' >Terms of Service</span> and acknowledge WalkIn Town <span className=' text-primary-red' >Privacy Policy.</span></p>
                     </div>
                 </div>
             </DialogContent>

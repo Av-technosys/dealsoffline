@@ -68,7 +68,7 @@ export default function DesktopMenu({ menu }) {
             {hasSubMenu &&
               menu.subMenu.map((submenu, index) => (
                 <div key={index} className="  space-y-0.5" >
-                  <h6 className=" leading-5 py-1 font-semibold text-lg text-red-700">{submenu.title}</h6>
+                  <h6 className=" leading-5 py-1 font-semibold text-lg text-primary-red">{submenu.title}</h6>
                   {submenu?.items?.map((item, i) => (
                     <Link href={item.slug} key={i} className=" block text-sm cursor-pointer text-gray-800">
                       {item.name}

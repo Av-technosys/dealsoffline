@@ -78,12 +78,12 @@ const VendorFooterBarFinal = ({ num }) => {
 
       <img src="/swipe-animation.gif" alt="Swipe Animation" className="hidden" />
       {showBack &&
-        <Link href={`/vendor-dashbord?form=${String(num) - 1}`} className=' flex items-center gap-2 w-fit rounded-md text-red-700 border-red-700 border px-4 py-2' >
+        <Link href={`/vendor-dashbord?form=${String(num) - 1}`} className=' flex items-center gap-2 w-fit rounded-md text-primary-red border-primary-red border px-4 py-2' >
           <p className=' font-semibold'>Back</p>
           <ArrowLeft size={20} />
         </Link>
       }
-      <div className=' w-fit rounded-md text-white flex items-center gap-2 bg-red-700 px-4 py-2' >
+      <div className=' w-fit rounded-md text-white flex items-center gap-2 bg-primary-red px-4 py-2' >
         <p className=' font-semibold'>Finish</p>
         <CheckCheck color='white' size={20} />
       </div>

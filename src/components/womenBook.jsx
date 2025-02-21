@@ -17,7 +17,7 @@ export default function WomenBox() {
               <div key={idx} className=" flex flex-col gap-1">
                 <div className=' flex items-center gap-1' >
                   <input type="checkbox" className=' size-3' />
-                  <p className=" text-xl font-semibold text-red-700">
+                  <p className=" text-xl font-semibold text-primary-red">
                     {data.title}
                   </p>
                 </div>

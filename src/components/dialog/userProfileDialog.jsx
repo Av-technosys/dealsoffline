@@ -25,7 +25,7 @@ const UserProfileDialog = ({ isOpen, setIsUserNotification, setIsUserProfile, se
                                         {
                                             userImage ? <img src={URL.createObjectURL(userImage)} className=" h-full rounded-md w-full object-cover" alt="" /> : <p className=' p-4' >Upload your image here</p>
                                         }
-                                        <div className=" absolute bottom-0 right-0 translate-y-1/2 translate-x-1/2 size-16 bg-red-700 p-1 flex items-center justify-center rounded-full" >
+                                        <div className=" absolute bottom-0 right-0 translate-y-1/2 translate-x-1/2 size-16 bg-primary-red p-1 flex items-center justify-center rounded-full" >
                                             <CameraIcon className=' text-white' size={36} />
                                         </div>
                                         <input onChange={handleImageUpload} type='file' accept='image/*' className=' absolute opacity-0 w-full h-full inset-0' />
@@ -87,7 +87,7 @@ const UserProfileDialog = ({ isOpen, setIsUserNotification, setIsUserProfile, se
                                             <p>Married</p>
                                         </div>
                                     </div>
-                                    <div onClick={() => { setIsUserProfile(false) }} className=' cursor-pointer bg-red-700 text-white flex items-center justify-center gap-2 px-3 py-2 rounded-md w-fit ml-auto' >
+                                    <div onClick={() => { setIsUserProfile(false) }} className=' cursor-pointer bg-primary-red text-white flex items-center justify-center gap-2 px-3 py-2 rounded-md w-fit ml-auto' >
                                         <p>Save</p>
                                         <Check size={18} />
                                     </div>
@@ -108,12 +108,12 @@ export default UserProfileDialog
 
 function InputFildNumber({ label, inputName, notNsc, disable }) {
     return <div className=' text-left w-full flex flex-col gap-1' >
-        <p className={` font-semibold py-1 text-left ${disable && " text-gray-400"}`}>{label} {!notNsc && <span className=' text-red-700' >*</span>}</p>
+        <p className={` font-semibold py-1 text-left ${disable && " text-gray-400"}`}>{label} {!notNsc && <span className=' text-primary-red' >*</span>}</p>
         <input type='text' defaultValue={inputName} className=' w-full text-sm rounded-md p-2 border ' />
         <div className=' flex mt-2 items-center gap-6'>
             <div className=' flex gap-2 items-center' >
                 <input type='checkbox' className=' size-4' ></input>
-                <p className=' text-red-600 ' >Click to allow offers on Whats App.</p>
+                <p className=' text-primary-red ' >Click to allow offers on Whats App.</p>
             </div>
         </div>
     </div>
@@ -122,7 +122,7 @@ function InputFildNumber({ label, inputName, notNsc, disable }) {
 
 function InputFild({ label, inputName, same, notNsc, disable }) {
     return <div className=' w-full flex flex-col gap-1' >
-        <p className={` font-semibold py-1 text-left ${disable && " text-gray-400"}`}>{label} {!notNsc && <span className=' text-red-700' >*</span>}</p>
+        <p className={` font-semibold py-1 text-left ${disable && " text-gray-400"}`}>{label} {!notNsc && <span className=' text-primary-red' >*</span>}</p>
         <input type='text' defaultValue={inputName} className=' w-full text-sm rounded-md p-2 border ' />
         {
             same && <div className=' flex gap-2 mt-4 items-center' >

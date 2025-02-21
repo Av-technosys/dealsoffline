@@ -52,10 +52,10 @@ function ShopDetails({ isRed }) {
 }
 function BankDetails({ isRed }) {
     return <div className=' flex w-16 flex-col gap-2 items-center ' >
-        <Link href={`/vendor-dashbord?form=3`} className={`  size-10 md:size-16 flex items-center justify-center rounded-full  ${isRed ? "bg-red-700" : " bg-gray-300"}`} >
+        <Link href={`/vendor-dashbord?form=3`} className={`  size-10 md:size-16 flex items-center justify-center rounded-full  ${isRed ? "bg-primary-red" : " bg-gray-300"}`} >
             <Landmark className={`size-6 md:size-9  ${isRed ? " text-white" : " text-black"} `} />
         </Link>
-        <p className={`text-xs  font-semibold text-center ${isRed ? " text-red-700" : " text-black"} `} >Bank Details</p>
+        <p className={`text-xs  font-semibold text-center ${isRed ? " text-primary-red" : " text-black"} `} >Bank Details</p>
 
     </div>
 }
@@ -80,7 +80,7 @@ function PromoteMyStore({ isRed }) {
 function StoreImage() {
     return <div className=' shrink-0 relative' >
         <img src='./store.png' />
-        <div className=' -bottom-3 size-12 absolute rounded-full flex items-center justify-center bg-red-700 -right-3' >
+        <div className=' -bottom-3 size-12 absolute rounded-full flex items-center justify-center bg-primary-red -right-3' >
             <Camera className=' text-white' />
         </div>
     </div>

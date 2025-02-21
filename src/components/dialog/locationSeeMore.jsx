@@ -15,11 +15,11 @@ function LocationShowMore({ itemsToShow, selectedFields, setSelectedFields, path
     return (
         <Dialog>
             <DialogTrigger asChild>
-                <button className=" shrink-0 text-xs text-red-700 font-semibold">show more</button>
+                <button className=" shrink-0 text-xs text-primary-red font-semibold">show more</button>
             </DialogTrigger>
             <DialogContent showCloseButton={true} className="w-full">
                 <DialogHeader>
-                    <DialogTitle className=" text-red-700 capitalize" >Others location </DialogTitle>
+                    <DialogTitle className=" text-primary-red capitalize" >Others location </DialogTitle>
                     <div className=" !mt-12 flex gap-3 flex-wrap" >
                         {
                             itemsToShow?.slice(0, 6).map((data) => {
@@ -33,7 +33,7 @@ function LocationShowMore({ itemsToShow, selectedFields, setSelectedFields, path
                 </DialogHeader>
                 <DialogFooter>
                     <DialogClose className='w-full' >
-                        <div onClick={handleApplyChange} className=' bg-red-700 px-4 py-2 flex items-center gap-2 rounded-md mt-4 text-white text-center font-semibold cursor-pointer w-fit ml-auto' >
+                        <div onClick={handleApplyChange} className=' bg-primary-red px-4 py-2 flex items-center gap-2 rounded-md mt-4 text-white text-center font-semibold cursor-pointer w-fit ml-auto' >
                             <p>{path && path === "vendor" ? "Save" : "Apply"}</p>
                             {
                                 path && path === "vendor" ? <Save size={20} /> : <Check size={20} />

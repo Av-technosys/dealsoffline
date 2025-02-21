@@ -18,25 +18,25 @@ const PartnerOTPResetPass = ({ isOpen, setIsOpen, handleNextDialog }) => {
                         <img src="./user-login.svg" className=' size-32 mx-auto' alt="" />
                         <DialogTitle className="text-center text-3xl flex items-center gap-2 font-semibold" >
                             <p>Enter OTP</p>
-                            <LockKeyhole className=' text-red-700' />
+                            <LockKeyhole className=' text-primary-red' />
                         </DialogTitle>
                         <p className="text-center" >
                             A 4 digit code has been sent to you
                         </p>
                         <div className=' max-w-80 flex flex-col mx-auto items-center gap-2' >
                             <InputOTPComponent />
-                            <div onClick={() => { setIsOpen(false); handleNextDialog(true) }} className='cursor-pointer w-full bg-red-700 text-white text-center font-semibold flex gap-2 items-center justify-center py-2 px-3 rounded-md' >
+                            <div onClick={() => { setIsOpen(false); handleNextDialog(true) }} className='cursor-pointer w-full bg-primary-red text-white text-center font-semibold flex gap-2 items-center justify-center py-2 px-3 rounded-md' >
                                 <p>Verify OTP</p>
                                 <Check size={20} />
                             </div>
                         </div>
-                        <p>Request code again<span className=' text-red-600' > 00:59s</span></p>
+                        <p>Request code again<span className=' text-primary-red' > 00:59s</span></p>
                         <div className=' flex items-center gap-2' >
                             <div className=' w-full h-0.5 bg-gray-200' ></div>
                             <p>or</p>
                             <div className=' w-full h-0.5 bg-gray-200' ></div>
                         </div>
-                        <p className=' text-center text-sm' >Edit phone number <span className=' text-red-700' >+91-9012345678</span></p>
+                        <p className=' text-center text-sm' >Edit phone number <span className=' text-primary-red' >+91-9012345678</span></p>
                     </div>
                 </div>
             </DialogContent>

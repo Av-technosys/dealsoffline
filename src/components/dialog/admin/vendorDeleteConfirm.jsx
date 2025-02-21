@@ -18,8 +18,8 @@ const DeleteVendor = ({ isOpen, setIsOpen, handleOTPDialog }) => {
                     </DialogDescription>
                     <div className=' w-full pt-8 justify-between gap-4 flex items-center' >
 
-                        <p onClick={handleChangePass} className='cursor-pointer w-full border border-red-700  text-center font-semibold py-2 px-3 rounded-md' >Cancel</p>
-                        <p onClick={handleChangePass} className='cursor-pointer w-full bg-red-700 text-white text-center font-semibold py-2 px-3 rounded-md' >Delete</p>
+                        <p onClick={handleChangePass} className='cursor-pointer w-full border border-primary-red  text-center font-semibold py-2 px-3 rounded-md' >Cancel</p>
+                        <p onClick={handleChangePass} className='cursor-pointer w-full bg-primary-red text-white text-center font-semibold py-2 px-3 rounded-md' >Delete</p>
                     </div>
 
                 </DialogHeader>

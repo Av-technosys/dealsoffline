@@ -11,7 +11,7 @@ const TermsAndConditioBusinessDetailsnDialog = ({isChecked, setIsChecked}) => {
             <DialogTrigger >
                 <div className=' flex items-center gap-2' >
                     <input checked={isChecked} onChange={()=> setIsChecked((prev)=> !prev)} type="checkbox" className=" size-4" />
-                    <p className=' text-gray-600 text-sm' >Terms and Conditions<span className=' text-red-700' >*</span></p>
+                    <p className=' text-gray-600 text-sm' >Terms and Conditions<span className=' text-primary-red' >*</span></p>
                     <Info size={18} />
                 </div>
             </DialogTrigger>
@@ -19,7 +19,7 @@ const TermsAndConditioBusinessDetailsnDialog = ({isChecked, setIsChecked}) => {
                 <DialogHeader className={"flex flex-col space-y-1.5 py-8 items-center text-center sm:text-left"} >
                     <DialogTitle></DialogTitle>
                     <div className=' flex flex-col gap-3' >
-                        <p className=' text-3xl font-semibold text-red-700' >Terms and Conditions</p>
+                        <p className=' text-3xl font-semibold text-primary-red' >Terms and Conditions</p>
                         <p className=' font-semibold text-lg' >Your Agreement</p>
                         <p className='max-h-[40vh] md:max-h-[65vh] overflow-y-auto' >Welcome to WalkIn Town! By registering as a retailer and using our platform to showcase your store offers to customers, you agree to comply with the following terms and conditions. Please read these carefully before proceeding. If you do not agree with any part of these terms, you should not use our platform.
                             <br></br>
@@ -91,11 +91,11 @@ const TermsAndConditioBusinessDetailsnDialog = ({isChecked, setIsChecked}) => {
                             <p>I confirm that I have read and accept the terms and conditions and privacy policy.</p>
                         </div>
                         <div className=' flex items-center gap-3' >
-                            <DialogClose className=' flex items-center gap-2 px-3 py-2 text-red-700 border border-red-700 font-semibold rounded-md' >
+                            <DialogClose className=' flex items-center gap-2 px-3 py-2 text-primary-red border border-primary-red font-semibold rounded-md' >
                                 <p>Reject</p>
                                 <X size={20} />
                             </DialogClose>
-                            <DialogClose className={`flex items-center gap-2 px-3 py-2 bg-red-700 text-white font-semibold rounded-md ${!isChecked && "bg-red-700/50 "}`} >
+                            <DialogClose className={`flex items-center gap-2 px-3 py-2 bg-primary-red text-white font-semibold rounded-md ${!isChecked && "bg-primary-red/50 "}`} >
                                 <p>Accept</p>
                                 <Check size={20} />
                             </DialogClose>

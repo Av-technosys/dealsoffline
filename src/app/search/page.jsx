@@ -57,7 +57,7 @@ const Page = () => {
           <p className="text-4xl md:text-5xl uppercase font-semibold text-white">
             weekend sale
           </p>
-          <p className="text-6xl md:text-7xl uppercase font-bold text-red-700">
+          <p className="text-6xl md:text-7xl uppercase font-bold text-primary-red">
             buy now
           </p>
           <p className="text-4xl md:text-5xl uppercase font-semibold text-white">
@@ -144,7 +144,7 @@ const Page = () => {
                 <p className=" font-medium">Closing Today</p>
               </div>
             </div>
-            <div className=" border border-red-700 flex gap-2 items-center justify-center duration-200 bg-red-700 px-4 py-2 rounded-md cursor-pointer text-white text-center font-semibold mt-6" >
+            <div className=" border border-primary-red flex gap-2 items-center justify-center duration-200 bg-primary-red px-4 py-2 rounded-md cursor-pointer text-white text-center font-semibold mt-6" >
               <p>Apply</p>
               <Check size={20} />
             </div>

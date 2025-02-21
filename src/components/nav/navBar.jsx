@@ -47,7 +47,7 @@ const NavBar = ({}) => {
                 </div>
               </Link>
 
-              <Link href={"/partner-login"} className="bg-red-700 h-10 shrink-0 rounded py-2 px-3 flex items-center gap-2">
+              <Link href={"/partner-login"} className="bg-primary-red h-10 shrink-0 rounded py-2 px-3 flex items-center gap-2">
                 <img src="./nav/hand-shake.png" alt="" />
                 <p className="font-medium whitespace-nowrap text-sm text-white">Partner with us</p>
               </Link>

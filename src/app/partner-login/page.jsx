@@ -49,9 +49,9 @@ const Page = () => {
                                     <input type="checkbox" className=" size-4" />
                                     <p>Remember Password</p>
                                 </div>
-                                <p onClick={() => setIsPartnerOTPReset(true)} className=' cursor-pointer mr-auto md:ml-auto text-red-600' >Forgot Password ?</p>
+                                <p onClick={() => setIsPartnerOTPReset(true)} className=' cursor-pointer mr-auto md:ml-auto text-primary-red' >Forgot Password ?</p>
                             </div>
-                            <Link href={"/vendor-dashbord"} className='cursor-pointer flex items-center justify-center gap-2 w-full bg-red-700 text-white text-center font-semibold py-2 px-3 rounded-md' >
+                            <Link href={"/vendor-dashbord"} className='cursor-pointer flex items-center justify-center gap-2 w-full bg-primary-red text-white text-center font-semibold py-2 px-3 rounded-md' >
                                 <p>Login</p>
                                 <LogIn size={20} />
                             </Link>
@@ -62,8 +62,8 @@ const Page = () => {
                             <p>or</p>
                             <div className=' w-full h-0.5 bg-gray-200' ></div>
                         </div>
-                        <p>Don’t have an account ? <span onClick={() => setIsPartnerCreateAccount(true)} className=' cursor-pointer text-red-600' > Create Account</span></p>
-                        <p className=' mx-auto max-w-xl text-gray-600 text-center text-sm' >By proceeding, you agree to WalkIn Town <span className=' text-red-700' >Terms of Service</span> and acknowledge WalkIn Town <span className=' text-red-700' >Privacy Policy.</span></p>
+                        <p>Don’t have an account ? <span onClick={() => setIsPartnerCreateAccount(true)} className=' cursor-pointer text-primary-red' > Create Account</span></p>
+                        <p className=' mx-auto max-w-xl text-gray-600 text-center text-sm' >By proceeding, you agree to WalkIn Town <span className=' text-primary-red' >Terms of Service</span> and acknowledge WalkIn Town <span className=' text-primary-red' >Privacy Policy.</span></p>
                     </div>
                 </div>
             </div>

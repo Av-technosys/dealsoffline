@@ -17,7 +17,7 @@ const ChangePassDialog = ({ isOpen, setIsOpen, handleUserLogin }) => {
                     <div className=' max-w-80 flex flex-col mx-auto items-center gap-2' >
                         <input type="text" placeholder='New Password' className=' w-full border py-2 px-3 text-gray-700 rounded-md' />
                         <input type="text" placeholder='Confirm Password' className=' w-full border py-2 px-3 text-gray-700 rounded-md' />
-                        <div onClick={()=>{setIsOpen(false) ;handleUserLogin(true)}} className='cursor-pointer w-full bg-red-700 text-white text-center font-semibold py-2 px-3 rounded-md' >Save</div>
+                        <div onClick={()=>{setIsOpen(false) ;handleUserLogin(true)}} className='cursor-pointer w-full bg-primary-red text-white text-center font-semibold py-2 px-3 rounded-md' >Save</div>
                     </div>
                 </DialogHeader>
             </DialogContent>

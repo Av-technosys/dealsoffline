@@ -1,7 +1,7 @@
 
 export default function InputFild({ label, inputName, same, notNsc, disable }) {
   return <div className=' w-full flex flex-col gap-1' >
-    <p className={`font-semibold`}>{label} {!notNsc && <span className=' text-red-700' >*</span>}</p>
+    <p className={`font-semibold`}>{label} {!notNsc && <span className=' text-primary-red' >*</span>}</p>
     <input type='text' defaultValue={inputName} className=' w-full text-sm rounded-md p-2 border ' />
     {
       same && <div className=' flex gap-2 mt-4 items-center' >

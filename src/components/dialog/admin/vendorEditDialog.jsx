@@ -93,7 +93,7 @@ function ProfileSection() {
 
 function InputFildNumber({ label, inputName, notNsc, disable }) {
     return <div className=' w-full flex flex-col gap-1' >
-        <p className={`${disable && " text-gray-400"} font-semibold`}>{label} {!notNsc && <span className=' text-red-700' >*</span>}</p>
+        <p className={`${disable && " text-gray-400"} font-semibold`}>{label} {!notNsc && <span className=' text-primary-red' >*</span>}</p>
         <input type='text' defaultValue={inputName} className=' w-full text-sm rounded-md p-2 border ' />
         <div className=' flex mt-4 items-center gap-6'>
             <div className=' flex gap-2 items-center' >
@@ -114,7 +114,7 @@ function ShopDetailsSection() {
     }
     const [isChecked, setIsChecked] = React.useState(false);
     return <div className=' text-left px-4 max-w-[96vw] pt-6 md:max-w-5xl mt-12 mx-auto w-full flex flex-col gap-4' >
-        <div className=' flex flex-col gap-8 md:gap-16 md:flex-row' >
+        <div className=' flex flex-col gap-8 md:gap-16 lg:flex-row' >
             <div className=' flex md:max-w-60 md:mt-28 shrink-0 flex-col gap-12' >
                 <VendorProfileImage />
 
@@ -157,7 +157,7 @@ function ShopDetailsSection() {
                         } */}
                         <SearchByBrand path="vendor" />
                     </div>
-                    <div onClick={handleApplyFilter} className=" border border-red-700 flex gap-2 items-center justify-center duration-200 bg-red-700 px-4 py-2 rounded-md cursor-pointer text-white text-center font-semibold mt-6" >
+                    <div onClick={handleApplyFilter} className=" border border-primary-red flex gap-2 items-center justify-center duration-200 bg-primary-red px-4 py-2 rounded-md cursor-pointer text-white text-center font-semibold mt-6" >
                         <p>Save</p>
                         <Save size={20} />
                     </div>                </div>
@@ -171,7 +171,7 @@ function ShopDetailsSection() {
                 <div className=' flex mt-6 flex-col gap-2 w-full' >
                     <InputFild label={"Shop Name"} />
                     <div className=' flex flex-col gap-1' >
-                        <p className=' font-semibold' >Shop Description <span className=' text-red-700' >*</span></p>
+                        <p className=' font-semibold' >Shop Description <span className=' text-primary-red' >*</span></p>
                         <textarea rows={4} type='text' className=' text-sm rounded-md p-2 border ' />
                     </div>
                     <InputFild label={"Address"} />
@@ -189,21 +189,21 @@ function ShopDetailsSection() {
                     </div>
                     <div className=' mt-1 w-full flex flex-col md:flex-row gap-4'  >
                         <div className=' w-full flex flex-col gap-1' >
-                            <p className=' font-semibold' >Location/Area* <span className=' text-red-700' >*</span></p>
+                            <p className=' font-semibold' >Location/Area* <span className=' text-primary-red' >*</span></p>
                             <select rows={4} type='text' className=' bg-white text-sm rounded-md p-2 border ' />
                         </div>
                         <InputFild label={"GST Number"} notNsc={true} />
                     </div>
                     <div className=' w-full flex flex-col md:flex-row gap-4'  >
                         <div className=' mt-1 w-full flex justify-between flex-col gap-1' >
-                            <p className=' font-semibold' >WalkIn Town Additional Discount <span className=' text-red-700' >*</span></p>
+                            <p className=' font-semibold' >WalkIn Town Additional Discount <span className=' text-primary-red' >*</span></p>
                             <input type='text' className=' bg-white text-sm rounded-md p-2 border ' />
                             <div className=" mt-2">
                                 <TermsAndConditioBusinessDetailsnDialog isChecked={isChecked} setIsChecked={setIsChecked} />
                             </div>
                         </div>
                         <div className=' w-full flex flex-col gap-1' >
-                            <div className=' flex gap-1 font-semibold items-center' >Subscription Plan <span className=' text-red-700' >*</span><Info size={18} color="#666" /></div>
+                            <div className=' flex gap-1 font-semibold items-center' >Subscription Plan <span className=' text-primary-red' >*</span><Info size={18} color="#666" /></div>
                             <div className=' flex flex-col gap-1' >
                                 <div className=' flex gap-1 items-center' >
                                     <input name='radio' type='radio' defaultChecked className=' w-fit' />
@@ -258,8 +258,8 @@ function BankDetailsSection() {
                 <p className=' text-3xl font-medium text-center md:text-left' >Bank Info</p>
                 <p className=' text-gray-600 text-center md:text-left' >Set Up Your Bank Info</p>
                 <img src='./../qr.png' />
-                <div className=' flex items-center gap-2 border rounded border-red-700 px-3 py-1.5'>
-                    <p className=' text-red-700' >Generate a QR code</p>
+                <div className=' flex items-center gap-2 border rounded border-primary-red px-3 py-1.5'>
+                    <p className=' text-primary-red' >Generate a QR code</p>
                     <ScanQrCode size={18} color='#b91c1c' />
                 </div>
             </div>
@@ -296,11 +296,11 @@ function BankDetailsSection() {
 
 // Step Four
 function OfferDetailsSection() {
-    return <div className=' text-left max-w-[96vw] pt-6 md:max-w-6xl px-4 mt-12 mx-auto flex-col w-full flex gap-4' >
-        <div className=' flex flex-col gap-12 md:flex-row' >
+    return <div className=' text-left max-w-[96vw] pt-6 lg:max-w-6xl px-4 mt-12 mx-auto flex-col w-full flex gap-4' >
+        <div className=' flex flex-col gap-12 lg:flex-row' >
             <div className='flex md:max-w-60 w-full md:mt-28 shrink-0 flex-col gap-4' >
                 <div className=' max-w-44 md:max-w-60 relative items-center justify-center aspect-square flex shrink-0 flex-col gap-4 border border-gray-600 rounded-md ' >
-                    <div className=" absolute bottom-0 right-0 translate-y-1/2 translate-x-1/2 size-16 bg-red-700 p-1 flex items-center justify-center rounded-full" >
+                    <div className=" absolute bottom-0 right-0 translate-y-1/2 translate-x-1/2 size-16 bg-primary-red p-1 flex items-center justify-center rounded-full" >
                         <CameraIcon className=' text-white' size={36} />
                     </div>
                     <img src="./../store-pic.jpg" className=" h-full w-full object-cover" alt="" />
@@ -316,24 +316,24 @@ function OfferDetailsSection() {
                 <div className=' flex mt-6 flex-col gap-4 w-full' >
                     <div className=" w-full flex flex-col md:flex-row gap-4" >
                         <div className=' w-full flex flex-col gap-1' >
-                            <p className={` font-semibold`}>Offer <span className=' text-red-700' >*</span></p>
+                            <p className={` font-semibold`}>Offer <span className=' text-primary-red' >*</span></p>
                             <input className=" w-full text-sm bg-white rounded-md p-2 border " ></input>
                         </div>
                     </div>
                     <div className=" w-full flex flex-col gap-1" >
-                        <p className={` font-semibold`}>Offer Description <span className=' text-red-700' >*</span></p>
+                        <p className={` font-semibold`}>Offer Description <span className=' text-primary-red' >*</span></p>
 
                         <textarea defaultValue={"Get it soon"} className=" p-2 border w-full min-h-24 md:min-h-32 rounded h-full" />
                     </div>
 
                     <div className=" w-full flex flex-col md:flex-row gap-4" >
                         <div className=' w-full flex flex-col gap-1' >
-                            <p className={` font-semibold`}>Validity From<span className=' text-red-700' >*</span></p>
+                            <p className={` font-semibold`}>Validity From<span className=' text-primary-red' >*</span></p>
                             <CalendarForm />
                         </div>
 
                         <div className=' w-full flex flex-col gap-1' >
-                            <p className={` font-semibold`}>Validity Till<span className=' text-red-700' >*</span></p>
+                            <p className={` font-semibold`}>Validity Till<span className=' text-primary-red' >*</span></p>
                             <CalendarForm />
 
                         </div>
@@ -345,7 +345,7 @@ function OfferDetailsSection() {
                     </div>
                 </div>
                 <div className=' mt-2  flex flex-col gap-2' >
-                    <p>Select Template/Image for Offer Display<span className=' text-red-700' >*</span></p>
+                    <p>Select Template/Image for Offer Display<span className=' text-primary-red' >*</span></p>
                     <div className=" w-full gap-2 items-center flex" >
                         <ChevronLeftCircle className="shrink-0" size={20} />
 
@@ -382,7 +382,7 @@ function OfferDetailsSection() {
             <p className=' text-lg font-semibold pt-4 pb-2' >Offer History</p>
             <div className=" overflow-x-auto hide-scrollbar">
                 <div className=' border rounded-md  w-[70rem]' >
-                    <div className=' grid bg-red-700 text-white py-2 grid-cols-7' >
+                    <div className=' grid bg-primary-red text-white py-2 grid-cols-7' >
                         <div className=' flex gap-2 items-center justify-center' >
                             <p>Offer Image</p>
                             <Image size={18} />
@@ -398,7 +398,7 @@ function OfferDetailsSection() {
                         <div className=' flex gap-2 items-center justify-center' >
                             <p>Status</p>
                             <div className=" border bg-gray-50 p-0.5" >
-                                <Check size={18} className=" text-red-700" />
+                                <Check size={18} className=" text-primary-red" />
                             </div>
                         </div>
                         <div className=' flex gap-2 items-center justify-center' >
@@ -505,7 +505,7 @@ const offerData = [
 
 function InputFild({ label, inputName, same, notNsc, disable }) {
     return <div className=' w-full flex flex-col gap-1' >
-        <p className={` font-semibold`}>{label} {!notNsc && <span className=' text-red-700' >*</span>}</p>
+        <p className={` font-semibold`}>{label} {!notNsc && <span className=' text-primary-red' >*</span>}</p>
         <input type='text' defaultValue={inputName} className=' w-full text-sm rounded-md p-2 border ' />
         {
             same && <div className=' flex gap-2 mt-4 items-center' >
@@ -523,12 +523,12 @@ const OfferBottonBts = ({ num }) => {
     return (
         <div className=' w-full mt-12 max-w-5xl mx-auto justify-center md:justify-end flex gap-4 items-center' >
             {showBack &&
-                <div className=' flex items-center gap-2 w-full sm:w-fit justify-center rounded-md text-red-700 border-red-700 border px-4 py-2' >
+                <div className=' flex items-center gap-2 w-full sm:w-fit justify-center rounded-md text-primary-red border-primary-red border px-4 py-2' >
                     <p className=' font-semibold'>Create New</p>
                     <CopyPlus size={20} />
                 </div>
             }
-            <div className=' w-full sm:w-fit justify-center  rounded-md text-white flex items-center gap-2 bg-red-700 px-4 py-2' >
+            <div className=' w-full sm:w-fit justify-center  rounded-md text-white flex items-center gap-2 bg-primary-red px-4 py-2' >
                 <p className=' font-semibold'>Save Offer</p>
                 <Check color='white' size={20} />
             </div>
@@ -559,7 +559,7 @@ function PromoteMyStoreSection() {
                     </div>
                     <div className=' flex gap-1 items-center' >
                         <input name='radio' type='radio' defaultChecked className=' w-fit' />
-                        <p className='  text-red-700' >Gold</p>
+                        <p className='  text-primary-red' >Gold</p>
                     </div>
                     <div className=' flex gap-1 items-center' >
                         <input name='radio' type='radio' className=' w-fit' />
@@ -568,26 +568,26 @@ function PromoteMyStoreSection() {
                 </div>
             </div>
             <div className=' px-4 md:px-0 flex gap-4 flex-col md:flex-row max-w-3xl mx-auto w-full'>
-                <div className=' flex flex-col gap-2 rounded-md border h-96 w-full border-red-700 p-3'>
-                    <p className=' border-b-2 text-red-700 font-semibold text-lg py-2 text-center' >Silver</p>
-                    <p> <span className=' text-red-700'>-</span> Free Listing</p>
-                    <p> <span className=' text-red-700'>-</span> Get discovered InTown through search</p>
+                <div className=' flex flex-col gap-2 rounded-md border h-96 w-full border-primary-red p-3'>
+                    <p className=' border-b-2 text-primary-red font-semibold text-lg py-2 text-center' >Silver</p>
+                    <p> <span className=' text-primary-red'>-</span> Free Listing</p>
+                    <p> <span className=' text-primary-red'>-</span> Get discovered InTown through search</p>
                     <div className=' h-full flex items-end justify-center'>
                         <img src='./../silver.png' className='' />
                     </div>
                 </div>
-                <div className=' flex from-yellow-200 via-20% via-yellow-50 to-yellow-500 bg-gradient-to-b flex-col gap-2 rounded-md border h-96 w-full border-red-700 p-3'>
-                    <p className=' border-b-2 text-red-700 font-semibold text-lg py-2 text-center' >Gold</p>
-                    <p> <span className=' text-red-700'>-</span> Gold - Enhanced Visibility</p>
-                    <p> <span className=' text-red-700'>-</span> Get featured in prominent app sections and update your offers monthly</p>
+                <div className=' flex from-yellow-200 via-20% via-yellow-50 to-yellow-500 bg-gradient-to-b flex-col gap-2 rounded-md border h-96 w-full border-primary-red p-3'>
+                    <p className=' border-b-2 text-primary-red font-semibold text-lg py-2 text-center' >Gold</p>
+                    <p> <span className=' text-primary-red'>-</span> Gold - Enhanced Visibility</p>
+                    <p> <span className=' text-primary-red'>-</span> Get featured in prominent app sections and update your offers monthly</p>
                     <div className='  h-full flex items-end justify-center'>
                         <img src='./../gold.png' className='' />
                     </div>
                 </div>
-                <div className=' flex from-zinc-200 via-20% via-zinc-50 to-zinc-400 bg-gradient-to-b flex-col gap-2 rounded-md border h-96 w-full border-red-700 p-3'>
-                    <p className=' border-b-2 text-red-700 font-semibold text-lg py-2 text-center' >Platinum</p>
-                    <p> <span className=' text-red-700'>-</span> Platinum - Maximum Exposure</p>
-                    <p> <span className=' text-red-700'>-</span> Get premium placement, weekly offer updates, and priority support</p>
+                <div className=' flex from-zinc-200 via-20% via-zinc-50 to-zinc-400 bg-gradient-to-b flex-col gap-2 rounded-md border h-96 w-full border-primary-red p-3'>
+                    <p className=' border-b-2 text-primary-red font-semibold text-lg py-2 text-center' >Platinum</p>
+                    <p> <span className=' text-primary-red'>-</span> Platinum - Maximum Exposure</p>
+                    <p> <span className=' text-primary-red'>-</span> Get premium placement, weekly offer updates, and priority support</p>
                     <div className=' h-full flex items-end justify-center'>
                         <img src='./../platinum.png' className='' />
                     </div>
@@ -605,7 +605,7 @@ function PromoteMyStoreSection() {
                     {
                         planData.map((data) => {
                             return <div key={data.name} className='  mx-auto w-full max-w-52 flex flex-col' >
-                                <p className=' text-red-700' >{data.name}</p>
+                                <p className=' text-primary-red' >{data.name}</p>
                                 <div className='' >
                                     {
                                         data.data?.map((item) => {
@@ -664,12 +664,12 @@ const VendorFooterBar = ({ currentStep, setCurrentStep, setIsOpen }) => {
     return (
         <div className=' w-full px-4 pt-12 max-w-5xl justify-end flex gap-4 items-center' >
             {showPrev &&
-                <div onClick={() => setCurrentStep(currentStep - 1)} className=' flex items-center gap-2 w-fit rounded-md text-red-700 border-red-700 border px-4 py-2' >
+                <div onClick={() => setCurrentStep(currentStep - 1)} className=' flex items-center gap-2 w-fit rounded-md text-primary-red border-primary-red border px-4 py-2' >
                     <p className=' font-semibold'>Back</p>
                     <ArrowLeft size={20} />
                 </div>
             }
-            <div onClick={handleNext} className=' w-fit  rounded-md text-white flex items-center gap-2 bg-red-700 px-4 py-2' >
+            <div onClick={handleNext} className=' w-fit  rounded-md text-white flex items-center gap-2 bg-primary-red px-4 py-2' >
                 <p className=' font-semibold'>{isLast ? "Finish" : "Next"}</p>
                 <ArrowRight color='white' size={20} />
             </div>
@@ -684,12 +684,12 @@ const VendorFooterBarFinal = ({ num }) => {
 
             <img src="/swipe-animation.gif" alt="Swipe Animation" className="hidden" />
             {showBack &&
-                <Link href={`/vendor-dashbord?form=${String(num) - 1}`} className=' flex items-center gap-2 w-fit rounded-md text-red-700 border-red-700 border px-4 py-2' >
+                <Link href={`/vendor-dashbord?form=${String(num) - 1}`} className=' flex items-center gap-2 w-fit rounded-md text-primary-red border-primary-red border px-4 py-2' >
                     <p className=' font-semibold'>Back</p>
                     <ArrowLeft size={20} />
                 </Link>
             }
-            <div className=' w-fit rounded-md text-white flex items-center gap-2 bg-red-700 px-4 py-2' >
+            <div className=' w-fit rounded-md text-white flex items-center gap-2 bg-primary-red px-4 py-2' >
                 <p className=' font-semibold'>Finish</p>
                 <CheckCheck color='white' size={20} />
             </div>
@@ -741,10 +741,10 @@ function ShopDetails({ isRed, setCurrentStep }) {
 }
 // function BankDetails({ isRed, setCurrentStep }) {
 //     return <div className=' flex w-16 flex-col gap-2 items-center ' >
-//         <div onClick={()=>setCurrentStep(3)} className={`size-16 flex items-center justify-center rounded-full  ${isRed ? "bg-red-700" : " bg-gray-300"}`} >
+//         <div onClick={()=>setCurrentStep(3)} className={`size-16 flex items-center justify-center rounded-full  ${isRed ? "bg-primary-red" : " bg-gray-300"}`} >
 //             <Landmark className={`size-9 ${isRed ? " text-white" : " text-black"} `} />
 //         </div>
-//         <p className={`text-xs  font-semibold text-center ${isRed ? " text-red-700" : " text-black"} `} >Bank Details</p>
+//         <p className={`text-xs  font-semibold text-center ${isRed ? " text-primary-red" : " text-black"} `} >Bank Details</p>
 
 //     </div>
 // }
@@ -769,7 +769,7 @@ function PromoteMyStore({ isRed, setCurrentStep }) {
 function StoreImage() {
     return <div className=' shrink-0 relative' >
         <img src='./../store.png' />
-        <div className=' -bottom-3 size-12 absolute rounded-full flex items-center justify-center bg-red-700 -right-3' >
+        <div className=' -bottom-3 size-12 absolute rounded-full flex items-center justify-center bg-primary-red -right-3' >
             <Camera className=' text-white' />
         </div>
     </div>
@@ -785,7 +785,7 @@ function VendorProfileImage() {
             {
                 userImage ? <img src={URL.createObjectURL(userImage)} className=" h-full rounded-md w-full object-cover" alt="" /> : <p className=' text-center p-4' >Upload your image here</p>
             }
-            <div className=" absolute bottom-0 right-0 translate-y-1/2 translate-x-1/2 size-16 bg-red-700 p-1 flex items-center justify-center rounded-full" >
+            <div className=" absolute bottom-0 right-0 translate-y-1/2 translate-x-1/2 size-16 bg-primary-red p-1 flex items-center justify-center rounded-full" >
                 <CameraIcon className=' text-white' size={36} />
             </div>
             <input onChange={handleImageUpload} type='file' accept='image/*' className=' absolute opacity-0 w-full h-full inset-0' />

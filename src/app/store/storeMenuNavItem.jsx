@@ -52,7 +52,7 @@ export default function StoreMenuNavItem({ subMenuNameToShow, setShowSubMenu, se
             key={menu.label}
             onClick={handleMobileMenu}
         >
-            <span className={`flex gap-2 select-none rounded-md items-center relative text-black cursor-pointer px-3 border font-semibold py-2 ${menu.label === "Men" && "bg-red-200"} ${menu.label === subMenuNameToShow && "border border-red-700"}`}>
+            <span className={`flex gap-2 select-none rounded-md items-center relative text-black cursor-pointer px-3 border font-semibold py-2 ${menu.label === "Men" && "bg-red-200"} ${menu.label === subMenuNameToShow && "border border-primary-red"}`}>
                 {menu.label}
                 <img src={menu.image} alt="" />
 
@@ -89,7 +89,7 @@ export default function StoreMenuNavItem({ subMenuNameToShow, setShowSubMenu, se
 
                                     return (
                                         <div key={index} className="  space-y-0.5" >
-                                            <h6 className=" leading-5 py-1 mt-2 font-semibold text-lg text-red-700">{submenu.title}</h6>
+                                            <h6 className=" leading-5 py-1 mt-2 font-semibold text-lg text-primary-red">{submenu.title}</h6>
                                             {submenu?.items?.map((item, i) => {
                                                 const currentItem = storeSubMenuItems?.find((filItem) => filItem.name == item.name);
                                                 const isAvailable = currentItem?.name == item.name;

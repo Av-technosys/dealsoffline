@@ -21,7 +21,7 @@ const NavBarBG = () => {
               <div className="flex w-full items-center flex-col md:flex-row gap-6">
                 <Link
                   href={"/search"}
-                  className=" hidden md:flex items-center border h-10 border-red-700 bg-white rounded-md overflow-hidden"
+                  className=" hidden md:flex items-center border h-10 border-primary-red bg-white rounded-md overflow-hidden"
                 >
                   <div className="flex items-center px-2 gap-2">
                     <span className="text-lg">
@@ -37,10 +37,10 @@ const NavBarBG = () => {
                     </span>
                     <p className="text-sm text-gray-600">Current Location</p>
                   </div>
-                  <div className="flex items-center justify-center h-full bg-red-700 px-2">
+                  <div className="flex items-center justify-center h-full bg-primary-red px-2">
                     <img src="./navBG/mike.svg" alt="" />
                   </div>
-                  <div className="flex items-center justify-center h-full bg-red-700 px-2">
+                  <div className="flex items-center justify-center h-full bg-primary-red px-2">
                     <img src="./navBG/search.svg" alt="" />
                   </div>
                 </Link>
@@ -204,7 +204,7 @@ function WomenBox() {
       {navBarData.map((data) => {
         return (
           <div key={data.title} className="flex w-fit flex-col gap-1">
-            <p className="text-xl font-semibold text-red-700">Indiwear</p>
+            <p className="text-xl font-semibold text-primary-red">Indiwear</p>
             {data.items.map((item) => {
               return (
                 <p key={item} className="text-gray-500 ">
@@ -225,13 +225,13 @@ function MobileMenu() {
     <div className=" z-50 h-[80vh] overflow-y-scroll w-60 bg-white text-black p-4 border absolute top-16 -right-4">
       <Link
         href={"/search"}
-        className=" border flex gap-2 items-center justify-between text-gray-300 rounded-md border-red-700 px-3 pt-1.5"
+        className=" border flex gap-2 items-center justify-between text-gray-300 rounded-md border-primary-red px-3 pt-1.5"
       >
         <p>Search here</p>
         <Search size={20} />
       </Link>
       <div>
-        <Link href={"/vendor-login/signup"} className="  flex items-center gap-2 text-red-700 font-medium pt-2 underline">
+        <Link href={"/vendor-login/signup"} className="  flex items-center gap-2 text-primary-red font-medium pt-2 underline">
           <p>Partner with us</p>
           <img src="./nav/shop.svg" alt="asdf" />
         </Link>
@@ -279,7 +279,7 @@ function MobileWomenSubMenu() {
       {navBarData.map((data) => {
         return (
           <div key={data.title} className="flex w-fit flex-col gap-1">
-            <p className="text-xl font-semibold text-red-700">Indiwear</p>
+            <p className="text-xl font-semibold text-primary-red">Indiwear</p>
             {data.items.map((item) => {
               return (
                 <p key={item} className="text-gray-500 ">

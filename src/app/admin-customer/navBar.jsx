@@ -8,15 +8,15 @@ const NavBar = () => {
         <div className=' w-full flex items-center gap-4 justify-between max-w-7xl mx-auto px-4' >
             <p className=' text-4xl font-semibold' >Admin Dashboard</p>
             <div className=' flex gap-4 items-center' >
-                <div className=' py-2 px-3 border-2 rounded-md border-red-600 text-red-600 flex items-center gap-2 ' >
+                <div className=' py-2 px-3 border-2 rounded-md border-primary-red text-primary-red flex items-center gap-2 ' >
                     <p className=' font-semibold' >Settings</p>
                     <Settings size={20} />
                 </div>
-                <Link href={'/admin'} className=' py-2 px-3 border-2 rounded-md border-red-600 text-red-600 flex items-center gap-2 ' >
+                <Link href={'/admin'} className=' py-2 px-3 border-2 rounded-md border-primary-red text-primary-red flex items-center gap-2 ' >
                     <p className=' font-semibold' >Vendor</p>
                     <img src="./vendor-store-red.svg" alt="" />
                 </Link>
-                <Link href={'/admin-customer'} className={`py-2 px-3  rounded-md flex items-center gap-2 ${page === "customer" ? "bg-red-700 text-white" : "border-red-600 border-2 text-red-600"} `} >
+                <Link href={'/admin-customer'} className={`py-2 px-3  rounded-md flex items-center gap-2 ${page === "customer" ? "bg-primary-red text-white" : "border-primary-red border-2 text-primary-red"} `} >
                         <p className=' font-semibold' >Customers</p>
                         <img src="./costmer.svg" alt="" />
                     </Link>

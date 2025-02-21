@@ -70,7 +70,7 @@ const Page = () => {
           <p className="text-4xl md:text-5xl uppercase font-semibold text-white">
             weekend sale
           </p>
-          <p className="text-6xl md:text-7xl uppercase font-bold text-red-700">
+          <p className="text-6xl md:text-7xl uppercase font-bold text-primary-red">
             buy now
           </p>
           <p className="text-4xl md:text-5xl uppercase font-semibold text-white">
@@ -86,8 +86,8 @@ const Page = () => {
       <PopularStores setIsUserLogin={setIsPartnerLogin} />
 
 
-      <div className="flex flex-col bg-white gap-14 px-4 py-12 pb-20 md:px-6">
-        <div className="flex flex-col gap-2 md:gap-0 items-center">
+      <div className="flex flex-col bg-white gap-14 px-4 py-12 pb-20 lg:px-6">
+        <div className="flex flex-col gap-2 lg:gap-0 items-center">
           <p className="text-center text-2xl font-semibold">Shop by Brands</p>
           <p className="text-center text-lg text-primary-gray">
             Find your favorite brands and explore trending names, all in one
@@ -122,7 +122,7 @@ const logos = [
 
 function LogoCarousel() {
   return (
-    <div className="flex items-center overflow-x-scroll md:justify-center md:w-full hide-scrollbar gap-3 md:gap-6">
+    <div className="flex items-center overflow-x-scroll lg:justify-center lg:w-full hide-scrollbar gap-3 lg:gap-6">
       {logos.map((logo, index) => (
         <div
           key={index}

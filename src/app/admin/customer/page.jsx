@@ -99,13 +99,13 @@ function VendorList({ setIsDeleteVendor, setIsUserOpen }) {
                     <SelectLocation />
                     <div className=' flex gap-2 w-full' >
                         <div className=' w-full md:w-auto flex gap-2 items-center' >
-                            <div className=' w-full border flex items-center gap-1 border-gray-200 text-red-600 py-2 px-3 rounded-md' >
+                            <div className=' w-full border flex items-center gap-1 border-gray-200 text-primary-red py-2 px-3 rounded-md' >
                                 <Search size={18} />
                                 <input type='text' className=' w-full focus:outline-none text-gray-700 text-sm font-semibold ' placeholder='Search' />
                             </div>
                         </div>
                         <div className=' shrink-0 flex gap-2 items-center' >
-                            <div className=' border flex items-center gap-1 border-gray-200 text-red-600 py-2 px-2 rounded-md' >
+                            <div className=' border flex items-center gap-1 border-gray-200 text-primary-red py-2 px-2 rounded-md' >
                                 {/* <Tag size={18} /> */}
                                 <p className=' text-gray-700 text-sm font-semibold' >
                                     Export
@@ -120,7 +120,7 @@ function VendorList({ setIsDeleteVendor, setIsUserOpen }) {
 
 
                 <div className=' w-[80rem]' >
-                    <div className=' w-full p-4 bg-red-700 text-white grid grid-cols-4 gap-2 ' >
+                    <div className=' w-full p-4 bg-primary-red text-white grid grid-cols-4 gap-2 ' >
                         {/* <div className=' flex gap-1 items-center' >
                         <p className=' font-semibold' >Store Name</p>
                         <img src='./../vendor-store-white.svg' />
@@ -158,8 +158,8 @@ function VendorList({ setIsDeleteVendor, setIsUserOpen }) {
                                     <p>{item.name}</p>
                                     <p>{item.phone}</p>
                                     <p className=' text-sm overflow-x-scroll hide-scrollbar' >{item.email}</p>
-                                    {/* <input type="checkbox" className=" size-3.5 mx-auto border border-red-700 " />
-                                <input type="checkbox" className=" size-3.5 mx-auto border border-red-700 " /> */}
+                                    {/* <input type="checkbox" className=" size-3.5 mx-auto border border-primary-red " />
+                                <input type="checkbox" className=" size-3.5 mx-auto border border-primary-red " /> */}
                                     <div className=' flex items-center justify-center' >
                                         <img onClick={() => setIsUserOpen(true)} src='./../edit-list.svg' />
                                         <img onClick={() => setIsDeleteVendor(true)} src='./../bin.svg' />

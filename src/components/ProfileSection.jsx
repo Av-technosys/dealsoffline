@@ -18,7 +18,7 @@ export default function ProfileSection() {
           {
             userImage ? <img src={URL.createObjectURL(userImage)} className=" h-full rounded-md w-full object-cover" alt="" /> : <p className=' text-center p-4' >Upload your image here</p>
           }
-          <div className=" absolute bottom-0 right-0 translate-y-1/2 translate-x-1/2 size-16 bg-red-700 p-1 flex items-center justify-center rounded-full" >
+          <div className=" absolute bottom-0 right-0 translate-y-1/2 translate-x-1/2 size-16 bg-primary-red p-1 flex items-center justify-center rounded-full" >
             <CameraIcon className=' text-white' size={36} />
           </div>
           <input onChange={handleImageUpload} type='file' accept='image/*' className=' absolute opacity-0 w-full h-full inset-0' />
@@ -49,7 +49,7 @@ export default function ProfileSection() {
 
 function InputFildNumber({ label, inputName, notNsc, disable }) {
   return <div className=' w-full flex flex-col gap-1' >
-    <p className={`font-semibold`}>{label} {!notNsc && <span className=' text-red-700' >*</span>}</p>
+    <p className={`font-semibold`}>{label} {!notNsc && <span className=' text-primary-red' >*</span>}</p>
     <input type='text' defaultValue={inputName} className=' w-full text-sm rounded-md p-2 border ' />
     <div className=' flex mt-4 items-center gap-6'>
       <div className=' flex gap-2 items-center' >

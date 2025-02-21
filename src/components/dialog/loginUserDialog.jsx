@@ -29,22 +29,22 @@ const LoginDialog = ({ isOpen, setIsOpen, handleOTPDialog, handleCreateAccount }
                         <input type="text" placeholder='User Id' className=' w-full border py-2 px-3 text-gray-700 rounded-md' />
                         <input type="text" placeholder='Password' className=' w-full border py-2 px-3 text-gray-700 rounded-md' />
                         {/* <input type="text" placeholder='Phone Number' className=' w-full border py-2 px-3 text-gray-700 rounded-md' /> */}
-                        <Link href={"/vendor-dashbord"} className='cursor-pointer w-full bg-red-700 text-white text-center font-semibold py-2 px-3 rounded-md' >Login</Link>
+                        <Link href={"/vendor-dashbord"} className='cursor-pointer w-full bg-primary-red text-white text-center font-semibold py-2 px-3 rounded-md' >Login</Link>
                     </div>
                     <div className=' w-full flex-col md:flex-row flex items-center gap-4 justify-center' >
                         <div className=' flex items-center gap-2' >
                             <input type="checkbox" className=" size-4" />
                             <p>Remember Password</p>
                         </div>
-                        <p onClick={handleForgotPassword} className=' cursor-pointer text-red-600' >Forgot Password ?</p>
+                        <p onClick={handleForgotPassword} className=' cursor-pointer text-primary-red' >Forgot Password ?</p>
                     </div>
                     <div className=' flex w-full my-6 items-center gap-2' >
                         <div className=' w-full h-0.5 bg-gray-200' ></div>
                         <p>or</p>
                         <div className=' w-full h-0.5 bg-gray-200' ></div>
                     </div>
-                    <p>Don’t have an account ? <span onClick={handleCreateAccountDialog} className=' cursor-pointer text-red-600' > Create Account</span></p>
-                    <p className=' text-center text-sm' >By proceeding, you agree to WalkIn Town <span className=' text-red-700' >Terms of Service</span> and acknowledge WalkIn Town <span className=' text-red-700' >Privacy Policy.</span></p>
+                    <p>Don’t have an account ? <span onClick={handleCreateAccountDialog} className=' cursor-pointer text-primary-red' > Create Account</span></p>
+                    <p className=' text-center text-sm' >By proceeding, you agree to WalkIn Town <span className=' text-primary-red' >Terms of Service</span> and acknowledge WalkIn Town <span className=' text-primary-red' >Privacy Policy.</span></p>
                 </DialogHeader>
                 {/* <DialogFooter>
                     <DialogClose>Cancel</DialogClose>

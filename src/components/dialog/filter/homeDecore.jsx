@@ -66,7 +66,7 @@ const HomeDecoreMenu = ({path}) => {
                             {
                                 Menus[0].subMenu.map((submenu, index) => (
                                     <div key={index} className="  space-y-0.5" >
-                                        <h6 className=" leading-5 py-1 text-left font-semibold text-lg text-red-700">{submenu.title}</h6>
+                                        <h6 className=" leading-5 py-1 text-left font-semibold text-lg text-primary-red">{submenu.title}</h6>
                                         {submenu?.items?.map((item, i) => (
                                             <div key={i} className=' flex items-center gap-2' >
                                                 <input
@@ -86,7 +86,7 @@ const HomeDecoreMenu = ({path}) => {
                                 ))}
                         </div>
                         <DialogClose className='w-full' >
-                            <div onClick={handleApplyChange} className=' bg-red-700 px-4 py-2 flex items-center gap-2 rounded-md mt-4 text-white text-center font-semibold cursor-pointer w-fit ml-auto' >
+                            <div onClick={handleApplyChange} className=' bg-primary-red px-4 py-2 flex items-center gap-2 rounded-md mt-4 text-white text-center font-semibold cursor-pointer w-fit ml-auto' >
                                 <p>{path && path === "vendor" ? "Save" : "Apply"}</p>
                                 {
                                     path && path === "vendor" ? <Save size={20} /> : <Check size={20} />
