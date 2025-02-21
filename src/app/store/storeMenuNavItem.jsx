@@ -52,7 +52,7 @@ export default function StoreMenuNavItem({ subMenuNameToShow, setShowSubMenu, se
             key={menu.label}
             onClick={handleMobileMenu}
         >
-            <span className={`flex gap-2 select-none rounded-md items-center relative text-black cursor-pointer px-3 border font-semibold py-2 ${menu.label === "Men" && "bg-red-200"} ${menu.label === subMenuNameToShow && "border border-primary-red"}`}>
+            <span className={`flex gap-2 select-none rounded-md items-center relative text-black cursor-pointer px-3 border font-semibold py-2 ${menu.label === "Men" && "bg-secondary-red"} ${menu.label === subMenuNameToShow && "border border-primary-red"}`}>
                 {menu.label}
                 <img src={menu.image} alt="" />
 

@@ -99,7 +99,7 @@ const Page = () => {
             <p className="font-semibold text-lg">Brands</p>
             <p className=" text-sm text-gray-600" >Select your Trusted Brand</p>
             <div className="flex w-full mt-3 flex-wrap gap-2">
-              {/* <div className=" py-1 px-2  bg-red-200 font-semibold text-sm rounded-md" >Zara</div> */}
+              {/* <div className=" py-1 px-2  bg-secondary-red font-semibold text-sm rounded-md" >Zara</div> */}
               {/* {
                 ["H&M", "Puma", "Forever 21", "Gap", "Snitch", "Levi’s", "Marks & Spencer"].map((data) => {
                   return (
@@ -180,7 +180,7 @@ function AllAppliedFilter() {
       {
         allFilter.map((data) => {
           return (
-            <div key={data} className=" gap-1 justify-center rounded-md bg-red-200 font-semibold flex items-center px-2 py-1.5">
+            <div key={data} className=" gap-1 justify-center rounded-md bg-secondary-red font-semibold flex items-center px-2 py-1.5">
               <p className="text-red-950">{data}</p>
               <X onClick={() => handleRemove(data)} className=" cursor-pointer text-red-950" size={18} />
             </div>
@@ -352,12 +352,12 @@ function SearchByLoaction() {
   }
   return (
     <div className="flex w-full py-3 overflow-x-auto md:flex-wrap gap-2">
-      {/* <div className=" py-1 px-2 shrink-0 flex items-center justify-center bg-red-200 font-semibold text-sm rounded-md" >Vaishali Nagar</div> */}
+      {/* <div className=" py-1 px-2 shrink-0 flex items-center justify-center bg-secondary-red font-semibold text-sm rounded-md" >Vaishali Nagar</div> */}
       {
         locations?.slice(0, 6).map((data) => {
           const isPresect = selectedFields.includes(data);
           return (
-            <div onClick={() => handleCheckboxChange(data)} key={data} className={`shrink-0 cursor-pointer py-1 px-2 border border-black font-semibold text-sm rounded-md ${isPresect ? "bg-red-200" : ""}`} >{data}</div>
+            <div onClick={() => handleCheckboxChange(data)} key={data} className={`shrink-0 cursor-pointer py-1 px-2 border border-black font-semibold text-sm rounded-md ${isPresect ? "bg-secondary-red" : ""}`} >{data}</div>
           )
         })
       }
@@ -391,13 +391,13 @@ function SearchByBrand() {
   }
   return (
     <div className="flex w-full pb-3 overflow-x-auto md:flex-wrap gap-2">
-      {/* <div className=" py-1 px-2 shrink-0 flex items-center justify-center bg-red-200 font-semibold text-sm rounded-md" >Vaishali Nagar</div> */}
+      {/* <div className=" py-1 px-2 shrink-0 flex items-center justify-center bg-secondary-red font-semibold text-sm rounded-md" >Vaishali Nagar</div> */}
       {
         brands?.slice(0, 6).map((data, idx) => {
           const isPresect = selectedFields.includes(data);
           console.log(data)
           return (
-            <div onClick={() => handleCheckboxChange(data)} key={idx} className={`h-8 w-auto py-1 px-2 border border-black font-semibold text-sm rounded-md ${isPresect ? "bg-red-200" : ""}`} >
+            <div onClick={() => handleCheckboxChange(data)} key={idx} className={`h-8 w-auto py-1 px-2 border border-black font-semibold text-sm rounded-md ${isPresect ? "bg-secondary-red" : ""}`} >
               <img key={data} className=" w-full h-full " src={data} alt="" />
             </div>)
         })

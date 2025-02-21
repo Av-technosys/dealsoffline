@@ -76,7 +76,7 @@ function DialogDemo() {
         >
           <DialogClose>
             {" "}
-            <div className=" border border-primary-red px-3 py-2 flex gap-1 items-center justify-center font-medium rounded-md bg-red-100 text-primary-red">
+            <div className=" border border-primary-red px-3 py-2 flex gap-1 items-center justify-center font-medium rounded-md bg-secondary-red text-primary-red">
               Cancel <X size={20} />
             </div>
           </DialogClose>

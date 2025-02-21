@@ -6,7 +6,7 @@ export default function WomenBox() {
   return (
     <div
       onClick={() => setIsShow(!isShow)}
-      className="  cursor-pointer relative flex bg-red-200 items-center gap-1 px-3 py-1 text-sm rounded  font-semibold "
+      className="  cursor-pointer relative flex bg-secondary-red items-center gap-1 px-3 py-1 text-sm rounded  font-semibold "
     >
       Women
       <img src="./nav/women.png" alt="" />

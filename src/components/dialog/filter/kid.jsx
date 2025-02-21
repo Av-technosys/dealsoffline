@@ -43,7 +43,7 @@ const MenuKids = ({path}) => {
     return (
         <Dialog>
             <DialogTrigger >
-                <div className={`border h-9 flex items-center gap-1 border-black px-3 py-1.5 text-xs rounded font-semibold text-black ${selectedItems.length > 0 ? "bg-red-200" : " bg-transparent"}`}>
+                <div className={`border h-9 flex items-center gap-1 border-black px-3 py-1.5 text-xs rounded font-semibold text-black ${selectedItems.length > 0 ? "bg-secondary-red" : " bg-transparent"}`}>
                     {/* <div className=" flex items-center gap-1 border border-black px-2.5 py-0.5 text-xs rounded font-semibold text-black"> */}
                     Kids
                     <img src="./../kids.svg" className=' size-5' alt="" />

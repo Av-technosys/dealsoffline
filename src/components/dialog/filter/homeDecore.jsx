@@ -43,7 +43,7 @@ const HomeDecoreMenu = ({path}) => {
     return (
         <Dialog>
             <DialogTrigger >
-                <div className={`border h-9 flex items-center gap-1 border-black px-3 py-2 text-xs rounded font-semibold text-black ${selectedItems.length > 0 ? "bg-red-200" : " bg-transparent"}`}>
+                <div className={`border h-9 flex items-center gap-1 border-black px-3 py-2 text-xs rounded font-semibold text-black ${selectedItems.length > 0 ? "bg-secondary-red" : " bg-transparent"}`}>
                     Home Decore
                     <img src="./../home-decore.svg" className=' size-5' alt="" />
                 </div>

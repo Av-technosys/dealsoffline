@@ -25,7 +25,7 @@ function LocationShowMore({ itemsToShow, selectedFields, setSelectedFields, path
                             itemsToShow?.slice(0, 6).map((data) => {
                                 const isPresect = selectedFields.includes(data);
                                 return (
-                                    <div onClick={() => handleCheckboxChange(data)} key={data} className={` w-fit shrink-0 cursor-pointer py-1 px-2 border border-black font-semibold text-sm rounded-md ${isPresect ? "bg-red-200" : ""}`} >{data}</div>
+                                    <div onClick={() => handleCheckboxChange(data)} key={data} className={` w-fit shrink-0 cursor-pointer py-1 px-2 border border-black font-semibold text-sm rounded-md ${isPresect ? "bg-secondary-red" : ""}`} >{data}</div>
                                 )
                             })
                         }

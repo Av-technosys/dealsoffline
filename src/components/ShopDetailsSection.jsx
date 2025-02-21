@@ -48,7 +48,7 @@ export default function ShopDetailsSection({ path }) {
           <p className="font-semibold mt-6 text-lg">Brands</p>
           <p className=" text-sm text-gray-600" >Select your Trusted Brand</p>
           <div className="flex w-full mt-3 flex-wrap gap-2">
-            {/* <div className=" py-1 px-2  bg-red-200 font-semibold text-sm rounded-md" >Zara</div> */}
+            {/* <div className=" py-1 px-2  bg-secondary-red font-semibold text-sm rounded-md" >Zara</div> */}
             {/* {
                 ["H&M", "Puma", "Forever 21", "Gap", "Snitch", "Levi’s", "Marks & Spencer"].map((data) => {
                   return (
@@ -182,13 +182,13 @@ function SearchByBrand({ path }) {
   }
   return (
     <div className="flex w-full mt-3 overflow-x-auto md:flex-wrap gap-2">
-      {/* <div className=" py-1 px-2 shrink-0 flex items-center justify-center bg-red-200 font-semibold text-sm rounded-md" >Vaishali Nagar</div> */}
+      {/* <div className=" py-1 px-2 shrink-0 flex items-center justify-center bg-secondary-red font-semibold text-sm rounded-md" >Vaishali Nagar</div> */}
       {
         brands?.slice(0, 6).map((data, idx) => {
           const isPresect = selectedFields.includes(data);
           console.log(data)
           return (
-            <div onClick={() => handleCheckboxChange(data)} key={idx} className={`h-8 w-auto py-1 px-2 border border-black font-semibold text-sm rounded-md ${isPresect ? "bg-red-200" : ""}`} >
+            <div onClick={() => handleCheckboxChange(data)} key={idx} className={`h-8 w-auto py-1 px-2 border border-black font-semibold text-sm rounded-md ${isPresect ? "bg-secondary-red" : ""}`} >
               <img key={data} className=" w-full h-full " src={data} alt="" />
             </div>)
         })

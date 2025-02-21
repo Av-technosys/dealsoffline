@@ -32,7 +32,7 @@ const PartnerLoginDialog = ({ isOpen, setIsOpen, handleOTPDialog, setUserLogin }
                             <p className=' text-2xl font-medium text-gray-600' >Enter your phone number</p>
                             <div className=' flex gap-3' >
                                 <div className=' border text-center py-3 px-4 rounded-lg w-fit  shadow-md' >+91</div>
-                                <input type="text" placeholder='Mobile Number' className=' w-full border py-2 px-3 text-gray-700 rounded-lg shadow-md' />
+                                <input type="number" placeholder='Mobile Number' className=' w-full border py-2 px-3 text-gray-700 rounded-lg shadow-md' />
                             </div>
                             <p onClick={handleOTP} className='cursor-pointer w-full bg-primary-red text-white text-center font-semibold py-3 px-3 rounded-md' >Send OTP</p>
                         </div>

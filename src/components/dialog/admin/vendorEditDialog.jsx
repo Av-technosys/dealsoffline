@@ -137,7 +137,7 @@ function ShopDetailsSection() {
                     <p className="font-semibold mt-6 text-lg">Brands</p>
                     <p className=" text-sm text-gray-600" >Select your Trusted Brand</p>
                     <div className="flex w-full mt-3 flex-wrap gap-2">
-                        {/* <div className=" py-1 px-2  bg-red-200 font-semibold text-sm rounded-md" >Zara</div> */}
+                        {/* <div className=" py-1 px-2  bg-secondary-red font-semibold text-sm rounded-md" >Zara</div> */}
                         {/* {
                   ["H&M", "Puma", "Forever 21", "Gap", "Snitch", "Levi’s", "Marks & Spencer"].map((data) => {
                     return (
@@ -716,13 +716,13 @@ const VendorOnbordForm = ({ setCurrentStep, currentStep }) => {
 
 function Line({ isRed }) {
     return (
-        <div className={` h-1.5 mt-4 md:mt-7 w-12 md:w-20 rounded  ${isRed ? "bg-red-200" : "bg-gray-300"} `} ></div>
+        <div className={` h-1.5 mt-4 md:mt-7 w-12 md:w-20 rounded  ${isRed ? "bg-secondary-red" : "bg-gray-300"} `} ></div>
     )
 }
 
 function ContactDetails({ setCurrentStep }) {
     return <div className=' flex w-16 flex-col gap-2 items-center ' >
-        <div onClick={() => setCurrentStep(1)} className='  size-10 md:size-16 flex items-center justify-center rounded-full bg-red-200' >
+        <div onClick={() => setCurrentStep(1)} className='  size-10 md:size-16 flex items-center justify-center rounded-full bg-secondary-red' >
             <CircleUser className='size-6 md:size-9 text-black ' />
         </div>
         <p className=' text-xs text-black font-semibold text-center' >Vendor Details</p>
@@ -730,7 +730,7 @@ function ContactDetails({ setCurrentStep }) {
 }
 function ShopDetails({ isRed, setCurrentStep }) {
     return <div className=' flex w-16 flex-col gap-2 items-center ' >
-        <div onClick={() => setCurrentStep(2)} className={` size-10 md:size-16 flex items-center justify-center rounded-full  ${isRed ? "bg-red-200" : " bg-gray-300"}`} >
+        <div onClick={() => setCurrentStep(2)} className={` size-10 md:size-16 flex items-center justify-center rounded-full  ${isRed ? "bg-secondary-red" : " bg-gray-300"}`} >
 
             <img src='./../nav/shop.svg' className='size-6 md:size-9' />
 
@@ -750,7 +750,7 @@ function ShopDetails({ isRed, setCurrentStep }) {
 // }
 function OfferDetails({ isRed, setCurrentStep }) {
     return <div className=' flex w-16 flex-col gap-2 items-center ' >
-        <div onClick={() => setCurrentStep(3)} className={` size-10 md:size-16 flex items-center justify-center rounded-full  ${isRed ? "bg-red-200" : " bg-gray-300"}`} >
+        <div onClick={() => setCurrentStep(3)} className={` size-10 md:size-16 flex items-center justify-center rounded-full  ${isRed ? "bg-secondary-red" : " bg-gray-300"}`} >
             <BadgePercent className={`size-6 md:size-9 text-black `} />
         </div>
         <p className={`text-xs  font-semibold text-center text-black `}  >Product Offers</p>
@@ -759,7 +759,7 @@ function OfferDetails({ isRed, setCurrentStep }) {
 }
 function PromoteMyStore({ isRed, setCurrentStep }) {
     return <div className=' flex w-16 flex-col gap-2 items-center ' >
-        <div onClick={() => setCurrentStep(4)} className={` size-10 md:size-16 flex items-center justify-center rounded-full  ${isRed ? "bg-red-200" : " bg-gray-300"}`} >
+        <div onClick={() => setCurrentStep(4)} className={` size-10 md:size-16 flex items-center justify-center rounded-full  ${isRed ? "bg-secondary-red" : " bg-gray-300"}`} >
             <Megaphone className={`size-6 md:size-9 text-black `} />
         </div>
         <p className={`text-xs  font-semibold text-center text-black `}  >Promote My Store</p>
@@ -818,13 +818,13 @@ function SearchByBrand() {
     }
     return (
         <div className="flex w-full py-2 mt-3 overflow-x-auto md:flex-wrap gap-2">
-            {/* <div className=" py-1 px-2 shrink-0 flex items-center justify-center bg-red-200 font-semibold text-sm rounded-md" >Vaishali Nagar</div> */}
+            {/* <div className=" py-1 px-2 shrink-0 flex items-center justify-center bg-secondary-red font-semibold text-sm rounded-md" >Vaishali Nagar</div> */}
             {
                 brands?.slice(0, 6).map((data, idx) => {
                     const isPresect = selectedFields.includes(data);
                     console.log(data)
                     return (
-                        <div onClick={() => handleCheckboxChange(data)} key={idx} className={`h-8 w-auto shrink-0 py-1 px-2 border border-black font-semibold text-sm rounded-md ${isPresect ? "bg-red-200" : ""}`} >
+                        <div onClick={() => handleCheckboxChange(data)} key={idx} className={`h-8 w-auto shrink-0 py-1 px-2 border border-black font-semibold text-sm rounded-md ${isPresect ? "bg-secondary-red" : ""}`} >
                             <img key={data} className=" w-full h-full " src={data} alt="" />
                         </div>)
                 })

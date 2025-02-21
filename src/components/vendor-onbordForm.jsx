@@ -27,13 +27,13 @@ export default VendorOnbordForm;
 
 function Line({ isRed }) {
     return (
-        <div className={` h-1.5 mt-4 md:mt-7 w-12 md:w-20 rounded  ${isRed ? "bg-red-200" : "bg-gray-300"} `} ></div>
+        <div className={` h-1.5 mt-4 md:mt-7 w-12 md:w-20 rounded  ${isRed ? "bg-secondary-red" : "bg-gray-300"} `} ></div>
     )
 }
 
 function ContactDetails() {
     return <div className=' flex w-16 flex-col gap-2 items-center ' >
-        <Link href={`/vendor-dashbord?form=1`} className='   size-10 md:size-16  flex items-center justify-center rounded-full bg-red-200' >
+        <Link href={`/vendor-dashbord?form=1`} className='   size-10 md:size-16  flex items-center justify-center rounded-full bg-secondary-red' >
             <CircleUser className='size-6 md:size-9  text-black ' />
         </Link>
         <p className=' text-xs text-black font-semibold text-center' >Vendor Details</p>
@@ -41,7 +41,7 @@ function ContactDetails() {
 }
 function ShopDetails({ isRed }) {
     return <div className=' flex w-16 flex-col gap-2 items-center ' >
-        <Link href={`/vendor-dashbord?form=2`} className={`  size-10 md:size-16 flex items-center justify-center rounded-full  ${isRed ? "bg-red-200" : " bg-gray-300"}`} >
+        <Link href={`/vendor-dashbord?form=2`} className={`  size-10 md:size-16 flex items-center justify-center rounded-full  ${isRed ? "bg-secondary-red" : " bg-gray-300"}`} >
 
             <img src='./nav/shop.svg' className=' size-6 md:size-9 ' />
 
@@ -61,7 +61,7 @@ function BankDetails({ isRed }) {
 }
 function OfferDetails({ isRed }) {
     return <div className=' flex w-16 flex-col gap-2 items-center ' >
-        <Link href={`/vendor-dashbord?form=3`} className={`  size-10 md:size-16  flex items-center justify-center rounded-full  ${isRed ? "bg-red-200" : " bg-gray-300"}`} >
+        <Link href={`/vendor-dashbord?form=3`} className={`  size-10 md:size-16  flex items-center justify-center rounded-full  ${isRed ? "bg-secondary-red" : " bg-gray-300"}`} >
             <BadgePercent className={`size-6 md:size-9  text-black `} />
         </Link>
         <p className={`text-xs  font-semibold text-center text-black `}  >Product Offers</p>
@@ -70,7 +70,7 @@ function OfferDetails({ isRed }) {
 }
 function PromoteMyStore({ isRed }) {
     return <div className=' flex w-16 flex-col gap-2 items-center ' >
-        <Link href={`/vendor-dashbord?form=4`} className={`  size-10 md:size-16  flex items-center justify-center rounded-full  ${isRed ? "bg-red-200" : " bg-gray-300"}`} >
+        <Link href={`/vendor-dashbord?form=4`} className={`  size-10 md:size-16  flex items-center justify-center rounded-full  ${isRed ? "bg-secondary-red" : " bg-gray-300"}`} >
             <Megaphone className={`ssize-6 md:size-9  text-black `} />
         </Link>
         <p className={`text-xs  font-semibold text-center text-black `}  >Promote My Store</p>

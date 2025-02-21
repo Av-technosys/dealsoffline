@@ -32,7 +32,7 @@ const MenMenu = ({path}) => {
     return (
         <Dialog>
             <DialogTrigger >
-                <div className={`border h-9 flex items-center gap-1 border-black px-3 py-1.5 text-xs rounded font-semibold text-black ${selectedItems.length > 0 ? "bg-red-200" : " bg-transparent"}`}>
+                <div className={`border h-9 flex items-center gap-1 border-black px-3 py-1.5 text-xs rounded font-semibold text-black ${selectedItems.length > 0 ? "bg-secondary-red" : " bg-transparent"}`}>
                     Men
                     <img src="./../men.svg" className=' size-5' alt="" />
                 </div>

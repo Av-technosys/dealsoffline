@@ -42,7 +42,7 @@ const BeautyMenu = ({path}) => {
     return (
         <Dialog>
             <DialogTrigger >
-                <div className={`border h-9 flex items-center gap-1 border-black px-3 py-2 text-xs rounded font-semibold text-black ${selectedItemsLength > 0 ? "bg-red-200" : " bg-transparent"}`}>
+                <div className={`border h-9 flex items-center gap-1 border-black px-3 py-2 text-xs rounded font-semibold text-black ${selectedItemsLength > 0 ? "bg-secondary-red" : " bg-transparent"}`}>
                     Beauty
                     <img src="./../beauty.svg" className='size-5' alt="" />
                 </div>

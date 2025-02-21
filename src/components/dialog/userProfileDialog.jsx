@@ -39,7 +39,7 @@ const UserProfileDialog = ({ isOpen, setIsUserNotification, setIsUserProfile, se
                                     <div className=' flex flex-col gap-2 w-full' >
                                         <div className=' grid grid-cols-1 sm:grid-cols-2 w-full gap-3' >
                                             <InputFild label={"Name"} inputName={"Naveen Sharma"} />
-                                            <InputFildNumber label={"Phone Number"} inputName={"91-9012345678"} />
+                                            <InputFildNumber label={"Phone Number"} inputName={"9012345678"} />
                                             <InputFild label={"Email ID/ User ID"} inputName={"naveensharma@gmail.com"} />
                                         </div>
 
@@ -109,7 +109,7 @@ export default UserProfileDialog
 function InputFildNumber({ label, inputName, notNsc, disable }) {
     return <div className=' text-left w-full flex flex-col gap-1' >
         <p className={` font-semibold py-1 text-left ${disable && " text-gray-400"}`}>{label} {!notNsc && <span className=' text-primary-red' >*</span>}</p>
-        <input type='text' defaultValue={inputName} className=' w-full text-sm rounded-md p-2 border ' />
+        <input type='number' defaultValue={inputName} className=' w-full text-sm rounded-md p-2 border ' />
         <div className=' flex mt-2 items-center gap-6'>
             <div className=' flex gap-2 items-center' >
                 <input type='checkbox' className=' size-4' ></input>
