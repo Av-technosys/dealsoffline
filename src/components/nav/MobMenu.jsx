@@ -3,13 +3,19 @@ import { motion } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
 import Link from "next/link";
 
-export default function MobMenu({ Menus }) {
+export default function MobMenu({ Menus,setIsUserProfile }) {
   const [isOpen, setIsOpen] = useState(false);
   const [clicked, setClicked] = useState(null);
   const toggleDrawer = () => {
     setIsOpen(!isOpen);
     setClicked(null);
   };
+
+  const handleOpenUserProfile = () => {
+    setIsOpen(!isOpen);
+    setClicked(null);
+    setIsUserProfile(true)
+  }
 
   const subMenuDrawer = {
     enter: {
@@ -35,6 +41,33 @@ export default function MobMenu({ Menus }) {
         transition={{ duration: 0.3, ease: "easeInOut" }}
       >
         <ul>
+
+          <div className=" w-full flex-col md:flex-row flex items-center justify-end gap-2 ">
+            <Link href={"/search"} className=" border w-full border-black h-10 justify-between rounded py-2 px-3 flex items-center gap-3">
+              <div className=" w-full flex items-center" >
+                <img src="./nav/search.png" alt="" />
+                <p className="font-medium text-gray-400">Search</p>
+              </div>
+              <div className=" px-1 border-l w-full max-w-52 justify-around border-black flex items-center gap-2 ">
+                <img src="./search-locaion.svg" alt="" />
+                <p className="font-medium">Jaipur</p>
+                <img src="./map-pin.svg" alt="" />
+              </div>
+            </Link>
+
+            <div className=" w-full flex gap-4 items-center justify-between" >
+              <Link href={"/partner-login"} className="bg-red-700 w-full h-10 justify-center rounded py-2 px-3 flex items-center gap-2">
+                <img src="./nav/hand-shake.png" alt="" />
+                <p className="font-medium whitespace-nowrap text-sm text-white">Partner with us</p>
+              </Link>
+              <div onClick={handleOpenUserProfile} className=" size-8 shrink-0 cursor-pointer" >
+                <img src="./nav/navUser.svg" alt="" />
+              </div>
+            </div>
+
+          </div>
+
+
           {Menus.map(({ label, subMenu }, i) => {
             const isClicked = clicked === i;
             const hasSubMenu = subMenu?.length;
@@ -59,7 +92,7 @@ export default function MobMenu({ Menus }) {
                     variants={subMenuDrawer}
                     className="ml-5"
                   >
-                    {subMenu.map(({ title, items },i) => (
+                    {subMenu.map(({ title, items }, i) => (
                       <div
                         key={i}
                         className="p-2 hover:bg-white/5 rounded-md text-red-500 cursor-pointer"
@@ -68,7 +101,7 @@ export default function MobMenu({ Menus }) {
                         {title}
                         <div className=" pl-2 flex flex-col gap-1 text-gray-700" >
                           {
-                            items.map(({name, slug},i) => (
+                            items.map(({ name, slug }, i) => (
                               <Link href={slug} key={i}>{name}</Link>
                             ))
                           }

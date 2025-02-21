@@ -4,7 +4,7 @@ import React from 'react'
 
 const VendorAdminNavBar = ({ page, setIsVendorReport, setIsVendorSetting, setIsEditVendor }) => {
     return (
-        <div className=' border-b-4 w-full'>
+        <div className=' max-w-[96vw] md:max-w-none w-full border-b-4'>
             <div className=' flex flex-col md:flex-row justify-between max-w-7xl w-full mx-auto md:items-center gap-6 py-3 px-4' >
                 <div className=' flex items-center justify-start  gap-2' >
                     <p className=' text-xl md:text-4xl font-semibold ' >Vendor's Profile Page</p>

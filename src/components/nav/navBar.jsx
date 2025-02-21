@@ -57,7 +57,7 @@ const NavBar = ({}) => {
 
             </div>
             <div className="xl:hidden">
-              <MobMenu Menus={Menus} />
+              <MobMenu setIsUserProfile={setIsUserProfile} Menus={Menus} />
             </div>
           </div>
         </nav>

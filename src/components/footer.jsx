@@ -1,3 +1,4 @@
+import { Facebook, Instagram, Linkedin, MapPin } from "lucide-react";
 import React from "react";
 
 const Footer = () => {
@@ -6,7 +7,8 @@ const Footer = () => {
       <div className="bg-primary-black container flex justify-between flex-col gap-4">
         <div className="flex w-full flex-col md:flex-row justify-between gap-8">
           <div className="w-full flex flex-col gap-2">
-            <p className="text-4xl font-semibold">LOGO</p>
+            {/* <p className="text-4xl font-semibold">LOGO</p> */}
+            <img src="./logo.png" className=" w-32 h-auto" alt="" />
             <p className="  text-lg font-semibold">About</p>
             <p className=" text-sm">About walk in town</p>
             <p className=" text-sm">Carrer</p>
@@ -18,17 +20,17 @@ const Footer = () => {
             <p className="text-sm">Home</p>
             <p className="text-sm">About Us</p>
             <p className="text-sm">Terms & Conditions</p>
-            <p className="mt-1">Privacy Policy</p>
+            <p className="mt-1 text-sm">Privacy Policy</p>
             <p className="mt-1 font-semibold text-lg">Follow us on</p>
             <div className="flex items-center gap-3 mt-2">
-              <div>
-                <img src="./facebook.png" alt="" />
+              <div className=" rounded-full bg-white p-2 flex items-center justify-center" >
+                <Facebook size={24} fill="#b91c1c" color="#b91c1c" />
               </div>
-              <div>
-                <img src="./location.png" alt="" />
+              <div className=" rounded-full bg-white p-2 flex items-center justify-center" >
+                <Linkedin size={24} fill="#b91c1c" color="#b91c1c" />
               </div>
-              <div>
-                <img src="./insta.png" alt="" />
+              <div className=" rounded-full bg-white p-2 flex items-center justify-center" >
+                <Instagram size={24} fill="#b91c1c" color="#fff" />
               </div>
             </div>
           </div>
@@ -69,7 +71,7 @@ const Footer = () => {
           <p>Copyright © 2024. All rights reserved</p>
           <p>
             We use cookies for better service.
-            <span className="font-semibold">Accept</span>
+            <span className="font-semibold"> Accept</span>
           </p>
         </div>
       </div>

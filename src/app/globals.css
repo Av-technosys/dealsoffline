@@ -10,9 +10,12 @@
   width: 100%;
 }
 
-.hide-scrollbar {
-  -ms-overflow-style: none; /* Internet Explorer 10+ */
-  scrollbar-width: none;
+@media screen and (min-width: 1280px) {
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    /* Internet Explorer 10+ */
+    scrollbar-width: none;
+  }
 }
 
 @layer base {
@@ -43,6 +46,7 @@
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
   }
+
   .dark {
     --background: 224 71.4% 4.1%;
     --foreground: 210 20% 98%;
@@ -75,6 +79,7 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }

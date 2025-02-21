@@ -18,7 +18,7 @@ import PartnerLoginOTPDialog from "@/components/dialog/partnerLoginOTPDialog";
 import Footer from "@/components/footer";
 import NavBar from "@/components/nav/navBar";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { Share2Icon, ThumbsUp, X } from "lucide-react";
+import { Check, Share2Icon, ThumbsUp, X } from "lucide-react";
 import React, { useState } from "react";
 
 
@@ -70,7 +70,7 @@ const Page = () => {
           <div className="flex flex-col gap-0">
             <p className="font-semibold mt-12 text-lg">Product Categories</p>
             <p className=" hidden lg:block text-sm text-gray-600" >Select Categories for Shop</p>
-            <div className="flex overflow-x-auto w-full mt-3 md:flex-wrap gap-2">
+            <div className="flex overflow-x-auto py-3 w-full md:flex-wrap gap-2">
 
               <div className="shrink-0" >
                 <MenMenu />
@@ -95,7 +95,7 @@ const Page = () => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col mt-6 gap-0">
+          <div className="flex flex-col mt-3 gap-0">
             <p className="font-semibold text-lg">Brands</p>
             <p className=" text-sm text-gray-600" >Select your Trusted Brand</p>
             <div className="flex w-full mt-3 flex-wrap gap-2">
@@ -120,11 +120,11 @@ const Page = () => {
               <SearchByBrand />
             </div>
 
-            <p className="font-semibold mt-6 text-lg">Area/Location</p>
-            <p className=" hidden lg:block text-sm text-gray-600" >Explore Shops in your Defined Area</p>
+            <p className="font-semibold mt-8 text-lg">Area/Location</p>
+            <p className=" hidden lg:block text-sm text-gray-600" >Explore Shops in your Area</p>
             <SearchByLoaction />
 
-            <div className=" hidden lg:flex flex-col gap-1 mt-2">
+            <div className=" hidden lg:flex flex-col gap-1 mt-4">
               <p className="font-semibold text-lg mt-2">Suggested</p>
               <div className="flex gap-3 items-center">
                 <SuggestionBox />
@@ -144,7 +144,10 @@ const Page = () => {
                 <p className=" font-medium">Closing Today</p>
               </div>
             </div>
-            <div className=" border border-red-700 text-red-700 duration-200 hover:bg-red-700 px-4 py-2 rounded-md cursor-pointer hover:text-white text-center font-semibold mt-6" >Apply</div>
+            <div className=" border border-red-700 flex gap-2 items-center justify-center duration-200 bg-red-700 px-4 py-2 rounded-md cursor-pointer text-white text-center font-semibold mt-6" >
+              <p>Apply</p>
+              <Check size={20} />
+            </div>
           </div>
         </div>
 
@@ -301,14 +304,16 @@ function ProductList({ setIsUserLogin }) {
             </div>
           </div>
         </div>
-        <div className=" flex text-base  md:text-lg flex-col gap-2 md:flex-row" >
-          <div className=" flex gap-1 items-center" >
-            <img src="./time.png" alt="" />
-            <p>Mon - Fri (11:00 AM - 08:00 PM)</p>
-          </div>
-          <div className=" flex gap-1 items-center" >
-            <img src="./phone-red.png" alt="" />
-            <p>+91 - 8112XXXXXX</p>
+        <div className=" flex items-center gap-2" >
+          <div className=" flex text-base  md:text-lg flex-col gap-2 xl:flex-row" >
+            <div className=" flex gap-1 items-center" >
+              <img src="./time.png" alt="" />
+              <p>Mon - Fri (11:00 AM - 08:00 PM)</p>
+            </div>
+            <div className=" flex gap-1 items-center" >
+              <img src="./phone-red.png" alt="" />
+              <p>+91 - 8112XXXXXX</p>
+            </div>
           </div>
           <div className=" flex flex-col items-center justify-center self-end ml-auto" >
             <Share2Icon size={20} />
@@ -332,7 +337,7 @@ function SearchByLoaction() {
     "fort lake",
     "amer fort",
     "jal mahal",
-    "mukesh art gallary",
+    "mukesh art gallery",
     "nargadh fort",
     "Khatu sham ji",
 
@@ -346,7 +351,7 @@ function SearchByLoaction() {
     }
   }
   return (
-    <div className="flex w-full mt-3 overflow-x-auto md:flex-wrap gap-2">
+    <div className="flex w-full py-3 overflow-x-auto md:flex-wrap gap-2">
       {/* <div className=" py-1 px-2 shrink-0 flex items-center justify-center bg-red-200 font-semibold text-sm rounded-md" >Vaishali Nagar</div> */}
       {
         locations?.slice(0, 6).map((data) => {
@@ -385,7 +390,7 @@ function SearchByBrand() {
     }
   }
   return (
-    <div className="flex w-full mt-3 overflow-x-auto md:flex-wrap gap-2">
+    <div className="flex w-full pb-3 overflow-x-auto md:flex-wrap gap-2">
       {/* <div className=" py-1 px-2 shrink-0 flex items-center justify-center bg-red-200 font-semibold text-sm rounded-md" >Vaishali Nagar</div> */}
       {
         brands?.slice(0, 6).map((data, idx) => {

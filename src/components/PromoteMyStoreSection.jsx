@@ -100,7 +100,7 @@ export default function PromoteMyStoreSection() {
       ]
     },
     {
-      name: "Platunum",
+      name: "Platinum",
       data: [
         "5000 / month",
         "20,000 / Quaterly",

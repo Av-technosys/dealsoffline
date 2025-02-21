@@ -414,12 +414,12 @@ function ExploreCategory() {
         </p>
         <div className="w-full flex flex-col md:flex-row [&>*]:h-60 md:[&>*]:h-96 gap-2">
           {/* Women Card on the Left */}
-          <div className="col-span-1 row-span-2 w-full rounded-md overflow-hidden relative h-full">
+          <Link href={"/search"} className="col-span-1 row-span-2 w-full rounded-md overflow-hidden relative h-full">
             <p className="absolute bottom-3 left-4 text-white z-40 text-2xl font-semibold">Women</p>
             <img src="./women.png" alt="Women" className="absolute top-0 left-0 w-full h-full object-cover" />
-          </div>
+          </Link>
 
-          <div className=" w-full h-full flex md:flex-col gap-2">
+          <Link href={"/search"} className=" w-full h-full flex md:flex-col gap-2">
             <div className="col-span-1 row-span-1 w-full rounded-md overflow-hidden relative h-full">
               <p className="absolute bottom-3 left-4 text-white z-40 text-xl font-semibold">Home Appliances</p>
               <img src="./home-appliences.png" alt="Home Appliances" className="absolute top-0 left-0 w-full h-full object-cover" />
@@ -428,16 +428,16 @@ function ExploreCategory() {
               <p className="absolute bottom-3 left-4 text-white z-40 text-xl font-semibold">Men</p>
               <img src="./men.png" alt="Home Appliances" className="absolute top-0 left-0 w-full h-full object-cover" />
             </div>
-          </div>
+          </Link>
 
 
-          <div className="col-span-1 row-span-2 w-full rounded-md overflow-hidden relative h-full">
+          <Link href={"/search"} className="col-span-1 row-span-2 w-full rounded-md overflow-hidden relative h-full">
             <p className="absolute bottom-3 left-4 text-white z-40 text-2xl font-semibold">Kids</p>
             <img src="./kids.png" alt="Women" className="absolute top-0 left-0 w-full h-full object-cover" />
-          </div>
+          </Link>
 
 
-          <div className=" flex md:flex-col w-full h-full gap-2">
+          <Link href={"/search"} className=" flex md:flex-col w-full h-full gap-2">
             <div className="col-span-1 row-span-1 w-full rounded-md overflow-hidden relative h-full">
               <p className="absolute bottom-3 left-4 text-white z-40 text-xl font-semibold">Home Decore</p>
               <img src="./home-decore.png" alt="Home Appliances" className="absolute top-0 left-0 w-full h-full object-cover" />
@@ -446,13 +446,13 @@ function ExploreCategory() {
               <p className="absolute bottom-3 left-4 text-white z-40 text-xl font-semibold">Electronics</p>
               <img src="./electronics.png" alt="Home Appliances" className="absolute top-0 left-0 w-full h-full object-cover" />
             </div>
-          </div>
+          </Link>
 
 
-          <div className="col-span-1 row-span-2 w-full rounded-md overflow-hidden relative h-full">
+          <Link href={"/search"} className="col-span-1 row-span-2 w-full rounded-md overflow-hidden relative h-full">
             <p className="absolute bottom-3 left-4 text-white z-40 text-2xl font-semibold">Beauty</p>
             <img src="./beauty.png" alt="Women" className="absolute top-0 left-0 w-full h-full object-cover" />
-          </div>
+          </Link>
         </div>
 
       </div>
@@ -488,7 +488,7 @@ function PopularDetails({ setIsUserLogin }) {
     <div className=" max-w-7xl justify-center mx-auto items-center gap-2 flex flex-row ">
       {/* <img src="./backword-btn.png" className=" z-20 h-6 w-auto" alt="" /> */}
       {/* <div className=" p-2 border border-black rounded-full"> */}
-      <ChevronLeftCircleIcon />
+      <ChevronLeftCircleIcon className=" shrink-0" />
       {/* </div> */}
 
       {/* Cards */}
@@ -544,7 +544,7 @@ function PopularDetails({ setIsUserLogin }) {
 
 
       {/* <img src="./forword-btn.png" className=" z-20 h-6 w-auto" alt="" /> */}
-      <ChevronRightCircleIcon />
+      <ChevronRightCircleIcon className=" shrink-0" />
     </div>
   </div>
 }
@@ -576,7 +576,7 @@ function PopularStores({ setIsUserLogin }) {
 
     <div className=" z-20 max-w-7xl justify-center mx-auto items-center gap-2 flex flex-row ">
       {/* <img src="./backword-btn.png" className=" z-20 h-6 w-auto" alt="" /> */}
-      <ChevronLeftCircleIcon />
+      <ChevronLeftCircleIcon className=" shrink-0" />
 
       {/* Cards */}
 
@@ -640,7 +640,7 @@ function PopularStores({ setIsUserLogin }) {
 
 
       {/* <img src="./forword-btn.png" className="  z-20 h-6 w-auto" alt="" /> */}
-      <ChevronRightCircleIcon />
+      <ChevronRightCircleIcon className=" shrink-0" />
     </div>
   </div>
 }

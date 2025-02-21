@@ -5,9 +5,9 @@ import React from 'react'
 const VendorOnbordForm = ({ num }) => {
 
     return (
-        <div className=' px-4 max-w-6xl hide-scrollbar overflow-x-scroll py-3 mx-auto w-full mt-6 flex gap-12 items-center justify-start lg:justify-center' >
+        <div className=' px-4 max-w-6xl hide-scrollbar overflow-x-scroll py-3 mx-auto w-full md:mt-6 flex gap-12 items-center justify-start lg:justify-center' >
             {/* <div className={`text-xl font-semibold ${num == 1 && "opacity-0"} `} >Happy Shappy</div> */}
-            <div className=' flex  gap-3' >
+            <div className=' flex gap-1 md:gap-3' >
                 <ContactDetails />
                 <Line isRed={num > 1} />
                 <ShopDetails isRed={num > 1} />
@@ -27,23 +27,23 @@ export default VendorOnbordForm;
 
 function Line({ isRed }) {
     return (
-        <div className={` h-1.5 mt-7 w-20 rounded  ${isRed ? "bg-red-200" : "bg-gray-300"} `} ></div>
+        <div className={` h-1.5 mt-4 md:mt-7 w-12 md:w-20 rounded  ${isRed ? "bg-red-200" : "bg-gray-300"} `} ></div>
     )
 }
 
 function ContactDetails() {
     return <div className=' flex w-16 flex-col gap-2 items-center ' >
-        <Link href={`/vendor-dashbord?form=1`} className=' size-16 flex items-center justify-center rounded-full bg-red-200' >
-            <CircleUser className=' size-9 text-black ' />
+        <Link href={`/vendor-dashbord?form=1`} className='   size-10 md:size-16  flex items-center justify-center rounded-full bg-red-200' >
+            <CircleUser className='size-6 md:size-9  text-black ' />
         </Link>
         <p className=' text-xs text-black font-semibold text-center' >Vendor Details</p>
     </div>
 }
 function ShopDetails({ isRed }) {
     return <div className=' flex w-16 flex-col gap-2 items-center ' >
-        <Link href={`/vendor-dashbord?form=2`} className={`size-16 flex items-center justify-center rounded-full  ${isRed ? "bg-red-200" : " bg-gray-300"}`} >
+        <Link href={`/vendor-dashbord?form=2`} className={`  size-10 md:size-16 flex items-center justify-center rounded-full  ${isRed ? "bg-red-200" : " bg-gray-300"}`} >
 
-            <img src='./nav/shop.svg' className=' size-9' />
+            <img src='./nav/shop.svg' className=' size-6 md:size-9 ' />
 
         </Link>
         <p className={`text-xs  font-semibold text-center text-black `}  >Business Details</p>
@@ -52,8 +52,8 @@ function ShopDetails({ isRed }) {
 }
 function BankDetails({ isRed }) {
     return <div className=' flex w-16 flex-col gap-2 items-center ' >
-        <Link href={`/vendor-dashbord?form=3`} className={`size-16 flex items-center justify-center rounded-full  ${isRed ? "bg-red-700" : " bg-gray-300"}`} >
-            <Landmark className={`size-9 ${isRed ? " text-white" : " text-black"} `} />
+        <Link href={`/vendor-dashbord?form=3`} className={`  size-10 md:size-16 flex items-center justify-center rounded-full  ${isRed ? "bg-red-700" : " bg-gray-300"}`} >
+            <Landmark className={`size-6 md:size-9  ${isRed ? " text-white" : " text-black"} `} />
         </Link>
         <p className={`text-xs  font-semibold text-center ${isRed ? " text-red-700" : " text-black"} `} >Bank Details</p>
 
@@ -61,8 +61,8 @@ function BankDetails({ isRed }) {
 }
 function OfferDetails({ isRed }) {
     return <div className=' flex w-16 flex-col gap-2 items-center ' >
-        <Link href={`/vendor-dashbord?form=3`} className={`size-16 flex items-center justify-center rounded-full  ${isRed ? "bg-red-200" : " bg-gray-300"}`} >
-            <BadgePercent className={`size-9 text-black `} />
+        <Link href={`/vendor-dashbord?form=3`} className={`  size-10 md:size-16  flex items-center justify-center rounded-full  ${isRed ? "bg-red-200" : " bg-gray-300"}`} >
+            <BadgePercent className={`size-6 md:size-9  text-black `} />
         </Link>
         <p className={`text-xs  font-semibold text-center text-black `}  >Product Offers</p>
 
@@ -70,8 +70,8 @@ function OfferDetails({ isRed }) {
 }
 function PromoteMyStore({ isRed }) {
     return <div className=' flex w-16 flex-col gap-2 items-center ' >
-        <Link href={`/vendor-dashbord?form=4`} className={`size-16 flex items-center justify-center rounded-full  ${isRed ? "bg-red-200" : " bg-gray-300"}`} >
-            <Megaphone className={`size-9 text-black `} />
+        <Link href={`/vendor-dashbord?form=4`} className={`  size-10 md:size-16  flex items-center justify-center rounded-full  ${isRed ? "bg-red-200" : " bg-gray-300"}`} >
+            <Megaphone className={`ssize-6 md:size-9  text-black `} />
         </Link>
         <p className={`text-xs  font-semibold text-center text-black `}  >Promote My Store</p>
 

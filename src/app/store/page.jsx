@@ -82,7 +82,7 @@ const Page = () => {
                 }
               </div>
             </div>
-            <div className=" flex items-centern gap-2 justify-between items-center" >
+            <div className=" flex gap-2 justify-between items-center" >
               <div className=" flex md:items-center gap-4 flex-col md:flex-row" >
                 <div className=" flex gap-2 items-center" >
                   <Clock className=" text-red-500" size={18} />
@@ -179,12 +179,12 @@ function AllOffers() {
             }
           ].map((item, idx) => {
             return (
-              <div key={idx} className=" md:h-28 flex flex-col md:flex-row gap-3 md:gap-6 md:items-center  py-1 border-b" >
-                <div className=" flex md:items-center gap-2" >
-                  <img src="./hero-small.png" className=" md:h-full w-24 md:w-auto" alt="" />
+              <div key={idx} className=" lg:h-28 flex flex-col lg:flex-row gap-3 lg:gap-6 lg:items-center  py-1 border-b" >
+                <div className=" flex lg:items-center gap-2" >
+                  <img src="./hero-small.png" className=" lg:h-full w-24 lg:w-auto" alt="" />
                   <p className=" text-gray-600" ><span className=" text-red-500" >{item.offer}</span>{item.description}</p>
                 </div>
-                <p className="shrink-0 md:ml-auto" >Valid till <span className=" text-red-500" >{item.valid_till}</span></p>
+                <p className="shrink-0 lg:ml-auto" >Valid till <span className=" text-red-500" >{item.valid_till}</span></p>
               </div>
             )
           })
@@ -203,9 +203,9 @@ function OtherOutlet() {
         {
           [1, 2, 3, 4, 5, 6].map((idx) => {
             return (
-              <div key={idx} className=" md:h-28 flex flex-col md:flex-row gap-3 md:items-center  py-1 border-b" >
+              <div key={idx} className=" lg:h-28 flex flex-col lg:flex-row gap-3 lg:items-center  py-1 border-b" >
                 <div className=" w-full flex gap-3" >
-                  <img src="./hero-small.png" className=" md:h-full w-24 md:w-auto" alt="" />
+                  <img src="./hero-small.png" className=" lg:h-full w-24 lg:w-auto" alt="" />
                   <div className=" flex flex-col gap-2 justify-between" >
                     <p className=" font-medium" >Happy Shoppy Brand of Clothes</p>
                     <div className=" flex items-center gap-2" >

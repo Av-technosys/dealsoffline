@@ -14,7 +14,7 @@ import { ChevronDown, MapPin, Tag } from "lucide-react"
 export function SelectLocation() {
     return (
         <Select>
-            <SelectTrigger className="w-[180px]">
+            <SelectTrigger className="w-full md:w-auto">
                 <SelectValue placeholder={<Label />} />
             </SelectTrigger>
             <SelectContent>

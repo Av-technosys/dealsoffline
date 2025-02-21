@@ -33,7 +33,7 @@ const GallaryDialog = ({ isOpen, setIsOpen }) => {
                 <DialogHeader className={"flex flex-col space-y-1.5 items-center text-center sm:text-left"} >
                     <X onClick={() => setIsOpen(false)} className=' absolute top-4 right-4 cursor-pointer' />
                     <DialogTitle className="py-6 text-5xl text-center font-semibold" >
-                        Our Gallary
+                        Our Gallery
                     </DialogTitle>
                     <DialogDescription className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6" >
                         {gallaryData.map((item, index) => (

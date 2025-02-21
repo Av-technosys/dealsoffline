@@ -40,6 +40,7 @@ export default function StoreMenuNavItem({ menu, storeMenu }) {
             }}
             onHoverEnd={toggleHoverMenu}
             key={menu.label}
+            onClick={()=> toggleHoverMenu((prev)=> !prev)}
         >
             <span className={`flex gap-2 rounded-md items-center relative text-black cursor-pointer px-3 font-semibold py-2 ${menu.label === "Men" ? "bg-red-200" : "border" }`}>
                 {menu.label}

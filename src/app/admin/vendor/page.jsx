@@ -37,7 +37,7 @@ const Page = () => {
 
 export default Page;
 
-function VendorList({ setIsEditVendor, setVendorId,setIsDeleteVendor }) {
+function VendorList({ setIsEditVendor, setVendorId, setIsDeleteVendor }) {
     const data = [
         {
             "name": "Naveen Sharma",
@@ -95,85 +95,90 @@ function VendorList({ setIsEditVendor, setVendorId,setIsDeleteVendor }) {
         setVendorId(vendorId);
     }
     return (
-        <div className=' min-w-[80rem] w-full max-w-7xl flex flex-col mx-auto mt-6 border rounded-md ' >
-            <div className=' flex justify-between items-center p-4 gap-6' >
+        <div className=' max-w-7xl w-full flex flex-col mx-auto mt-6 border rounded-md ' >
+            <div className=' flex flex-col md:flex-row justify-between items-center p-4 gap-6' >
                 <div className=' flex gap-2 items-center' >
                     <p className=' text-3xl font-semibold' >Vendor List</p>
                     <img src='./../vendor-store-red.svg' />
                 </div>
-                <div className=' flex gap-2 items-center' >
+                <div className=' flex flex-col md:flex-row gap-2 items-center' >
                     <SelectBrand />
                     <SelectCities />
                     <SelectLocation />
-                    <div className=' flex gap-2 items-center' >
-                        <div className=' border flex items-center gap-1 border-gray-700 text-red-600 py-2 px-2 rounded-md' >
-                            <Search size={18} />
-                            {/* <p className=' text-gray-700 text-sm font-semibold' >
-                                Search
-                            </p> */}
-                            <input type='text' className=' text-gray-700 text-sm font-semibold max-w-24 ' placeholder='Search' />
+                    <div className=' flex gap-2 w-full' >
+                        <div className=' w-full md:w-auto flex gap-2 items-center' >
+                            <div className=' w-full border flex items-center gap-1 border-gray-200 text-red-600 py-2 px-3 rounded-md' >
+                                <Search size={18} />
+                                <input type='text' className=' w-full focus:outline-none text-gray-700 text-sm font-semibold ' placeholder='Search' />
+                            </div>
                         </div>
-                    </div>
-                    <div className=' flex gap-2 items-center' >
-                        <div className=' border flex items-center gap-1 border-gray-700 text-red-600 py-2 px-2 rounded-md' >
-                            {/* <Tag size={18} /> */}
-                            <p className=' text-gray-700 text-sm font-semibold' >
-                                Export
-                            </p>
-                            <img src='./../../export.svg' />
+                        <div className=' shrink-0 flex gap-2 items-center' >
+                            <div className=' border flex items-center gap-1 border-gray-200 text-red-600 py-2 px-2 rounded-md' >
+                                {/* <Tag size={18} /> */}
+                                <p className=' text-gray-700 text-sm font-semibold' >
+                                    Export
+                                </p>
+                                <img src='./../../export.svg' />
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div>
-                <div className=' w-full p-4 bg-red-700 text-white grid grid-cols-7 gap-2 ' >
-                    <div className=' flex gap-1 items-center' >
-                        <p className=' font-semibold' >Store Name</p>
-                        <img src='./../../vendor-store-white.svg' />
-                    </div>
-                    <div className=' flex gap-1 items-center' >
-                        <p className=' font-semibold' >Customer Name</p>
-                        <UserRoundIcon size={18} />
-                    </div>
-                    <div className=' flex gap-1 items-center' >
-                        <p className=' font-semibold' >Contact</p>
-                        <Phone size={18} />
-                    </div>
-                    <div className=' flex gap-1 items-center' >
-                        <p className=' font-semibold' >Email ID</p>
-                        <Mail size={18} />
-                    </div>
-                    <div className=' flex gap-1 justify-center items-center' >
-                        <p className=' font-semibold' >Active</p>
-                        <img src="./../contact-check.svg" alt="" />
-                    </div>
-                    <div className=' flex gap-1 justify-center items-center' >
-                        <p className=' font-semibold' >Verified</p>
-                        <BadgeCheck size={18} />
-                    </div>
-                    <div className=' flex gap-1 items-center justify-center' >
-                        <p className=' font-semibold' >Action</p>
-                        <img src="./../action.svg" alt="" />
+                <div className=" w-full overflow-x-auto">
+
+
+                    <div className='w-[80rem]' >
+                        <div className='  p-4 bg-red-700 text-white grid grid-cols-7 gap-2 ' >
+                            <div className=' flex gap-1 items-center' >
+                                <p className=' font-semibold' >Store Name</p>
+                                <img src='./../../vendor-store-white.svg' />
+                            </div>
+                            <div className=' flex gap-1 items-center' >
+                                <p className=' font-semibold' >Customer Name</p>
+                                <UserRoundIcon size={18} />
+                            </div>
+                            <div className=' flex gap-1 items-center' >
+                                <p className=' font-semibold' >Contact</p>
+                                <Phone size={18} />
+                            </div>
+                            <div className=' flex gap-1 items-center' >
+                                <p className=' font-semibold' >Email ID</p>
+                                <Mail size={18} />
+                            </div>
+                            <div className=' flex gap-1 justify-center items-center' >
+                                <p className=' font-semibold' >Active</p>
+                                <img src="./../contact-check.svg" alt="" />
+                            </div>
+                            <div className=' flex gap-1 justify-center items-center' >
+                                <p className=' font-semibold' >Verified</p>
+                                <BadgeCheck size={18} />
+                            </div>
+                            <div className=' flex gap-1 items-center justify-center' >
+                                <p className=' font-semibold' >Action</p>
+                                <img src="./../action.svg" alt="" />
+                            </div>
+                        </div>
+                        {
+                            data.map((item, idx) => {
+                                return (
+                                    <div key={idx} className={` border-b w-full p-4 grid grid-cols-7 gap-2  ${idx % 2 != 0 ? "bg-gray-100" : "bg-white"}`} >
+                                        <p>Happy Shoppy</p>
+                                        <p>{item.name}</p>
+                                        <p>{item.phone}</p>
+                                        <p className=' text-sm overflow-x-scroll hide-scrollbar' >{item.email}</p>
+                                        <input type="checkbox" className=" size-3.5 mx-auto border border-red-700 " />
+                                        <input type="checkbox" className=" size-3.5 mx-auto border border-red-700 " />
+                                        <div className=' flex items-center justify-center' >
+                                            <img onClick={handleVendorEdit} src='./../../edit-list.svg' />
+                                            <img onClick={() => { setIsDeleteVendor(true); setVendorId(1) }} src='./../../bin.svg' />
+                                        </div>
+                                    </div>
+                                )
+                            })
+                        }
                     </div>
                 </div>
-                {
-                    data.map((item, idx) => {
-                        return (
-                            <div key={idx} className={` border-b w-full p-4 grid grid-cols-7 gap-2  ${idx % 2 != 0 ? "bg-gray-100" : "bg-white"}`} >
-                                <p>Happy Shoppy</p>
-                                <p>{item.name}</p>
-                                <p>{item.phone}</p>
-                                <p className=' text-sm overflow-x-scroll hide-scrollbar' >{item.email}</p>
-                                <input type="checkbox" className=" size-3.5 mx-auto border border-red-700 " />
-                                <input type="checkbox" className=" size-3.5 mx-auto border border-red-700 " />
-                                <div className=' flex items-center justify-center' >
-                                    <img onClick={handleVendorEdit} src='./../../edit-list.svg' />
-                                    <img onClick={() => { setIsDeleteVendor(true); setVendorId(1) }} src='./../../bin.svg' />
-                                </div>
-                            </div>
-                        )
-                    })
-                }
                 <div className=' flex  items-center justify-center gap-2 py-4' >
                     <ChevronLeft className=' border rounded-md p-1 ' size={28} />
                     <div className=' border rounded-md p-1 shrink-0 size-7 flex items-center justify-center bg-gray-200 ' >1</div>

@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from './../../ui/dialog'
 import Link from 'next/link';
-import { ArrowLeft, ArrowRight, BadgePercent, BadgePercentIcon, Camera, CircleUser, Megaphone, BookImage, CalendarDays, CalendarDaysIcon, CameraIcon, Check, ChevronLeftIcon, ChevronRightIcon, CopyPlus, Info, Menu, Pencil, ScanQrCode, ShapesIcon, Square, X, Trash2, Image } from 'lucide-react';
+import { ArrowLeft, ArrowRight, BadgePercent, BadgePercentIcon, Camera, CircleUser, Megaphone, BookImage, CalendarDays, CalendarDaysIcon, CameraIcon, Check, ChevronLeftIcon, ChevronRightIcon, CopyPlus, Info, Menu, Pencil, ScanQrCode, ShapesIcon, Square, X, Trash2, Image, Save, ChevronRightCircle, ChevronLeftCircle } from 'lucide-react';
 import WomenBox from '@/components/womenBook';
 import VendorAdminNavBar from './vendorAdminNavBar';
 import TermsAndConditionVendorDetailsDialog from '../termsAndConditionVendorDetails';
@@ -25,8 +25,8 @@ const VendorEditAdminDialog = ({ isOpen, setIsVendorReport, setIsVendorSetting, 
     }, [isOpen])
     return (
         <Dialog open={isOpen}>
-            <DialogContent className=" max-w-7xl w-full max-h-[80vh] h-full overflow-y-auto" >
-                <DialogHeader className={"flex flex-col space-y-1.5 py-8 items-center text-center justify-center sm:text-left"} >
+            <DialogContent className=" p-0 max-w-7xl w-full max-h-[90vh] h-full overflow-y-auto" >
+                <DialogHeader className={"flex flex-col w-full border space-y-1.5 py-8 items-center text-center justify-center sm:text-left"} >
                     <X onClick={() => setIsEditVendor(false)} className=' absolute top-4 right-4 cursor-pointer' />
                     <DialogTitle className="text-center" ></DialogTitle>
                     <VendorAdminNavBar setIsVendorReport={setIsVendorReport} setIsVendorSetting={setIsVendorSetting} setIsEditVendor={setIsEditVendor} page={"dashbord"} />
@@ -62,25 +62,25 @@ export default VendorEditAdminDialog;
 function ProfileSection() {
     const [isChecked, setIsChecked] = React.useState(false);
 
-    return <div className=' max-w-6xl px-4 mt-12 mx-auto w-full flex flex-col gap-4' >
+    return <div className=' text-left max-w-6xl px-6 mt-12 pt-6 mx-auto w-full flex flex-col gap-4' >
 
-        <div className=' flex flex-col h-full gap-20 md:flex-row ' >
+        <div className=' flex flex-col h-full gap-12 md:flex-row ' >
             <div className="  h-full flex md:justify-end md:items-end  mt-auto " >
                 <VendorProfileImage />
             </div>
-            <div className=" flex flex-col gap-12" >
+            <div className=" flex flex-col gap-6 md:gap-12" >
                 <div className=' flex flex-col gap-4' >
                     <p className=' text-3xl md:text-4xl font-medium' >Vendor Details</p>
                     <p className=' text-gray-600' >Fill the Details to gain Costumer’s trust</p>
                 </div>
                 <div className=' flex flex-col gap-2 w-full' >
-                    <div className=' grid grid-cols-1 sm:grid-cols-2 w-full gap-2' >
+                    <div className=' grid grid-cols-1 sm:grid-cols-2 w-full gap-4' >
                         <InputFild label={"Name"} inputName={"Naveen Sharma"} />
                         <InputFild label={"Email ID/ User ID"} inputName={"naveensharma@gmail.com"} />
                         <InputFildNumber label={"Phone Number"} inputName={"91-9012345678"} />
                         <InputFild label={"WhatsApp Number"} inputName={"91-9012345678"} same={true} />
                     </div>
-                    <div className=" mt-6" >
+                    <div className=" mr-auto mt-3 md:mt-6" >
                         <TermsAndConditionVendorDetailsDialog isChecked={isChecked} setIsChecked={setIsChecked} />
                     </div>
 
@@ -93,7 +93,7 @@ function ProfileSection() {
 
 function InputFildNumber({ label, inputName, notNsc, disable }) {
     return <div className=' w-full flex flex-col gap-1' >
-        <p className={`${disable && " text-gray-400"}`}>{label} {!notNsc && <span className=' text-red-700' >*</span>}</p>
+        <p className={`${disable && " text-gray-400"} font-semibold`}>{label} {!notNsc && <span className=' text-red-700' >*</span>}</p>
         <input type='text' defaultValue={inputName} className=' w-full text-sm rounded-md p-2 border ' />
         <div className=' flex mt-4 items-center gap-6'>
             <div className=' flex gap-2 items-center' >
@@ -113,23 +113,26 @@ function ShopDetailsSection() {
     function handleApplyFilter() {
     }
     const [isChecked, setIsChecked] = React.useState(false);
-    return <div className=' px-4 max-w-5xl mt-12 mx-auto w-full flex flex-col gap-4' >
-        <div className=' flex flex-col gap-16 md:flex-row' >
-            <div className=' flex md:max-w-60 md:mt-28 shrink-0 flex-col gap-4' >
+    return <div className=' text-left px-4 max-w-[96vw] pt-6 md:max-w-5xl mt-12 mx-auto w-full flex flex-col gap-4' >
+        <div className=' flex flex-col gap-8 md:gap-16 md:flex-row' >
+            <div className=' flex md:max-w-60 md:mt-28 shrink-0 flex-col gap-12' >
                 <VendorProfileImage />
 
                 <div className="flex flex-col">
-                    <p className="font-semibold text-xl">Product Categories</p>
-                    <p className=" text-gray-600" >Select Categories for Shop</p>
-                    <div className="flex w-full mt-3 flex-wrap gap-2">
-                        <MenMenu />
-                        <WomenMenu />
-                        <MenuKids />
-                        <BeautyMenu />
-                        <HomeDecoreMenu />
 
-                        <HomeAppliencesMenu />
-                        <ElectronicsMenu />
+                    <div className=' flex flex-col gap-4' >
+                        <p className=' text-3xl md:text-4xl font-medium' >Product Categories</p>
+                        <p className=' text-gray-600' >Select Categories for Shop</p>
+                    </div>
+                    <div className="flex w-full mt-3 overflow-x-auto py-2 [&>*]:shrink-0 md:flex-wrap gap-2">
+                        <MenMenu path="vendor" />
+                        <WomenMenu path="vendor" />
+                        <MenuKids path="vendor" />
+                        <BeautyMenu path="vendor" />
+                        <HomeDecoreMenu path="vendor" />
+
+                        <HomeAppliencesMenu path="vendor" />
+                        <ElectronicsMenu path="vendor" />
                     </div>
                     <p className="font-semibold mt-6 text-lg">Brands</p>
                     <p className=" text-sm text-gray-600" >Select your Trusted Brand</p>
@@ -152,10 +155,12 @@ function ShopDetailsSection() {
                                 )
                             })
                         } */}
-                        <SearchByBrand />
+                        <SearchByBrand path="vendor" />
                     </div>
-                    <div onClick={handleApplyFilter} className=" border border-red-700 text-red-700 duration-200 hover:bg-red-700 px-4 py-2 rounded-md cursor-pointer hover:text-white text-center font-semibold mt-6" >Apply</div>
-                </div>
+                    <div onClick={handleApplyFilter} className=" border border-red-700 flex gap-2 items-center justify-center duration-200 bg-red-700 px-4 py-2 rounded-md cursor-pointer text-white text-center font-semibold mt-6" >
+                        <p>Save</p>
+                        <Save size={20} />
+                    </div>                </div>
             </div>
 
             <div>
@@ -166,7 +171,7 @@ function ShopDetailsSection() {
                 <div className=' flex mt-6 flex-col gap-2 w-full' >
                     <InputFild label={"Shop Name"} />
                     <div className=' flex flex-col gap-1' >
-                        <p>Shop Description <span className=' text-red-700' >*</span></p>
+                        <p className=' font-semibold' >Shop Description <span className=' text-red-700' >*</span></p>
                         <textarea rows={4} type='text' className=' text-sm rounded-md p-2 border ' />
                     </div>
                     <InputFild label={"Address"} />
@@ -182,21 +187,23 @@ function ShopDetailsSection() {
                         <InputFild label={"Longitude"} notNsc={true} disable={true} />
                         <InputFild label={"Latitude"} notNsc={true} disable={true} />
                     </div>
-                    <div className=' w-full flex flex-col md:flex-row gap-4'  >
-                        <div className=' opacity-50 w-full flex flex-col gap-1' >
-                            <p>Location/Area* <span className=' text-red-700' >*</span></p>
+                    <div className=' mt-1 w-full flex flex-col md:flex-row gap-4'  >
+                        <div className=' w-full flex flex-col gap-1' >
+                            <p className=' font-semibold' >Location/Area* <span className=' text-red-700' >*</span></p>
                             <select rows={4} type='text' className=' bg-white text-sm rounded-md p-2 border ' />
                         </div>
                         <InputFild label={"GST Number"} notNsc={true} />
                     </div>
                     <div className=' w-full flex flex-col md:flex-row gap-4'  >
-                        <div className=' w-full flex justify-between flex-col gap-1' >
-                            <p>WalkIn Town Additional Discount <span className=' text-red-700' >*</span></p>
+                        <div className=' mt-1 w-full flex justify-between flex-col gap-1' >
+                            <p className=' font-semibold' >WalkIn Town Additional Discount <span className=' text-red-700' >*</span></p>
                             <input type='text' className=' bg-white text-sm rounded-md p-2 border ' />
-                            <TermsAndConditioBusinessDetailsnDialog isChecked={isChecked} setIsChecked={setIsChecked} />
+                            <div className=" mt-2">
+                                <TermsAndConditioBusinessDetailsnDialog isChecked={isChecked} setIsChecked={setIsChecked} />
+                            </div>
                         </div>
                         <div className=' w-full flex flex-col gap-1' >
-                            <div className=' flex gap-1 items-center' >Subscription Plan <span className=' text-red-700' >*</span><Info size={18} color="#666" /></div>
+                            <div className=' flex gap-1 font-semibold items-center' >Subscription Plan <span className=' text-red-700' >*</span><Info size={18} color="#666" /></div>
                             <div className=' flex flex-col gap-1' >
                                 <div className=' flex gap-1 items-center' >
                                     <input name='radio' type='radio' defaultChecked className=' w-fit' />
@@ -214,12 +221,15 @@ function ShopDetailsSection() {
                         </div>
                     </div>
                 </div>
-                <div className=' mt-6  flex flex-col gap-8 md:flex-row' >
+                <div className=' mt-6  flex gap-1 items-center flex-row' >
+                    <ChevronLeftCircle className="shrink-0" size={20} />
                     <div className=' max-w-2xl overflow-x-scroll px-2 hide-scrollbar flex relative gap-2 w-full' >
+
                         <div className=' relative rounded-md cursor-pointer h-28 w-36 shrink-0 items-center flex gap-2 px-3 border border-black py-1.5' >
                             <p className='  text-black text-sm  text-center' >Upload image here</p>
                             <BookImage size={20} className=" absolute bottom-0 right-0 bg-black p-1 rounded size-7 text-white" />
                         </div>
+
                         {
                             ["./../v2.png", "./../v3.png", "./../v4.png", "./../v5.png", "./../v2.png", "./../v3.png"].map((item, index) => (
                                 <div key={index} className=" w-36 shrink-0 relative" >
@@ -229,6 +239,7 @@ function ShopDetailsSection() {
                             ))
                         }
                     </div>
+                    <ChevronRightCircle className="shrink-0" size={20} />
                 </div>
             </div>
         </div>
@@ -237,7 +248,7 @@ function ShopDetailsSection() {
 
 // Step Three
 function BankDetailsSection() {
-    return <div className=' px-4 max-w-5xl mt-12 mx-auto w-full flex flex-col gap-4' >
+    return <div className=' px-4 max-w-5xl pt-6 mt-12 mx-auto w-full flex flex-col gap-4' >
         <div className=' w-fit mx-auto items-center flex flex-col gap-4' >
             <p className=' text-3xl md:text-4xl font-medium text-center' >Bank Details</p>
             <p className=' text-gray-600 text-center' >Add your bank details</p>
@@ -285,44 +296,44 @@ function BankDetailsSection() {
 
 // Step Four
 function OfferDetailsSection() {
-    return <div className=' max-w-6xl px-4 mt-12 mx-auto flex-col w-full flex gap-4' >
-        <div className=' flex flex-col gap-16 md:flex-row' >
+    return <div className=' text-left max-w-[96vw] pt-6 md:max-w-6xl px-4 mt-12 mx-auto flex-col w-full flex gap-4' >
+        <div className=' flex flex-col gap-12 md:flex-row' >
             <div className='flex md:max-w-60 w-full md:mt-28 shrink-0 flex-col gap-4' >
-                <div className=' max-w-60 relative items-center justify-center aspect-square flex shrink-0 flex-col gap-4 border border-gray-600 rounded-md ' >
+                <div className=' max-w-44 md:max-w-60 relative items-center justify-center aspect-square flex shrink-0 flex-col gap-4 border border-gray-600 rounded-md ' >
                     <div className=" absolute bottom-0 right-0 translate-y-1/2 translate-x-1/2 size-16 bg-red-700 p-1 flex items-center justify-center rounded-full" >
                         <CameraIcon className=' text-white' size={36} />
                     </div>
                     <img src="./../store-pic.jpg" className=" h-full w-full object-cover" alt="" />
                 </div>
-                <p className=" font-semibold text-lg" >Happy Shop</p>
+                <p className=" text-left font-semibold text-lg" >Happy Shop</p>
             </div>
 
             <div className=' w-full' >
-                <div className=' w-full flex flex-col gap-4' >
+                <div className=' -mt-4 md:mt-0 w-full flex flex-col gap-4' >
                     <p className=' text-3xl md:text-4xl font-medium ' >Product & Offer Details</p>
                     <p className=' text-gray-600 ' >Create deals & offers</p>
                 </div>
-                <div className=' flex mt-6 flex-col gap-6 w-full' >
+                <div className=' flex mt-6 flex-col gap-4 w-full' >
                     <div className=" w-full flex flex-col md:flex-row gap-4" >
                         <div className=' w-full flex flex-col gap-1' >
-                            <p className={``}>Offer <span className=' text-red-700' >*</span></p>
+                            <p className={` font-semibold`}>Offer <span className=' text-red-700' >*</span></p>
                             <input className=" w-full text-sm bg-white rounded-md p-2 border " ></input>
                         </div>
                     </div>
                     <div className=" w-full flex flex-col gap-1" >
-                        <p className={``}>Offer Description <span className=' text-red-700' >*</span></p>
+                        <p className={` font-semibold`}>Offer Description <span className=' text-red-700' >*</span></p>
 
-                        <textarea defaultValue={"Get it soon"} className=" p-2 border w-full min-h-32 rounded h-full" />
+                        <textarea defaultValue={"Get it soon"} className=" p-2 border w-full min-h-24 md:min-h-32 rounded h-full" />
                     </div>
 
                     <div className=" w-full flex flex-col md:flex-row gap-4" >
                         <div className=' w-full flex flex-col gap-1' >
-                            <p className={``}>Validity From<span className=' text-red-700' >*</span></p>
+                            <p className={` font-semibold`}>Validity From<span className=' text-red-700' >*</span></p>
                             <CalendarForm />
                         </div>
 
                         <div className=' w-full flex flex-col gap-1' >
-                            <p className={``}>Validity Till<span className=' text-red-700' >*</span></p>
+                            <p className={` font-semibold`}>Validity Till<span className=' text-red-700' >*</span></p>
                             <CalendarForm />
 
                         </div>
@@ -335,11 +346,14 @@ function OfferDetailsSection() {
                 </div>
                 <div className=' mt-2  flex flex-col gap-2' >
                     <p>Select Template/Image for Offer Display<span className=' text-red-700' >*</span></p>
-                    <div className=" w-full gap-4 flex" >
+                    <div className=" w-full gap-2 items-center flex" >
+                        <ChevronLeftCircle className="shrink-0" size={20} />
+
                         <div className=' max-w-2xl overflow-x-scroll h-fit px-2 hide-scrollbar flex relative gap-2 w-full' >
                             <div className=' relative rounded-md cursor-pointer h-28 w-36 shrink-0 items-center flex gap-2 px-3 border border-black py-1.5' >
                                 <p className='  text-black text-sm  text-center' >Upload image here</p>
                                 <BookImage size={20} className=" absolute bottom-0 right-0 bg-black p-1 rounded size-7 text-white" />
+                                <input type="file" accept="image/*" className=" opacity-0 absolute inset-0 w-full h-full" />
                             </div>
                             {
                                 ["./../v2.png", "./../v3.png", "./../v4.png", "./../v5.png", "./../v2.png", "./../v3.png"].map((item, index) => (
@@ -353,8 +367,10 @@ function OfferDetailsSection() {
                                 ))
                             }
                         </div>
+                        <ChevronRightCircle className="shrink-0" size={20} />
+
                         <div className=" rounded-md overflow-hidden" >
-                            <img src="./special-deal.png" alt="" />
+                            <img src="./../special-deal.png" alt="" />
                         </div>
                     </div>
                 </div>
@@ -362,48 +378,50 @@ function OfferDetailsSection() {
                 <OfferBottonBts />
             </div>
         </div>
-        <div className=' overflow-x-scroll hide-scrollbar' >
-            <p>Offer History</p>
-            <div className=' border rounded-md  w-[70rem]' >
-                <div className=' grid bg-red-700 text-white py-2 grid-cols-7' >
-                    <div className=' flex gap-2 items-center justify-center' >
-                        <p>Offer Image</p>
-                        <Image size={18} />
-                    </div>
-                    <div className=' flex gap-2 items-center justify-center' >
-                        <p>Offer</p>
-                        <ShapesIcon size={18} />
-                    </div>
-                    <div className=' flex items-center justify-center' >
-                        <p className=" text-sm" >Start Date-End Date</p>
-                        <CalendarDays size={18} />
-                    </div>
-                    <div className=' flex gap-2 items-center justify-center' >
-                        <p>Status</p>
-                        <div className=" border bg-gray-50 p-0.5" >
-                            <Check size={18} className=" text-red-700" />
+        <div >
+            <p className=' text-lg font-semibold pt-4 pb-2' >Offer History</p>
+            <div className=" overflow-x-auto hide-scrollbar">
+                <div className=' border rounded-md  w-[70rem]' >
+                    <div className=' grid bg-red-700 text-white py-2 grid-cols-7' >
+                        <div className=' flex gap-2 items-center justify-center' >
+                            <p>Offer Image</p>
+                            <Image size={18} />
+                        </div>
+                        <div className=' flex gap-2 items-center justify-center' >
+                            <p>Offer</p>
+                            <ShapesIcon size={18} />
+                        </div>
+                        <div className=' flex items-center justify-center' >
+                            <p className=" text-sm" >Start Date-End Date</p>
+                            <CalendarDays size={18} />
+                        </div>
+                        <div className=' flex gap-2 items-center justify-center' >
+                            <p>Status</p>
+                            <div className=" border bg-gray-50 p-0.5" >
+                                <Check size={18} className=" text-red-700" />
+                            </div>
+                        </div>
+                        <div className=' flex gap-2 items-center justify-center' >
+                            <p>Offer Display</p>
+                            <BadgePercentIcon size={18} />
+                        </div>
+                        <div className=' flex gap-2 items-center justify-center' >
+                            <p>Edit the offer</p>
+                            <Pencil size={18} />
+                        </div>
+                        <div className=' flex gap-2 items-center justify-center' >
+                            <p>Delete</p>
+                            <Trash2 size={18} />
                         </div>
                     </div>
-                    <div className=' flex gap-2 items-center justify-center' >
-                        <p>Offer Display</p>
-                        <BadgePercentIcon size={18} />
-                    </div>
-                    <div className=' flex gap-2 items-center justify-center' >
-                        <p>Edit the offer</p>
-                        <Pencil size={18} />
-                    </div>
-                    <div className=' flex gap-2 items-center justify-center' >
-                        <p>Delete</p>
-                        <Trash2 size={18} />
-                    </div>
+                    {
+                        offerData.map((data, idx) => {
+                            return (
+                                <OfferDetailList key={idx} data={data} idx={idx} />
+                            )
+                        })
+                    }
                 </div>
-                {
-                    offerData.map((data, idx) => {
-                        return (
-                            <OfferDetailList key={idx} data={data} idx={idx} />
-                        )
-                    })
-                }
             </div>
             <div className=" mt-6 flex justify-center gap-2">
                 <div className=" border rounded-md p-1" >
@@ -430,33 +448,34 @@ function OfferDetailsSection() {
 }
 
 function OfferDetailList({ data, idx }) {
-    return <div className={`grid  text-black py-2 grid-cols-7 ${idx % 2 == 0 ? "bg-gray-100" : "bg-white"} `} >
+    return <div className={`grid  text-gray-600 py-2 grid-cols-7 ${idx % 2 == 0 ? "bg-gray-100" : "bg-white"} `} >
+        <div className=' flex gap-2 items-center justify-center' >
+            <img src={data.img} />
+        </div>
         <div className=' flex gap-2 items-center justify-center' >
             <p className=' text-sm text-center' >{data.type}</p>
-        </div>
-        <div className=' flex gap-2 items-center justify-center' >
-            <p className=' text-sm text-center' >{data.category}</p>
-        </div>
-        <div className=' flex gap-2 items-center justify-center' >
-            <p className=' text-sm text-center' >{data.discount}</p>
         </div>
         <div className=' flex gap-2 items-center justify-center' >
             <p className=' text-sm text-center' >{data.validity}</p>
         </div>
         <div className=' flex gap-2 items-center justify-center' >
+            <p className=' text-sm text-center' >{data.status}</p>
+        </div>
+        <div className=' flex gap-2 items-center justify-center' >
             <p className=' text-sm text-center' >{data.offerDisplay}</p>
         </div>
         <div className=' flex gap-2 items-center justify-center' >
-            <input type='checkbox' />
+            <Pencil size={18} />
         </div>
         <div className=' flex gap-2 items-center justify-center' >
-            <Pencil size={18} />
+            <Trash2 size={18} />
         </div>
     </div>
 }
 const offerData = [
     {
-        "type": "Discount",
+        "img": "./../vendor-store-offer.png",
+        "type": "Weekend Sale",
         "category": "All Categories",
         "discount": "18%",
         "validity": "31st Dec - 2nd Jan",
@@ -464,43 +483,29 @@ const offerData = [
         "status": "Active"
     },
     {
-        "type": "Discount",
+        "img": "./../vendor-store-offer.png",
+        "type": "Weekend Sale",
         "category": "All Categories",
         "discount": "12%",
         "validity": "31st Dec - 1st Jan",
         "offerDisplay": "Offer display message",
-        "status": "Expired"
+        "status": "Ending Soon Offer"
     },
     {
-        "type": "Discount",
+        "img": "./../vendor-store-offer.png",
+        "type": "Weekend Sale",
         "category": "All Categories",
         "discount": "20%",
         "validity": "30th Dec - 1st Jan",
         "offerDisplay": "Offer display message",
         "status": "Expired"
     },
-    {
-        "type": "Discount",
-        "category": "All Categories",
-        "discount": "30%",
-        "validity": "29th Dec - 1st Jan",
-        "offerDisplay": "Offer display message",
-        "status": "Expired"
-    },
-    {
-        "type": "Discount",
-        "category": "All Categories",
-        "discount": "15%",
-        "validity": "28th Dec - 31st Dec",
-        "offerDisplay": "Offer display message",
-        "status": "Expired"
-    }
 ]
 
 
 function InputFild({ label, inputName, same, notNsc, disable }) {
     return <div className=' w-full flex flex-col gap-1' >
-        <p className={`${disable && " text-gray-400"}`}>{label} {!notNsc && <span className=' text-red-700' >*</span>}</p>
+        <p className={` font-semibold`}>{label} {!notNsc && <span className=' text-red-700' >*</span>}</p>
         <input type='text' defaultValue={inputName} className=' w-full text-sm rounded-md p-2 border ' />
         {
             same && <div className=' flex gap-2 mt-4 items-center' >
@@ -516,14 +521,14 @@ const OfferBottonBts = ({ num }) => {
     // console.log(num)
     const showBack = num != 1
     return (
-        <div className=' w-full mt-12 max-w-5xl mx-auto justify-end flex gap-4 items-center' >
+        <div className=' w-full mt-12 max-w-5xl mx-auto justify-center md:justify-end flex gap-4 items-center' >
             {showBack &&
-                <div className=' flex items-center gap-2 w-fit rounded-md text-red-700 border-red-700 border px-4 py-2' >
+                <div className=' flex items-center gap-2 w-full sm:w-fit justify-center rounded-md text-red-700 border-red-700 border px-4 py-2' >
                     <p className=' font-semibold'>Create New</p>
                     <CopyPlus size={20} />
                 </div>
             }
-            <div className=' w-fit  rounded-md text-white flex items-center gap-2 bg-red-700 px-4 py-2' >
+            <div className=' w-full sm:w-fit justify-center  rounded-md text-white flex items-center gap-2 bg-red-700 px-4 py-2' >
                 <p className=' font-semibold'>Save Offer</p>
                 <Check color='white' size={20} />
             </div>
@@ -599,13 +604,15 @@ function PromoteMyStoreSection() {
 
                     {
                         planData.map((data) => {
-                            return <div key={data.name} className=' w-full max-w-52 flex flex-col' >
+                            return <div key={data.name} className='  mx-auto w-full max-w-52 flex flex-col' >
                                 <p className=' text-red-700' >{data.name}</p>
-                                {
-                                    data.data?.map((item) => {
-                                        return <p key={item} >{item}</p>
-                                    })
-                                }
+                                <div className='' >
+                                    {
+                                        data.data?.map((item) => {
+                                            return <p className='' key={item} >{item}</p>
+                                        })
+                                    }
+                                </div>
                             </div>
                         })
                     }
@@ -633,7 +640,7 @@ const planData = [
         ]
     },
     {
-        name: "Platunum",
+        name: "Platinum",
         data: [
             "5000 / month",
             "20,000 / Quaterly",
@@ -693,8 +700,8 @@ const VendorFooterBarFinal = ({ num }) => {
 const VendorOnbordForm = ({ setCurrentStep, currentStep }) => {
 
     return (
-        <div className=' px-4 max-w-6xl hide-scrollbar overflow-x-scroll py-3 mx-auto w-full mt-6 flex gap-12 items-center justify-start lg:justify-center' >
-            <div className=' flex  gap-3' >
+        <div className=' px-2 md:px-4 max-w-[94vw] md:max-w-6xl hide-scrollbar overflow-x-scroll py-6 md:py-3 mx-auto w-full mt-6 flex gap-12 items-center justify-start lg:justify-center' >
+            <div className=' flex gap-1 md:gap-3' >
                 <ContactDetails setCurrentStep={setCurrentStep} />
                 <Line isRed={currentStep > 1} />
                 <ShopDetails setCurrentStep={setCurrentStep} isRed={currentStep > 1} />
@@ -709,23 +716,23 @@ const VendorOnbordForm = ({ setCurrentStep, currentStep }) => {
 
 function Line({ isRed }) {
     return (
-        <div className={` h-1.5 mt-7 w-20 rounded  ${isRed ? "bg-red-200" : "bg-gray-300"} `} ></div>
+        <div className={` h-1.5 mt-4 md:mt-7 w-12 md:w-20 rounded  ${isRed ? "bg-red-200" : "bg-gray-300"} `} ></div>
     )
 }
 
 function ContactDetails({ setCurrentStep }) {
     return <div className=' flex w-16 flex-col gap-2 items-center ' >
-        <div onClick={() => setCurrentStep(1)} className=' size-16 flex items-center justify-center rounded-full bg-red-200' >
-            <CircleUser className=' size-9 text-black ' />
+        <div onClick={() => setCurrentStep(1)} className='  size-10 md:size-16 flex items-center justify-center rounded-full bg-red-200' >
+            <CircleUser className='size-6 md:size-9 text-black ' />
         </div>
         <p className=' text-xs text-black font-semibold text-center' >Vendor Details</p>
     </div>
 }
 function ShopDetails({ isRed, setCurrentStep }) {
     return <div className=' flex w-16 flex-col gap-2 items-center ' >
-        <div onClick={() => setCurrentStep(2)} className={`size-16 flex items-center justify-center rounded-full  ${isRed ? "bg-red-200" : " bg-gray-300"}`} >
+        <div onClick={() => setCurrentStep(2)} className={` size-10 md:size-16 flex items-center justify-center rounded-full  ${isRed ? "bg-red-200" : " bg-gray-300"}`} >
 
-            <img src='./../nav/shop.svg' className=' size-9' />
+            <img src='./../nav/shop.svg' className='size-6 md:size-9' />
 
         </div>
         <p className={`text-xs  font-semibold text-center text-black `}  >Business Details</p>
@@ -743,8 +750,8 @@ function ShopDetails({ isRed, setCurrentStep }) {
 // }
 function OfferDetails({ isRed, setCurrentStep }) {
     return <div className=' flex w-16 flex-col gap-2 items-center ' >
-        <div onClick={() => setCurrentStep(3)} className={`size-16 flex items-center justify-center rounded-full  ${isRed ? "bg-red-200" : " bg-gray-300"}`} >
-            <BadgePercent className={`size-9 text-black `} />
+        <div onClick={() => setCurrentStep(3)} className={` size-10 md:size-16 flex items-center justify-center rounded-full  ${isRed ? "bg-red-200" : " bg-gray-300"}`} >
+            <BadgePercent className={`size-6 md:size-9 text-black `} />
         </div>
         <p className={`text-xs  font-semibold text-center text-black `}  >Product Offers</p>
 
@@ -752,8 +759,8 @@ function OfferDetails({ isRed, setCurrentStep }) {
 }
 function PromoteMyStore({ isRed, setCurrentStep }) {
     return <div className=' flex w-16 flex-col gap-2 items-center ' >
-        <div onClick={() => setCurrentStep(4)} className={`size-16 flex items-center justify-center rounded-full  ${isRed ? "bg-red-200" : " bg-gray-300"}`} >
-            <Megaphone className={`size-9 text-black `} />
+        <div onClick={() => setCurrentStep(4)} className={` size-10 md:size-16 flex items-center justify-center rounded-full  ${isRed ? "bg-red-200" : " bg-gray-300"}`} >
+            <Megaphone className={`size-6 md:size-9 text-black `} />
         </div>
         <p className={`text-xs  font-semibold text-center text-black `}  >Promote My Store</p>
 
@@ -774,9 +781,9 @@ function VendorProfileImage() {
         setUserImage(e.target.files[0])
     }
     return (
-        <div className='max-w-60 w-full relative items-center justify-center aspect-square flex shrink-0 flex-col gap-4 border border-gray-600 rounded-md ' >
+        <div className=' max-w-44 md:max-w-60 md:mx-auto w-full relative items-center justify-center aspect-square flex shrink-0 flex-col gap-4 border border-gray-600 rounded-md ' >
             {
-                userImage ? <img src={URL.createObjectURL(userImage)} className=" h-full rounded-md w-full object-cover" alt="" /> : <p className=' p-4' >Upload your image here</p>
+                userImage ? <img src={URL.createObjectURL(userImage)} className=" h-full rounded-md w-full object-cover" alt="" /> : <p className=' text-center p-4' >Upload your image here</p>
             }
             <div className=" absolute bottom-0 right-0 translate-y-1/2 translate-x-1/2 size-16 bg-red-700 p-1 flex items-center justify-center rounded-full" >
                 <CameraIcon className=' text-white' size={36} />
@@ -789,40 +796,40 @@ function VendorProfileImage() {
 
 function SearchByBrand() {
     const brands = [
-      "./../companies-logo/zara.png",
-      "./../companies-logo/h&m.png",
-      "./../companies-logo/puma.png",
-      "./../companies-logo/forever.png",
-      "./../companies-logo/gap.png",
-      "./../companies-logo/gap.png",
-      "./../companies-logo/h&m.png",
-      "./../companies-logo/puma.png",
-      "./../companies-logo/forever.png",
-      "./../companies-logo/gap.png",
-      "./../companies-logo/gap.png"
+        "./../companies-logo/zara.png",
+        "./../companies-logo/h&m.png",
+        "./../companies-logo/puma.png",
+        "./../companies-logo/forever.png",
+        "./../companies-logo/gap.png",
+        "./../companies-logo/gap.png",
+        "./../companies-logo/h&m.png",
+        "./../companies-logo/puma.png",
+        "./../companies-logo/forever.png",
+        "./../companies-logo/gap.png",
+        "./../companies-logo/gap.png"
     ];
     const [selectedFields, setSelectedFields] = useState([]);
     const handleCheckboxChange = (value) => {
-      if (selectedFields.includes(value)) {
-        setSelectedFields(selectedFields.filter((item) => item !== value));
-      } else {
-        setSelectedFields([...selectedFields, value]);
-      }
+        if (selectedFields.includes(value)) {
+            setSelectedFields(selectedFields.filter((item) => item !== value));
+        } else {
+            setSelectedFields([...selectedFields, value]);
+        }
     }
     return (
-      <div className="flex w-full mt-3 overflow-x-auto md:flex-wrap gap-2">
-        {/* <div className=" py-1 px-2 shrink-0 flex items-center justify-center bg-red-200 font-semibold text-sm rounded-md" >Vaishali Nagar</div> */}
-        {
-          brands?.slice(0, 6).map((data, idx) => {
-            const isPresect = selectedFields.includes(data);
-            console.log(data)
-            return (
-              <div onClick={() => handleCheckboxChange(data)} key={idx} className={`h-8 w-auto py-1 px-2 border border-black font-semibold text-sm rounded-md ${isPresect ? "bg-red-200" : ""}`} >
-                <img key={data} className=" w-full h-full " src={data} alt="" />
-              </div>)
-          })
-        }
-        <BrandsShowMore selectedFields={selectedFields} setSelectedFields={setSelectedFields} itemsToShow={brands.slice(6)} />
-      </div>
+        <div className="flex w-full py-2 mt-3 overflow-x-auto md:flex-wrap gap-2">
+            {/* <div className=" py-1 px-2 shrink-0 flex items-center justify-center bg-red-200 font-semibold text-sm rounded-md" >Vaishali Nagar</div> */}
+            {
+                brands?.slice(0, 6).map((data, idx) => {
+                    const isPresect = selectedFields.includes(data);
+                    console.log(data)
+                    return (
+                        <div onClick={() => handleCheckboxChange(data)} key={idx} className={`h-8 w-auto shrink-0 py-1 px-2 border border-black font-semibold text-sm rounded-md ${isPresect ? "bg-red-200" : ""}`} >
+                            <img key={data} className=" w-full h-full " src={data} alt="" />
+                        </div>)
+                })
+            }
+            <BrandsShowMore selectedFields={selectedFields} setSelectedFields={setSelectedFields} itemsToShow={brands.slice(6)} />
+        </div>
     )
-  }
+}

@@ -8,8 +8,8 @@ const TermsAndConditionVendorDetailsDialog = ({ isChecked, setIsChecked }) => {
     return (
         <Dialog>
             <DialogTrigger >
-                <div className=' flex items-center gap-3' >
-                    <input checked={isChecked} onChange={() => setIsChecked(!isChecked)} type="checkbox" className=" size-4" />
+                <div className=' flex items-center gap-2' >
+                    <input checked={isChecked} onChange={() => {}} type="checkbox" className=" size-4" />
                     <p className=' text-gray-600 text-sm' >Terms and Conditions<span className=' text-red-700' >*</span></p>
                     <Info size={18} />
                 </div>

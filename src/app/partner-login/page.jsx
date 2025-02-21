@@ -43,7 +43,7 @@ const Page = () => {
                         </p>
                         <div className=' max-w-96 flex flex-col mx-auto items-center gap-4' >
                             <input type="text" placeholder='User Id' className=' w-full border py-2 px-3 text-gray-700 rounded-md' />
-                            <input type="text" placeholder='Password' className=' w-full border py-2 px-3 text-gray-700 rounded-md' />
+                            <input type="password" placeholder='Password' className=' w-full border py-2 px-3 text-gray-700 rounded-md' />
                             <div className=' w-full flex-col md:flex-row flex md:items-center gap-2 md:gap-4 justify-center' >
                                 <div className=' flex items-center gap-2' >
                                     <input type="checkbox" className=" size-4" />

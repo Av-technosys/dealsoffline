@@ -74,7 +74,7 @@ export default Page;
 const VendorFooterBarFinal = ({ num }) => {
   const showBack = num != 1
   return (
-    <div className=' w-full max-w-5xl px-4 mx-auto justify-end flex gap-4 items-end' >
+    <div className=' w-full max-w-6xl px-4 mx-auto justify-end flex gap-4 items-end' >
 
       <img src="/swipe-animation.gif" alt="Swipe Animation" className="hidden" />
       {showBack &&
