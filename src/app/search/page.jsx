@@ -124,7 +124,7 @@ const Page = () => {
             <p className=" hidden lg:block text-sm text-gray-600" >Explore Shops in your Area</p>
             <SearchByLoaction />
 
-            <div className=" hidden lg:flex flex-col gap-1 mt-4">
+            <div className="flex flex-col gap-1 mt-4">
               <p className="font-semibold text-lg mt-2">Suggested</p>
               <div className="flex gap-3 items-center">
                 <SuggestionBox />

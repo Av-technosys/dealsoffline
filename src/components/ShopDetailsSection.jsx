@@ -74,10 +74,10 @@ export default function ShopDetailsSection({ path }) {
 
             <SearchByBrand path="vendor" />
           </div>
-          <div onClick={handleApplyFilter} className=" border border-red-700 flex gap-2 items-center justify-center duration-200 bg-red-700 px-4 py-2 rounded-md cursor-pointer text-white text-center font-semibold mt-6" >
+          {/* <div onClick={handleApplyFilter} className=" border border-red-700 flex gap-2 items-center justify-center duration-200 bg-red-700 px-4 py-2 rounded-md cursor-pointer text-white text-center font-semibold mt-6" >
             <p>Save</p>
             <Save size={20} />
-          </div>
+          </div> */}
         </div>
       </div>
 
