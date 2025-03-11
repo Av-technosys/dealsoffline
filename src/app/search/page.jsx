@@ -82,24 +82,6 @@ const Page = () => {
           isOpen={isPartnerOTP}
           setIsOpen={setIsPartnerOTP}
         />
-
-        <img
-          src="./hero-bg.png"
-          className="absolute top-0 -z-10 h-full w-full left-0 object-cover"
-          alt=""
-        />
-        {/* <div className="absolute top-0 h-36 left-0 w-full bg-gradient-to-b from-black to-transparent"></div> */}
-        <div className=" flex container justify-center px-6 md:px-4 flex-col">
-          <p className="text-4xl md:text-5xl uppercase font-semibold text-white">
-            weekend sale
-          </p>
-          <p className="text-6xl md:text-7xl uppercase font-bold text-primary-red">
-            buy now
-          </p>
-          <p className="text-4xl md:text-5xl uppercase font-semibold text-white">
-            upto 70% off
-          </p>
-        </div>
       </div>
       <div className="flex flex-col lg:flex-row justify-center">
         <div className="lg:py-10 px-6 w-full lg:max-w-72 lg:flex flex-col gap-4">
