@@ -17,10 +17,17 @@ import PartnerLoginDialog from "@/components/dialog/partnerLoginDialog";
 import PartnerLoginOTPDialog from "@/components/dialog/partnerLoginOTPDialog";
 import Footer from "@/components/footer";
 import NavBar from "@/components/nav/navBar";
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { Check, Share2Icon, ThumbsUp, X } from "lucide-react";
 import React, { useState } from "react";
-
 
 const Page = () => {
   const [isCreateUser, setIsCreateUser] = React.useState(false);
@@ -35,17 +42,44 @@ const Page = () => {
       <div className="relative flex flex-col h-full justify-center gap-6 w-full min-h-screen">
         <NavBar />
 
+        <CreateUserDialog
+          isOpen={isCreateUser}
+          handleOTPDialog={setIsCreateOTP}
+          setUserLogin={setIsUserLogin}
+          setIsOpen={setIsCreateUser}
+        />
+        <GetCreateOTP
+          isOpen={isCreateOTP}
+          setIsOpen={setIsCreateOTP}
+          handleUserLogin={setIsUserLogin}
+        />
+        <GetPsswordOTP
+          isOpen={isPassOTP}
+          setIsOpen={setIsPassOTP}
+          handleOTPDialog={setIsUerPassword}
+        />
 
-        <CreateUserDialog isOpen={isCreateUser} handleOTPDialog={setIsCreateOTP} setUserLogin={setIsUserLogin} setIsOpen={setIsCreateUser} />
-        <GetCreateOTP isOpen={isCreateOTP} setIsOpen={setIsCreateOTP} handleUserLogin={setIsUserLogin} />
-        <GetPsswordOTP isOpen={isPassOTP} setIsOpen={setIsPassOTP} handleOTPDialog={setIsUerPassword} />
+        <LoginDialog
+          isOpen={isUserLogin}
+          handleCreateAccount={setIsCreateUser}
+          handleOTPDialog={setIsPassOTP}
+          setIsOpen={setIsUserLogin}
+        />
+        <ChangePassDialog
+          isOpen={isUerPassword}
+          setIsOpen={setIsUerPassword}
+          handleUserLogin={setIsUserLogin}
+        />
 
-        <LoginDialog isOpen={isUserLogin} handleCreateAccount={setIsCreateUser} handleOTPDialog={setIsPassOTP} setIsOpen={setIsUserLogin} />
-        <ChangePassDialog isOpen={isUerPassword} setIsOpen={setIsUerPassword} handleUserLogin={setIsUserLogin} />
-
-
-        <PartnerLoginDialog isOpen={isPartnerLogin} setIsOpen={setIsPartnerLogin} handleOTPDialog={setIsPartnerOTP} />
-        <PartnerLoginOTPDialog isOpen={isPartnerOTP} setIsOpen={setIsPartnerOTP} />
+        <PartnerLoginDialog
+          isOpen={isPartnerLogin}
+          setIsOpen={setIsPartnerLogin}
+          handleOTPDialog={setIsPartnerOTP}
+        />
+        <PartnerLoginOTPDialog
+          isOpen={isPartnerOTP}
+          setIsOpen={setIsPartnerOTP}
+        />
 
         <img
           src="./hero-bg.png"
@@ -69,10 +103,11 @@ const Page = () => {
         <div className="lg:py-10 px-6 w-full lg:max-w-72 lg:flex flex-col gap-4">
           <div className="flex flex-col gap-0">
             <p className="font-semibold mt-12 text-lg">Product Categories</p>
-            <p className=" hidden lg:block text-sm text-gray-600" >Select Categories for Shop</p>
+            <p className=" hidden lg:block text-sm text-gray-600">
+              Select Categories for Shop
+            </p>
             <div className="flex overflow-x-auto py-3 w-full md:flex-wrap gap-2">
-
-              <div className="shrink-0" >
+              <div className="shrink-0">
                 <MenMenu />
               </div>
               <div className="shrink-0">
@@ -97,31 +132,15 @@ const Page = () => {
           </div>
           <div className="flex flex-col mt-3 gap-0">
             <p className="font-semibold text-lg">Brands</p>
-            <p className=" text-sm text-gray-600" >Select your Trusted Brand</p>
+            <p className=" text-sm text-gray-600">Select your Trusted Brand</p>
             <div className="flex w-full mt-3 flex-wrap gap-2">
-              {/* <div className=" py-1 px-2  bg-secondary-red font-semibold text-sm rounded-md" >Zara</div> */}
-              {/* {
-                ["H&M", "Puma", "Forever 21", "Gap", "Snitch", "Levi’s", "Marks & Spencer"].map((data) => {
-                  return (
-                    <div key={data} className=" py-1 px-2 border border-black font-semibold text-sm rounded-md" >{data}</div>
-                  )
-                })
-              } */}
-              {/* {
-                ["h&m", "puma", "forever", "gap", "gap"].map((data, ind) => {
-                  return (
-                    // <div key={data} className=" py-1 px-2 border border-black font-semibold text-sm rounded-md" >{data}</div>
-                    <div key={ind} className=" h-8 w-auto py-1 px-2 border border-black font-semibold text-sm rounded-md" >
-                      <img key={data} className=" w-full h-full " src={`/companies-logo/${data}.png`} alt="" />
-                    </div>
-                  )
-                })
-              } */}
               <SearchByBrand />
             </div>
 
             <p className="font-semibold mt-8 text-lg">Area/Location</p>
-            <p className=" hidden lg:block text-sm text-gray-600" >Explore Shops in your Area</p>
+            <p className=" hidden lg:block text-sm text-gray-600">
+              Explore Shops in your Area
+            </p>
             <SearchByLoaction />
 
             <div className="flex flex-col gap-1 mt-4">
@@ -144,7 +163,7 @@ const Page = () => {
                 <p className=" font-medium">Closing Today</p>
               </div>
             </div>
-            <div className=" border border-primary-red flex gap-2 items-center justify-center duration-200 bg-primary-red px-4 py-2 rounded-md cursor-pointer text-white text-center font-semibold mt-6" >
+            <div className=" border border-primary-red flex gap-2 items-center justify-center duration-200 bg-primary-red px-4 py-2 rounded-md cursor-pointer text-white text-center font-semibold mt-6">
               <p>Apply</p>
               <Check size={20} />
             </div>
@@ -171,24 +190,33 @@ function SuggestionBox() {
 }
 
 function AllAppliedFilter() {
-  const [allFilter, setAllFilter] = useState(["Women", "Zara", "Vaishali Nagar"]);
+  const [allFilter, setAllFilter] = useState([
+    "Women",
+    "Zara",
+    "Vaishali Nagar",
+  ]);
   function handleRemove(item) {
-    setAllFilter(allFilter.filter((data) => data !== item))
+    setAllFilter(allFilter.filter((data) => data !== item));
   }
   return (
     <div className="flex gap-2 flex-wrap items-center">
-      {
-        allFilter.map((data) => {
-          return (
-            <div key={data} className=" gap-1 justify-center rounded-md bg-secondary-red font-semibold flex items-center px-2 py-1.5">
-              <p className="text-red-950">{data}</p>
-              <X onClick={() => handleRemove(data)} className=" cursor-pointer text-red-950" size={18} />
-            </div>
-          )
-        })
-      }
+      {allFilter.map((data) => {
+        return (
+          <div
+            key={data}
+            className=" gap-1 justify-center rounded-md bg-secondary-red font-semibold flex items-center px-2 py-1.5"
+          >
+            <p className="text-red-950">{data}</p>
+            <X
+              onClick={() => handleRemove(data)}
+              className=" cursor-pointer text-red-950"
+              size={18}
+            />
+          </div>
+        );
+      })}
     </div>
-  )
+  );
 }
 const navBarData = [
   {
@@ -281,43 +309,53 @@ function ProductList({ setIsUserLogin }) {
     >
       <img src="./category1.png" className="" alt="" />
       <div className="flex w-full justify-between h-full gap-4 md:gap-4 flex-col">
-        <div className=" flex flex-col gap-1 w-full" >
+        <div className=" flex flex-col gap-1 w-full">
           <div className="flex w-full gap-4 justify-between">
             <p className=" text-2xl md:text-3xl font-semibold">Lifestyle</p>
             <div className=" flex items-center gap-1">
-              <img src="./golden-star.svg" className=" size-6 md:size-8" alt="" />
-              <p className=" text-2xl md:text-4xl font-semibold" >3.9</p>
+              <img
+                src="./golden-star.svg"
+                className=" size-6 md:size-8"
+                alt=""
+              />
+              <p className=" text-2xl md:text-4xl font-semibold">3.9</p>
             </div>
           </div>
           <p className="text-primary-gray md:text-lg max-w-80">
             A unit of is one of the biggest brand in the tops in women wears.
           </p>
-          <div className=" mt-1 flex gap-2 items-center" >
+          <div className=" mt-1 flex gap-2 items-center">
             <img src="./right-circle.png" className=" size-6 md:size-8" />
-            <p className=" md:text-xl" >MI Road</p>
+            <p className=" md:text-xl">MI Road</p>
           </div>
-          <div className=" mt-1 flex gap-2 items-center justify-between" >
-            <p className=" text-xl md:text-4xl font-medium" >35% Off on food items <span className=" text-lg  font-normal" > (Valid till 28th dec)</span> </p>
-            <div className=" flex flex-col items-center justify-center" >
+          <div className=" mt-1 flex gap-2 items-center justify-between">
+            <p className=" text-xl md:text-4xl font-medium">
+              35% Off on food items{" "}
+              <span className=" text-lg  font-normal">
+                {" "}
+                (Valid till 28th dec)
+              </span>{" "}
+            </p>
+            <div className=" flex flex-col items-center justify-center">
               <ThumbsUp size={20} />
-              <p className=" text-sm font-semibold" >45K</p>
+              <p className=" text-sm font-semibold">45K</p>
             </div>
           </div>
         </div>
-        <div className=" flex items-center gap-2" >
-          <div className=" flex text-base  md:text-lg flex-col gap-2 xl:flex-row" >
-            <div className=" flex gap-1 items-center" >
+        <div className=" flex items-center gap-2">
+          <div className=" flex text-base  md:text-lg flex-col gap-2 xl:flex-row">
+            <div className=" flex gap-1 items-center">
               <img src="./time.png" alt="" />
               <p>Mon - Fri (11:00 AM - 08:00 PM)</p>
             </div>
-            <div className=" flex gap-1 items-center" >
+            <div className=" flex gap-1 items-center">
               <img src="./phone-red.png" alt="" />
               <p>+91 - 8112XXXXXX</p>
             </div>
           </div>
-          <div className=" flex flex-col items-center justify-center self-end ml-auto" >
+          <div className=" flex flex-col items-center justify-center self-end ml-auto">
             <Share2Icon size={20} />
-            <p className=" text-sm font-semibold" >40K</p>
+            <p className=" text-sm font-semibold">40K</p>
           </div>
         </div>
       </div>
@@ -340,8 +378,7 @@ function SearchByLoaction() {
     "mukesh art gallery",
     "nargadh fort",
     "Khatu sham ji",
-
-  ]
+  ];
   const [selectedFields, setSelectedFields] = useState([]);
   const handleCheckboxChange = (value) => {
     if (selectedFields.includes(value)) {
@@ -349,23 +386,32 @@ function SearchByLoaction() {
     } else {
       setSelectedFields([...selectedFields, value]);
     }
-  }
+  };
   return (
     <div className="flex w-full py-3 overflow-x-auto md:flex-wrap gap-2">
       {/* <div className=" py-1 px-2 shrink-0 flex items-center justify-center bg-secondary-red font-semibold text-sm rounded-md" >Vaishali Nagar</div> */}
-      {
-        locations?.slice(0, 6).map((data) => {
-          const isPresect = selectedFields.includes(data);
-          return (
-            <div onClick={() => handleCheckboxChange(data)} key={data} className={`shrink-0 cursor-pointer py-1 px-2 border border-black font-semibold text-sm rounded-md ${isPresect ? "bg-secondary-red" : ""}`} >{data}</div>
-          )
-        })
-      }
-      <LocationShowMore selectedFields={selectedFields} setSelectedFields={setSelectedFields} itemsToShow={locations.slice(6)} />
+      {locations?.slice(0, 6).map((data) => {
+        const isPresect = selectedFields.includes(data);
+        return (
+          <div
+            onClick={() => handleCheckboxChange(data)}
+            key={data}
+            className={`shrink-0 cursor-pointer py-1 px-2 border border-black font-semibold text-sm rounded-md ${
+              isPresect ? "bg-secondary-red" : ""
+            }`}
+          >
+            {data}
+          </div>
+        );
+      })}
+      <LocationShowMore
+        selectedFields={selectedFields}
+        setSelectedFields={setSelectedFields}
+        itemsToShow={locations.slice(6)}
+      />
     </div>
-  )
+  );
 }
-
 
 function SearchByBrand() {
   const brands = [
@@ -379,7 +425,7 @@ function SearchByBrand() {
     "./companies-logo/puma.png",
     "./companies-logo/forever.png",
     "./companies-logo/gap.png",
-    "./companies-logo/gap.png"
+    "./companies-logo/gap.png",
   ];
   const [selectedFields, setSelectedFields] = useState([]);
   const handleCheckboxChange = (value) => {
@@ -388,21 +434,30 @@ function SearchByBrand() {
     } else {
       setSelectedFields([...selectedFields, value]);
     }
-  }
+  };
   return (
     <div className="flex w-full pb-3 overflow-x-auto md:flex-wrap gap-2">
       {/* <div className=" py-1 px-2 shrink-0 flex items-center justify-center bg-secondary-red font-semibold text-sm rounded-md" >Vaishali Nagar</div> */}
-      {
-        brands?.slice(0, 6).map((data, idx) => {
-          const isPresect = selectedFields.includes(data);
-          console.log(data)
-          return (
-            <div onClick={() => handleCheckboxChange(data)} key={idx} className={`h-8 w-auto py-1 px-2 border border-black font-semibold text-sm rounded-md ${isPresect ? "bg-secondary-red" : ""}`} >
-              <img key={data} className=" w-full h-full " src={data} alt="" />
-            </div>)
-        })
-      }
-      <BrandsShowMore selectedFields={selectedFields} setSelectedFields={setSelectedFields} itemsToShow={brands.slice(6)} />
+      {brands?.slice(0, 6).map((data, idx) => {
+        const isPresect = selectedFields.includes(data);
+        console.log(data);
+        return (
+          <div
+            onClick={() => handleCheckboxChange(data)}
+            key={idx}
+            className={`h-8 w-auto py-1 px-2 border border-black font-semibold text-sm rounded-md ${
+              isPresect ? "bg-secondary-red" : ""
+            }`}
+          >
+            <img key={data} className=" w-full h-full " src={data} alt="" />
+          </div>
+        );
+      })}
+      <BrandsShowMore
+        selectedFields={selectedFields}
+        setSelectedFields={setSelectedFields}
+        itemsToShow={brands.slice(6)}
+      />
     </div>
-  )
+  );
 }
