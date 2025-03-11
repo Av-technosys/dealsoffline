@@ -27,6 +27,7 @@ import GallaryDialog from "@/components/dialog/gallaryDialog";
 import { Menus, storeMenu } from "@/components/nav/utils";
 import StoreMenuNavItem from "./storeMenuNavItem";
 import { ChevronUpIcon } from "lucide-react";
+import Link from "next/link";
 
 const Page = () => {
   const [isCreateUser, setIsCreateUser] = React.useState(false);
@@ -124,9 +125,15 @@ const Page = () => {
               watches, fragrances, sunglasses.
             </p>
             <div className=" flex gap-2">
-              <div className=" p-0.5 text-red-500 shrink-0 size-5 flex items-center justify-center border-2 rounded-full border-red-500">
+              <Link
+                target="_blank"
+                href={
+                  "https://www.google.com/maps/dir//Jawahar+Lal+Nehru+Marg,+D-Block,+Malviya+Nagar,+Jaipur,+Rajasthan+302017/@26.8529971,75.7222673,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x396db5d0abb464cf:0x43440aa416c9fdaf!2m2!1d75.8046688!2d26.853021?entry=ttu&g_ep=EgoyMDI1MDMwNC4wIKXMDSoJLDEwMjExNDUzSAFQAw%3D%3D"
+                }
+                className=" p-0.5 text-red-500 shrink-0 size-5 flex items-center justify-center border-2 rounded-full border-red-500"
+              >
                 <CornerUpRightIcon size={14} strokeWidth={3} />
-              </div>
+              </Link>
               <p className=" text-primary-gray">
                 MGF Metropolitan Bhawani Singh Marg, Sahakar Bhawan Circle, 22
                 Godam Cir, opposite Nehru, Durgadas Colony, C Scheme, Ashok
@@ -209,14 +216,8 @@ const Page = () => {
                 </div>
               </div>
               <div className=" flex items-center gap-3">
-                <div className=" flex flex-col items-center justify-center gap-1">
-                  <ThumbsUp size={18} />
-                  <p className=" text-sm">40k</p>
-                </div>
-                <div className=" flex flex-col items-center justify-center gap-1">
-                  <Share2 size={18} />
-                  <p className=" text-sm">40k</p>
-                </div>
+                <ThumbsUpButton />
+                <ShareButton />
               </div>
             </div>
             <div className=" w-full items-center gap-1 flex">
@@ -883,5 +884,34 @@ function MobileNavList({ navItems, filterSubNavItems }) {
         </div>
       )}
     </div>
+  );
+}
+
+function ThumbsUpButton() {
+  const [selected, setSelected] = useState(false);
+  return (
+    <div className=" flex flex-col items-center justify-center gap-1">
+      <ThumbsUp
+        onClick={() => setSelected(!selected)}
+        className={`${
+          selected ? "text-primary-red fill-red-200 cursor-pointer" : ""
+        }`}
+        size={18}
+      />
+      <p className=" text-sm">40k</p>
+    </div>
+  );
+}
+
+function ShareButton() {
+  return (
+    <Link
+      href={"https://web.whatsApp.com"}
+      target="_blank"
+      className=" flex flex-col items-center justify-center gap-1"
+    >
+      <Share2 size={18} />
+      <p className=" text-sm">40k</p>
+    </Link>
   );
 }

@@ -18,8 +18,8 @@ export const Menus = [
           { name: "Ethnic Wear", slug: "search" },
           { name: "Winter Wear", slug: "search" },
           { name: "Inner & Sleepwear", slug: "search" },
-          { name: "29k Store", slug: "search" }
-        ]
+          { name: "29k Store", slug: "search" },
+        ],
       },
       {
         title: "Sportswear",
@@ -33,8 +33,8 @@ export const Menus = [
           { name: "Boots", slug: "search" },
           { name: "Ethnic", slug: "search" },
           { name: "Speciality Footwear", slug: "search" },
-          { name: "Top Selling Brands", slug: "search" }
-        ]
+          { name: "Top Selling Brands", slug: "search" },
+        ],
       },
       {
         title: "Men’s Watches",
@@ -42,8 +42,8 @@ export const Menus = [
           { name: "Watch Combos", slug: "search" },
           { name: "Couple Watches", slug: "search" },
           { name: "Fastrack, Sonata & More", slug: "search" },
-          { name: "Budget Watches", slug: "search" }
-        ]
+          { name: "Budget Watches", slug: "search" },
+        ],
       },
       {
         title: "Accessories",
@@ -53,8 +53,8 @@ export const Menus = [
           { name: "Caps & Hats", slug: "search" },
           { name: "Ties & Cufflinks", slug: "search" },
           { name: "Sunglasses", slug: "search" },
-          { name: "Watches", slug: "search" }
-        ]
+          { name: "Watches", slug: "search" },
+        ],
       },
       {
         title: "Men’s Jewellery",
@@ -62,8 +62,8 @@ export const Menus = [
           { name: "Fashion Jewellery", slug: "search" },
           { name: "Chains & Pendants", slug: "search" },
           { name: "Precious Jewellery", slug: "search" },
-          { name: "Silver Jewellery", slug: "search" }
-        ]
+          { name: "Silver Jewellery", slug: "search" },
+        ],
       },
       {
         title: "Grooming",
@@ -74,14 +74,12 @@ export const Menus = [
           { name: "Bath Essentials", slug: "search" },
           { name: "Oral Care", slug: "search" },
           { name: "Skin Care", slug: "search" },
-          { name: "Hair Care", slug: "search" }
-        ]
+          { name: "Hair Care", slug: "search" },
+        ],
       },
       {
         title: "Eyewear",
-        items: [
-          { name: "Sunglasses", slug: "search" }
-        ]
+        items: [{ name: "Sunglasses", slug: "search" }],
       },
       {
         title: "Fashion Accessories",
@@ -91,8 +89,8 @@ export const Menus = [
           { name: "Socks", slug: "search" },
           { name: "Caps", slug: "search" },
           { name: "Winter Accessories", slug: "search" },
-          { name: "Winter Accessories Gift Sets", slug: "search" }
-        ]
+          { name: "Winter Accessories Gift Sets", slug: "search" },
+        ],
       },
       {
         title: "Bags & Luggage",
@@ -102,11 +100,11 @@ export const Menus = [
           { name: "Trolleys & Duffle Bags", slug: "search" },
           { name: "Travel Accessories", slug: "search" },
           { name: "Messenger Bags", slug: "search" },
-          { name: "Rucksacks", slug: "search" }
-        ]
-      }
+          { name: "Rucksacks", slug: "search" },
+        ],
+      },
     ],
-    gridCols: 4
+    gridCols: 4,
   },
   {
     label: "Women",
@@ -124,8 +122,8 @@ export const Menus = [
           { name: "Dress Materials", slug: "search" },
           { name: "Lehenga Cholis", slug: "search" },
           { name: "Dupattas & Shawls", slug: "search" },
-          { name: "Jackets", slug: "search" }
-        ]
+          { name: "Jackets", slug: "search" },
+        ],
       },
       {
         title: "Western Wear",
@@ -139,8 +137,8 @@ export const Menus = [
           { name: "Co-ords", slug: "search" },
           { name: "Playsuits", slug: "search" },
           { name: "Jumpsuits", slug: "search" },
-          { name: "Shrugs", slug: "search" }
-        ]
+          { name: "Shrugs", slug: "search" },
+        ],
       },
       {
         title: "Footwear",
@@ -149,8 +147,8 @@ export const Menus = [
           { name: "Casual Shoes", slug: "search" },
           { name: "Heels", slug: "search" },
           { name: "Boots", slug: "search" },
-          { name: "Sports Shoes & Floaters", slug: "search" }
-        ]
+          { name: "Sports Shoes & Floaters", slug: "search" },
+        ],
       },
       {
         title: "Lingerie",
@@ -160,8 +158,8 @@ export const Menus = [
           { name: "Shapewear", slug: "search" },
           { name: "Sleepwear & Loungewear", slug: "search" },
           { name: "Swimwear", slug: "search" },
-          { name: "Camisoles & Thermals", slug: "search" }
-        ]
+          { name: "Camisoles & Thermals", slug: "search" },
+        ],
       },
       {
         title: "Active Go",
@@ -170,14 +168,12 @@ export const Menus = [
           { name: "Clothing", slug: "search" },
           { name: "Footwear", slug: "search" },
           { name: "Sports Accessories", slug: "search" },
-          { name: "Sports Equipment", slug: "search" }
-        ]
+          { name: "Sports Equipment", slug: "search" },
+        ],
       },
       {
         title: "BagHub",
-        items: [
-          { name: "GoBag", slug: "search" }
-        ]
+        items: [{ name: "GoBag", slug: "search" }],
       },
       {
         title: "Jewellery",
@@ -185,23 +181,23 @@ export const Menus = [
           { name: "Maternity", slug: "search" },
           { name: "Fashion Jewellery", slug: "search" },
           { name: "Fine Jewellery", slug: "search" },
-          { name: "Earrings", slug: "search" }
-        ]
+          { name: "Earrings", slug: "search" },
+        ],
       },
       {
         title: "Belts & Scarves",
-        items: []
+        items: [],
       },
       {
         title: "Sunglasses",
-        items: []
+        items: [],
       },
       {
         title: "Watches",
-        items: []
-      }
+        items: [],
+      },
     ],
-    gridCols: 3
+    gridCols: 3,
   },
   {
     label: "Kids",
@@ -219,8 +215,8 @@ export const Menus = [
           { name: "Dress Materials", slug: "search" },
           { name: "Lehenga Cholis", slug: "search" },
           { name: "Dupattas & Shawls", slug: "search" },
-          { name: "Jackets", slug: "search" }
-        ]
+          { name: "Jackets", slug: "search" },
+        ],
       },
       {
         title: "Western Wear",
@@ -234,8 +230,8 @@ export const Menus = [
           { name: "Co-ords", slug: "search" },
           { name: "Playsuits", slug: "search" },
           { name: "Jumpsuits", slug: "search" },
-          { name: "Shrugs", slug: "search" }
-        ]
+          { name: "Shrugs", slug: "search" },
+        ],
       },
       {
         title: "Footwear",
@@ -244,8 +240,8 @@ export const Menus = [
           { name: "Casual Shoes", slug: "search" },
           { name: "Heels", slug: "search" },
           { name: "Boots", slug: "search" },
-          { name: "Sports Shoes & Floaters", slug: "search" }
-        ]
+          { name: "Sports Shoes & Floaters", slug: "search" },
+        ],
       },
       {
         title: "Lingerie",
@@ -255,8 +251,8 @@ export const Menus = [
           { name: "Shapewear", slug: "search" },
           { name: "Sleepwear & Loungewear", slug: "search" },
           { name: "Swimwear", slug: "search" },
-          { name: "Camisoles & Thermals", slug: "search" }
-        ]
+          { name: "Camisoles & Thermals", slug: "search" },
+        ],
       },
       {
         title: "Active Go",
@@ -265,14 +261,12 @@ export const Menus = [
           { name: "Clothing", slug: "search" },
           { name: "Footwear", slug: "search" },
           { name: "Sports Accessories", slug: "search" },
-          { name: "Sports Equipment", slug: "search" }
-        ]
+          { name: "Sports Equipment", slug: "search" },
+        ],
       },
       {
         title: "BagHub",
-        items: [
-          { name: "GoBag", slug: "search" }
-        ]
+        items: [{ name: "GoBag", slug: "search" }],
       },
       {
         title: "Jewellery",
@@ -280,23 +274,23 @@ export const Menus = [
           { name: "Maternity", slug: "search" },
           { name: "Fashion Jewellery", slug: "search" },
           { name: "Fine Jewellery", slug: "search" },
-          { name: "Earrings", slug: "search" }
-        ]
+          { name: "Earrings", slug: "search" },
+        ],
       },
       {
         title: "Belts & Scarves",
-        items: []
+        items: [],
       },
       {
         title: "Sunglasses",
-        items: []
+        items: [],
       },
       {
         title: "Watches",
-        items: []
-      }
+        items: [],
+      },
     ],
-    gridCols: 3
+    gridCols: 3,
   },
   {
     label: "Beauty",
@@ -314,8 +308,8 @@ export const Menus = [
           { name: "Dress Materials", slug: "search" },
           { name: "Lehenga Cholis", slug: "search" },
           { name: "Dupattas & Shawls", slug: "search" },
-          { name: "Jackets", slug: "search" }
-        ]
+          { name: "Jackets", slug: "search" },
+        ],
       },
       {
         title: "Western Wear",
@@ -329,8 +323,8 @@ export const Menus = [
           { name: "Co-ords", slug: "search" },
           { name: "Playsuits", slug: "search" },
           { name: "Jumpsuits", slug: "search" },
-          { name: "Shrugs", slug: "search" }
-        ]
+          { name: "Shrugs", slug: "search" },
+        ],
       },
       {
         title: "Footwear",
@@ -339,8 +333,8 @@ export const Menus = [
           { name: "Casual Shoes", slug: "search" },
           { name: "Heels", slug: "search" },
           { name: "Boots", slug: "search" },
-          { name: "Sports Shoes & Floaters", slug: "search" }
-        ]
+          { name: "Sports Shoes & Floaters", slug: "search" },
+        ],
       },
       {
         title: "Lingerie",
@@ -350,8 +344,8 @@ export const Menus = [
           { name: "Shapewear", slug: "search" },
           { name: "Sleepwear & Loungewear", slug: "search" },
           { name: "Swimwear", slug: "search" },
-          { name: "Camisoles & Thermals", slug: "search" }
-        ]
+          { name: "Camisoles & Thermals", slug: "search" },
+        ],
       },
       {
         title: "Active Go",
@@ -360,14 +354,12 @@ export const Menus = [
           { name: "Clothing", slug: "search" },
           { name: "Footwear", slug: "search" },
           { name: "Sports Accessories", slug: "search" },
-          { name: "Sports Equipment", slug: "search" }
-        ]
+          { name: "Sports Equipment", slug: "search" },
+        ],
       },
       {
         title: "BagHub",
-        items: [
-          { name: "GoBag", slug: "search" }
-        ]
+        items: [{ name: "GoBag", slug: "search" }],
       },
       {
         title: "Jewellery",
@@ -375,23 +367,23 @@ export const Menus = [
           { name: "Maternity", slug: "search" },
           { name: "Fashion Jewellery", slug: "search" },
           { name: "Fine Jewellery", slug: "search" },
-          { name: "Earrings", slug: "search" }
-        ]
+          { name: "Earrings", slug: "search" },
+        ],
       },
       {
         title: "Belts & Scarves",
-        items: []
+        items: [],
       },
       {
         title: "Sunglasses",
-        items: []
+        items: [],
       },
       {
         title: "Watches",
-        items: []
-      }
+        items: [],
+      },
     ],
-    gridCols: 3
+    gridCols: 3,
   },
   {
     label: "Home Decor",
@@ -409,8 +401,8 @@ export const Menus = [
           { name: "Dress Materials", slug: "search" },
           { name: "Lehenga Cholis", slug: "search" },
           { name: "Dupattas & Shawls", slug: "search" },
-          { name: "Jackets", slug: "search" }
-        ]
+          { name: "Jackets", slug: "search" },
+        ],
       },
       {
         title: "Western Wear",
@@ -424,8 +416,8 @@ export const Menus = [
           { name: "Co-ords", slug: "search" },
           { name: "Playsuits", slug: "search" },
           { name: "Jumpsuits", slug: "search" },
-          { name: "Shrugs", slug: "search" }
-        ]
+          { name: "Shrugs", slug: "search" },
+        ],
       },
       {
         title: "Footwear",
@@ -434,8 +426,8 @@ export const Menus = [
           { name: "Casual Shoes", slug: "search" },
           { name: "Heels", slug: "search" },
           { name: "Boots", slug: "search" },
-          { name: "Sports Shoes & Floaters", slug: "search" }
-        ]
+          { name: "Sports Shoes & Floaters", slug: "search" },
+        ],
       },
       {
         title: "Lingerie",
@@ -445,8 +437,8 @@ export const Menus = [
           { name: "Shapewear", slug: "search" },
           { name: "Sleepwear & Loungewear", slug: "search" },
           { name: "Swimwear", slug: "search" },
-          { name: "Camisoles & Thermals", slug: "search" }
-        ]
+          { name: "Camisoles & Thermals", slug: "search" },
+        ],
       },
       {
         title: "Active Go",
@@ -455,14 +447,12 @@ export const Menus = [
           { name: "Clothing", slug: "search" },
           { name: "Footwear", slug: "search" },
           { name: "Sports Accessories", slug: "search" },
-          { name: "Sports Equipment", slug: "search" }
-        ]
+          { name: "Sports Equipment", slug: "search" },
+        ],
       },
       {
         title: "BagHub",
-        items: [
-          { name: "GoBag", slug: "search" }
-        ]
+        items: [{ name: "GoBag", slug: "search" }],
       },
       {
         title: "Jewellery",
@@ -470,23 +460,23 @@ export const Menus = [
           { name: "Maternity", slug: "search" },
           { name: "Fashion Jewellery", slug: "search" },
           { name: "Fine Jewellery", slug: "search" },
-          { name: "Earrings", slug: "search" }
-        ]
+          { name: "Earrings", slug: "search" },
+        ],
       },
       {
         title: "Belts & Scarves",
-        items: []
+        items: [],
       },
       {
         title: "Sunglasses",
-        items: []
+        items: [],
       },
       {
         title: "Watches",
-        items: []
-      }
+        items: [],
+      },
     ],
-    gridCols: 3
+    gridCols: 3,
   },
   {
     label: "Home Appliances",
@@ -504,14 +494,12 @@ export const Menus = [
           { name: "Dress Materials", slug: "search" },
           { name: "Lehenga Cholis", slug: "search" },
           { name: "Dupattas & Shawls", slug: "search" },
-          { name: "Jackets", slug: "search" }
-        ]
+          { name: "Jackets", slug: "search" },
+        ],
       },
       {
         title: "BagHub",
-        items: [
-          { name: "GoBag", slug: "search" }
-        ]
+        items: [{ name: "GoBag", slug: "search" }],
       },
       {
         title: "Jewellery",
@@ -519,19 +507,19 @@ export const Menus = [
           { name: "Maternity", slug: "search" },
           { name: "Fashion Jewellery", slug: "search" },
           { name: "Fine Jewellery", slug: "search" },
-          { name: "Earrings", slug: "search" }
-        ]
+          { name: "Earrings", slug: "search" },
+        ],
       },
       {
         title: "Belts & Scarves",
-        items: []
+        items: [],
       },
       {
         title: "Sunglasses",
-        items: []
-      }
+        items: [],
+      },
     ],
-    gridCols: 2
+    gridCols: 2,
   },
   {
     label: "Electronics",
@@ -549,8 +537,8 @@ export const Menus = [
           { name: "Dress Materials", slug: "search" },
           { name: "Lehenga Cholis", slug: "search" },
           { name: "Dupattas & Shawls", slug: "search" },
-          { name: "Jackets", slug: "search" }
-        ]
+          { name: "Jackets", slug: "search" },
+        ],
       },
       {
         title: "Western Wear",
@@ -564,8 +552,8 @@ export const Menus = [
           { name: "Co-ords", slug: "search" },
           { name: "Playsuits", slug: "search" },
           { name: "Jumpsuits", slug: "search" },
-          { name: "Shrugs", slug: "search" }
-        ]
+          { name: "Shrugs", slug: "search" },
+        ],
       },
       {
         title: "Footwear",
@@ -574,8 +562,8 @@ export const Menus = [
           { name: "Casual Shoes", slug: "search" },
           { name: "Heels", slug: "search" },
           { name: "Boots", slug: "search" },
-          { name: "Sports Shoes & Floaters", slug: "search" }
-        ]
+          { name: "Sports Shoes & Floaters", slug: "search" },
+        ],
       },
       {
         title: "Lingerie",
@@ -585,11 +573,11 @@ export const Menus = [
           { name: "Shapewear", slug: "search" },
           { name: "Sleepwear & Loungewear", slug: "search" },
           { name: "Swimwear", slug: "search" },
-          { name: "Camisoles & Thermals", slug: "search" }
-        ]
-      }
+          { name: "Camisoles & Thermals", slug: "search" },
+        ],
+      },
     ],
-    gridCols: 2
+    gridCols: 2,
   },
 ];
 
@@ -606,7 +594,7 @@ export const storeMenu = [
           { name: "Formal Shirt", slug: "search" },
           { name: "Jeans", slug: "search" },
           { name: "Cargos", slug: "search" },
-        ]
+        ],
       },
       {
         title: "Sportswear",
@@ -617,8 +605,8 @@ export const storeMenu = [
           { name: "Loafers & Moccasins", slug: "search" },
           { name: "Boots", slug: "search" },
           { name: "Ethnic", slug: "search" },
-          { name: "Top Selling Brands", slug: "search" }
-        ]
+          { name: "Top Selling Brands", slug: "search" },
+        ],
       },
       {
         title: "Men’s Watches",
@@ -626,30 +614,28 @@ export const storeMenu = [
           { name: "Watch Combos", slug: "search" },
           { name: "Couple Watches", slug: "search" },
           { name: "Fastrack, Sonata & More", slug: "search" },
-          { name: "Budget Watches", slug: "search" }
-        ]
+          { name: "Budget Watches", slug: "search" },
+        ],
       },
       {
         title: "Men’s Jewellery",
         items: [
           { name: "Fashion Jewellery", slug: "search" },
           { name: "Precious Jewellery", slug: "search" },
-          { name: "Silver Jewellery", slug: "search" }
-        ]
+          { name: "Silver Jewellery", slug: "search" },
+        ],
       },
       {
         title: "Grooming",
         items: [
           { name: "Beard & Moustache Care", slug: "search" },
           { name: "Skin Care", slug: "search" },
-          { name: "Hair Care", slug: "search" }
-        ]
+          { name: "Hair Care", slug: "search" },
+        ],
       },
       {
         title: "Eyewear",
-        items: [
-          { name: "Sunglasses", slug: "search" }
-        ]
+        items: [{ name: "Sunglasses", slug: "search" }],
       },
       {
         title: "Fashion Accessories",
@@ -658,20 +644,32 @@ export const storeMenu = [
           { name: "Socks", slug: "search" },
           { name: "Caps", slug: "search" },
           { name: "Winter Accessories", slug: "search" },
-        ]
+        ],
       },
       {
         title: "Bags & Luggage",
         items: [
           { name: "Backpacks & Laptop Bags", slug: "search" },
           { name: "Gym Bags", slug: "search" },
-          { name: "Rucksacks", slug: "search" }
-        ]
-      }
+          { name: "Rucksacks", slug: "search" },
+        ],
+      },
     ],
-    gridCols: 4
+    gridCols: 4,
   },
-]
+  {
+    label: "Women",
+    image: "./women.svg",
+    toggleMenu: true,
+    subMenu: [
+      {
+        title: "Indiwear",
+        items: [{ name: "Kurtis, Tunics & Tops", slug: "search" }],
+      },
+    ],
+    gridCols: 3,
+  },
+];
 
 export const filterMenuMen = [
   {
@@ -687,9 +685,9 @@ export const filterMenuMen = [
       "Ethnic Wear",
       "Winter Wear",
       "Inner & Sleepwear",
-      "29k Store"
+      "29k Store",
     ],
-    "Sportswear": [
+    Sportswear: [
       "Casual Shoes",
       "Shoe Care Kit & Accessories",
       "Sports Shoes",
@@ -699,47 +697,45 @@ export const filterMenuMen = [
       "Boots",
       "Ethnic",
       "Speciality Footwear",
-      "Top Selling Brands"
+      "Top Selling Brands",
     ],
     "Men’s Watches": [
       "Watch Combos",
       "Couple Watches",
       "Fastrack, Sonata & More",
-      "Budget Watches"
+      "Budget Watches",
     ],
-    "Accessories": [
+    Accessories: [
       "Belts",
       "Wallets",
       "Caps & Hats",
       "Ties & Cufflinks",
       "Sunglasses",
-      "Watches"
+      "Watches",
     ],
     "Men’s Jewellery": [
       "Fashion Jewellery",
       "Chains & Pendants",
       "Precious Jewellery",
-      "Silver Jewellery"
+      "Silver Jewellery",
     ],
-    "Grooming": [
+    Grooming: [
       "Beard & Moustache Care",
       "Men’s Shaving",
       "Grooming Appliances",
       "Bath Essentials",
       "Oral Care",
       "Skin Care",
-      "Hair Care"
+      "Hair Care",
     ],
-    "Eyewear": [
-      "Sunglasses"
-    ],
+    Eyewear: ["Sunglasses"],
     "Fashion Accessories": [
       "Wallets",
       "Belts",
       "Socks",
       "Caps",
       "Winter Accessories",
-      "Winter Accessories Gift Sets"
+      "Winter Accessories Gift Sets",
     ],
     "Bags & Luggage": [
       "Backpacks & Laptop Bags",
@@ -747,8 +743,7 @@ export const filterMenuMen = [
       "Trolleys & Duffle Bags",
       "Travel Accessories",
       "Messenger Bags",
-      "Rucksacks"
-    ]
-  }
-
-]
+      "Rucksacks",
+    ],
+  },
+];

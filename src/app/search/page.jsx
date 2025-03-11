@@ -16,6 +16,7 @@ import LoginDialog from "@/components/dialog/loginUserDialog";
 import PartnerLoginDialog from "@/components/dialog/partnerLoginDialog";
 import PartnerLoginOTPDialog from "@/components/dialog/partnerLoginOTPDialog";
 import Footer from "@/components/footer";
+import { HeroCarousel } from "@/components/heroCarousel";
 import NavBar from "@/components/nav/navBar";
 import {
   Dialog,
@@ -39,7 +40,8 @@ const Page = () => {
   const [isPartnerOTP, setIsPartnerOTP] = React.useState(false);
   return (
     <div>
-      <div className="relative flex flex-col h-full justify-center gap-6 w-full min-h-screen">
+      <HeroCarousel />
+      <div className="relative flex flex-col justify-center gap-6">
         <NavBar />
 
         <CreateUserDialog
@@ -440,7 +442,6 @@ function SearchByBrand() {
       {/* <div className=" py-1 px-2 shrink-0 flex items-center justify-center bg-secondary-red font-semibold text-sm rounded-md" >Vaishali Nagar</div> */}
       {brands?.slice(0, 6).map((data, idx) => {
         const isPresect = selectedFields.includes(data);
-        console.log(data);
         return (
           <div
             onClick={() => handleCheckboxChange(data)}

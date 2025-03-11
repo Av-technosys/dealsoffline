@@ -9,9 +9,14 @@ import PartnerLoginOTPDialog from "@/components/dialog/partnerLoginOTPDialog";
 import UserProfileDialog from "@/components/dialog/userProfileDialog";
 import UserSettingDialog from "@/components/dialog/userSettingDialog";
 import Footer from "@/components/footer";
+import { HeroCarousel } from "@/components/heroCarousel";
 import NavBar from "@/components/nav/navBar";
 import { ChevronLeftCircle, MapPin } from "lucide";
-import { ChevronLeftCircleIcon, ChevronRightCircleIcon, MapPinIcon } from "lucide-react";
+import {
+  ChevronLeftCircleIcon,
+  ChevronRightCircleIcon,
+  MapPinIcon,
+} from "lucide-react";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
@@ -23,7 +28,6 @@ const Page = () => {
   const [isUerPassword, setIsUerPassword] = React.useState(false);
   const [isPartnerLogin, setIsPartnerLogin] = React.useState(false);
   const [isPartnerOTP, setIsPartnerOTP] = React.useState(false);
-
 
   // For location
   const [location, setLocation] = useState(null);
@@ -40,51 +44,62 @@ const Page = () => {
         }
       );
     } else {
-      setError('Geolocation is not supported by this browser.');
+      setError("Geolocation is not supported by this browser.");
     }
-  }, [])
-
+  }, []);
 
   return (
     <div>
-      <div className="relative flex justify-center flex-col h-full  gap-6 w-full min-h-screen">
+      <div className=" w-full mx-auto">
+        <HeroCarousel />
+      </div>
+      <div className="relative">
         <NavBar />
 
-
-        <CreateUserDialog isOpen={isCreateUser} handleOTPDialog={setIsCreateOTP} setUserLogin={setIsUserLogin} setIsOpen={setIsCreateUser} />
-        <GetCreateOTP isOpen={isCreateOTP} setIsOpen={setIsCreateOTP} handleUserLogin={setIsUserLogin} />
-        <GetPsswordOTP isOpen={isPassOTP} setIsOpen={setIsPassOTP} handleOTPDialog={setIsUerPassword} />
-
-        <LoginDialog isOpen={isUserLogin} handleCreateAccount={setIsCreateUser} handleOTPDialog={setIsPassOTP} setIsOpen={setIsUserLogin} />
-        <ChangePassDialog isOpen={isUerPassword} setIsOpen={setIsUerPassword} handleUserLogin={setIsUserLogin} />
-
-
-        <PartnerLoginDialog isOpen={isPartnerLogin} setIsOpen={setIsPartnerLogin} handleOTPDialog={setIsPartnerOTP} />
-        <PartnerLoginOTPDialog isOpen={isPartnerOTP} setIsOpen={setIsPartnerOTP} />
-        <img
-          src="./hero-bg.png"
-          className="absolute top-0 -z-10 h-full w-full left-0 object-cover"
-          alt=""
+        <CreateUserDialog
+          isOpen={isCreateUser}
+          handleOTPDialog={setIsCreateOTP}
+          setUserLogin={setIsUserLogin}
+          setIsOpen={setIsCreateUser}
         />
-        <div className="  flex container justify-center px-6 md:px-4 flex-col">
-          <p className="text-4xl md:text-5xl uppercase font-semibold text-white">
-            weekend sale
-          </p>
-          <p className="text-6xl md:text-7xl uppercase font-bold text-primary-red">
-            buy now
-          </p>
-          <p className="text-4xl md:text-5xl uppercase font-semibold text-white">
-            upto 70% off
-          </p>
-        </div>
+        <GetCreateOTP
+          isOpen={isCreateOTP}
+          setIsOpen={setIsCreateOTP}
+          handleUserLogin={setIsUserLogin}
+        />
+        <GetPsswordOTP
+          isOpen={isPassOTP}
+          setIsOpen={setIsPassOTP}
+          handleOTPDialog={setIsUerPassword}
+        />
+
+        <LoginDialog
+          isOpen={isUserLogin}
+          handleCreateAccount={setIsCreateUser}
+          handleOTPDialog={setIsPassOTP}
+          setIsOpen={setIsUserLogin}
+        />
+        <ChangePassDialog
+          isOpen={isUerPassword}
+          setIsOpen={setIsUerPassword}
+          handleUserLogin={setIsUserLogin}
+        />
+
+        <PartnerLoginDialog
+          isOpen={isPartnerLogin}
+          setIsOpen={setIsPartnerLogin}
+          handleOTPDialog={setIsPartnerOTP}
+        />
+        <PartnerLoginOTPDialog
+          isOpen={isPartnerOTP}
+          setIsOpen={setIsPartnerOTP}
+        />
       </div>
 
       <ExploreCategory />
 
-
       <PopularDetails setIsUserLogin={setIsPartnerLogin} />
       <PopularStores setIsUserLogin={setIsPartnerLogin} />
-
 
       <div className="flex flex-col bg-white gap-14 px-4 py-12 pb-20 lg:px-6">
         <div className="flex flex-col gap-2 lg:gap-0 items-center">
@@ -126,8 +141,9 @@ function LogoCarousel() {
       {logos.map((logo, index) => (
         <div
           key={index}
-          className={`w-auto shrink-0 ${logo.src.includes("logo") ? "h-20" : "h-2"
-            }`}
+          className={`w-auto shrink-0 ${
+            logo.src.includes("logo") ? "h-20" : "h-2"
+          }`}
         >
           <img
             src={logo.src}
@@ -389,7 +405,6 @@ const StoreList = ({ storeData }) => {
   );
 };
 
-
 function ExploreCategory() {
   return (
     <div className="w-full mt-8 min-h-96 relative">
@@ -414,50 +429,103 @@ function ExploreCategory() {
         </p>
         <div className="w-full flex flex-col md:flex-row [&>*]:h-60 md:[&>*]:h-96 gap-2">
           {/* Women Card on the Left */}
-          <Link href={"/search"} className="col-span-1 row-span-2 w-full rounded-md overflow-hidden relative h-full">
-            <p className="absolute bottom-3 left-4 text-white z-40 text-2xl font-semibold">Women</p>
-            <img src="./women.png" alt="Women" className="absolute top-0 left-0 w-full h-full object-cover" />
+          <Link
+            href={"/search"}
+            className="col-span-1 row-span-2 w-full rounded-md overflow-hidden relative h-full"
+          >
+            <p className="absolute bottom-3 left-4 text-white z-40 text-2xl font-semibold">
+              Women
+            </p>
+            <img
+              src="./women.png"
+              alt="Women"
+              className="absolute top-0 left-0 w-full h-full object-cover"
+            />
           </Link>
 
-          <Link href={"/search"} className=" w-full h-full flex md:flex-col gap-2">
+          <Link
+            href={"/search"}
+            className=" w-full h-full flex md:flex-col gap-2"
+          >
             <div className="col-span-1 row-span-1 w-full rounded-md overflow-hidden relative h-full">
-              <p className="absolute bottom-3 left-4 text-white z-40 text-xl font-semibold">Home Appliances</p>
-              <img src="./home-appliences.png" alt="Home Appliances" className="absolute top-0 left-0 w-full h-full object-cover" />
+              <p className="absolute bottom-3 left-4 text-white z-40 text-xl font-semibold">
+                Home Appliances
+              </p>
+              <img
+                src="./home-appliences.png"
+                alt="Home Appliances"
+                className="absolute top-0 left-0 w-full h-full object-cover"
+              />
             </div>
             <div className="col-span-1 row-span-1 w-full rounded-md overflow-hidden relative h-full">
-              <p className="absolute bottom-3 left-4 text-white z-40 text-xl font-semibold">Men</p>
-              <img src="./men.png" alt="Home Appliances" className="absolute top-0 left-0 w-full h-full object-cover" />
-            </div>
-          </Link>
-
-
-          <Link href={"/search"} className="col-span-1 row-span-2 w-full rounded-md overflow-hidden relative h-full">
-            <p className="absolute bottom-3 left-4 text-white z-40 text-2xl font-semibold">Kids</p>
-            <img src="./kids.png" alt="Women" className="absolute top-0 left-0 w-full h-full object-cover" />
-          </Link>
-
-
-          <Link href={"/search"} className=" flex md:flex-col w-full h-full gap-2">
-            <div className="col-span-1 row-span-1 w-full rounded-md overflow-hidden relative h-full">
-              <p className="absolute bottom-3 left-4 text-white z-40 text-xl font-semibold">Home Decore</p>
-              <img src="./home-decore.png" alt="Home Appliances" className="absolute top-0 left-0 w-full h-full object-cover" />
-            </div>
-            <div className="col-span-1 row-span-1 w-full rounded-md overflow-hidden relative h-full">
-              <p className="absolute bottom-3 left-4 text-white z-40 text-xl font-semibold">Electronics</p>
-              <img src="./electronics.png" alt="Home Appliances" className="absolute top-0 left-0 w-full h-full object-cover" />
+              <p className="absolute bottom-3 left-4 text-white z-40 text-xl font-semibold">
+                Men
+              </p>
+              <img
+                src="./men.png"
+                alt="Home Appliances"
+                className="absolute top-0 left-0 w-full h-full object-cover"
+              />
             </div>
           </Link>
 
+          <Link
+            href={"/search"}
+            className="col-span-1 row-span-2 w-full rounded-md overflow-hidden relative h-full"
+          >
+            <p className="absolute bottom-3 left-4 text-white z-40 text-2xl font-semibold">
+              Kids
+            </p>
+            <img
+              src="./kids.png"
+              alt="Women"
+              className="absolute top-0 left-0 w-full h-full object-cover"
+            />
+          </Link>
 
-          <Link href={"/search"} className="col-span-1 row-span-2 w-full rounded-md overflow-hidden relative h-full">
-            <p className="absolute bottom-3 left-4 text-white z-40 text-2xl font-semibold">Beauty</p>
-            <img src="./beauty.png" alt="Women" className="absolute top-0 left-0 w-full h-full object-cover" />
+          <Link
+            href={"/search"}
+            className=" flex md:flex-col w-full h-full gap-2"
+          >
+            <div className="col-span-1 row-span-1 w-full rounded-md overflow-hidden relative h-full">
+              <p className="absolute bottom-3 left-4 text-white z-40 text-xl font-semibold">
+                Home Decore
+              </p>
+              <img
+                src="./home-decore.png"
+                alt="Home Appliances"
+                className="absolute top-0 left-0 w-full h-full object-cover"
+              />
+            </div>
+            <div className="col-span-1 row-span-1 w-full rounded-md overflow-hidden relative h-full">
+              <p className="absolute bottom-3 left-4 text-white z-40 text-xl font-semibold">
+                Electronics
+              </p>
+              <img
+                src="./electronics.png"
+                alt="Home Appliances"
+                className="absolute top-0 left-0 w-full h-full object-cover"
+              />
+            </div>
+          </Link>
+
+          <Link
+            href={"/search"}
+            className="col-span-1 row-span-2 w-full rounded-md overflow-hidden relative h-full"
+          >
+            <p className="absolute bottom-3 left-4 text-white z-40 text-2xl font-semibold">
+              Beauty
+            </p>
+            <img
+              src="./beauty.png"
+              alt="Women"
+              className="absolute top-0 left-0 w-full h-full object-cover"
+            />
           </Link>
         </div>
-
       </div>
     </div>
-  )
+  );
 }
 
 function PopularDetails({ setIsUserLogin }) {
@@ -469,84 +537,118 @@ function PopularDetails({ setIsUserLogin }) {
     "Sweatshirt",
     "Men Accessories",
     "Women Accessories",
-  ]
-  return <div className=" bg-yellow-100 overflow-hidden min-h-96 px-4 w-full py-6 relative" >
-
-    <div className="absolute hidden md:block top-6 left-0">
-      <img
-        src="./yellow-dots.png"
-        className="h-52 -z-10 w-auto object-contain"
-        alt=""
-      />
-    </div>
-    <p className=" text-yellow-50 text-[10rem] absolute bottom-4 left-0 font-semibold overflow-hidden whitespace-nowrap translate-x-1/2" >Popular Deals Of The Day</p>
-    <div className=" flex flex-col items-center gap-1">
-      <p className=" text-3xl md:text-4xl font-semibold text-center " >Popular Deals Of The Day</p>
-      <p className=" text-gray-600 md:text-xl  font-semibold text-center" >Discover exciting discounts and offers curated just for you.</p>
-    </div>
-
-    <div className=" max-w-7xl justify-center mx-auto items-center gap-2 flex flex-row ">
-      {/* <img src="./backword-btn.png" className=" z-20 h-6 w-auto" alt="" /> */}
-      {/* <div className=" p-2 border border-black rounded-full"> */}
-      <ChevronLeftCircleIcon className=" shrink-0" />
-      {/* </div> */}
-
-      {/* Cards */}
-
-      <div className=" flex gap-2 mt-4 items-center overflow-x-scroll hide-scrollbar" >
-        <div onClick={() => setIsUserLogin(true)} className="h-96 w-60 md:w-72 rounded-md  shrink-0 py-6 px-4 flex z-10 flex-col bg-black">
-          <div className=" text-white flex  justify-between gap-2 mb-4 items-center">
-            <p className=" text-4xl font-semibold" >Zudio</p>
-            <p className=" text-2xl font-semibold" >18%off</p>
-          </div>
-          {
-            zudioList.map((item, index) => {
-              return (
-                <p key={index} className=" text-white  text-sm" >{item}</p>
-              )
-            })
-          }
-
-          <div className=" w-full mt-auto flex gap-2 justify-between">
-            <div className=" flex gap-1 items-center" >
-              <MapPinIcon className="h-5 w-6 text-white" />
-              <p className=" text-white font-semibold " >3.2 Km</p>
-            </div>
-            <p className=" text-white font-semibold" >View Offers</p>
-          </div>
-        </div>
-
-        <div onClick={() => { setIsUserLogin(true) }} className=" w-60 md:w-72 h-96 rounded-md shrink-0 overflow-hidden relative" >
-          <img src="./w1.png" className=" absolute top-0 left-0 w-full h-full object-cover" alt="" />
-          <div className=" bg-gradient-to-b from-transparent to-black absolute top-0 left-0 w-full h-full"></div>
-          <div className=" absolute bottom-6 left-4 flex flex-col gap-1" >
-            <p className=" font-semibold text-white text-5xl" >10% off</p>
-            <p className=" text-white font-semibold text-lg" >Karin Store</p>
-          </div>
-        </div>
-        <div onClick={() => { setIsUserLogin(true) }} className=" w-60 md:w-72 h-96 rounded-md shrink-0 overflow-hidden relative" >
-          <img src="./w2.png" className=" absolute top-0 left-0 w-full h-full object-cover" alt="" />
-          <div className=" bg-gradient-to-b from-transparent to-black absolute top-0 left-0 w-full h-full"></div>
-          <div className=" absolute bottom-6 left-4 flex flex-col gap-1" >
-            <p className=" font-semibold text-white text-5xl" >20% off</p>
-            <p className=" text-white font-semibold text-lg" >Samanth Store</p>
-          </div>
-        </div>
-        <div onClick={() => { setIsUserLogin(true) }} className=" w-60 md:w-72 h-96 rounded-md shrink-0 overflow-hidden relative" >
-          <img src="./w3.png" className=" absolute top-0 left-0 w-full h-full object-cover" alt="" />
-          <div className=" bg-gradient-to-b from-transparent to-black absolute top-0 left-0 w-full h-full"></div>
-          <div className=" absolute bottom-6 left-4 flex flex-col gap-1" >
-            <p className=" font-semibold text-white text-5xl" >30% off</p>
-            <p className=" text-white font-semibold text-lg" >Krishna Group</p>
-          </div>
-        </div>
+  ];
+  return (
+    <div className=" bg-yellow-100 overflow-hidden min-h-96 px-4 w-full py-6 relative">
+      <div className="absolute hidden md:block top-6 left-0">
+        <img
+          src="./yellow-dots.png"
+          className="h-52 -z-10 w-auto object-contain"
+          alt=""
+        />
       </div>
 
+      <div className=" flex flex-col items-center gap-1">
+        <p className=" text-3xl md:text-4xl font-semibold text-center ">
+          Popular Deals Of The Day
+        </p>
+        <p className=" text-gray-600 md:text-xl  font-semibold text-center">
+          Discover exciting discounts and offers curated just for you.
+        </p>
+      </div>
 
-      {/* <img src="./forword-btn.png" className=" z-20 h-6 w-auto" alt="" /> */}
-      <ChevronRightCircleIcon className=" shrink-0" />
+      <div className=" max-w-7xl justify-center mx-auto items-center gap-2 flex flex-row ">
+        {/* <img src="./backword-btn.png" className=" z-20 h-6 w-auto" alt="" /> */}
+        {/* <div className=" p-2 border border-black rounded-full"> */}
+        <ChevronLeftCircleIcon className=" shrink-0" />
+        {/* </div> */}
+
+        {/* Cards */}
+
+        <div className=" flex gap-2 mt-4 items-center overflow-x-scroll hide-scrollbar">
+          <div
+            onClick={() => setIsUserLogin(true)}
+            className="h-96 w-60 md:w-72 rounded-md  shrink-0 py-6 px-4 flex z-10 flex-col bg-black"
+          >
+            <div className=" text-white flex  justify-between gap-2 mb-4 items-center">
+              <p className=" text-4xl font-semibold">Zudio</p>
+              <p className=" text-2xl font-semibold">18%off</p>
+            </div>
+            {zudioList.map((item, index) => {
+              return (
+                <p key={index} className=" text-white  text-sm">
+                  {item}
+                </p>
+              );
+            })}
+
+            <div className=" w-full mt-auto flex gap-2 justify-between">
+              <div className=" flex gap-1 items-center">
+                <MapPinIcon className="h-5 w-6 text-white" />
+                <p className=" text-white font-semibold ">3.2 Km</p>
+              </div>
+              <p className=" text-white font-semibold">View Offers</p>
+            </div>
+          </div>
+
+          <div
+            onClick={() => {
+              setIsUserLogin(true);
+            }}
+            className=" w-60 md:w-72 h-96 rounded-md shrink-0 overflow-hidden relative"
+          >
+            <img
+              src="./w1.png"
+              className=" absolute top-0 left-0 w-full h-full object-cover"
+              alt=""
+            />
+            <div className=" bg-gradient-to-b from-transparent to-black absolute top-0 left-0 w-full h-full"></div>
+            <div className=" absolute bottom-6 left-4 flex flex-col gap-1">
+              <p className=" font-semibold text-white text-5xl">10% off</p>
+              <p className=" text-white font-semibold text-lg">Karin Store</p>
+            </div>
+          </div>
+          <div
+            onClick={() => {
+              setIsUserLogin(true);
+            }}
+            className=" w-60 md:w-72 h-96 rounded-md shrink-0 overflow-hidden relative"
+          >
+            <img
+              src="./w2.png"
+              className=" absolute top-0 left-0 w-full h-full object-cover"
+              alt=""
+            />
+            <div className=" bg-gradient-to-b from-transparent to-black absolute top-0 left-0 w-full h-full"></div>
+            <div className=" absolute bottom-6 left-4 flex flex-col gap-1">
+              <p className=" font-semibold text-white text-5xl">20% off</p>
+              <p className=" text-white font-semibold text-lg">Samanth Store</p>
+            </div>
+          </div>
+          <div
+            onClick={() => {
+              setIsUserLogin(true);
+            }}
+            className=" w-60 md:w-72 h-96 rounded-md shrink-0 overflow-hidden relative"
+          >
+            <img
+              src="./w3.png"
+              className=" absolute top-0 left-0 w-full h-full object-cover"
+              alt=""
+            />
+            <div className=" bg-gradient-to-b from-transparent to-black absolute top-0 left-0 w-full h-full"></div>
+            <div className=" absolute bottom-6 left-4 flex flex-col gap-1">
+              <p className=" font-semibold text-white text-5xl">30% off</p>
+              <p className=" text-white font-semibold text-lg">Krishna Group</p>
+            </div>
+          </div>
+        </div>
+
+        {/* <img src="./forword-btn.png" className=" z-20 h-6 w-auto" alt="" /> */}
+        <ChevronRightCircleIcon className=" shrink-0" />
+      </div>
     </div>
-  </div>
+  );
 }
 
 function PopularStores({ setIsUserLogin }) {
@@ -558,89 +660,130 @@ function PopularStores({ setIsUserLogin }) {
     "Sweatshirt",
     "Men Accessories",
     "Women Accessories",
-  ]
-  return <div className=" bg-pink-100 overflow-hidden mt-6 min-h-96 px-4 w-full py-6 relative" >
-
-    <div className="absolute hidden md:block bottom-6 right-10 z-10">
-      <img
-        src="./pink-dotes.png"
-        className="h-52 -z-10 w-auto object-contain"
-        alt=""
-      />
-    </div>
-    <p className=" text-pink-50 text-[10rem] absolute bottom-4 left-0 font-semibold overflow-hidden whitespace-nowrap translate-x-1/2" >Popular Stores Of The Month</p>
-    <div className=" flex flex-col items-center gap-1">
-      <p className=" text-3xl md:text-4xl font-semibold text-center " >Popular Stores Of The Month</p>
-      <p className=" text-gray-600 md:text-xl  font-semibold text-center" >Discover Star of the Month curated just for you.</p>
-    </div>
-
-    <div className=" z-20 max-w-7xl justify-center mx-auto items-center gap-2 flex flex-row ">
-      {/* <img src="./backword-btn.png" className=" z-20 h-6 w-auto" alt="" /> */}
-      <ChevronLeftCircleIcon className=" shrink-0" />
-
-      {/* Cards */}
-
-      <div onClick={() => { setIsUserLogin(true) }} className=" flex gap-2 mt-4 items-center overflow-x-scroll hide-scrollbar" >
-        <div className="h-96 w-60 md:w-72 rounded-md  shrink-0 py-6 px-4 flex z-10 flex-col bg-black">
-          <div className=" text-white flex  justify-between gap-2 mb-4 items-center">
-            <p className=" text-4xl font-semibold" >Shreeji</p>
-            <div className=" flex  text-xl font-semibold items-center" >4.8 <img src="./golden-star.png" className=" size-6" alt="" /></div>
-          </div>
-          {
-            zudioList.map((item, index) => {
-              return (
-                <p key={index} className=" text-white  text-sm" >{item}</p>
-              )
-            })
-          }
-
-          <div className=" w-full mt-auto flex gap-2 justify-between">
-            <div className=" flex gap-1 items-center" >
-              <MapPinIcon className="h-5 w-6 text-white" />
-              <p className=" text-white font-semibold " >3.2 Km</p>
-            </div>
-            <p className=" text-white font-semibold" >View Offers</p>
-          </div>
-        </div>
-
-        <div onClick={() => { setIsUserLogin(true) }} className=" w-60  md:w-72 h-96 rounded-md shrink-0 overflow-hidden relative" >
-          <img src="./w1.png" className=" absolute top-0 left-0 w-full h-full object-cover" alt="" />
-          <div className=" bg-gradient-to-b from-transparent to-black absolute top-0 left-0 w-full h-full"></div>
-          <div className=" absolute bottom-6 left-4 flex flex-col gap-1" >
-            <div className=" font-semibold flex  text-white text-5xl" >
-              <img src="./golden-star.png" className=" size-12" alt="" />
-              <p>4.6</p>
-            </div>
-            <p className=" text-white font-semibold text-lg" >Karin Store</p>
-          </div>
-        </div>
-        <div onClick={() => { setIsUserLogin(true) }} className=" w-60 md:w-72 h-96 rounded-md shrink-0 overflow-hidden relative" >
-          <img src="./w2.png" className=" absolute top-0 left-0 w-full h-full object-cover" alt="" />
-          <div className=" bg-gradient-to-b from-transparent to-black absolute top-0 left-0 w-full h-full"></div>
-          <div className=" absolute bottom-6 left-4 flex flex-col gap-1" >
-            <div className=" font-semibold flex  text-white text-5xl" >
-              <img src="./golden-star.png" className=" size-12" alt="" />
-              <p>4.2</p>
-            </div>
-            <p className=" text-white font-semibold text-lg" >Radhe-Krishnan Store</p>
-          </div>
-        </div>
-        <div onClick={() => { setIsUserLogin(true) }} className=" z-20 w-60 md:w-72 h-96 rounded-md shrink-0 overflow-hidden relative" >
-          <img src="./khushi-kirana-store.png" className=" absolute top-0 left-0 w-full h-full object-cover" alt="" />
-          <div className=" bg-gradient-to-b from-transparent to-black absolute top-0 left-0 w-full h-full"></div>
-          <div className=" absolute bottom-6 left-4 flex flex-col gap-1" >
-            <div className=" font-semibold flex  text-white text-5xl" >
-              <img src="./golden-star.png" className=" size-12" alt="" />
-              <p>3.2</p>
-            </div>
-            <p className=" text-white font-semibold text-lg" >Khushi Kirana Store</p>
-          </div>
-        </div>
+  ];
+  return (
+    <div className=" bg-pink-100 overflow-hidden mt-6 min-h-96 px-4 w-full py-6 relative">
+      <div className="absolute hidden md:block bottom-6 right-10 z-10">
+        <img
+          src="./pink-dotes.png"
+          className="h-52 -z-10 w-auto object-contain"
+          alt=""
+        />
+      </div>
+      <div className=" flex flex-col items-center gap-1">
+        <p className=" text-3xl md:text-4xl font-semibold text-center ">
+          Popular Stores Of The Month
+        </p>
+        <p className=" text-gray-600 md:text-xl  font-semibold text-center">
+          Discover Star of the Month curated just for you.
+        </p>
       </div>
 
+      <div className=" z-20 max-w-7xl justify-center mx-auto items-center gap-2 flex flex-row ">
+        {/* <img src="./backword-btn.png" className=" z-20 h-6 w-auto" alt="" /> */}
+        <ChevronLeftCircleIcon className=" shrink-0" />
 
-      {/* <img src="./forword-btn.png" className="  z-20 h-6 w-auto" alt="" /> */}
-      <ChevronRightCircleIcon className=" shrink-0" />
+        {/* Cards */}
+
+        <div
+          onClick={() => {
+            setIsUserLogin(true);
+          }}
+          className=" flex gap-2 mt-4 items-center overflow-x-scroll hide-scrollbar"
+        >
+          <div className="h-96 w-60 md:w-72 rounded-md  shrink-0 py-6 px-4 flex z-10 flex-col bg-black">
+            <div className=" text-white flex  justify-between gap-2 mb-4 items-center">
+              <p className=" text-4xl font-semibold">Shreeji</p>
+              <div className=" flex  text-xl font-semibold items-center">
+                4.8 <img src="./golden-star.png" className=" size-6" alt="" />
+              </div>
+            </div>
+            {zudioList.map((item, index) => {
+              return (
+                <p key={index} className=" text-white  text-sm">
+                  {item}
+                </p>
+              );
+            })}
+
+            <div className=" w-full mt-auto flex gap-2 justify-between">
+              <div className=" flex gap-1 items-center">
+                <MapPinIcon className="h-5 w-6 text-white" />
+                <p className=" text-white font-semibold ">3.2 Km</p>
+              </div>
+              <p className=" text-white font-semibold">View Offers</p>
+            </div>
+          </div>
+
+          <div
+            onClick={() => {
+              setIsUserLogin(true);
+            }}
+            className=" w-60  md:w-72 h-96 rounded-md shrink-0 overflow-hidden relative"
+          >
+            <img
+              src="./w1.png"
+              className=" absolute top-0 left-0 w-full h-full object-cover"
+              alt=""
+            />
+            <div className=" bg-gradient-to-b from-transparent to-black absolute top-0 left-0 w-full h-full"></div>
+            <div className=" absolute bottom-6 left-4 flex flex-col gap-1">
+              <div className=" font-semibold flex  text-white text-5xl">
+                <img src="./golden-star.png" className=" size-12" alt="" />
+                <p>4.6</p>
+              </div>
+              <p className=" text-white font-semibold text-lg">Karin Store</p>
+            </div>
+          </div>
+          <div
+            onClick={() => {
+              setIsUserLogin(true);
+            }}
+            className=" w-60 md:w-72 h-96 rounded-md shrink-0 overflow-hidden relative"
+          >
+            <img
+              src="./w2.png"
+              className=" absolute top-0 left-0 w-full h-full object-cover"
+              alt=""
+            />
+            <div className=" bg-gradient-to-b from-transparent to-black absolute top-0 left-0 w-full h-full"></div>
+            <div className=" absolute bottom-6 left-4 flex flex-col gap-1">
+              <div className=" font-semibold flex  text-white text-5xl">
+                <img src="./golden-star.png" className=" size-12" alt="" />
+                <p>4.2</p>
+              </div>
+              <p className=" text-white font-semibold text-lg">
+                Radhe-Krishnan Store
+              </p>
+            </div>
+          </div>
+          <div
+            onClick={() => {
+              setIsUserLogin(true);
+            }}
+            className=" z-20 w-60 md:w-72 h-96 rounded-md shrink-0 overflow-hidden relative"
+          >
+            <img
+              src="./khushi-kirana-store.png"
+              className=" absolute top-0 left-0 w-full h-full object-cover"
+              alt=""
+            />
+            <div className=" bg-gradient-to-b from-transparent to-black absolute top-0 left-0 w-full h-full"></div>
+            <div className=" absolute bottom-6 left-4 flex flex-col gap-1">
+              <div className=" font-semibold flex  text-white text-5xl">
+                <img src="./golden-star.png" className=" size-12" alt="" />
+                <p>3.2</p>
+              </div>
+              <p className=" text-white font-semibold text-lg">
+                Khushi Kirana Store
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* <img src="./forword-btn.png" className="  z-20 h-6 w-auto" alt="" /> */}
+        <ChevronRightCircleIcon className=" shrink-0" />
+      </div>
     </div>
-  </div>
+  );
 }

@@ -1,14 +1,13 @@
-"use client"
+"use client";
 
-import { format } from "date-fns"
-import { CalendarIcon } from "lucide-react"
-import { useForm } from "react-hook-form"
+import { format } from "date-fns";
+import { CalendarIcon } from "lucide-react";
+import { useForm } from "react-hook-form";
 
-
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 // import { toast } from "@/components/hooks/use-toast"
-import { Button } from "@/components/ui/button"
-import { Calendar } from "@/components/ui/calendar"
+import { Button } from "@/components/ui/button";
+import { Calendar } from "@/components/ui/calendar";
 import {
   Form,
   FormControl,
@@ -17,12 +16,12 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form"
+} from "@/components/ui/form";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover"
+} from "@/components/ui/popover";
 
 // const FormSchema = z.object({
 //   dob: z.date({
@@ -30,10 +29,10 @@ import {
 //   }),
 // })
 
-export function CalendarForm() {
+export function CalendarForm({ selectFuture }) {
   const form = useForm({
     // resolver: zodResolver(FormSchema),
-  })
+  });
 
   function onSubmit(data) {
     // toast({
@@ -80,9 +79,10 @@ export function CalendarForm() {
                     mode="single"
                     selected={field.value}
                     onSelect={field.onChange}
-                    // disabled={(date) =>
-                    //   date > new Date() || date < new Date("1900-01-01")
-                    // }
+                    disabled={(date) =>
+                      (selectFuture && date <= new Date()) ||
+                      date < new Date("1900-01-01")
+                    }
                     initialFocus
                   />
                 </PopoverContent>
@@ -97,5 +97,5 @@ export function CalendarForm() {
         {/* <Button type="submit">Submit</Button> */}
       </form>
     </Form>
-  )
+  );
 }

@@ -44,8 +44,10 @@ export default function DesktopMenu({ menu }) {
       <span className="flex items-center relative text-black hover:bg-white/5 cursor-pointer px-1 py-1 rounded-xl">
         {menu.label}
 
-        <ChevronDown size={20} className="mt-[0.6px] group-hover/link:rotate-180 duration-200" />
-
+        <ChevronDown
+          size={20}
+          className="mt-[0.6px] group-hover/link:rotate-180 duration-200"
+        />
       </span>
       {hasSubMenu && (
         <motion.div
@@ -55,30 +57,38 @@ export default function DesktopMenu({ menu }) {
           variants={subMenuAnimate}
         >
           <div
-            className={`gap-7 space-y-0 ${menu.gridCols == 1
+            className={`gap-7 space-y-0 ${
+              menu.gridCols == 1
                 ? "columns-1"
                 : menu.gridCols == 2
-                  ? "columns-2"
-                  : menu.gridCols == 3
-                    ? "columns-3"
-                    : "columns-4"
-              }`}
+                ? "columns-2"
+                : menu.gridCols == 3
+                ? "columns-3"
+                : "columns-4"
+            }`}
             style={{ columnGap: "1.75rem" }} // Adjusts spacing between columns
           >
             {hasSubMenu &&
               menu.subMenu.map((submenu, index) => (
-                <div key={index} className="  space-y-0.5" >
-                  <h6 className=" leading-5 py-1 font-semibold text-lg text-primary-red">{submenu.title}</h6>
+                <div key={index} className="  space-y-0.5">
+                  <Link
+                    href={"search"}
+                    className=" leading-5 py-1 font-semibold text-lg text-primary-red"
+                  >
+                    {submenu.title}
+                  </Link>
                   {submenu?.items?.map((item, i) => (
-                    <Link href={item.slug} key={i} className=" block text-sm cursor-pointer text-gray-800">
+                    <Link
+                      href={item.slug}
+                      key={i}
+                      className=" block text-sm cursor-pointer text-gray-800"
+                    >
                       {item.name}
                     </Link>
                   ))}
                 </div>
               ))}
           </div>
-
-
         </motion.div>
       )}
     </motion.div>
