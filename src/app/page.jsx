@@ -4,14 +4,10 @@ import GetPsswordOTP from "@/components/dialog/changePassOTP";
 import CreateUserDialog from "@/components/dialog/createUserDialog";
 import GetCreateOTP from "@/components/dialog/createUserOTP";
 import LoginDialog from "@/components/dialog/loginUserDialog";
-import PartnerLoginDialog from "@/components/dialog/partnerLoginDialog";
-import PartnerLoginOTPDialog from "@/components/dialog/partnerLoginOTPDialog";
-import UserProfileDialog from "@/components/dialog/userProfileDialog";
-import UserSettingDialog from "@/components/dialog/userSettingDialog";
 import Footer from "@/components/footer";
 import { HeroCarousel } from "@/components/heroCarousel";
 import NavBar from "@/components/nav/navBar";
-import { ChevronLeftCircle, MapPin } from "lucide";
+import UserLoginProvider from "@/components/userLoginProvider";
 import {
   ChevronLeftCircleIcon,
   ChevronRightCircleIcon,
@@ -26,8 +22,6 @@ const Page = () => {
   const [isPassOTP, setIsPassOTP] = React.useState(false);
   const [isCreateOTP, setIsCreateOTP] = React.useState(false);
   const [isUerPassword, setIsUerPassword] = React.useState(false);
-  const [isPartnerLogin, setIsPartnerLogin] = React.useState(false);
-  const [isPartnerOTP, setIsPartnerOTP] = React.useState(false);
 
   // For location
   const [location, setLocation] = useState(null);
@@ -84,22 +78,12 @@ const Page = () => {
           setIsOpen={setIsUerPassword}
           handleUserLogin={setIsUserLogin}
         />
-
-        <PartnerLoginDialog
-          isOpen={isPartnerLogin}
-          setIsOpen={setIsPartnerLogin}
-          handleOTPDialog={setIsPartnerOTP}
-        />
-        <PartnerLoginOTPDialog
-          isOpen={isPartnerOTP}
-          setIsOpen={setIsPartnerOTP}
-        />
       </div>
 
       <ExploreCategory />
 
-      <PopularDetails setIsUserLogin={setIsPartnerLogin} />
-      <PopularStores setIsUserLogin={setIsPartnerLogin} />
+      <PopularDetails />
+      <PopularStores />
 
       <div className="flex flex-col bg-white gap-14 px-4 py-12 pb-20 lg:px-6">
         <div className="flex flex-col gap-2 lg:gap-0 items-center">
@@ -528,7 +512,24 @@ function ExploreCategory() {
   );
 }
 
-function PopularDetails({ setIsUserLogin }) {
+const DiscountCard = ({ discount, storeName, imageSrc }) => {
+  return (
+    <div className="w-60 md:w-72 h-96 rounded-md shrink-0 overflow-hidden relative">
+      <img
+        src={imageSrc}
+        className="absolute top-0 left-0 w-full h-full object-cover"
+        alt={storeName}
+      />
+      <div className="bg-gradient-to-b from-transparent to-black absolute top-0 left-0 w-full h-full"></div>
+      <div className="absolute bottom-6 left-4 flex flex-col gap-1">
+        <p className="font-semibold text-white text-5xl">{discount}% off</p>
+        <p className="text-white font-semibold text-lg">{storeName}</p>
+      </div>
+    </div>
+  );
+};
+
+function PopularDetails() {
   const zudioList = [
     "Women Fassion",
     "Kids Wear",
@@ -538,6 +539,12 @@ function PopularDetails({ setIsUserLogin }) {
     "Men Accessories",
     "Women Accessories",
   ];
+  const storeData = [
+    { discount: 10, storeName: "Karin Store", imageSrc: "./w1.png" },
+    { discount: 20, storeName: "Samanth Store", imageSrc: "./w2.png" },
+    { discount: 30, storeName: "Krishna Group", imageSrc: "./w3.png" },
+  ];
+
   return (
     <div className=" bg-yellow-100 overflow-hidden min-h-96 px-4 w-full py-6 relative">
       <div className="absolute hidden md:block top-6 left-0">
@@ -561,86 +568,38 @@ function PopularDetails({ setIsUserLogin }) {
         {/* <img src="./backword-btn.png" className=" z-20 h-6 w-auto" alt="" /> */}
         {/* <div className=" p-2 border border-black rounded-full"> */}
         <ChevronLeftCircleIcon className=" shrink-0" />
-        {/* </div> */}
-
-        {/* Cards */}
 
         <div className=" flex gap-2 mt-4 items-center overflow-x-scroll hide-scrollbar">
-          <div
-            onClick={() => setIsUserLogin(true)}
-            className="h-96 w-60 md:w-72 rounded-md  shrink-0 py-6 px-4 flex z-10 flex-col bg-black"
-          >
-            <div className=" text-white flex  justify-between gap-2 mb-4 items-center">
-              <p className=" text-4xl font-semibold">Zudio</p>
-              <p className=" text-2xl font-semibold">18%off</p>
-            </div>
-            {zudioList.map((item, index) => {
-              return (
-                <p key={index} className=" text-white  text-sm">
-                  {item}
-                </p>
-              );
-            })}
-
-            <div className=" w-full mt-auto flex gap-2 justify-between">
-              <div className=" flex gap-1 items-center">
-                <MapPinIcon className="h-5 w-6 text-white" />
-                <p className=" text-white font-semibold ">3.2 Km</p>
+          <UserLoginProvider>
+            <div className="h-96 w-60 md:w-72 rounded-md  shrink-0 py-6 px-4 flex z-10 flex-col bg-black">
+              <div className=" text-white flex  justify-between gap-2 mb-4 items-center">
+                <p className=" text-4xl font-semibold">Zudio</p>
+                <p className=" text-2xl font-semibold">18%off</p>
               </div>
-              <p className=" text-white font-semibold">View Offers</p>
-            </div>
-          </div>
+              {zudioList.map((item, index) => {
+                return (
+                  <p key={index} className=" text-white  text-sm">
+                    {item}
+                  </p>
+                );
+              })}
 
-          <div
-            onClick={() => {
-              setIsUserLogin(true);
-            }}
-            className=" w-60 md:w-72 h-96 rounded-md shrink-0 overflow-hidden relative"
-          >
-            <img
-              src="./w1.png"
-              className=" absolute top-0 left-0 w-full h-full object-cover"
-              alt=""
-            />
-            <div className=" bg-gradient-to-b from-transparent to-black absolute top-0 left-0 w-full h-full"></div>
-            <div className=" absolute bottom-6 left-4 flex flex-col gap-1">
-              <p className=" font-semibold text-white text-5xl">10% off</p>
-              <p className=" text-white font-semibold text-lg">Karin Store</p>
+              <div className=" w-full mt-auto flex gap-2 justify-between">
+                <div className=" flex gap-1 items-center">
+                  <MapPinIcon className="h-5 w-6 text-white" />
+                  <p className=" text-white font-semibold ">3.2 Km</p>
+                </div>
+                <p className=" text-white font-semibold">View Offers</p>
+              </div>
             </div>
-          </div>
-          <div
-            onClick={() => {
-              setIsUserLogin(true);
-            }}
-            className=" w-60 md:w-72 h-96 rounded-md shrink-0 overflow-hidden relative"
-          >
-            <img
-              src="./w2.png"
-              className=" absolute top-0 left-0 w-full h-full object-cover"
-              alt=""
-            />
-            <div className=" bg-gradient-to-b from-transparent to-black absolute top-0 left-0 w-full h-full"></div>
-            <div className=" absolute bottom-6 left-4 flex flex-col gap-1">
-              <p className=" font-semibold text-white text-5xl">20% off</p>
-              <p className=" text-white font-semibold text-lg">Samanth Store</p>
-            </div>
-          </div>
-          <div
-            onClick={() => {
-              setIsUserLogin(true);
-            }}
-            className=" w-60 md:w-72 h-96 rounded-md shrink-0 overflow-hidden relative"
-          >
-            <img
-              src="./w3.png"
-              className=" absolute top-0 left-0 w-full h-full object-cover"
-              alt=""
-            />
-            <div className=" bg-gradient-to-b from-transparent to-black absolute top-0 left-0 w-full h-full"></div>
-            <div className=" absolute bottom-6 left-4 flex flex-col gap-1">
-              <p className=" font-semibold text-white text-5xl">30% off</p>
-              <p className=" text-white font-semibold text-lg">Krishna Group</p>
-            </div>
+          </UserLoginProvider>
+
+          <div className="flex gap-4 overflow-x-auto">
+            {storeData.map((store, index) => (
+              <UserLoginProvider key={index}>
+                <DiscountCard key={index} {...store} />
+              </UserLoginProvider>
+            ))}
           </div>
         </div>
 
@@ -651,7 +610,27 @@ function PopularDetails({ setIsUserLogin }) {
   );
 }
 
-function PopularStores({ setIsUserLogin }) {
+const RatingCard = ({ rating, storeName, imageSrc }) => {
+  return (
+    <div className="w-60 md:w-72 h-96 rounded-md shrink-0 overflow-hidden relative">
+      <img
+        src={imageSrc}
+        className="absolute top-0 left-0 w-full h-full object-cover"
+        alt={storeName}
+      />
+      <div className="bg-gradient-to-b from-transparent to-black absolute top-0 left-0 w-full h-full"></div>
+      <div className="absolute bottom-6 left-4 flex flex-col gap-1">
+        <div className="font-semibold flex text-white text-5xl">
+          <img src="./golden-star.png" className="size-12" alt="star" />
+          <p>{rating}</p>
+        </div>
+        <p className="text-white font-semibold text-lg">{storeName}</p>
+      </div>
+    </div>
+  );
+};
+
+function PopularStores() {
   const zudioList = [
     "Women",
     "Kids Wear",
@@ -660,6 +639,15 @@ function PopularStores({ setIsUserLogin }) {
     "Sweatshirt",
     "Men Accessories",
     "Women Accessories",
+  ];
+  const ratingData = [
+    { rating: 4.6, storeName: "Karin Store", imageSrc: "./w1.png" },
+    { rating: 4.2, storeName: "Radhe-Krishnan Store", imageSrc: "./w2.png" },
+    {
+      rating: 3.2,
+      storeName: "Khushi Kirana Store",
+      imageSrc: "./khushi-kirana-store.png",
+    },
   ];
   return (
     <div className=" bg-pink-100 overflow-hidden mt-6 min-h-96 px-4 w-full py-6 relative">
@@ -685,100 +673,38 @@ function PopularStores({ setIsUserLogin }) {
 
         {/* Cards */}
 
-        <div
-          onClick={() => {
-            setIsUserLogin(true);
-          }}
-          className=" flex gap-2 mt-4 items-center overflow-x-scroll hide-scrollbar"
-        >
-          <div className="h-96 w-60 md:w-72 rounded-md  shrink-0 py-6 px-4 flex z-10 flex-col bg-black">
-            <div className=" text-white flex  justify-between gap-2 mb-4 items-center">
-              <p className=" text-4xl font-semibold">Shreeji</p>
-              <div className=" flex  text-xl font-semibold items-center">
-                4.8 <img src="./golden-star.png" className=" size-6" alt="" />
+        <div className=" flex gap-2 mt-4 items-center overflow-x-scroll hide-scrollbar">
+          <UserLoginProvider>
+            <div className="h-96 w-60 md:w-72 rounded-md  shrink-0 py-6 px-4 flex z-10 flex-col bg-black">
+              <div className=" text-white flex  justify-between gap-2 mb-4 items-center">
+                <p className=" text-4xl font-semibold">Shreeji</p>
+                <div className=" flex  text-xl font-semibold items-center">
+                  4.8 <img src="./golden-star.png" className=" size-6" alt="" />
+                </div>
               </div>
-            </div>
-            {zudioList.map((item, index) => {
-              return (
-                <p key={index} className=" text-white  text-sm">
-                  {item}
-                </p>
-              );
-            })}
+              {zudioList.map((item, index) => {
+                return (
+                  <p key={index} className=" text-white  text-sm">
+                    {item}
+                  </p>
+                );
+              })}
 
-            <div className=" w-full mt-auto flex gap-2 justify-between">
-              <div className=" flex gap-1 items-center">
-                <MapPinIcon className="h-5 w-6 text-white" />
-                <p className=" text-white font-semibold ">3.2 Km</p>
+              <div className=" w-full mt-auto flex gap-2 justify-between">
+                <div className=" flex gap-1 items-center">
+                  <MapPinIcon className="h-5 w-6 text-white" />
+                  <p className=" text-white font-semibold ">3.2 Km</p>
+                </div>
+                <p className=" text-white font-semibold">View Offers</p>
               </div>
-              <p className=" text-white font-semibold">View Offers</p>
             </div>
-          </div>
+          </UserLoginProvider>
 
-          <div
-            onClick={() => {
-              setIsUserLogin(true);
-            }}
-            className=" w-60  md:w-72 h-96 rounded-md shrink-0 overflow-hidden relative"
-          >
-            <img
-              src="./w1.png"
-              className=" absolute top-0 left-0 w-full h-full object-cover"
-              alt=""
-            />
-            <div className=" bg-gradient-to-b from-transparent to-black absolute top-0 left-0 w-full h-full"></div>
-            <div className=" absolute bottom-6 left-4 flex flex-col gap-1">
-              <div className=" font-semibold flex  text-white text-5xl">
-                <img src="./golden-star.png" className=" size-12" alt="" />
-                <p>4.6</p>
-              </div>
-              <p className=" text-white font-semibold text-lg">Karin Store</p>
-            </div>
-          </div>
-          <div
-            onClick={() => {
-              setIsUserLogin(true);
-            }}
-            className=" w-60 md:w-72 h-96 rounded-md shrink-0 overflow-hidden relative"
-          >
-            <img
-              src="./w2.png"
-              className=" absolute top-0 left-0 w-full h-full object-cover"
-              alt=""
-            />
-            <div className=" bg-gradient-to-b from-transparent to-black absolute top-0 left-0 w-full h-full"></div>
-            <div className=" absolute bottom-6 left-4 flex flex-col gap-1">
-              <div className=" font-semibold flex  text-white text-5xl">
-                <img src="./golden-star.png" className=" size-12" alt="" />
-                <p>4.2</p>
-              </div>
-              <p className=" text-white font-semibold text-lg">
-                Radhe-Krishnan Store
-              </p>
-            </div>
-          </div>
-          <div
-            onClick={() => {
-              setIsUserLogin(true);
-            }}
-            className=" z-20 w-60 md:w-72 h-96 rounded-md shrink-0 overflow-hidden relative"
-          >
-            <img
-              src="./khushi-kirana-store.png"
-              className=" absolute top-0 left-0 w-full h-full object-cover"
-              alt=""
-            />
-            <div className=" bg-gradient-to-b from-transparent to-black absolute top-0 left-0 w-full h-full"></div>
-            <div className=" absolute bottom-6 left-4 flex flex-col gap-1">
-              <div className=" font-semibold flex  text-white text-5xl">
-                <img src="./golden-star.png" className=" size-12" alt="" />
-                <p>3.2</p>
-              </div>
-              <p className=" text-white font-semibold text-lg">
-                Khushi Kirana Store
-              </p>
-            </div>
-          </div>
+          {ratingData.map((store, index) => (
+            <UserLoginProvider key={index}>
+              <RatingCard {...store} />
+            </UserLoginProvider>
+          ))}
         </div>
 
         {/* <img src="./forword-btn.png" className="  z-20 h-6 w-auto" alt="" /> */}

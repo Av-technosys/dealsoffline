@@ -73,7 +73,7 @@ export default function DesktopMenu({ menu }) {
                 <div key={index} className="  space-y-0.5">
                   <Link
                     href={"search"}
-                    className=" leading-5 py-1 font-semibold text-lg text-primary-red"
+                    className=" py-2 font-semibold text-base text-primary-red"
                   >
                     {submenu.title}
                   </Link>
@@ -81,7 +81,7 @@ export default function DesktopMenu({ menu }) {
                     <Link
                       href={item.slug}
                       key={i}
-                      className=" block text-sm cursor-pointer text-gray-800"
+                      className=" hover:scale-105 hover:text-black w-fit block text-sm font-medium cursor-pointer text-gray-800"
                     >
                       {item.name}
                     </Link>
