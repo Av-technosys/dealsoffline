@@ -11,7 +11,7 @@ import UserSettingDialog from "@/components/dialog/userSettingDialog";
 import Footer from "@/components/footer";
 import { HeroCarousel } from "@/components/heroCarousel";
 import NavBar from "@/components/nav/navBar";
-import { ChevronLeftCircle, MapPin } from "lucide";
+import { ChevronLeftCircle, ChevronRightCircle, MapPin } from "lucide-react";
 import {
   ChevronLeftCircleIcon,
   ChevronRightCircleIcon,
@@ -136,25 +136,58 @@ const logos = [
 ];
 
 function LogoCarousel() {
+  const scrollRef = React.useRef(null);
+
+  const scroll = (direction) => {
+    const container = scrollRef.current;
+    if (container) {
+      const scrollAmount = direction === "left" ? -200 : 200;
+      container.scrollBy({
+        left: scrollAmount,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
-    <div className="flex items-center overflow-x-scroll lg:justify-center lg:w-full hide-scrollbar gap-3 lg:gap-6">
-      {logos.map((logo, index) => (
-        <div
-          key={index}
-          className={`w-auto shrink-0 ${
-            logo.src.includes("logo") ? "h-20" : "h-2"
-          }`}
-        >
-          <img
-            src={logo.src}
-            className="w-auto h-full object-contain"
-            alt={logo.alt}
-          />
-        </div>
-      ))}
+    <div className="relative max-w-7xl mx-auto w-full">
+      <button
+        onClick={() => scroll("left")}
+        className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full shadow-lg p-1 hover:bg-gray-100"
+      >
+        <ChevronLeftCircle className="shrink-0 text-gray-600" size={24} />
+      </button>
+
+      <div
+        ref={scrollRef}
+        className="flex items-center overflow-x-scroll hide-scrollbar gap-3 lg:gap-6 px-8"
+      >
+        {logos.map((logo, index) => (
+          <div
+            key={index}
+            className={`w-auto shrink-0 ${
+              logo.src.includes("logo") ? "h-20" : "h-2"
+            }`}
+          >
+            <img
+              src={logo.src}
+              className="w-auto h-full object-contain"
+              alt={logo.alt}
+            />
+          </div>
+        ))}
+      </div>
+
+      <button
+        onClick={() => scroll("right")}
+        className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full shadow-lg p-1 hover:bg-gray-100"
+      >
+        <ChevronRightCircle className="shrink-0 text-gray-600" size={24} />
+      </button>
     </div>
   );
 }
+
 const popData = [
   {
     name: "Metro Shoes",

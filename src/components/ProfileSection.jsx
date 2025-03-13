@@ -35,14 +35,15 @@ export default function ProfileSection() {
                 </p>
                 <input
                   type="text"
-                  defaultValue={"91-9012345678"}
+                  placeholder="Phone Number"
                   className=" w-full text-sm rounded-md p-2 border "
+                  maxLength={10}
                 />
                 <InputFildNumber />
               </div>
               <InputFild
                 label={"WhatsApp Number"}
-                inputName={"91-9012345678"}
+                placeholder={"Whatsapp Number"}
                 same={true}
               />
             </div>
