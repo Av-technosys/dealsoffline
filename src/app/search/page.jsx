@@ -13,21 +13,13 @@ import MenMenu from "@/components/dialog/filter/men";
 import WomenMenu from "@/components/dialog/filter/women";
 import LocationShowMore from "@/components/dialog/locationSeeMore";
 import LoginDialog from "@/components/dialog/loginUserDialog";
-import PartnerLoginDialog from "@/components/dialog/partnerLoginDialog";
-import PartnerLoginOTPDialog from "@/components/dialog/partnerLoginOTPDialog";
 import Footer from "@/components/footer";
 import { HeroCarousel } from "@/components/heroCarousel";
+import { ShareButton, ThumbsUpButton } from "@/components/likeAndShare";
 import NavBar from "@/components/nav/navBar";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
+import UserLoginProvider from "@/components/userLoginProvider";
 import { Check, Share2Icon, ThumbsUp, X } from "lucide-react";
+import Link from "next/link";
 import React, { useState } from "react";
 
 const Page = () => {
@@ -36,8 +28,6 @@ const Page = () => {
   const [isPassOTP, setIsPassOTP] = React.useState(false);
   const [isCreateOTP, setIsCreateOTP] = React.useState(false);
   const [isUerPassword, setIsUerPassword] = React.useState(false);
-  const [isPartnerLogin, setIsPartnerLogin] = React.useState(false);
-  const [isPartnerOTP, setIsPartnerOTP] = React.useState(false);
   return (
     <div>
       <HeroCarousel />
@@ -71,16 +61,6 @@ const Page = () => {
           isOpen={isUerPassword}
           setIsOpen={setIsUerPassword}
           handleUserLogin={setIsUserLogin}
-        />
-
-        <PartnerLoginDialog
-          isOpen={isPartnerLogin}
-          setIsOpen={setIsPartnerLogin}
-          handleOTPDialog={setIsPartnerOTP}
-        />
-        <PartnerLoginOTPDialog
-          isOpen={isPartnerOTP}
-          setIsOpen={setIsPartnerOTP}
         />
       </div>
       <div className="flex flex-col lg:flex-row justify-center">
@@ -156,9 +136,9 @@ const Page = () => {
 
         <div className="py-10 max-w-7xl px-6 flex flex-col w-full gap-3">
           <AllAppliedFilter />
-          <ProductList setIsUserLogin={setIsPartnerLogin} />
-          <ProductList setIsUserLogin={setIsPartnerLogin} />
-          <ProductList setIsUserLogin={setIsPartnerLogin} />
+          <ProductList />
+          <ProductList />
+          <ProductList />
         </div>
       </div>
 
@@ -285,17 +265,24 @@ const navBarData = [
   },
 ];
 
-function ProductList({ setIsUserLogin }) {
+function ProductList() {
   return (
-    <div
-      onClick={setIsUserLogin}
-      className="w-full max-w-7xl flex-col cursor-pointer md:flex-row p-6 bg-white border rounded-lg flex gap-4 items-center"
-    >
-      <img src="./category1.png" className="" alt="" />
+    <div className="w-full max-w-7xl flex-col md:flex-row p-6 bg-white border rounded-lg flex gap-8">
+      <UserLoginProvider
+        className={"h-full max-w-60 rounded-md overflow-hidden w-full"}
+      >
+        <img
+          src="./category1.png"
+          className=" h-full w-full object-cover"
+          alt=""
+        />
+      </UserLoginProvider>
       <div className="flex w-full justify-between h-full gap-4 md:gap-4 flex-col">
         <div className=" flex flex-col gap-1 w-full">
           <div className="flex w-full gap-4 justify-between">
-            <p className=" text-2xl md:text-3xl font-semibold">Lifestyle</p>
+            <UserLoginProvider>
+              <p className=" text-2xl md:text-3xl font-semibold">Lifestyle</p>
+            </UserLoginProvider>
             <div className=" flex items-center gap-1">
               <img
                 src="./golden-star.svg"
@@ -305,42 +292,45 @@ function ProductList({ setIsUserLogin }) {
               <p className=" text-2xl md:text-4xl font-semibold">3.9</p>
             </div>
           </div>
-          <p className="text-primary-gray md:text-lg max-w-80">
-            A unit of is one of the biggest brand in the tops in women wears.
-          </p>
-          <div className=" mt-1 flex gap-2 items-center">
+          <UserLoginProvider>
+            <p className="text-primary-gray max-w-80">
+              A unit of is one of the biggest brand in the tops in women wears.
+            </p>
+          </UserLoginProvider>
+          <Link
+            href="https://www.google.com/maps/search/wtp/@26.8532401,75.8031213,17z?entry=s&sa=X"
+            className=" mt-1 flex gap-2 items-center"
+          >
             <img src="./right-circle.png" className=" size-6 md:size-8" />
             <p className=" md:text-xl">MI Road</p>
-          </div>
+          </Link>
           <div className=" mt-1 flex gap-2 items-center justify-between">
-            <p className=" text-xl md:text-4xl font-medium">
-              35% Off on food items{" "}
-              <span className=" text-lg  font-normal">
-                {" "}
-                (Valid till 28th dec)
-              </span>{" "}
-            </p>
-            <div className=" flex flex-col items-center justify-center">
-              <ThumbsUp size={20} />
-              <p className=" text-sm font-semibold">45K</p>
-            </div>
+            <UserLoginProvider>
+              <p className=" text-xl md:text-3xl font-medium">
+                35% Off on food items{" "}
+                <span className=" text-lg  font-normal">
+                  {" "}
+                  (Valid till 28th dec)
+                </span>{" "}
+              </p>
+            </UserLoginProvider>
+            <ThumbsUpButton />
           </div>
         </div>
         <div className=" flex items-center gap-2">
-          <div className=" flex text-base  md:text-lg flex-col gap-2 xl:flex-row">
-            <div className=" flex gap-1 items-center">
-              <img src="./time.png" alt="" />
-              <p>Mon - Fri (11:00 AM - 08:00 PM)</p>
+          <UserLoginProvider>
+            <div className=" flex text-base  md:text-lg flex-col gap-2 xl:flex-row">
+              <div className=" flex gap-1 items-center">
+                <img src="./time.png" alt="" />
+                <p>Mon - Fri (11:00 AM - 08:00 PM)</p>
+              </div>
+              <div className=" flex gap-1 items-center">
+                <img src="./phone-red.png" alt="" />
+                <p>+91 - 8112XXXXXX</p>
+              </div>
             </div>
-            <div className=" flex gap-1 items-center">
-              <img src="./phone-red.png" alt="" />
-              <p>+91 - 8112XXXXXX</p>
-            </div>
-          </div>
-          <div className=" flex flex-col items-center justify-center self-end ml-auto">
-            <Share2Icon size={20} />
-            <p className=" text-sm font-semibold">40K</p>
-          </div>
+          </UserLoginProvider>
+          <ShareButton className={"ml-auto"} />
         </div>
       </div>
     </div>

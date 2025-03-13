@@ -28,6 +28,7 @@ import { Menus, storeMenu } from "@/components/nav/utils";
 import StoreMenuNavItem from "./storeMenuNavItem";
 import { ChevronUpIcon } from "lucide-react";
 import Link from "next/link";
+import { ShareButton, ThumbsUpButton } from "@/components/likeAndShare";
 
 const Page = () => {
   const [isCreateUser, setIsCreateUser] = React.useState(false);
@@ -281,72 +282,6 @@ const Page = () => {
 
 export default Page;
 
-// function AllOffers() {
-//   return (
-//     <div className=" border w-full p-4 rounded-lg ">
-//       <p className=" text-4xl font-semibold py-2">All Offers</p>
-//       <div className=" items-center w-full border-b-2 border-gray-200 py-2 flex gap-2">
-//         <input type="checkbox" className="size-3 bg-primary-red shrink-0" />
-//         <p className=" font-medium">Ongoing offers</p>
-//         <input type="checkbox" className="size-3 bg-primary-red shrink-0" />
-//         <p className=" font-medium">Closing soon</p>
-//         <input type="checkbox" className="size-3 bg-primary-red shrink-0" />
-//         <p className=" font-medium">Upcoming Offers</p>
-//       </div>
-//       <div className=" flex mt-3 max-h-96 hide-scrollbar overflow-y-scroll px-2  flex-col gap-2">
-//         {[
-//           {
-//             image: "./hero-small.png",
-//             offer: "Flat 25% Off",
-//             description: "on shirts and Trousers",
-//             valid_till: "20th Mar",
-//           },
-//           {
-//             image: "./hero-small.png",
-//             offer: "Flat Rs 1,000 Off",
-//             description: "on Smart Phones Above Rs. 10,000",
-//             valid_till: "22nd Mar",
-//           },
-//           {
-//             image: "./hero-small.png",
-//             offer: "Buy 1 get 1",
-//             description: "on men Shirts",
-//             valid_till: "25th Mar",
-//           },
-//           {
-//             image: "./hero-small.png",
-//             offer: "Flat 25% Off",
-//             description: "on shirts and Trousers",
-//             valid_till: "20th Mar",
-//           },
-//         ].map((item, idx) => {
-//           return (
-//             <div
-//               key={idx}
-//               className=" lg:h-28 flex flex-col lg:flex-row gap-3 lg:gap-6 lg:items-center  py-1 border-b"
-//             >
-//               <div className=" flex lg:items-center gap-2">
-//                 <img
-//                   src="./hero-small.png"
-//                   className=" lg:h-full w-24 lg:w-auto"
-//                   alt=""
-//                 />
-//                 <p className=" text-gray-600">
-//                   <span className=" text-red-500">{item.offer}</span>
-//                   {item.description}
-//                 </p>
-//               </div>
-//               <p className="shrink-0 lg:ml-auto">
-//                 Valid till{" "}
-//                 <span className=" text-red-500">{item.valid_till}</span>
-//               </p>
-//             </div>
-//           );
-//         })}
-//       </div>
-//     </div>
-//   );
-// }
 function AllOffers({
   showOngoingOffers,
   setShowOngoingOffers,
@@ -884,34 +819,5 @@ function MobileNavList({ navItems, filterSubNavItems }) {
         </div>
       )}
     </div>
-  );
-}
-
-function ThumbsUpButton() {
-  const [selected, setSelected] = useState(false);
-  return (
-    <div className=" flex flex-col items-center justify-center gap-1">
-      <ThumbsUp
-        onClick={() => setSelected(!selected)}
-        className={`${
-          selected ? "text-primary-red fill-red-200 cursor-pointer" : ""
-        }`}
-        size={18}
-      />
-      <p className=" text-sm">40k</p>
-    </div>
-  );
-}
-
-function ShareButton() {
-  return (
-    <Link
-      href={"https://web.whatsApp.com"}
-      target="_blank"
-      className=" flex flex-col items-center justify-center gap-1"
-    >
-      <Share2 size={18} />
-      <p className=" text-sm">40k</p>
-    </Link>
   );
 }
