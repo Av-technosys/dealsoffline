@@ -1,15 +1,10 @@
 "use client";
 import {
   BookImage,
-  CameraIcon,
   ChevronLeftCircle,
   ChevronRightCircle,
   Info,
-  InfoIcon,
   Pencil,
-  PencilLineIcon,
-  Save,
-  Square,
 } from "lucide-react";
 import InputFild from "./inputFild";
 import MenMenu from "./dialog/filter/men";
@@ -19,7 +14,6 @@ import BeautyMenu from "./dialog/filter/beauty";
 import HomeDecoreMenu from "./dialog/filter/homeDecore";
 import HomeAppliencesMenu from "./dialog/filter/homeAppliences";
 import ElectronicsMenu from "./dialog/filter/electronics";
-import TermsAndConditioBusinessDetailsnDialog from "./dialog/termsAndCondition";
 import React, { useState } from "react";
 import BrandsShowMore from "./dialog/brandsShowMore";
 import StoreImageSelector from "./storeImageSelector";
@@ -41,15 +35,15 @@ export default function ShopDetailsSection({ path }) {
   }
   const [isChecked, setIsChecked] = React.useState(false);
   return (
-    <div className=" px-4 max-w-5xl md:mt-12 mx-auto w-full flex flex-col gap-4">
-      <div className=" mx-auto w-fit flex flex-col gap-6 md:gap-12">
+    <div className=" px-4 max-w-5xl mx-auto w-full flex flex-col gap-4">
+      <div className=" mx-auto w-fit flex flex-col gap-4">
         <p className=" text-3xl md:text-4xl font-medium ">Business Details</p>
         <p className=" text-gray-600 ">
           Fill the Details to get more business Opportunities
         </p>
       </div>
       <div className=" flex flex-col gap-16 md:gap-20 lg:flex-row">
-        <div className=" flex w-full max-w-none  lg:max-w-60 md:mt-28 shrink-0 flex-col gap-4">
+        <div className=" flex w-full max-w-none  lg:max-w-60 mt-6 lg:mt-28 shrink-0 flex-col gap-4">
           <StoreImageSelector />
 
           <div className="flex mt-12 flex-col">
@@ -76,43 +70,12 @@ export default function ShopDetailsSection({ path }) {
               </p>
             </div>
             <div className="flex w-full mt-3 flex-wrap gap-2">
-              {/* <div className=" py-1 px-2  bg-secondary-red font-semibold text-sm rounded-md" >Zara</div> */}
-              {/* {
-                ["H&M", "Puma", "Forever 21", "Gap", "Snitch", "Levi’s", "Marks & Spencer"].map((data) => {
-                  return (
-                    <div key={data} className=" py-1 px-2 border border-black font-semibold text-sm rounded-md" >{data}</div>
-                  )
-                })
-              } */}
-              {/* {
-              ["h&m", "puma", "forever", "gap", "gap"].map((data, ind) => {
-                return (
-                  // <div key={data} className=" py-1 px-2 border border-black font-semibold text-sm rounded-md" >{data}</div>
-                  <div key={ind} className=" h-8 w-auto py-1 px-2 border border-black font-semibold text-sm rounded-md" >
-                    <img key={data} className=" w-full h-full " src={`/companies-logo/${data}.png`} alt="" />
-                  </div>
-                )
-              })
-            } */}
-
               <SearchByBrand path="vendor" />
             </div>
-            {/* <div onClick={handleApplyFilter} className=" border border-primary-red flex gap-2 items-center justify-center duration-200 bg-primary-red px-4 py-2 rounded-md cursor-pointer text-white text-center font-semibold mt-6" >
-            <p>Save</p>
-            <Save size={20} />
-          </div> */}
           </div>
         </div>
 
         <div>
-          {/* <div className="  w-fit flex flex-col gap-6 md:gap-12">
-            <p className=" text-3xl md:text-4xl font-medium ">
-              Business Details
-            </p>
-            <p className=" text-gray-600 ">
-              Fill the Details to get more business Opportunities
-            </p>
-          </div> */}
           <div className=" flex mt-6 flex-col gap-2 w-full">
             <InputFild label={"Shop Name"} />
             <div className=" flex flex-col gap-1">
@@ -186,7 +149,7 @@ export default function ShopDetailsSection({ path }) {
               </div>
             </div>
           </div>
-          <div className=" mt-6  flex items-center gap-2 flex-row">
+          <div className=" flex items-center gap-2 flex-row">
             <ChevronLeftCircle className="shrink-0" size={20} />
             <div className=" max-w-2xl overflow-x-scroll px-2 hide-scrollbar flex relative gap-2 w-full">
               <div className=" relative rounded-md cursor-pointer h-28 w-36 shrink-0 items-center flex gap-2 px-3 border border-black py-1.5">

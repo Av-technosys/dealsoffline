@@ -18,9 +18,15 @@ import { PaginationVendor } from "./paginationVendor";
 
 export default function OfferDetailsSection() {
   return (
-    <div className=" max-w-6xl px-4 md:mt-12 mx-auto flex-col w-full flex gap-4">
-      <div className=" w-full max-w-6xl flex flex-col gap-12 md:gap-16 lg:flex-row">
-        <div className="flex md:max-w-60 md:mt-28 shrink-0 flex-col gap-4">
+    <div className=" max-w-6xl px-4 mx-auto flex-col w-full flex gap-4">
+      <div className=" flex flex-col gap-4 w-fit mx-auto">
+        <p className=" text-3xl md:text-4xl font-medium">
+          Product & Offer Details
+        </p>
+        <p className=" text-gray-600 ">Create deals & offers</p>
+      </div>
+      <div className=" flex flex-col h-full gap-8 mt-6 lg:mt-0 lg:gap-20 lg:flex-row ">
+        <div className="flex md:max-w-60 lg:mt-28  w-full flex-col gap-4">
           <div className=" max-w-44 md:max-w-60 relative items-center justify-center aspect-square flex shrink-0 flex-col gap-4 border border-gray-600 rounded-md ">
             <div className=" absolute bottom-0 right-0 translate-y-1/2 translate-x-1/2 size-16 bg-primary-red p-1 flex items-center justify-center rounded-full">
               <CameraIcon className=" text-white" size={36} />
@@ -35,12 +41,6 @@ export default function OfferDetailsSection() {
         </div>
 
         <div className=" w-full">
-          <div className=" w-full flex flex-col gap-4">
-            <p className=" text-3xl md:text-4xl font-medium ">
-              Product & Offer Details
-            </p>
-            <p className=" text-gray-600 ">Create deals & offers</p>
-          </div>
           <div className=" flex mt-4 flex-col gap-4 w-full">
             <div className=" w-full flex flex-col md:flex-row gap-4">
               <div className=" w-full flex flex-col gap-1">
@@ -76,17 +76,13 @@ export default function OfferDetailsSection() {
                 <CalendarForm selectFuture={true} />
               </div>
             </div>
-
-            <div className=" w-full flex flex-col md:flex-row gap-4"></div>
           </div>
-          <div className=" mt-2  flex flex-col gap-2">
+          <div className=" mt-8 lg:mt-2  flex flex-col gap-1">
             <p>
               Select Template/Image for Offer Display
               <span className=" text-primary-red">*</span>
             </p>
-            <div className=" w-full overflow-x-scroll">
-              <SelectStoreImage />
-            </div>
+            <SelectStoreImage />
           </div>
 
           <OfferBottonBts />
@@ -253,50 +249,51 @@ function SelectStoreImage() {
   ]);
   const [selectedImage, setSelectedImage] = useState(allImages[0]);
   return (
-    <div className=" gap-2 w-full items-center flex">
-      <ChevronLeftCircle className="shrink-0" size={20} />
+    <div className=" flex flex-col gap-4 lg:flex-row">
+      <div className=" w-full flex items-center">
+        <ChevronLeftCircle className="w-6" size={20} />
 
-      <div className=" max-w-2xl overflow-x-scroll h-fit px-2 hide-scrollbar flex relative gap-2 w-full">
-        <div className=" relative rounded-md !cursor-pointer h-28 w-36 shrink-0 items-center flex gap-2 px-3 border border-black py-1.5">
-          <p className=" cursor-pointer text-black text-sm  text-center">
-            Upload image here
-          </p>
-          <BookImage
-            size={20}
-            className=" absolute bottom-0 right-0 bg-black p-1 rounded size-7 text-white"
-          />
-          <input
-            onChange={(e) => {
-              if (e.target.files.length > 0) {
-                const newImage = URL.createObjectURL(e.target.files[0]);
-                setAllImages((prev) => [newImage, ...prev]);
-              }
-            }}
-            type="file"
-            accept="image/*"
-            className=" opacity-0 absolute inset-0 w-full h-full"
-          />
-        </div>
-        {allImages.map((item, index) => (
-          <div key={index} className=" w-36 h-28 shrink-0 relative">
-            <img src={item} className=" w-full h-full object-cover" />
-            <div className=" absolute bottom-1 right-1 bg-white p-1 rounded text-black size-6 flex items-center justify-center">
-              <input
-                onChange={() =>
-                  setSelectedImage(selectedImage === item ? null : item)
+        <div className="  overflow-x-scroll h-fit px-2 hide-scrollbar flex relative gap-2 w-full">
+          <div className=" relative rounded-md !cursor-pointer h-28 w-36 items-center flex gap-2 px-3 border border-black py-1.5">
+            <p className=" cursor-pointer text-black text-sm  text-center">
+              Upload image here
+            </p>
+            <BookImage
+              size={20}
+              className=" absolute bottom-0 right-0 bg-black p-1 rounded size-7 text-white"
+            />
+            <input
+              onChange={(e) => {
+                if (e.target.files.length > 0) {
+                  const newImage = URL.createObjectURL(e.target.files[0]);
+                  setAllImages((prev) => [newImage, ...prev]);
                 }
-                checked={selectedImage === item}
-                type="checkbox"
-                name="selectedImage"
-                className="w-full h-full"
-              />
-            </div>
+              }}
+              type="file"
+              accept="image/*"
+              className=" opacity-0 absolute inset-0 w-full h-full"
+            />
           </div>
-        ))}
+          {allImages.map((item, index) => (
+            <div key={index} className=" w-36 h-28 shrink-0 relative">
+              <img src={item} className=" w-full h-full object-cover" />
+              <div className=" absolute bottom-1 right-1 bg-white p-1 rounded text-black size-6 flex items-center justify-center">
+                <input
+                  onChange={() =>
+                    setSelectedImage(selectedImage === item ? null : item)
+                  }
+                  checked={selectedImage === item}
+                  type="checkbox"
+                  name="selectedImage"
+                  className="w-full h-full"
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+        <ChevronRightCircle className=" w-6" size={20} />
       </div>
-      <ChevronRightCircle className="shrink-0" size={20} />
-
-      <div className=" w-36 aspect-square rounded-md overflow-hidden">
+      <div className=" w-full max-w-36 aspect-square rounded-md overflow-hidden">
         {selectedImage && (
           <img
             src={selectedImage}

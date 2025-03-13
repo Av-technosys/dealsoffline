@@ -9,7 +9,11 @@ import {
 } from "./../../ui/dialog";
 import { Menus } from "@/components/nav/utils";
 
-const MenuKids = ({ path, setFilterValueList, filterValueList }) => {
+const MenuKids = ({
+  filterValueList = ["Kids"],
+  setFilterValueList = () => {},
+  path,
+}) => {
   const [selectedItems, setSelectedItems] = useState(() => {
     return Menus[2].subMenu
       .flatMap((submenu) => submenu.items.map((item) => item.name))

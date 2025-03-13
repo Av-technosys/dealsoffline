@@ -38,7 +38,9 @@ const DynamicContent = () => {
 
   return (
     <>
+      {/* <div className=" mx-auto overflow-x-auto"> */}
       <VendorOnbordForm num={num} />
+      {/* </div> */}
       {!hideAnimation && (
         <div className="block relative md:hidden">
           <Image
@@ -70,12 +72,14 @@ const DynamicContent = () => {
 
 const Page = () => {
   return (
-    <div className="flex flex-col gap-6 w-full">
+    <div className="flex min-h-screen flex-col gap-6 w-full">
       <VendorNavBar page={"dashbord"} />
       <Suspense fallback={<div>Loading content...</div>}>
         <DynamicContent />
       </Suspense>
-      <Footer />
+      <div className=" w-full mt-auto">
+        <Footer />
+      </div>
 
       {/* <div className="h-60"></div> */}
     </div>

@@ -11,7 +11,11 @@ import {
 import { Check, Save, X } from "lucide-react";
 import { Menus } from "@/components/nav/utils";
 
-const ElectronicsMenu = ({ path, setFilterValueList, filterValueList }) => {
+const ElectronicsMenu = ({
+  filterValueList = ["Electronics"],
+  setFilterValueList = () => {},
+  path,
+}) => {
   const [selectedItems, setSelectedItems] = useState(() => {
     return Menus[6].subMenu
       .flatMap((submenu) => submenu.items.map((item) => item.name))

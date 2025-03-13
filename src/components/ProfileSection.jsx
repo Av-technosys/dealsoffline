@@ -9,18 +9,18 @@ export default function ProfileSection() {
   const [isChecked, setIsChecked] = React.useState(false);
 
   return (
-    <div className=" max-w-6xl px-4 md:mt-12 mx-auto w-full flex flex-col gap-4">
-      <div className=" flex flex-col h-full gap-16 md:gap-20 md:flex-row ">
+    <div className=" max-w-6xl px-4 mx-auto w-full flex flex-col gap-4">
+      <div className=" w-fit mx-auto flex flex-col gap-4">
+        <p className=" text-3xl md:text-4xl font-medium">Vendor Details</p>
+        <p className=" text-gray-600">
+          Fill the Details to gain Costumer’s trust
+        </p>
+      </div>
+      <div className=" flex flex-col h-full gap-16 mt-6 lg:mt-0 md:gap-20 lg:flex-row ">
         <div className="  h-full w-full max-w-56  flex md:justify-end md:items-end  mt-auto ">
           <StoreImageSelector />
         </div>
         <div className=" flex flex-col w-full gap-6 md:gap-12">
-          <div className=" flex flex-col gap-4">
-            <p className=" text-3xl md:text-4xl font-medium">Vendor Details</p>
-            <p className=" text-gray-600">
-              Fill the Details to gain Costumer’s trust
-            </p>
-          </div>
           <div className=" flex flex-col gap-3 w-full">
             <div className=" grid grid-cols-1 sm:grid-cols-2 w-full gap-2">
               <InputFild label={"Name"} inputName={"Naveen Sharma"} />

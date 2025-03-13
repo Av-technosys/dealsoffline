@@ -9,7 +9,11 @@ import {
 } from "./../../ui/dialog";
 import { Menus } from "@/components/nav/utils";
 
-const MenMenu = ({ filterValueList, setFilterValueList, path }) => {
+const MenMenu = ({
+  filterValueList = ["Men"],
+  setFilterValueList = () => {},
+  path,
+}) => {
   const [selectedItems, setSelectedItems] = useState(() => {
     return Menus[0].subMenu
       .flatMap((submenu) => submenu.items.map((item) => item.name))
@@ -41,8 +45,6 @@ const MenMenu = ({ filterValueList, setFilterValueList, path }) => {
         categories: prev.categories.filter((item) => item !== "Men"),
       }));
     }
-
-    console.log(filterValueList);
   }, [selectedItems]);
 
   useEffect(() => {

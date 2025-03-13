@@ -9,7 +9,11 @@ import {
 } from "./../../ui/dialog";
 import { Menus } from "@/components/nav/utils";
 
-const HomeAppliencesMenu = ({ path, setFilterValueList, filterValueList }) => {
+const HomeAppliencesMenu = ({
+  filterValueList = ["Home Appliances"],
+  setFilterValueList = () => {},
+  path,
+}) => {
   const [selectedItems, setSelectedItems] = useState(() => {
     return Menus[5].subMenu
       .flatMap((submenu) => submenu.items?.map((item) => item.name))
