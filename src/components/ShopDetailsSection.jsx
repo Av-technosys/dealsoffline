@@ -42,8 +42,14 @@ export default function ShopDetailsSection({ path }) {
   const [isChecked, setIsChecked] = React.useState(false);
   return (
     <div className=" px-4 max-w-5xl md:mt-12 mx-auto w-full flex flex-col gap-4">
+      <div className=" mx-auto w-fit flex flex-col gap-6 md:gap-12">
+        <p className=" text-3xl md:text-4xl font-medium ">Business Details</p>
+        <p className=" text-gray-600 ">
+          Fill the Details to get more business Opportunities
+        </p>
+      </div>
       <div className=" flex flex-col gap-16 md:gap-20 lg:flex-row">
-        <div className=" flex w-full max-w-56  md:max-w-60 md:mt-28 shrink-0 flex-col gap-4">
+        <div className=" flex w-full max-w-none  lg:max-w-60 md:mt-28 shrink-0 flex-col gap-4">
           <StoreImageSelector />
 
           <div className="flex mt-12 flex-col">
@@ -63,8 +69,12 @@ export default function ShopDetailsSection({ path }) {
               <HomeAppliencesMenu path="vendor" />
               <ElectronicsMenu path="vendor" />
             </div>
-            <p className="font-semibold mt-6 text-lg">Brands</p>
-            <p className=" text-sm text-gray-600">Select your Trusted Brand</p>
+            <div>
+              <p className="font-semibold mt-6 text-lg">Brands</p>
+              <p className=" text-sm text-gray-600">
+                Select your Trusted Brand
+              </p>
+            </div>
             <div className="flex w-full mt-3 flex-wrap gap-2">
               {/* <div className=" py-1 px-2  bg-secondary-red font-semibold text-sm rounded-md" >Zara</div> */}
               {/* {
@@ -95,14 +105,14 @@ export default function ShopDetailsSection({ path }) {
         </div>
 
         <div>
-          <div className=" w-fit flex flex-col gap-6 md:gap-12">
+          {/* <div className="  w-fit flex flex-col gap-6 md:gap-12">
             <p className=" text-3xl md:text-4xl font-medium ">
               Business Details
             </p>
             <p className=" text-gray-600 ">
               Fill the Details to get more business Opportunities
             </p>
-          </div>
+          </div> */}
           <div className=" flex mt-6 flex-col gap-2 w-full">
             <InputFild label={"Shop Name"} />
             <div className=" flex flex-col gap-1">
