@@ -4,10 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 
 export default function DesktopMenu({ menu }) {
-  const [isHover, toggleHover] = useState(false);
-  const toggleHoverMenu = () => {
-    toggleHover(!isHover);
-  };
+  const [isHover, setIsHover] = useState(false);
 
   const subMenuAnimate = {
     enter: {
@@ -35,23 +32,22 @@ export default function DesktopMenu({ menu }) {
   return (
     <motion.div
       className="group/link"
-      onHoverStart={() => {
-        toggleHoverMenu();
-      }}
-      onHoverEnd={toggleHoverMenu}
+      onMouseEnter={() => setIsHover(true)}
+      onMouseLeave={() => setIsHover(false)}
       key={menu.label}
     >
       <span className="flex items-center relative text-black hover:bg-white/5 cursor-pointer px-1 py-1 rounded-xl">
         {menu.label}
-
-        <ChevronDown
-          size={20}
-          className="mt-[0.6px] group-hover/link:rotate-180 duration-200"
-        />
+        {hasSubMenu && (
+          <ChevronDown
+            size={20}
+            className="mt-[0.6px] group-hover/link:rotate-180 duration-200"
+          />
+        )}
       </span>
       {hasSubMenu && (
         <motion.div
-          className="absolute top-[5.05rem] p-8 max-w-3xl rounded-[6px] origin-[50%_-170px] shadow-md backdrop-blur bg-gray-50"
+          className="absolute top-[4rem] p-8 max-w-3xl rounded-[6px] origin-[50%_-170px] shadow-md backdrop-blur bg-gray-50"
           initial="exit"
           animate={isHover ? "enter" : "exit"}
           variants={subMenuAnimate}
@@ -68,26 +64,25 @@ export default function DesktopMenu({ menu }) {
             }`}
             style={{ columnGap: "1.75rem" }} // Adjusts spacing between columns
           >
-            {hasSubMenu &&
-              menu.subMenu.map((submenu, index) => (
-                <div key={index} className="  space-y-0.5">
+            {menu.subMenu.map((submenu, index) => (
+              <div key={index} className="space-y-0.5">
+                <Link
+                  href={"search"}
+                  className="py-2 font-semibold text-base text-primary-red"
+                >
+                  {submenu.title}
+                </Link>
+                {submenu.items.map((item, i) => (
                   <Link
-                    href={"search"}
-                    className=" py-2 font-semibold text-base text-primary-red"
+                    href={item.slug}
+                    key={i}
+                    className="hover:scale-105 hover:text-black w-fit block text-sm font-medium cursor-pointer text-gray-800"
                   >
-                    {submenu.title}
+                    {item.name}
                   </Link>
-                  {submenu?.items?.map((item, i) => (
-                    <Link
-                      href={item.slug}
-                      key={i}
-                      className=" hover:scale-105 hover:text-black w-fit block text-sm font-medium cursor-pointer text-gray-800"
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
-                </div>
-              ))}
+                ))}
+              </div>
+            ))}
           </div>
         </motion.div>
       )}

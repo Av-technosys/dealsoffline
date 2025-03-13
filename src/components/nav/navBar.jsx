@@ -105,7 +105,7 @@ const locations = [
   { name: "Jaipur", icon: "./search-locaion.svg", mapIcon: "./map-pin.svg" },
   { name: "Delhi", icon: "./india-gate.svg", mapIcon: "./map-pin.svg" },
   {
-    name: "Malviya Nagar",
+    name: "Mansarover",
     mapIcon: "./map-pin.svg",
   },
 ];
@@ -151,7 +151,6 @@ function SearchLocation() {
                 <div className=" w-6 h-6"></div>
               )}
               <p>{loc.name}</p>
-              {/* <img src={loc.mapIcon} alt="" className="w-6 h-6 ml-auto" /> */}
             </div>
           ))}
         </div>
