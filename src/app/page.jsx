@@ -15,7 +15,7 @@ import {
   MapPinIcon,
 } from "lucide-react";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const Page = () => {
   const [isCreateUser, setIsCreateUser] = React.useState(false);
@@ -358,6 +358,15 @@ const DiscountCard = ({ discount, storeName, imageSrc }) => {
 };
 
 function PopularDetails() {
+  const scrollContainerRef1 = useRef("");
+  const handleScroll1 = (ref, direction) => {
+    if (ref.current) {
+      ref.current.scrollBy({
+        left: direction === "left" ? -200 : 200,
+        behavior: "smooth",
+      });
+    }
+  };
   const zudioList = [
     "Women Fassion",
     "Kids Wear",
@@ -395,13 +404,19 @@ function PopularDetails() {
         </p>
       </div>
 
-      <div className=" z-20 max-w-7xl justify-center mx-auto items-center gap-2 flex flex-row ">
+      <div className=" z-50 max-w-7xl justify-center mx-auto items-center gap-2 flex flex-row ">
         {/* <img src="./backword-btn.png" className=" z-20 h-6 w-auto" alt="" /> */}
         {/* <div className=" p-2 border border-black rounded-full"> */}
-        <ChevronLeftCircleIcon className=" shrink-0" />
+        <ChevronLeftCircleIcon
+          className=" shrink-0"
+          onClick={() => handleScroll1(scrollContainerRef1, "left")}
+        />
 
         <div className=" flex gap-2 mt-4 items-center overflow-x-scroll hide-scrollbar">
-          <div className="flex gap-4 overflow-x-auto pb-2 px-2">
+          <div
+            className="flex gap-4 overflow-x-auto pb-2 px-2"
+            ref={scrollContainerRef1}
+          >
             <UserLoginProvider>
               <div className=" z-20 h-96 w-60 md:w-72 rounded-md  shrink-0 py-6 px-4 flex flex-col bg-black">
                 <div className=" text-white flex  justify-between gap-2 mb-4 items-center">
@@ -434,7 +449,10 @@ function PopularDetails() {
         </div>
 
         {/* <img src="./forword-btn.png" className=" z-20 h-6 w-auto" alt="" /> */}
-        <ChevronRightCircleIcon className=" shrink-0" />
+        <ChevronRightCircleIcon
+          className=" shrink-0"
+          onClick={() => handleScroll1(scrollContainerRef1, "right")}
+        />
       </div>
     </div>
   );
@@ -461,6 +479,15 @@ const RatingCard = ({ rating, storeName, imageSrc }) => {
 };
 
 function PopularStores() {
+  const scrollContainerRef = useRef("");
+  const handleScroll = (ref, direction) => {
+    if (ref.current) {
+      ref.current.scrollBy({
+        left: direction === "left" ? -200 : 200,
+        behavior: "smooth",
+      });
+    }
+  };
   const zudioList = [
     "Women",
     "Kids Wear",
@@ -506,11 +533,17 @@ function PopularStores() {
       </div>
 
       <div className=" z-20 max-w-7xl justify-center mx-auto items-center gap-2 flex flex-row ">
-        <ChevronLeftCircleIcon className=" shrink-0" />
+        <ChevronLeftCircleIcon
+          className=" shrink-0"
+          onClick={() => handleScroll(scrollContainerRef, "left")}
+        />
 
         {/* Cards */}
 
-        <div className=" flex gap-2 mt-4 items-center overflow-x-scroll pb-2 px-2">
+        <div
+          ref={scrollContainerRef}
+          className=" flex gap-2 mt-4 items-center overflow-x-scroll pb-2 px-2"
+        >
           <UserLoginProvider>
             <div className="h-96 w-60 md:w-72 rounded-md  shrink-0 py-6 px-4 flex z-10 flex-col bg-black">
               <div className=" text-white flex  justify-between gap-2 mb-4 items-center">
@@ -545,7 +578,10 @@ function PopularStores() {
         </div>
 
         {/* <img src="./forword-btn.png" className="  z-20 h-6 w-auto" alt="" /> */}
-        <ChevronRightCircleIcon className=" shrink-0" />
+        <ChevronRightCircleIcon
+          className=" shrink-0"
+          onClick={() => handleScroll(scrollContainerRef, "right")}
+        />
       </div>
     </div>
   );
