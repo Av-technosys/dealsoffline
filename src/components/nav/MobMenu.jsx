@@ -12,9 +12,9 @@ export default function MobMenu({ Menus, setIsUserProfile }) {
   const handleOpenUserProfile = () => {
     setIsOpen(!isOpen);
     setTimeout(() => {
-      setIsUserProfile(true)
+      setIsUserProfile(true);
     }, 500);
-  }
+  };
 
   return (
     <div>
@@ -29,10 +29,12 @@ export default function MobMenu({ Menus, setIsUserProfile }) {
         transition={{ duration: 0.3, ease: "easeInOut" }}
       >
         <ul>
-
           <div className=" w-full flex-col md:flex-row flex items-center justify-end gap-2 ">
-            <Link href={"/search"} className=" border w-full border-black h-10 justify-between rounded py-2 px-3 flex items-center gap-3">
-              <div className=" w-full flex items-center" >
+            <Link
+              href={"/search"}
+              className=" border w-full border-black h-10 justify-between rounded py-2 px-3 flex items-center gap-3"
+            >
+              <div className=" w-full flex items-center">
                 <img src="./nav/search.png" alt="" />
                 <p className="font-medium text-gray-400">Search</p>
               </div>
@@ -43,24 +45,36 @@ export default function MobMenu({ Menus, setIsUserProfile }) {
               </div>
             </Link>
 
-            <div className=" w-full flex gap-4 items-center justify-between" >
-              <Link href={"/partner-login"} className="bg-primary-red w-full h-10 justify-center rounded py-2 px-3 flex items-center gap-2">
+            <div className=" w-full flex gap-4 items-center justify-between">
+              <Link
+                href={"/partner-login"}
+                className="bg-primary-red w-full h-10 justify-center rounded py-2 px-3 flex items-center gap-2"
+              >
                 <img src="./nav/hand-shake.png" alt="" />
-                <p className="font-medium whitespace-nowrap text-sm text-white">Partner with us</p>
+                <p className="font-medium whitespace-nowrap text-sm text-white">
+                  Partner with us
+                </p>
               </Link>
-              <div onClick={handleOpenUserProfile} className=" size-8 shrink-0 cursor-pointer" >
+              <div
+                onClick={handleOpenUserProfile}
+                className=" size-8 shrink-0 cursor-pointer"
+              >
                 <img src="./nav/navUser.svg" alt="" />
               </div>
             </div>
-
           </div>
-
 
           {Menus.map(({ label, subMenu }, i) => {
             const hasSubMenu = subMenu?.length;
             // const hasSubMenu = true;
             return (
-              <ShowNavElements hasSubMenu={hasSubMenu} i={i} label={label} subMenu={subMenu} key={i} />
+              <ShowNavElements
+                hasSubMenu={hasSubMenu}
+                i={i}
+                label={label}
+                subMenu={subMenu}
+                key={i}
+              />
             );
           })}
         </ul>
@@ -68,7 +82,6 @@ export default function MobMenu({ Menus, setIsUserProfile }) {
     </div>
   );
 }
-
 
 function ShowNavElements({ label, subMenu, hasSubMenu, i }) {
   const subMenuDrawer = {
@@ -91,9 +104,7 @@ function ShowNavElements({ label, subMenu, hasSubMenu, i }) {
       >
         {label}
         {hasSubMenu && (
-          <ChevronDown
-            className={`ml-auto ${isClicked && "rotate-180"} `}
-          />
+          <ChevronDown className={`ml-auto ${isClicked && "rotate-180"} `} />
         )}
       </span>
       {hasSubMenu && (
@@ -110,17 +121,17 @@ function ShowNavElements({ label, subMenu, hasSubMenu, i }) {
             >
               {/* <Icon size={17} /> */}
               {title}
-              <div className=" pl-2 flex flex-col gap-1 text-gray-700" >
-                {
-                  items.map(({ name, slug }, i) => (
-                    <Link href={slug} key={i}>{name}</Link>
-                  ))
-                }
+              <div className=" pl-2 flex flex-col gap-1 text-gray-700">
+                {items?.map(({ name, slug }, i) => (
+                  <Link href={slug} key={i}>
+                    {name}
+                  </Link>
+                ))}
               </div>
             </div>
           ))}
         </motion.ul>
       )}
     </div>
-  )
+  );
 }

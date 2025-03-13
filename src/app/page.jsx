@@ -173,212 +173,6 @@ function LogoCarousel() {
   );
 }
 
-const popData = [
-  {
-    name: "Metro Shoes",
-    imgSrc: "./store1.png",
-    rating: 4.2,
-    address: "Ground floor, khandelwal mansion...",
-  },
-  {
-    name: "Lavie luxe store",
-    imgSrc: "./store2.png",
-    rating: 4.2,
-    address: "Capital Highstreet Mall, GG-10...",
-  },
-  {
-    name: "Levis",
-    imgSrc: "./store3.png",
-    rating: 4.2,
-    address: "Gulab Niwas, 40, Mirza Ismail...",
-  },
-  {
-    name: "Westside",
-    imgSrc: "./store4.png",
-    rating: 4.2,
-    address: "J-47, Malviya Marg Gold..",
-  },
-  {
-    name: "Metro Shoes",
-    imgSrc: "./store5.png",
-    rating: 4.2,
-    address: "Ground floor, khandelwal mansion...",
-  },
-  {
-    name: "Metro Shoes",
-    imgSrc: "./store6.png",
-    rating: 4.2,
-    address: "Ground floor, khandelwal mansion...",
-  },
-  {
-    name: "Metro Shoes",
-    imgSrc: "./store7.png",
-    rating: 4.2,
-    address: "Ground floor, khandelwal mansion...",
-  },
-  {
-    name: "Metro Shoes",
-    imgSrc: "./store8.png",
-    rating: 4.2,
-    address: "Ground floor, khandelwal mansion...",
-  },
-];
-
-const popData2 = [
-  {
-    name: "Zudio",
-    imgSrc: "./store6.png",
-    rating: 4.2,
-    address: "Nearby Gold Souk Grande Mall, SG...",
-  },
-  {
-    name: "Lifestyle",
-    imgSrc: "./store7.png",
-    rating: 4.2,
-    address: "Nearby Gold Souk Grande Mall, SG...",
-  },
-  {
-    name: "Allen Solly",
-    imgSrc: "./store8.png",
-    rating: 4.2,
-    address: "Pragati Tower, Tonk Rd, Sq...",
-  },
-  {
-    name: "Lee",
-    imgSrc: "./store9.png",
-    rating: 4.2,
-    address: "Ground Floor, Pink Square Mall...",
-  },
-  {
-    name: "Metro Shoes",
-    imgSrc: "./store9.png",
-    rating: 4.2,
-    address: "Ground floor, khandelwal mansion...",
-  },
-  {
-    name: "Metro Shoes",
-    imgSrc: "./store9.png",
-    rating: 4.2,
-    address: "Ground floor, khandelwal mansion...",
-  },
-  {
-    name: "Metro Shoes",
-    imgSrc: "./store9.png",
-    rating: 4.2,
-    address: "Ground floor, khandelwal mansion...",
-  },
-  {
-    name: "Metro Shoes",
-    imgSrc: "./store9.png",
-    rating: 4.2,
-    address: "Ground floor, khandelwal mansion...",
-  },
-  {
-    name: "Metro Shoes",
-    imgSrc: "./store9.png",
-    rating: 4.2,
-    address: "Ground floor, khandelwal mansion...",
-  },
-];
-
-// Data array
-const storeData = [
-  {
-    name: "Lavanya",
-    imgSrc: "./pop1.png",
-    rating: 4.2,
-    address: "Grand Anukampa, Ajmer Road...",
-  },
-  {
-    name: "Shoppers Stop",
-    imgSrc: "./pop2.png",
-    rating: 4.2,
-    address: "Man Upasana, Marg G...",
-  },
-  {
-    name: "Nike",
-    imgSrc: "./pop3.png",
-    rating: 4.2,
-    address: "Shop No F15, 1st Floor, MGF ...",
-  },
-  {
-    name: "Peno",
-    imgSrc: "./pop4.png",
-    rating: 4.2,
-    address: "Ajmer Road, Nera 200 Feet.....",
-  },
-  {
-    name: "Metro Shoes",
-    imgSrc: "./pop3.png",
-    rating: 4.2,
-    address: "Ground floor, khandelwal mansion...",
-  },
-  {
-    name: "Metro Shoes",
-    imgSrc: "./pop6.png",
-    rating: 4.2,
-    address: "Ground floor, khandelwal mansion...",
-  },
-  {
-    name: "Metro Shoes",
-    imgSrc: "./store1.png",
-    rating: 4.2,
-    address: "Ground floor, khandelwal mansion...",
-  },
-  {
-    name: "Metro Shoes",
-    imgSrc: "./store1.png",
-    rating: 4.2,
-    address: "Ground floor, khandelwal mansion...",
-  },
-];
-
-const storeData2 = [
-  {
-    name: "Bata",
-    imgSrc: "./pop6.png",
-    rating: 4.2,
-    address: "Shop No. 1, 2, Mirza Ismail Rd, Jaya...",
-  },
-  {
-    name: "Lavie",
-    imgSrc: "./store2.png",
-    rating: 4.2,
-    address: "Capital Highstreet Mall, GG-10,...",
-  },
-  {
-    name: "Max",
-    imgSrc: "./pop1.png",
-    rating: 4.2,
-    address: "MGF Metropolitan Mall, G...",
-  },
-  {
-    name: "Levis",
-    imgSrc: "./pop2.png",
-    rating: 4.2,
-    address: "Gulab Niwas, 40, Mirza Ismail......",
-  },
-  {
-    name: "Metro Shoes",
-    imgSrc: "./pop3.png",
-    rating: 4.2,
-    address: "Ground floor, khandelwal mansion...",
-  },
-  {
-    name: "Metro Shoes",
-    imgSrc: "./pop4.png",
-    rating: 4.2,
-    address: "Ground floor, khandelwal mansion...",
-  },
-  {
-    name: "Metro Shoes",
-    imgSrc: "./store1.png",
-    rating: 4.2,
-    address: "Ground floor, khandelwal mansion...",
-  },
-];
-
-// StoreCard Component
 const StoreCard = ({ name, imgSrc, rating, address }) => {
   return (
     <Link
@@ -577,6 +371,9 @@ function PopularDetails() {
     { discount: 10, storeName: "Karin Store", imageSrc: "./w1.png" },
     { discount: 20, storeName: "Samanth Store", imageSrc: "./w2.png" },
     { discount: 30, storeName: "Krishna Group", imageSrc: "./w3.png" },
+    { discount: 15, storeName: "Elite Mart", imageSrc: "./w1.png" },
+    { discount: 25, storeName: "Trendy Hub", imageSrc: "./w2.png" },
+    { discount: 35, storeName: "Fashion Fiesta", imageSrc: "./w3.png" },
   ];
 
   return (
@@ -589,7 +386,7 @@ function PopularDetails() {
         />
       </div>
 
-      <div className=" flex flex-col items-center gap-1">
+      <div className=" z-20 flex flex-col items-center gap-1">
         <p className=" text-3xl md:text-4xl font-semibold text-center ">
           Popular Deals Of The Day
         </p>
@@ -598,37 +395,36 @@ function PopularDetails() {
         </p>
       </div>
 
-      <div className=" max-w-7xl justify-center mx-auto items-center gap-2 flex flex-row ">
+      <div className=" z-20 max-w-7xl justify-center mx-auto items-center gap-2 flex flex-row ">
         {/* <img src="./backword-btn.png" className=" z-20 h-6 w-auto" alt="" /> */}
         {/* <div className=" p-2 border border-black rounded-full"> */}
         <ChevronLeftCircleIcon className=" shrink-0" />
 
         <div className=" flex gap-2 mt-4 items-center overflow-x-scroll hide-scrollbar">
-          <UserLoginProvider>
-            <div className="h-96 w-60 md:w-72 rounded-md  shrink-0 py-6 px-4 flex z-10 flex-col bg-black">
-              <div className=" text-white flex  justify-between gap-2 mb-4 items-center">
-                <p className=" text-4xl font-semibold">Zudio</p>
-                <p className=" text-2xl font-semibold">18%off</p>
-              </div>
-              {zudioList.map((item, index) => {
-                return (
-                  <p key={index} className=" text-white  text-sm">
-                    {item}
-                  </p>
-                );
-              })}
-
-              <div className=" w-full mt-auto flex gap-2 justify-between">
-                <div className=" flex gap-1 items-center">
-                  <MapPinIcon className="h-5 w-6 text-white" />
-                  <p className=" text-white font-semibold ">3.2 Km</p>
+          <div className="flex gap-4 overflow-x-auto pb-2 px-2">
+            <UserLoginProvider>
+              <div className=" z-20 h-96 w-60 md:w-72 rounded-md  shrink-0 py-6 px-4 flex flex-col bg-black">
+                <div className=" text-white flex  justify-between gap-2 mb-4 items-center">
+                  <p className=" text-4xl font-semibold">Zudio</p>
+                  <p className=" text-2xl font-semibold">18%off</p>
                 </div>
-                <p className=" text-white font-semibold">View Offers</p>
-              </div>
-            </div>
-          </UserLoginProvider>
+                {zudioList.map((item, index) => {
+                  return (
+                    <p key={index} className=" text-white  text-sm">
+                      {item}
+                    </p>
+                  );
+                })}
 
-          <div className="flex gap-4 overflow-x-auto">
+                <div className=" w-full mt-auto flex gap-2 justify-between">
+                  <div className=" flex gap-1 items-center">
+                    <MapPinIcon className="h-5 w-6 text-white" />
+                    <p className=" text-white font-semibold ">3.2 Km</p>
+                  </div>
+                  <p className=" text-white font-semibold">View Offers</p>
+                </div>
+              </div>
+            </UserLoginProvider>
             {storeData.map((store, index) => (
               <UserLoginProvider key={index}>
                 <DiscountCard key={index} {...store} />
@@ -682,7 +478,15 @@ function PopularStores() {
       storeName: "Khushi Kirana Store",
       imageSrc: "./khushi-kirana-store.png",
     },
+    { rating: 4.8, storeName: "Elite Supermarket", imageSrc: "./w1.png" },
+    { rating: 3.9, storeName: "Budget Mart", imageSrc: "./w2.png" },
+    {
+      rating: 4.5,
+      storeName: "Everyday Essentials",
+      imageSrc: "./khushi-kirana-store.png",
+    },
   ];
+
   return (
     <div className=" bg-pink-100 overflow-hidden mt-6 min-h-96 px-4 w-full py-6 relative">
       <div className="absolute hidden md:block bottom-6 right-10 z-10">
@@ -702,12 +506,11 @@ function PopularStores() {
       </div>
 
       <div className=" z-20 max-w-7xl justify-center mx-auto items-center gap-2 flex flex-row ">
-        {/* <img src="./backword-btn.png" className=" z-20 h-6 w-auto" alt="" /> */}
         <ChevronLeftCircleIcon className=" shrink-0" />
 
         {/* Cards */}
 
-        <div className=" flex gap-2 mt-4 items-center overflow-x-scroll hide-scrollbar">
+        <div className=" flex gap-2 mt-4 items-center overflow-x-scroll pb-2 px-2">
           <UserLoginProvider>
             <div className="h-96 w-60 md:w-72 rounded-md  shrink-0 py-6 px-4 flex z-10 flex-col bg-black">
               <div className=" text-white flex  justify-between gap-2 mb-4 items-center">

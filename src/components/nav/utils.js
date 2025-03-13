@@ -1083,8 +1083,8 @@ export const Menus = [
     gridCols: 4,
   },
   {
-    label: "Home D\u00e9cor",
-    image: "./home-d\u00e9cor.svg",
+    label: "Home Decor",
+    image: "./home-decor.svg",
     toggleMenu: true,
     subMenu: [
       {
@@ -1335,165 +1335,26 @@ export const Menus = [
     toggleMenu: true,
     subMenu: [
       {
-        title: "Air Conditioner",
+        title: "Large Appliances",
         items: [
-          {
-            name: "",
-            slug: "search",
-          },
-        ],
-      },
-      {
-        title: "Washing Machine",
-        items: [
-          {
-            name: "",
-            slug: "search",
-          },
-        ],
-      },
-      {
-        title: "Refrigerator",
-        items: [
-          {
-            name: "",
-            slug: "search",
-          },
-        ],
-      },
-      {
-        title: "Geyser",
-        items: [
-          {
-            name: "",
-            slug: "search",
-          },
-        ],
-      },
-      {
-        title: "Air Cooler",
-        items: [
-          {
-            name: "",
-            slug: "search",
-          },
-        ],
-      },
-      {
-        title: "Dryer",
-        items: [
-          {
-            name: "",
-            slug: "search",
-          },
-        ],
-      },
-      {
-        title: "Vacuum Cleaner",
-        items: [
-          {
-            name: "",
-            slug: "search",
-          },
-        ],
-      },
-      {
-        title: "Security Camera & Dashcam",
-        items: [
-          {
-            name: "",
-            slug: "search",
-          },
-        ],
-      },
-      {
-        title: "Iron",
-        items: [
-          {
-            name: "",
-            slug: "search",
-          },
-        ],
-      },
-      {
-        title: "Dishwasher",
-        items: [
-          {
-            name: "",
-            slug: "search",
-          },
-        ],
-      },
-      {
-        title: "Electronic Safe",
-        items: [
-          {
-            name: "",
-            slug: "search",
-          },
-        ],
-      },
-      {
-        title: "Water Dispenser",
-        items: [
-          {
-            name: "",
-            slug: "search",
-          },
-        ],
-      },
-      {
-        title: "Stabilizer",
-        items: [
-          {
-            name: "",
-            slug: "search",
-          },
-        ],
-      },
-      {
-        title: "Garment Steamer",
-        items: [
-          {
-            name: "",
-            slug: "search",
-          },
-        ],
-      },
-      {
-        title: "Smart Home Devices",
-        items: [
-          {
-            name: "",
-            slug: "search",
-          },
-        ],
-      },
-      {
-        title: "Wine Cooler",
-        items: [
-          {
-            name: "",
-            slug: "search",
-          },
-        ],
-      },
-      {
-        title: "Room Heater",
-        items: [
-          {
-            name: "",
-            slug: "search",
-          },
-        ],
-      },
-      {
-        title: "Air Purifier",
-        items: [
-          {
-            name: "",
-            slug: "search",
-          },
+          { name: "Air Conditioner", slug: "search" },
+          { name: "Washing Machine", slug: "search" },
+          { name: "Refrigerator", slug: "search" },
+          { name: "Geyser", slug: "search" },
+          { name: "Air Cooler", slug: "search" },
+          { name: "Dryer", slug: "search" },
+          { name: "Vacuum Cleaner", slug: "search" },
+          { name: "Security Camera & Dashcam", slug: "search" },
+          { name: "Iron", slug: "search" },
+          { name: "Dishwasher", slug: "search" },
+          { name: "Electronic Safe", slug: "search" },
+          { name: "Water Dispenser", slug: "search" },
+          { name: "Stabilizer", slug: "search" },
+          { name: "Garment Steamer", slug: "search" },
+          { name: "Smart Home Devices", slug: "search" },
+          { name: "Wine Cooler", slug: "search" },
+          { name: "Room Heater", slug: "search" },
+          { name: "Air Purifier", slug: "search" },
         ],
       },
       {

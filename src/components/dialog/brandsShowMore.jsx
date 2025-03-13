@@ -14,15 +14,8 @@ function BrandsShowMore({
   selectedFields,
   setSelectedFields,
   path,
+  handleCheckboxChange,
 }) {
-  const handleCheckboxChange = (value) => {
-    if (selectedFields.includes(value)) {
-      setSelectedFields(selectedFields.filter((item) => item !== value));
-    } else {
-      setSelectedFields([...selectedFields, value]);
-    }
-  };
-
   const handleApplyChange = () => {};
   return (
     <Dialog>
@@ -44,7 +37,7 @@ function BrandsShowMore({
                 <div
                   onClick={() => handleCheckboxChange(data)}
                   key={idx}
-                  className={`h-8 w-auto py-1 px-2 border border-black font-semibold text-sm rounded-md ${
+                  className={`h-8 w-auto py-1 px-2 border cursor-pointer border-black font-semibold text-sm rounded-md ${
                     isPresect ? "bg-secondary-red" : ""
                   }`}
                 >
@@ -59,7 +52,7 @@ function BrandsShowMore({
             })}
           </div>
         </DialogHeader>
-        <DialogFooter>
+        {/* <DialogFooter>
           <DialogClose className="w-full">
             <div
               onClick={handleApplyChange}
@@ -73,7 +66,7 @@ function BrandsShowMore({
               )}
             </div>
           </DialogClose>
-        </DialogFooter>
+        </DialogFooter> */}
       </DialogContent>
     </Dialog>
   );

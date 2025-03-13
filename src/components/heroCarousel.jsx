@@ -27,7 +27,7 @@ export function HeroCarousel() {
                     className="absolute top-0 h-full w-full left-0 object-cover"
                     alt=""
                   />
-                  <div className=" z-10 flex container justify-center px-6 md:px-4 flex-col">
+                  <div className=" z-10 flex container justify-center sm:px-6 md:px-4 flex-col">
                     <p className="text-4xl md:text-5xl uppercase font-semibold text-white">
                       {carouselData.title}
                     </p>

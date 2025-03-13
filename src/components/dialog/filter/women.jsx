@@ -2,36 +2,21 @@
 import React, { useEffect, useState } from "react";
 import {
   Dialog,
-  DialogClose,
   DialogContent,
-  DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "./../../ui/dialog";
-import Link from "next/link";
-import { Check, Save, X } from "lucide-react";
 import { Menus } from "@/components/nav/utils";
 
-const WomenMenu = ({ path }) => {
+const WomenMenu = ({ path, setFilterValueList, filterValueList }) => {
   const [selectedItems, setSelectedItems] = useState(() => {
-    return Menus[0].subMenu
+    return Menus[1].subMenu
       .flatMap((submenu) => submenu.items.map((item) => item.name))
       .filter(() => false);
   });
 
   const [selectedItemsLength, setSelectedItemsLength] = useState(0);
-  // function handleSelect(item) {
-  //     const isAlreadySelected = selectedItems.includes(item);
-  //     if (isAlreadySelected) {
-  //         setSelectedItems(selectedItems.filter((selected) => selected !== item));
-  //     } else {
-  //         setSelectedItems([...selectedItems, item]);
-  //     }
-  //     console.log(selectedItems)
-  // }
-
   function handleSelect(item) {
     setSelectedItems((prevSelected) => {
       const isAlreadySelected = prevSelected.includes(item);
@@ -41,11 +26,30 @@ const WomenMenu = ({ path }) => {
     });
   }
 
-  function handleApplyChange() {}
-
   useEffect(() => {
     setSelectedItemsLength(selectedItems.length);
+    if (selectedItems.length > 0) {
+      setFilterValueList((prev) => ({
+        ...prev,
+        categories: prev.categories.includes("Women")
+          ? prev.categories
+          : [...prev.categories, "Women"],
+      }));
+    } else {
+      setFilterValueList((prev) => ({
+        ...prev,
+        categories: prev.categories.filter((item) => item !== "Women"),
+      }));
+    }
+
+    console.log(filterValueList);
   }, [selectedItems]);
+
+  useEffect(() => {
+    if (!filterValueList.includes("Women") && selectedItems.length > 0) {
+      setSelectedItems([]);
+    }
+  }, [filterValueList]);
 
   return (
     <Dialog>
@@ -69,17 +73,17 @@ const WomenMenu = ({ path }) => {
           <div className=" w-full">
             <div
               className={` flex flex-col overflow-y-auto md:block max-h-96 md:max-h-none gap-7 space-y-0 ${
-                Menus[0].gridCols == 1
+                Menus[1].gridCols == 1
                   ? "columns-1"
-                  : Menus[0].gridCols == 2
+                  : Menus[1].gridCols == 2
                   ? "columns-2"
-                  : Menus[0].gridCols == 3
+                  : Menus[1].gridCols == 3
                   ? "columns-3"
                   : "columns-4"
               }`}
               style={{ columnGap: "1.75rem" }}
             >
-              {Menus[0].subMenu.map((submenu, index) => (
+              {Menus[1].subMenu.map((submenu, index) => (
                 <div key={index} className="  space-y-0.5">
                   <h6 className=" leading-5 py-1 text-left font-semibold text-lg text-primary-red">
                     {submenu.title}
@@ -104,7 +108,7 @@ const WomenMenu = ({ path }) => {
                 </div>
               ))}
             </div>
-            <DialogClose className="w-full">
+            {/* <DialogClose className="w-full">
               <div
                 onClick={handleApplyChange}
                 className=" bg-primary-red px-4 py-2 flex items-center gap-2 rounded-md mt-4 text-white text-center font-semibold cursor-pointer w-fit ml-auto"
@@ -116,7 +120,7 @@ const WomenMenu = ({ path }) => {
                   <Check size={20} />
                 )}
               </div>
-            </DialogClose>
+            </DialogClose> */}
           </div>
         </DialogHeader>
       </DialogContent>
