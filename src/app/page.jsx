@@ -521,6 +521,13 @@ function PopularStores() {
       });
     }
   };
+  const styles = {
+    card: {
+      // background: "blue",
+      color: "white",
+      borderRadius: 20,
+    },
+  };
   const zudioList = [
     "Women",
     "Kids Wear",
@@ -575,9 +582,70 @@ function PopularStores() {
 
         <div
           ref={scrollContainerRef}
-          className=" flex gap-2 mt-4 items-center overflow-x-scroll pb-2 px-2"
+          className="flex h-96 gap-4 overflow-hidden"
         >
-          <UserLoginProvider>
+          <div className="flex gap-44  justify-center ">
+            {ratingData.map((store, index) => (
+              <ReactFlipCard
+                key={index}
+                direction="horizontal"
+                frontStyle={styles.card}
+                backStyle={styles.card}
+                flipTrigger="onClick"
+                frontComponent={
+                  <div className="w-60 md:w-64 h-96 rounded-md shrink-0 overflow-hidden relative">
+                    <RatingCard {...store} />
+                  </div>
+                }
+                backComponent={
+                  <div className=" z-20 h-96 w-60 md:w-64 rounded-md  shrink-0 py-6 px-4 flex flex-col bg-black">
+                    <Link
+                      href={`/store`}
+                      className=" text-white flex  justify-between gap-2 mb-4 "
+                    >
+                      <p className=" text-4xl font-semibold">Shreeji</p>
+                      <div className=" flex  text-xl font-semibold items-center">
+                        4.8{" "}
+                        <img
+                          src="./golden-star.png"
+                          className=" size-6"
+                          alt=""
+                        />
+                      </div>
+                    </Link>
+                    {zudioList.map((item, index) => (
+                      <Link
+                        href={"/search"}
+                        key={index}
+                        className=" text-white  text-sm"
+                      >
+                        {item}
+                      </Link>
+                    ))}
+
+                    <div className=" w-full mt-auto flex gap-2 justify-between">
+                      <Link
+                        href="https://www.google.com/maps/dir/26.8852108,75.7905578/World+Trade+Park,+Jawahar+Lal+Nehru+Marg,+Malviya+Nagar,+Jaipur,+Rajasthan+302017/@26.8720727,75.7805495,14z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x396db5d0abb464cf:0x43440aa416c9fdaf!2m2!1d75.8046688!2d26.853021?entry=ttu&g_ep=EgoyMDI1MDMxMi4wIKXMDSoJLDEwMjExNDUzSAFQAw%3D%3D"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className=" flex gap-1 items-center"
+                      >
+                        <MapPinIcon className="h-5 w-6 text-white" />
+                        <p className=" text-white font-semibold ">3.2 Km</p>
+                      </Link>
+                      <Link
+                        href={`/store`}
+                        className=" text-white font-semibold"
+                      >
+                        View Offers
+                      </Link>
+                    </div>
+                  </div>
+                }
+              />
+            ))}
+          </div>
+          {/* <UserLoginProvider>
             <div className="h-96 w-60 md:w-72 rounded-md  shrink-0 py-6 px-4 flex z-10 flex-col bg-black">
               <div className=" text-white flex  justify-between gap-2 mb-4 items-center">
                 <p className=" text-4xl font-semibold">Shreeji</p>
@@ -601,13 +669,13 @@ function PopularStores() {
                 <p className=" text-white font-semibold">View Offers</p>
               </div>
             </div>
-          </UserLoginProvider>
+          </UserLoginProvider> */}
 
-          {ratingData.map((store, index) => (
+          {/* {ratingData.map((store, index) => (
             <UserLoginProvider key={index}>
               <RatingCard {...store} />
             </UserLoginProvider>
-          ))}
+          ))} */}
         </div>
 
         {/* <img src="./forword-btn.png" className="  z-20 h-6 w-auto" alt="" /> */}
