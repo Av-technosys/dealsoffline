@@ -8,7 +8,9 @@ import PartnerResetPass from "@/components/dialog/partnerResetPass";
 import LoginScreenImage from "@/components/loginScreenImage";
 import { LogIn } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 const Page = () => {
   const [isPartnerReset, setIsPartnerPass] = useState(false);
@@ -18,8 +20,22 @@ const Page = () => {
   const [isCreateAccountThankYou, setIsCreateAccountThankYou] = useState(false);
   const [isPartnerOTPReset, setIsPartnerOTPReset] = useState(false);
   const [isPassChanged, setIsPassChanged] = useState(false);
+
+  const userNameRef = React.useRef(null);
+  const passwordRef = React.useRef(null);
+  const router = useRouter();
+  function handleLogin() {
+    const userName = userNameRef.current.value;
+    const password = passwordRef.current.value;
+    if (userName && password) {
+      router.push("/vendor-dashbord");
+    } else {
+      toast.error("Please fill all the mendatory details");
+    }
+  }
   return (
     <div>
+      <Toaster position="bottom-right" reverseOrder={false} />
       <PartnerResetPass
         isOpen={isPartnerReset}
         setIsOpen={setIsPartnerPass}
@@ -70,11 +86,13 @@ const Page = () => {
               <input
                 type="text"
                 placeholder="User Id"
+                ref={userNameRef}
                 className=" w-full border py-2 px-3 text-gray-700 rounded-md"
               />
               <input
                 type="password"
                 placeholder="Password"
+                ref={passwordRef}
                 className=" w-full border py-2 px-3 text-gray-700 rounded-md"
               />
               <div className=" w-full flex-col md:flex-row flex md:items-center gap-2 md:gap-4 justify-center">
@@ -89,13 +107,13 @@ const Page = () => {
                   Forgot Password ?
                 </p>
               </div>
-              <Link
-                href={"/vendor-dashbord"}
+              <div
+                onClick={handleLogin}
                 className="cursor-pointer flex items-center justify-center gap-2 w-full bg-primary-red text-white text-center font-semibold py-2 px-3 rounded-md"
               >
                 <p>Login</p>
                 <LogIn size={20} />
-              </Link>
+              </div>
             </div>
 
             <div className=" flex max-w-56 mx-auto w-full my-6 items-center gap-2">

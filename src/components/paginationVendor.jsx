@@ -20,7 +20,7 @@ export function PaginationVendor() {
         </PaginationItem>
         {allPage.map((content) => {
           return (
-            <PaginationItem>
+            <PaginationItem key={content}>
               <PaginationLink href="#" isActive={content === currentPage}>
                 {content}
               </PaginationLink>

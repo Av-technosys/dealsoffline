@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 function StoreImageSelector() {
   const [userImage, setUserImage] = useState(null);
   const [preview, setPreview] = useState(null);
+  const [error, setError] = useState(null);
   const fileInputRef = useRef(null);
 
   useEffect(() => {
@@ -14,15 +15,50 @@ function StoreImageSelector() {
     return () => URL.revokeObjectURL(objectUrl);
   }, [userImage]);
 
+  function validateImage(file) {
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      img.onload = () => {
+        const { width, height } = img;
+        const sizeInMB = file.size / (1024 * 1024);
+
+        // Validate dimensions and size
+        if (width < 600 || width > 800) {
+          reject("Width must be between 600px and 800px.");
+        } else if (height < 450 || height > 600) {
+          reject("Height must be between 450px and 600px.");
+        } else if (sizeInMB > 2) {
+          reject("File size must be less than 2MB.");
+        } else {
+          resolve(file);
+        }
+      };
+      img.onerror = () => reject("Invalid image file.");
+      img.src = URL.createObjectURL(file);
+    });
+  }
+
   function handleImageUpload(e) {
-    if (e.target.files.length > 0) {
-      setUserImage(e.target.files[0]);
+    const file = e.target.files[0];
+
+    if (file) {
+      validateImage(file)
+        .then((validFile) => {
+          setUserImage(validFile);
+          setError(null);
+        })
+        .catch((err) => {
+          setError(err);
+          setUserImage(null);
+          setPreview(null);
+        });
     }
   }
 
   function removeImage() {
     setUserImage(null);
     setPreview(null);
+    setError(null);
 
     if (fileInputRef.current) {
       fileInputRef.current.value = "";
@@ -61,6 +97,12 @@ function StoreImageSelector() {
         >
           <X size={16} />
         </div>
+      )}
+
+      {error && (
+        <p className="text-red-500 text-xs absolute bottom-0 left-1/2 transform -translate-x-1/2 mt-2">
+          {error}
+        </p>
       )}
 
       <input

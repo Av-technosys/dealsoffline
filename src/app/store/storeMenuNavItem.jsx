@@ -64,7 +64,7 @@ export default function StoreMenuNavItem({
         } ${menu.label === subMenuNameToShow && "border border-primary-red"}`}
       >
         {menu.label}
-        <img src={menu.image} alt="" />
+        <img src={menu.image} className=" size-6" alt="" />
       </span>
       <div className="hidden lg:block">
         {hasSubMenu && (

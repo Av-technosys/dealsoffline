@@ -441,13 +441,12 @@ function PopularDetails() {
                   }
                   backComponent={
                     <div className=" z-20 h-96 w-60 md:w-64 rounded-md  shrink-0 py-6 px-4 flex flex-col bg-black">
-                      <Link
-                        href={`/store`}
-                        className=" text-white flex  justify-between gap-2 mb-4 "
-                      >
-                        <p className=" text-4xl font-semibold">Zudio</p>
-                        <p className=" text-2xl font-semibold">18%off</p>
-                      </Link>
+                      <UserLoginProvider>
+                        <div className=" text-white flex cursor-pointer justify-between gap-2 mb-4 ">
+                          <p className=" text-4xl font-semibold">Zudio</p>
+                          <p className=" text-2xl font-semibold">18%off</p>
+                        </div>
+                      </UserLoginProvider>
                       {zudioList.map((item, index) => (
                         <Link
                           href={"/search"}
@@ -468,12 +467,11 @@ function PopularDetails() {
                           <MapPinIcon className="h-5 w-6 text-white" />
                           <p className=" text-white font-semibold ">3.2 Km</p>
                         </Link>
-                        <Link
-                          href={`/store`}
-                          className=" text-white font-semibold"
-                        >
-                          View Offers
-                        </Link>
+                        <UserLoginProvider>
+                          <div className=" cursor-pointer text-white font-semibold">
+                            View Offers
+                          </div>
+                        </UserLoginProvider>
                       </div>
                     </div>
                   }

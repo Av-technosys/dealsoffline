@@ -1,4 +1,4 @@
-import { Info } from "lucide-react";
+import { ArrowLeft, CheckCheck, Info } from "lucide-react";
 import InputFild from "./inputFild";
 import { useState } from "react";
 import {
@@ -11,12 +11,13 @@ import {
   DialogTrigger,
 } from "./ui/dialog";
 import { Button } from "./ui/button";
+import Link from "next/link";
 
 export default function PromoteMyStoreSection() {
   const [selected, setSelected] = useState("Silver");
   const types = ["Silver", "Gold", "Platinum"];
   return (
-    <div className=" max-w-5xl px-4 mt-12 mx-auto w-full flex flex-col gap-4">
+    <div className=" max-w-6xl px-4 mt-12 mx-auto w-full flex flex-col gap-4">
       <div className=" w-fit mx-auto items-center flex flex-col gap-4">
         <p className=" text-3xl md:text-4xl font-medium text-center">
           Profile Setup
@@ -105,6 +106,27 @@ export default function PromoteMyStoreSection() {
           <p className=" text-xl font-semibold">Plan Pricing</p>
           <ShowPricing selected={selected} />
         </div>
+      </div>
+      <div className=" w-full max-w-6xl px-4 mx-auto justify-end flex gap-4 items-end">
+        {/* <img
+          src="/swipe-animation.gif"
+          alt="Swipe Animation"
+          className="hidden"
+        /> */}
+        <Link
+          href={`/vendor-dashbord?form=3`}
+          className=" flex items-center gap-2 w-fit rounded-md text-primary-red border-primary-red border px-4 py-2"
+        >
+          <p className=" font-semibold">Back</p>
+          <ArrowLeft size={20} />
+        </Link>
+        <Link
+          href={"/"}
+          className=" w-fit rounded-md text-white flex items-center gap-2 bg-primary-red px-4 py-2"
+        >
+          <p className=" font-semibold">Finish</p>
+          <CheckCheck color="white" size={20} />
+        </Link>
       </div>
     </div>
   );

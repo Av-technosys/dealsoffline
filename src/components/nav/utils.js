@@ -1,7 +1,7 @@
 export const Menus = [
   {
     label: "Mens",
-    image: "./mens.svg",
+    image: "./men.svg",
     toggleMenu: true,
     subMenu: [
       {
@@ -261,7 +261,7 @@ export const Menus = [
   },
   {
     label: "Womens",
-    image: "./womens.svg",
+    image: "./women.svg",
     toggleMenu: true,
     subMenu: [
       {
@@ -1084,7 +1084,7 @@ export const Menus = [
   },
   {
     label: "Home Decor",
-    image: "./home-decor.svg",
+    image: "./home-decore.svg",
     toggleMenu: true,
     subMenu: [
       {
@@ -1331,7 +1331,7 @@ export const Menus = [
   },
   {
     label: "Home Appliances",
-    image: "./home-appliances.svg",
+    image: "./home-appliences.svg",
     toggleMenu: true,
     subMenu: [
       {
@@ -1443,7 +1443,7 @@ export const Menus = [
         ],
       },
     ],
-    gridCols: 4,
+    gridCols: 3,
   },
   {
     label: "Electronics",

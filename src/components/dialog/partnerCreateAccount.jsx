@@ -12,13 +12,23 @@ import {
 import Link from "next/link";
 import { Save, SendHorizontal, X } from "lucide-react";
 import LoginScreenImage from "../loginScreenImage";
+import toast from "react-hot-toast";
 
-const PartnerCreateAccount = ({
-  isOpen,
-  setIsOpen,
-  handleOTPDialog,
-  setUserLogin,
-}) => {
+const PartnerCreateAccount = ({ isOpen, setIsOpen, handleOTPDialog }) => {
+  const userIdRef = React.useRef(null);
+  const passwordRef = React.useRef(null);
+  const [phoneNumber, setPhoneNumber] = React.useState("");
+  function handleSubmit() {
+    const userId = userIdRef.current.value;
+    const password = passwordRef.current.value;
+
+    if (userId && password && phoneNumber) {
+      setIsOpen(false);
+      handleOTPDialog(true);
+    } else {
+      toast.error("Please fill all the mendatory details");
+    }
+  }
   return (
     <Dialog open={isOpen}>
       <DialogContent className="max-w-6xl w-full p-0 overflow-hidden">
@@ -43,23 +53,29 @@ const PartnerCreateAccount = ({
               <input
                 type="text"
                 placeholder="User Id"
+                ref={userIdRef}
                 className=" w-full border py-2 px-3 text-gray-700 rounded-md"
               />
               <input
                 type="password"
                 placeholder="Password"
+                ref={passwordRef}
                 className=" w-full border py-2 px-3 text-gray-700 rounded-md"
               />
               <input
-                type="text"
+                type="number"
+                value={phoneNumber}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  if (value.length <= 10) {
+                    setPhoneNumber(value);
+                  }
+                }}
                 placeholder="Phone Number"
                 className=" w-full border py-2 px-3 text-gray-700 rounded-md"
               />
               <div
-                onClick={() => {
-                  setIsOpen(false);
-                  handleOTPDialog(true);
-                }}
+                onClick={handleSubmit}
                 className="cursor-pointer w-full bg-primary-red text-white text-center font-semibold flex items-center gap-2 justify-center py-2 px-3 rounded-md"
               >
                 <p>Send OTP</p>

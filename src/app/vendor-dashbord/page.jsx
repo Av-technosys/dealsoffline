@@ -59,12 +59,12 @@ const DynamicContent = () => {
         {/* {num === 3 && <BankDetailsSection />} */}
         {num === 3 && <OfferDetailsSection />}
         {num === 4 && <PromoteMyStoreSection />}
-        <div className="h-8"></div>
-        {num === 4 ? (
+        {/* <div className="h-8"></div> */}
+        {/* {num === 4 ? (
           <VendorFooterBarFinal num={num} />
         ) : (
           <VendorFooterBar num={num} />
-        )}
+        )} */}
       </Suspense>
     </>
   );

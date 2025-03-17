@@ -22,6 +22,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { useEffect } from "react";
 
 // const FormSchema = z.object({
 //   dob: z.date({
@@ -29,7 +30,7 @@ import {
 //   }),
 // })
 
-export function CalendarForm({ selectFuture }) {
+export function CalendarForm({ selectFuture, setDate, date }) {
   const form = useForm({
     // resolver: zodResolver(FormSchema),
   });
@@ -62,14 +63,10 @@ export function CalendarForm({ selectFuture }) {
                       className={cn(
                         // "w-[240px] pl-3 text-left font-normal",
                         "w-full pl-3 text-left font-normal",
-                        !field.value && "text-muted-foreground"
+                        !date && "text-muted-foreground"
                       )}
                     >
-                      {field.value ? (
-                        format(field.value, "PPP")
-                      ) : (
-                        <span>Pick a date</span>
-                      )}
+                      {date ? format(date, "PPP") : <span>Pick a date</span>}
                       <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
                     </Button>
                   </FormControl>
@@ -77,8 +74,11 @@ export function CalendarForm({ selectFuture }) {
                 <PopoverContent className="w-auto p-0" align="start">
                   <Calendar
                     mode="single"
-                    selected={field.value}
-                    onSelect={field.onChange}
+                    selected={date}
+                    onSelect={(date) => {
+                      field.onChange(date); // Update react-hook-form field
+                      setDate(date); // Update the validFrom state
+                    }}
                     disabled={(date) =>
                       (selectFuture && date <= new Date()) ||
                       date < new Date("1900-01-01")
