@@ -572,7 +572,7 @@ function PopularStores() {
         </p>
       </div>
 
-      <div className=" z-20 max-w-7xl justify-center mx-auto items-center gap-2 flex flex-row ">
+      <div className=" z-20 max-w-7xl mt-4 justify-center mx-auto items-center gap-2 flex flex-row ">
         <ChevronLeftCircleIcon
           className=" shrink-0"
           onClick={() => handleScroll(scrollContainerRef, "left")}
@@ -599,10 +599,7 @@ function PopularStores() {
                 }
                 backComponent={
                   <div className=" z-20 h-96 w-60 md:w-64 rounded-md  shrink-0 py-6 px-4 flex flex-col bg-black">
-                    <Link
-                      href={`/store`}
-                      className=" text-white flex  justify-between gap-2 mb-4 "
-                    >
+                    <UserLoginProvider className=" text-white flex  justify-between gap-2 mb-4 ">
                       <p className=" text-4xl font-semibold">Shreeji</p>
                       <div className=" flex  text-xl font-semibold items-center">
                         4.8{" "}
@@ -612,7 +609,7 @@ function PopularStores() {
                           alt=""
                         />
                       </div>
-                    </Link>
+                    </UserLoginProvider>
                     {zudioList.map((item, index) => (
                       <Link
                         href={"/search"}
@@ -633,12 +630,9 @@ function PopularStores() {
                         <MapPinIcon className="h-5 w-6 text-white" />
                         <p className=" text-white font-semibold ">3.2 Km</p>
                       </Link>
-                      <Link
-                        href={`/store`}
-                        className=" text-white font-semibold"
-                      >
+                      <UserLoginProvider className=" text-white font-semibold">
                         View Offers
-                      </Link>
+                      </UserLoginProvider>
                     </div>
                   </div>
                 }
