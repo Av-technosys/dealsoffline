@@ -102,7 +102,7 @@ function InputFildNumber() {
           <p className=" text-gray-600 ">Active</p>
         </div>
         <div className=" flex gap-2 items-center">
-          <input type="checkbox" className=" size-4" disabled />
+          <input checked={true} type="checkbox" className=" size-4" disabled />
           <p className=" text-gray-600 ">Verified</p>
         </div>
       </div>

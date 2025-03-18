@@ -1606,7 +1606,7 @@ export const Menus = [
 export const storeMenu = [
   {
     label: "Mens",
-    image: "./mens.svg",
+    image: "./men.svg",
     toggleMenu: true,
     subMenu: [
       {
@@ -1616,20 +1616,16 @@ export const storeMenu = [
             name: "Casual Shirts",
             slug: "search",
           },
+
           {
-            name: "Formal Shirts",
+            name: "Rain Jackets",
             slug: "search",
           },
         ],
       },
       {
         title: "Indian & Festive Wear",
-        items: [
-          {
-            name: "Dhotis",
-            slug: "search",
-          },
-        ],
+        items: [],
       },
       {
         title: "Bottomwear",
@@ -1644,55 +1640,20 @@ export const storeMenu = [
         title: "Innerwear & Sleepwear",
         items: [
           {
-            name: "Boxers",
-            slug: "search",
-          },
-          {
-            name: "Vests",
-            slug: "search",
-          },
-          {
-            name: "Sleepwear & Loungewear",
-            slug: "search",
-          },
-          {
-            name: "Thermals",
+            name: "Briefs & Trunks",
             slug: "search",
           },
         ],
       },
       {
         title: "Footwear",
-        items: [
-          {
-            name: "Casual Shoes",
-            slug: "search",
-          },
-          {
-            name: "Sports Shoes",
-            slug: "search",
-          },
-        ],
+        items: [],
       },
       {
         title: "Sports & Active Wear",
         items: [
           {
             name: "Sports Shoes",
-            slug: "search",
-          },
-          {
-            name: "Sports Sandals",
-            slug: "search",
-          },
-
-          {
-            name: "Jackets & Sweatshirts",
-            slug: "search",
-          },
-
-          {
-            name: "Swimwear",
             slug: "search",
           },
         ],
@@ -1702,15 +1663,6 @@ export const storeMenu = [
         items: [
           {
             name: "Smart Wearables",
-            slug: "search",
-          },
-
-          {
-            name: "Headphones",
-            slug: "search",
-          },
-          {
-            name: "Speakers",
             slug: "search",
           },
         ],
@@ -1728,11 +1680,6 @@ export const storeMenu = [
           },
 
           {
-            name: "Caps & Hats",
-            slug: "search",
-          },
-
-          {
             name: "Rings & Wristwear",
             slug: "search",
           },
@@ -1745,81 +1692,395 @@ export const storeMenu = [
     ],
     gridCols: 4,
   },
-];
-
-export const filterMenuMen = [
   {
-    "Men's Clothing": [
-      "T-shirt",
-      "Formal Shirt",
-      "Jeans",
-      "Cargos",
-      "Trousers",
-      "Track Pants",
-      "Shorts & 3/4TH",
-      "Jackets",
-      "Ethnic Wear",
-      "Winter Wear",
-      "Inner & Sleepwear",
-      "29k Store",
+    label: "Womens",
+    image: "./women.svg",
+    toggleMenu: true,
+    subMenu: [
+      {
+        title: "Indian & Fusion Wear",
+        items: [],
+      },
+      {
+        title: "Western Wear",
+        items: [],
+      },
+      {
+        title: "Footwear",
+        items: [],
+      },
+      {
+        title: "Sports & Active Wear",
+        items: [],
+      },
+      {
+        title: "Lingerie & Sleepwear",
+        items: [],
+      },
+      {
+        title: "Beauty & Personal Care",
+        items: [],
+      },
+      {
+        title: "Gadgets",
+        items: [],
+      },
+      {
+        title: "Jewellery",
+        items: [],
+      },
     ],
-    Sportswear: [
-      "Casual Shoes",
-      "Shoe Care Kit & Accessories",
-      "Sports Shoes",
-      "Formal Shoes",
-      "Sandals & Flip Flops",
-      "Loafers & Moccasins",
-      "Boots",
-      "Ethnic",
-      "Speciality Footwear",
-      "Top Selling Brands",
+    gridCols: 4,
+  },
+  {
+    label: "Kids",
+    image: "./kids.svg",
+    toggleMenu: true,
+    subMenu: [
+      {
+        title: "Boys Clothing",
+        items: [
+          {
+            name: "Jeans",
+            slug: "search",
+          },
+          {
+            name: "Trousers",
+            slug: "search",
+          },
+        ],
+      },
+      {
+        title: "Girls Clothing",
+        items: [
+          {
+            name: "Party wear",
+            slug: "search",
+          },
+          {
+            name: "Innerwear & Thermals",
+            slug: "search",
+          },
+          {
+            name: "Nightwear & Loungewear",
+            slug: "search",
+          },
+          {
+            name: "Value Packs",
+            slug: "search",
+          },
+        ],
+      },
+      {
+        title: "Footwear",
+        items: [
+          {
+            name: "Casual Shoes",
+            slug: "search",
+          },
+          {
+            name: "Flipflops",
+            slug: "search",
+          },
+        ],
+      },
+      {
+        title: "Toys & Games",
+        items: [],
+      },
+      {
+        title: "Infants",
+        items: [
+          {
+            name: "Bodysuits",
+            slug: "search",
+          },
+
+          {
+            name: "Clothing Sets",
+            slug: "search",
+          },
+        ],
+      },
+      {
+        title: "Kids Accessories",
+        items: [],
+      },
+      {
+        title: "Brands",
+        items: [
+          {
+            name: "H&M",
+            slug: "search",
+          },
+          {
+            name: "HRX",
+            slug: "search",
+          },
+        ],
+      },
     ],
-    "Men’s Watches": [
-      "Watch Combos",
-      "Couple Watches",
-      "Fastrack, Sonata & More",
-      "Budget Watches",
+    gridCols: 4,
+  },
+  {
+    label: "Beauty",
+    image: "./beauty.svg",
+    toggleMenu: true,
+    subMenu: [
+      {
+        title: "Makeup",
+        items: [
+          {
+            name: "Lipstick",
+            slug: "search",
+          },
+          {
+            name: "Lip Gloss",
+            slug: "search",
+          },
+          {
+            name: "Lip Liner",
+            slug: "search",
+          },
+          {
+            name: "Mascara",
+            slug: "search",
+          },
+          {
+            name: "Eyeliner",
+            slug: "search",
+          },
+        ],
+      },
+      {
+        title: "Skincare, Bath & Body",
+        items: [
+          {
+            name: "Face Moisturiser",
+            slug: "search",
+          },
+
+          {
+            name: "Masks & Peel",
+            slug: "search",
+          },
+
+          {
+            name: "Body Scrub",
+            slug: "search",
+          },
+          {
+            name: "Hand Cream",
+            slug: "search",
+          },
+        ],
+      },
+      {
+        title: "Haircare",
+        items: [
+          {
+            name: "Hair Color",
+            slug: "search",
+          },
+          {
+            name: "Hair Serum",
+            slug: "search",
+          },
+          {
+            name: "Hair Accessory",
+            slug: "search",
+          },
+        ],
+      },
+      {
+        title: "Fragrances",
+        items: [],
+      },
+      {
+        title: "Appliances",
+        items: [
+          {
+            name: "Hair Straightener",
+            slug: "search",
+          },
+          {
+            name: "Hair Dryer",
+            slug: "search",
+          },
+          {
+            name: "Epilator",
+            slug: "search",
+          },
+        ],
+      },
+      {
+        title: "Men's Grooming",
+        items: [],
+      },
+      {
+        title: "Beauty Gift & Makeup Set",
+        items: [],
+      },
+      {
+        title: "Top Brands",
+        items: [
+          {
+            name: "Lakme",
+            slug: "search",
+          },
+          {
+            name: "Maybelline",
+            slug: "search",
+          },
+          {
+            name: "LOreal",
+            slug: "search",
+          },
+          {
+            name: "Philips",
+            slug: "search",
+          },
+          {
+            name: "Bath & Body Works",
+            slug: "search",
+          },
+        ],
+      },
     ],
-    Accessories: [
-      "Belts",
-      "Wallets",
-      "Caps & Hats",
-      "Ties & Cufflinks",
-      "Sunglasses",
-      "Watches",
+    gridCols: 4,
+  },
+  {
+    label: "Home Decor",
+    image: "./home-decore.svg",
+    toggleMenu: true,
+    subMenu: [
+      {
+        title: "Bed Linen & Furnishing",
+        items: [
+          {
+            name: "Chair Pads & Covers",
+            slug: "search",
+          },
+          {
+            name: "Sofa Covers",
+            slug: "search",
+          },
+        ],
+      },
+      {
+        title: "Flooring",
+        items: [],
+      },
+      {
+        title: "Bath",
+        items: [],
+      },
+      {
+        title: "Lamps & Lighting",
+        items: [],
+      },
+      {
+        title: "Home D\u00e9cor",
+        items: [
+          {
+            name: "Ottoman",
+            slug: "search",
+          },
+        ],
+      },
+      {
+        title: "Kitchen & Table",
+        items: [
+          {
+            name: "Table Runners",
+            slug: "search",
+          },
+          {
+            name: "Dinnerware & Serveware",
+            slug: "search",
+          },
+        ],
+      },
+      {
+        title: "Storage",
+        items: [
+          {
+            name: "Hooks & Holders",
+            slug: "search",
+          },
+          {
+            name: "Laundry Bags",
+            slug: "search",
+          },
+        ],
+      },
     ],
-    "Men’s Jewellery": [
-      "Fashion Jewellery",
-      "Chains & Pendants",
-      "Precious Jewellery",
-      "Silver Jewellery",
+    gridCols: 4,
+  },
+  {
+    label: "Home Appliances",
+    image: "./home-appliences.svg",
+    toggleMenu: true,
+    subMenu: [
+      {
+        title: "Large Appliances",
+        items: [
+          { name: "Air Conditioner", slug: "search" },
+          { name: "Washing Machine", slug: "search" },
+          { name: "Geyser", slug: "search" },
+        ],
+      },
+      {
+        title: "Kitchen Appliances",
+        items: [
+          {
+            name: "Mixer Grinder",
+            slug: "search",
+          },
+        ],
+      },
     ],
-    Grooming: [
-      "Beard & Moustache Care",
-      "Men’s Shaving",
-      "Grooming Appliances",
-      "Bath Essentials",
-      "Oral Care",
-      "Skin Care",
-      "Hair Care",
+    gridCols: 3,
+  },
+  {
+    label: "Electronics",
+    image: "./electronics.svg",
+    toggleMenu: true,
+    subMenu: [
+      {
+        title: "TV & Entertainment",
+        items: [],
+      },
+      {
+        title: "Mobiles, Tablets & Accessories",
+        items: [
+          {
+            name: "Power Bank",
+            slug: "search",
+          },
+          {
+            name: "Adapter",
+            slug: "search",
+          },
+          {
+            name: "CableCable Icon",
+            slug: "search",
+          },
+          {
+            name: "Cases and Cover",
+            slug: "search",
+          },
+        ],
+      },
+      {
+        title: "Laptops & Accessories",
+        items: [],
+      },
+      {
+        title: "Headphones & Speakers",
+        items: [],
+      },
     ],
-    Eyewear: ["Sunglasses"],
-    "Fashion Accessories": [
-      "Wallets",
-      "Belts",
-      "Socks",
-      "Caps",
-      "Winter Accessories",
-      "Winter Accessories Gift Sets",
-    ],
-    "Bags & Luggage": [
-      "Backpacks & Laptop Bags",
-      "Gym Bags",
-      "Trolleys & Duffle Bags",
-      "Travel Accessories",
-      "Messenger Bags",
-      "Rucksacks",
-    ],
+    gridCols: 2,
   },
 ];

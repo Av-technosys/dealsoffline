@@ -367,7 +367,8 @@ function ProductList() {
             </p>
           </UserLoginProvider>
           <Link
-            href="https://www.google.com/maps/search/wtp/@26.8532401,75.8031213,17z?entry=s&sa=X"
+            href="https://www.google.com/maps/search/miroad"
+            target="_blank"
             className=" mt-1 flex gap-2 items-center"
           >
             <img src="./right-circle.png" className=" size-6 md:size-8" />

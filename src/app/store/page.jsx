@@ -129,7 +129,7 @@ const Page = () => {
               <Link
                 target="_blank"
                 href={
-                  "https://www.google.com/maps/dir//Jawahar+Lal+Nehru+Marg,+D-Block,+Malviya+Nagar,+Jaipur,+Rajasthan+302017/@26.8529971,75.7222673,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x396db5d0abb464cf:0x43440aa416c9fdaf!2m2!1d75.8046688!2d26.853021?entry=ttu&g_ep=EgoyMDI1MDMwNC4wIKXMDSoJLDEwMjExNDUzSAFQAw%3D%3D"
+                  "https://www.google.com/maps/search/MGF Metropolitan Bhawani Singh Marg, Sahakar Bhawan Circle, 22 Godam Cir, opposite Nehru, Durgadas Colony, C Scheme, Ashok Nagar, Jaipur"
                 }
                 className=" p-0.5 text-red-500 shrink-0 size-5 flex items-center justify-center border-2 rounded-full border-red-500"
               >
@@ -316,7 +316,7 @@ function AllOffers({
         />
         <p className=" font-medium">Upcoming Offers</p>
       </div>
-      <div className=" flex mt-3 max-h-96 hide-scrollbar overflow-y-scroll px-2  flex-col gap-2">
+      <div className=" flex mt-3 max-h-96 overflow-y-scroll px-2  flex-col gap-2">
         {showOngoingOffers && (
           <>
             <div className=" lg:h-28 flex flex-col lg:flex-row gap-3 lg:gap-6 lg:items-center  py-1 border-b">
@@ -434,7 +434,7 @@ function OtherOutlet() {
     <div className=" border w-full p-4 rounded-lg ">
       <p className=" text-4xl font-semibold py-2">Other Outlets</p>
       <div className=" items-center w-full border-b-2 border-gray-200 h-10 py-2 flex gap-2"></div>
-      <div className=" flex mt-3 max-h-96 hide-scrollbar overflow-y-scroll px-2  flex-col gap-2">
+      <div className=" flex mt-3 max-h-96 overflow-y-scroll px-2  flex-col gap-2">
         {[1, 2, 3, 4, 5, 6].map((idx) => {
           return (
             <div
@@ -724,33 +724,30 @@ function StoreMenuNavBar() {
   return (
     <div className=" relative flex flex-wrap w-full gap-3 items-center">
       {Menus.map((menu, i) => {
-        const [storeSubMenu] = storeMenu.filter(
-          (item) => item.lable === menu.lable
-        );
+        const storeCategoryMenu = storeMenu[i];
         return (
           <StoreMenuNavItem
+            key={i}
             subMenuNameToShow={subMenuNameToShow}
             setShowSubMenu={setShowSubMenu}
             setSubMenuNameToShow={setSubMenuNameToShow}
-            key={i}
-            storeMenu={storeSubMenu}
             menu={menu}
+            storeCategoryMenu={storeCategoryMenu}
           />
         );
       })}
+      {/* For mobile screen */}
       {showSubMenu && (
         <div className=" block lg:hidden rounded-md bg-gray-50 py-3 px-4 w-full absolute -bottom-3 translate-y-full min-h-64">
           {Menus.map((menu, i) => {
+            const storeCategoryMenu = storeMenu[i];
             if (menu.label === subMenuNameToShow) {
-              const [storeSubMenu] = storeMenu.filter(
-                (item) => item.label === subMenuNameToShow
-              );
               const allStoreSubMenu = menu.subMenu;
               return (
                 <StoreMenuSubItem
                   key={i}
                   storeSubMenu={allStoreSubMenu}
-                  filteredSubMenu={storeSubMenu}
+                  storeCategoryMenu={storeCategoryMenu}
                 />
               );
             } else {
@@ -762,18 +759,16 @@ function StoreMenuNavBar() {
     </div>
   );
 }
-function StoreMenuSubItem({ storeSubMenu, filteredSubMenu }) {
+function StoreMenuSubItem({ storeSubMenu, storeCategoryMenu }) {
   return (
     <div className="flex flex-col">
-      {storeSubMenu.map((item, i) => {
-        const filterSubNavItems = filteredSubMenu?.subMenu.filter(
-          (submenu) => submenu.title === item.title
-        );
+      {storeSubMenu.map((item, index) => {
+        const storeSubMenu = storeCategoryMenu?.subMenu[index];
         return (
           <MobileNavList
-            key={i}
+            key={index}
             navItems={item}
-            filterSubNavItems={filterSubNavItems}
+            storeSubMenu={storeSubMenu}
           />
         );
       })}
@@ -781,15 +776,22 @@ function StoreMenuSubItem({ storeSubMenu, filteredSubMenu }) {
   );
 }
 
-function MobileNavList({ navItems, filterSubNavItems }) {
+function MobileNavList({ navItems, storeSubMenu }) {
   const [showFullMenu, setShowFullMenu] = useState(false);
+  const hasItems = storeSubMenu?.items?.length > 0;
   return (
     <div>
       <div
         onClick={() => setShowFullMenu((prev) => !prev)}
         className=" border-b py-2 flex gap-2 justify-between items-center"
       >
-        <p className=" text-primary-red font-semibold">{navItems.title}</p>
+        <p
+          className={` font-semibold  ${
+            hasItems ? "text-primary-red" : "text-primary-red/50"
+          }`}
+        >
+          {navItems.title}
+        </p>
         <ChevronDownIcon
           size={20}
           className={` ${
@@ -801,10 +803,8 @@ function MobileNavList({ navItems, filterSubNavItems }) {
         <div className=" flex flex-col border-b py-2 gap-1 pl-2">
           {navItems.items.map((item, i) => {
             const isAvailable =
-              Array.isArray(filterSubNavItems) &&
-              filterSubNavItems[0]?.items.some(
-                (subitem) => subitem.name === item.name
-              );
+              storeSubMenu.items.filter((subItem) => subItem.name === item.name)
+                .length > 0;
             return (
               <p
                 className={` text-sm  ${

@@ -8,7 +8,7 @@ export default function StoreMenuNavItem({
   setShowSubMenu,
   setSubMenuNameToShow,
   menu,
-  storeMenu,
+  storeCategoryMenu,
 }) {
   const [isHover, toggleHover] = useState(false);
   const toggleHoverMenu = () => {
@@ -84,26 +84,27 @@ export default function StoreMenuNavItem({
                   ? "lg:columns-3"
                   : "lg:columns-4"
               }`}
-              style={{ columnGap: "1.75rem" }} // Adjusts spacing between columns
+              style={{ columnGap: "1.75rem" }}
             >
               {hasSubMenu &&
                 menu.subMenu.map((submenu, index) => {
-                  const [storeItems] = storeMenu.subMenu.filter((filItem) => {
-                    return filItem.title == submenu.title;
-                  });
-
-                  const storeSubMenuItems = storeItems?.items;
-
+                  const storeSubMenu = storeCategoryMenu?.subMenu[index];
+                  const hasItems = storeSubMenu?.items?.length > 0;
                   return (
                     <div key={index} className="  space-y-0.5">
-                      <h6 className=" leading-5 py-1 mt-2 font-semibold text-lg text-primary-red">
+                      <h6
+                        className={` leading-5 py-1 mt-2 font-semibold text-lg ${
+                          hasItems ? "text-primary-red" : " text-primary-red/50"
+                        }`}
+                      >
                         {submenu.title}
                       </h6>
                       {submenu?.items?.map((item, i) => {
-                        const currentItem = storeSubMenuItems?.find(
-                          (filItem) => filItem.name == item.name
-                        );
-                        const isAvailable = currentItem?.name == item.name;
+                        // Filter -- checking the item is presend in store sub mun array
+                        const isAvailable =
+                          storeSubMenu.items.filter(
+                            (subItem) => subItem.name === item.name
+                          ).length > 0;
                         return (
                           <Link
                             href={item.slug}

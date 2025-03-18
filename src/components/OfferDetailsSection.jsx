@@ -15,15 +15,99 @@ import {
   Trash2,
 } from "lucide-react";
 import { CalendarForm } from "./datePicker";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { PaginationVendor } from "./paginationVendor";
 import Link from "next/link";
 
 export default function OfferDetailsSection() {
-  const [offer, setOffer] = useState("");
-  const [description, setDescription] = useState("");
-  const [validFrom, setValidFrom] = useState("");
-  const [validTill, setValidTill] = useState("");
+  const [offerEditData, setOfferEditData] = useState({
+    offerId: 1,
+    offerName: "",
+    offerDescription: "",
+    offerValidFrom: "",
+    offerValidTill: "",
+  });
+  const [historyTableData, setHistoryTableData] = useState(offerData);
+
+  function handleOfferEditValidFrom(value) {
+    setOfferEditData((prev) => {
+      return {
+        ...prev,
+        offerValidFrom: value,
+      };
+    });
+  }
+
+  function handleOfferEditValidTill(value) {
+    setOfferEditData((prev) => {
+      return {
+        ...prev,
+        offerValidTill: value,
+      };
+    });
+  }
+
+  function handleClearOfferEdit() {
+    setOfferEditData({
+      offerName: "",
+      offerDescription: "",
+      offerValidFrom: "",
+      offerValidTill: "",
+    });
+  }
+
+  function handleOfferEditClick({
+    offerId,
+    offerName,
+    offerDescription,
+    offerValidFrom,
+    offerValidTill,
+  }) {
+    setOfferEditData({
+      offerId,
+      offerName,
+      offerDescription,
+      offerValidFrom,
+      offerValidTill,
+    });
+  }
+
+  function handleSaveOffer() {
+    const offerId = offerEditData.offerId;
+    if (
+      !offerEditData.offerName ||
+      !offerEditData.offerDescription ||
+      !offerEditData.offerValidFrom ||
+      !offerEditData.offerValidTill
+    )
+      return;
+    setHistoryTableData((prev) => {
+      return prev.map((item) => {
+        if (item.offerId === offerId) {
+          return {
+            ...item,
+            offerName: offerEditData.offerName,
+            offerDescription: offerEditData.offerDescription,
+            offerValidFrom: offerEditData.offerValidFrom,
+            offerValidTill: offerEditData.offerValidTill,
+          };
+        }
+        return item;
+      });
+    });
+    setOfferEditData({
+      offerName: "",
+      offerDescription: "",
+      offerValidFrom: "",
+      offerValidTill: "",
+    });
+  }
+
+  function handleDeleteOffer(offerId) {
+    setHistoryTableData((prev) =>
+      prev.filter((item) => item.offerId !== offerId)
+    );
+  }
 
   return (
     <div className=" max-w-6xl px-4 mx-auto flex-col w-full flex gap-4">
@@ -54,8 +138,12 @@ export default function OfferDetailsSection() {
               </p>
               <input
                 type="text"
-                value={offer}
-                onChange={(e) => setOffer(e.target.value)}
+                value={offerEditData.offerName}
+                onChange={(e) =>
+                  setOfferEditData((prev) => {
+                    return { ...prev, offerName: e.target.value };
+                  })
+                }
                 className=" w-full text-sm bg-white rounded-md p-2 border "
               ></input>
             </div>
@@ -65,8 +153,15 @@ export default function OfferDetailsSection() {
               </p>
 
               <textarea
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
+                value={offerEditData.offerDescription}
+                onChange={(e) => {
+                  setOfferEditData((prev) => {
+                    return {
+                      ...prev,
+                      offerDescription: e.target.value,
+                    };
+                  });
+                }}
                 className=" p-2 border w-full min-h-20 rounded h-full"
               />
             </div>
@@ -78,7 +173,10 @@ export default function OfferDetailsSection() {
               <p className={` font-medium`}>
                 Validity From<span className=" text-primary-red">*</span>
               </p>
-              <CalendarForm date={validFrom} setDate={setValidFrom} />
+              <CalendarForm
+                date={offerEditData.offerValidFrom}
+                setDate={handleOfferEditValidFrom}
+              />
             </div>
 
             <div className=" w-full flex flex-col gap-1">
@@ -86,8 +184,8 @@ export default function OfferDetailsSection() {
                 Validity Till<span className=" text-primary-red">*</span>
               </p>
               <CalendarForm
-                date={validTill}
-                setDate={setValidTill}
+                date={offerEditData.offerValidTill}
+                setDate={handleOfferEditValidTill}
                 selectFuture={true}
               />
             </div>
@@ -102,19 +200,17 @@ export default function OfferDetailsSection() {
 
           <div className=" w-full mt-12 max-w-5xl mx-auto justify-end flex gap-4 items-center">
             <div
-              onClick={() => {
-                setOffer("");
-                setDescription("");
-                setValidFrom("");
-                setValidTill("");
-              }}
+              onClick={handleClearOfferEdit}
               className=" flex cursor-pointer items-center gap-2 w-fit rounded-md text-primary-red border-primary-red border px-4 py-2"
             >
               <p className=" font-semibold">Create New</p>
               <CopyPlus size={20} />
             </div>
 
-            <div className=" w-fit  rounded-md text-white flex items-center gap-2 bg-primary-red px-4 py-2">
+            <div
+              onClick={handleSaveOffer}
+              className=" cursor-pointer w-fit  rounded-md text-white flex items-center gap-2 bg-primary-red px-4 py-2"
+            >
               <p className=" font-semibold">Save Offer</p>
               <Check color="white" size={20} />
             </div>
@@ -157,8 +253,61 @@ export default function OfferDetailsSection() {
                 <Trash2 size={18} />
               </div>
             </div>
-            {offerData.map((data, idx) => {
-              return <OfferDetailList key={idx} data={data} idx={idx} />;
+            {historyTableData.map((data, idx) => {
+              return (
+                <div
+                  key={idx}
+                  className={`grid  text-gray-600 py-2 grid-cols-7 ${
+                    idx % 2 == 0 ? "bg-gray-100" : "bg-white"
+                  } `}
+                >
+                  <div className=" flex gap-2 items-center justify-center">
+                    <img src={data.img} />
+                  </div>
+                  <div className=" flex gap-2 items-center justify-center">
+                    <p className=" text-sm text-center">{data.offerName}</p>
+                  </div>
+                  <div className=" flex gap-2 items-center justify-center">
+                    <div className="text-sm text-center">
+                      <p>
+                        {
+                          new Date(data.offerValidFrom)
+                            .toISOString()
+                            .split("T")[0]
+                        }
+                        -{" "}
+                      </p>
+                      <p>
+                        {
+                          new Date(data.offerValidTill)
+                            .toISOString()
+                            .split("T")[0]
+                        }
+                      </p>
+                    </div>
+                  </div>
+                  <div className=" flex gap-2 items-center justify-center">
+                    <p className=" text-sm text-center">{data.status}</p>
+                  </div>
+                  <div className=" flex gap-2 items-center justify-center">
+                    <p className=" text-sm text-center">
+                      {data.offerDescription}
+                    </p>
+                  </div>
+                  <div
+                    onClick={() => handleOfferEditClick({ ...data })}
+                    className="cursor-pointer flex gap-2 items-center justify-center"
+                  >
+                    <Pencil size={18} />
+                  </div>
+                  <div
+                    onClick={() => handleDeleteOffer(data.offerId)}
+                    className=" cursor-pointer flex gap-2 items-center justify-center"
+                  >
+                    <Trash2 size={18} />
+                  </div>
+                </div>
+              );
             })}
           </div>
         </div>
@@ -187,106 +336,41 @@ export default function OfferDetailsSection() {
   );
 }
 
-function OfferDetailList({ data, idx }) {
-  return (
-    <div
-      className={`grid  text-gray-600 py-2 grid-cols-7 ${
-        idx % 2 == 0 ? "bg-gray-100" : "bg-white"
-      } `}
-    >
-      <div className=" flex gap-2 items-center justify-center">
-        <img src={data.img} />
-      </div>
-      <div className=" flex gap-2 items-center justify-center">
-        <p className=" text-sm text-center">{data.type}</p>
-      </div>
-      <div className=" flex gap-2 items-center justify-center">
-        <p className=" text-sm text-center">{data.validity}</p>
-      </div>
-      <div className=" flex gap-2 items-center justify-center">
-        <p className=" text-sm text-center">{data.status}</p>
-      </div>
-      <div className=" flex gap-2 items-center justify-center">
-        <p className=" text-sm text-center">{data.offerDisplay}</p>
-      </div>
-      <div className=" flex gap-2 items-center justify-center">
-        <Pencil size={18} />
-      </div>
-      <div className=" flex gap-2 items-center justify-center">
-        <Trash2 size={18} />
-      </div>
-    </div>
-  );
-}
 const offerData = [
   {
+    offerId: 1,
     img: "./vendor-store-offer.png",
-    type: "Weekend Sale",
+    offerName: "Weekend Sale",
     category: "All Categories",
     discount: "18%",
-    validity: "31st Dec - 2nd Jan",
-    offerDisplay: "Offer display message",
+    offerValidFrom: "2025-03-04T00:00:00.000Z",
+    offerValidTill: "2025-03-24T23:59:59.999Z",
+    offerDescription: "Offer display message",
     status: "Active",
   },
   {
+    offerId: 2,
     img: "./vendor-store-offer.png",
-    type: "Weekend Sale",
+    offerName: "Weekend Sale",
     category: "All Categories",
     discount: "12%",
-    validity: "31st Dec - 1st Jan",
-    offerDisplay: "Offer display message",
+    offerValidFrom: "2025-12-31T00:00:00.000Z",
+    offerValidTill: "2026-01-01T23:59:59.999Z",
+    offerDescription: "Offer display message",
     status: "Ending Soon Offer",
   },
   {
+    offerId: 3,
     img: "./vendor-store-offer.png",
-    type: "Weekend Sale",
+    offerName: "Weekend Sale",
     category: "All Categories",
     discount: "20%",
-    validity: "30th Dec - 1st Jan",
-    offerDisplay: "Offer display message",
+    offerValidFrom: "2025-12-30T00:00:00.000Z",
+    offerValidTill: "2026-01-01T23:59:59.999Z",
+    offerDescription: "Offer display message",
     status: "Expired",
   },
 ];
-
-function InputFild({ label, inputName, same, notNsc, disable }) {
-  return (
-    <div className=" w-full flex flex-col gap-1">
-      <p className={`${disable && " text-gray-400"}`}>
-        {label} {!notNsc && <span className=" text-primary-red">*</span>}
-      </p>
-      <input
-        type="text"
-        defaultValue={inputName}
-        className=" w-full text-sm rounded-md p-2 border "
-      />
-      {same && (
-        <div className=" flex gap-2 mt-4 items-center">
-          <input type="checkbox" className=" size-4"></input>
-          <p className=" text-gray-600 text-sm">Same as phone number</p>
-        </div>
-      )}
-    </div>
-  );
-}
-
-const OfferBottonBts = ({ num }) => {
-  // console.log(num)
-  const showBack = num != 1;
-  return (
-    <div className=" w-full mt-12 max-w-5xl mx-auto justify-end flex gap-4 items-center">
-      {showBack && (
-        <div className=" flex items-center gap-2 w-fit rounded-md text-primary-red border-primary-red border px-4 py-2">
-          <p className=" font-semibold">Create New</p>
-          <CopyPlus size={20} />
-        </div>
-      )}
-      <div className=" w-fit  rounded-md text-white flex items-center gap-2 bg-primary-red px-4 py-2">
-        <p className=" font-semibold">Save Offer</p>
-        <Check color="white" size={20} />
-      </div>
-    </div>
-  );
-};
 
 function SelectStoreImage() {
   const [allImages, setAllImages] = useState([
@@ -345,9 +429,7 @@ function SelectStoreImage() {
     });
   }
 
-  // Handle the image selection
   const handleImageSelect = (image) => {
-    setAllImages((prev) => [image, ...prev.filter((img) => img !== image)]);
     setSelectedImage(image);
   };
 
@@ -391,7 +473,14 @@ function SelectStoreImage() {
             />
           </div>
           {allImages.map((item, index) => (
-            <div key={index} className="shrink-0 w-36 h-28 relative">
+            <div
+              key={index}
+              className={`shrink-0 w-36 h-28 relative ${
+                selectedImage === item
+                  ? "border-4 border-red-300 rounded-lg overflow-hidden"
+                  : ""
+              }`}
+            >
               <img src={item} className="w-full h-full object-cover" />
               <div className="absolute bottom-1 right-1 bg-white p-1 rounded text-black size-6 flex items-center justify-center">
                 <input
