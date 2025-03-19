@@ -17,6 +17,7 @@ import {
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import ReactFlipCard from "reactjs-flip-card";
+import { Card3DDeals, Card3DStores } from "@/components/card3D";
 
 const Page = () => {
   const [isCreateUser, setIsCreateUser] = React.useState(false);
@@ -364,7 +365,7 @@ function PopularDetails() {
   const handleScroll1 = (ref, direction) => {
     if (ref.current) {
       ref.current.scrollBy({
-        left: direction === "left" ? -200 : 200,
+        left: direction === "left" ? -252 : 252,
         behavior: "smooth",
       });
     }
@@ -414,76 +415,34 @@ function PopularDetails() {
       </div>
 
       <div className=" z-50 max-w-7xl justify-center mx-auto items-center gap-2 flex flex-row ">
-        {/* <img src="./backword-btn.png" className=" z-20 h-6 w-auto" alt="" /> */}
-        {/* <div className=" p-2 border border-black rounded-full"> */}
         <ChevronLeftCircleIcon
-          className=" shrink-0 "
+          className=" shrink-0  cursor-pointer"
           onClick={() => handleScroll1(scrollContainerRef1, "left")}
         />
 
         <div className=" flex gap-2 mt-4 items-center overflow-x-scroll hide-scrollbar">
-          <div
-            className="flex h-96 gap-4 overflow-hidden"
-            ref={scrollContainerRef1}
-          >
-            <div className="flex gap-44  justify-center ">
+          <div className="flex py-6 overflow-hidden" ref={scrollContainerRef1}>
+            <div className="flex gap-4 justify-center ">
               {storeData.map((store, index) => (
-                <ReactFlipCard
+                <Card3DDeals
                   key={index}
-                  direction="horizontal"
-                  frontStyle={styles.card}
-                  backStyle={styles.card}
-                  flipTrigger="onClick"
-                  frontComponent={
-                    <div className="w-60 md:w-72 h-96 rounded-md shrink-0 overflow-hidden relative">
+                  frontSide={
+                    <div className="w-full h-full rounded-md shrink-0 overflow-hidden relative">
                       <DiscountCard {...store} />
                     </div>
                   }
-                  backComponent={
-                    <div className=" z-20 h-96 w-60 md:w-64 rounded-md  shrink-0 py-6 px-4 flex flex-col bg-black">
-                      <UserLoginProvider>
-                        <div className=" text-white flex cursor-pointer justify-between gap-2 mb-4 ">
-                          <p className=" text-4xl font-semibold">Zudio</p>
-                          <p className=" text-2xl font-semibold">18%off</p>
-                        </div>
-                      </UserLoginProvider>
-                      {zudioList.map((item, index) => (
-                        <Link
-                          href={"/search"}
-                          key={index}
-                          className=" text-white  text-sm"
-                        >
-                          {item}
-                        </Link>
-                      ))}
-
-                      <div className=" w-full mt-auto flex gap-2 justify-between">
-                        <Link
-                          href="https://www.google.com/maps/dir/26.8852108,75.7905578/World+Trade+Park,+Jawahar+Lal+Nehru+Marg,+Malviya+Nagar,+Jaipur,+Rajasthan+302017/@26.8720727,75.7805495,14z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x396db5d0abb464cf:0x43440aa416c9fdaf!2m2!1d75.8046688!2d26.853021?entry=ttu&g_ep=EgoyMDI1MDMxMi4wIKXMDSoJLDEwMjExNDUzSAFQAw%3D%3D"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className=" flex gap-1 items-center"
-                        >
-                          <MapPinIcon className="h-5 w-6 text-white" />
-                          <p className=" text-white font-semibold ">3.2 Km</p>
-                        </Link>
-                        <UserLoginProvider>
-                          <div className=" cursor-pointer text-white font-semibold">
-                            View Offers
-                          </div>
-                        </UserLoginProvider>
-                      </div>
-                    </div>
-                  }
+                  backSide={{
+                    storeName: store.storeName,
+                    discountPercentage: 18,
+                    zudioList: zudioList,
+                  }}
                 />
               ))}
             </div>
           </div>
         </div>
-
-        {/* <img src="./forword-btn.png" className=" z-20 h-6 w-auto" alt="" /> */}
         <ChevronRightCircleIcon
-          className=" shrink-0"
+          className=" cursor-pointer shrink-0"
           onClick={() => handleScroll1(scrollContainerRef1, "right")}
         />
       </div>
@@ -556,13 +515,7 @@ function PopularStores() {
 
   return (
     <div className=" bg-pink-100 overflow-hidden mt-6 min-h-96 px-4 w-full py-6 relative">
-      <div className="absolute hidden md:block bottom-6 right-10 z-10">
-        {/* <img
-          src="./pink-dotes.png"
-          className="h-52 -z-10 w-auto object-contain"
-          alt=""
-        /> */}
-      </div>
+      <div className="absolute hidden md:block bottom-6 right-10 z-10"></div>
       <div className=" flex flex-col items-center gap-1">
         <p className=" text-3xl md:text-4xl font-semibold text-center ">
           Popular Stores Of The Month
@@ -584,95 +537,24 @@ function PopularStores() {
           ref={scrollContainerRef}
           className="flex h-96 gap-4 overflow-hidden"
         >
-          <div className="flex gap-44  justify-center ">
+          <div className="flex gap-4  justify-center ">
             {ratingData.map((store, index) => (
-              <ReactFlipCard
+              <Card3DStores
                 key={index}
-                direction="horizontal"
-                frontStyle={styles.card}
-                backStyle={styles.card}
-                flipTrigger="onClick"
-                frontComponent={
+                frontSide={
                   <div className="w-60 md:w-64 h-96 rounded-md shrink-0 overflow-hidden relative">
                     <RatingCard {...store} />
                   </div>
                 }
-                backComponent={
-                  <div className=" z-20 h-96 w-60 md:w-64 rounded-md  shrink-0 py-6 px-4 flex flex-col bg-black">
-                    <UserLoginProvider className=" text-white flex  justify-between gap-2 mb-4 ">
-                      <p className=" text-4xl font-semibold">Shreeji</p>
-                      <div className=" flex  text-xl font-semibold items-center">
-                        4.8{" "}
-                        <img
-                          src="./golden-star.png"
-                          className=" size-6"
-                          alt=""
-                        />
-                      </div>
-                    </UserLoginProvider>
-                    {zudioList.map((item, index) => (
-                      <Link
-                        href={"/search"}
-                        key={index}
-                        className=" text-white  text-sm"
-                      >
-                        {item}
-                      </Link>
-                    ))}
-
-                    <div className=" w-full mt-auto flex gap-2 justify-between">
-                      <Link
-                        href={`https://www.google.com/maps/search/${"shreej"}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className=" flex gap-1 items-center"
-                      >
-                        <MapPinIcon className="h-5 w-6 text-white" />
-                        <p className=" text-white font-semibold ">3.2 Km</p>
-                      </Link>
-                      <UserLoginProvider className=" text-white font-semibold">
-                        View Offers
-                      </UserLoginProvider>
-                    </div>
-                  </div>
-                }
+                backSide={{
+                  storeName: store.storeName,
+                  ratingCount: 4.6,
+                  zudioList: zudioList,
+                }}
               />
             ))}
           </div>
-          {/* <UserLoginProvider>
-            <div className="h-96 w-60 md:w-72 rounded-md  shrink-0 py-6 px-4 flex z-10 flex-col bg-black">
-              <div className=" text-white flex  justify-between gap-2 mb-4 items-center">
-                <p className=" text-4xl font-semibold">Shreeji</p>
-                <div className=" flex  text-xl font-semibold items-center">
-                  4.8 <img src="./golden-star.png" className=" size-6" alt="" />
-                </div>
-              </div>
-              {zudioList.map((item, index) => {
-                return (
-                  <p key={index} className=" text-white  text-sm">
-                    {item}
-                  </p>
-                );
-              })}
-
-              <div className=" w-full mt-auto flex gap-2 justify-between">
-                <div className=" flex gap-1 items-center">
-                  <MapPinIcon className="h-5 w-6 text-white" />
-                  <p className=" text-white font-semibold ">3.2 Km</p>
-                </div>
-                <p className=" text-white font-semibold">View Offers</p>
-              </div>
-            </div>
-          </UserLoginProvider> */}
-
-          {/* {ratingData.map((store, index) => (
-            <UserLoginProvider key={index}>
-              <RatingCard {...store} />
-            </UserLoginProvider>
-          ))} */}
         </div>
-
-        {/* <img src="./forword-btn.png" className="  z-20 h-6 w-auto" alt="" /> */}
         <ChevronRightCircleIcon
           className=" shrink-0"
           onClick={() => handleScroll(scrollContainerRef, "right")}

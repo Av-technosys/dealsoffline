@@ -13,7 +13,7 @@ function ThumbsUpButton() {
     }
   }
   return (
-    <div className=" flex flex-col items-center justify-center gap-1">
+    <div className=" cursor-pointer flex flex-col items-center justify-center gap-1">
       <ThumbsUp
         onClick={() => handleLikeClick()}
         className={`${

@@ -5,41 +5,14 @@ import { Menus } from "./utils";
 import DesktopMenu from "./DesktopMenu";
 import MobMenu from "./MobMenu";
 import UserProfileDialog from "../dialog/userProfileDialog";
-import UserSettingDialog from "../dialog/userSettingDialog";
-import UserNotificationDialog from "../dialog/userNotificationDialog";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "../ui/select";
 
 const NavBar = ({}) => {
   const [isUserProfile, setIsUserProfile] = React.useState(false);
-  const [isUserSetting, setIsUserSetting] = React.useState(false);
-  const [isUserNotification, setIsUserNotification] = React.useState(false);
   return (
     <div>
       <UserProfileDialog
         isOpen={isUserProfile}
-        setIsUserNotification={setIsUserNotification}
         setIsUserProfile={setIsUserProfile}
-        setIsUserSetting={setIsUserSetting}
-      />
-      <UserSettingDialog
-        isOpen={isUserSetting}
-        setIsUserNotification={setIsUserNotification}
-        setIsUserProfile={setIsUserProfile}
-        setIsUserSetting={setIsUserSetting}
-      />
-      <UserNotificationDialog
-        isOpen={isUserNotification}
-        setIsUserNotification={setIsUserNotification}
-        setIsUserProfile={setIsUserProfile}
-        setIsUserSetting={setIsUserSetting}
       />
 
       <header className="h-20 z-[999] text-[15px] fixed inset-0 flex items-center bg-white ">
