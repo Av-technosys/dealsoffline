@@ -305,8 +305,38 @@ function UserSetting() {
 }
 
 function UserNotification() {
+  const [notificationData, setNotificationData] = React.useState([
+    {
+      title: "Lifestyle",
+      OfferDescription: "Flat Rs 1,000 Off on Smart Phones Above Rs. 10,000",
+      offerValidity: "Valid till 26nd Mar",
+      image: "./hero-small.png",
+    },
+    {
+      title: "Metro Shoes",
+      OfferDescription: "Flat 25% Off on shirts and Trousers",
+      offerValidity: "Valid till 22nd Mar",
+      image: "./hero-small.png",
+    },
+    {
+      title: "Happy Shoppy",
+      OfferDescription: "Flat 50% Off on all items",
+      offerValidity: "Valid till 28th Mar",
+      image: "./hero-small.png",
+    },
+  ]);
   return (
-    <div className=" mt-6 sm:mt-12 mx-auto w-full flex flex-col gap-4">
+    <div className="mt-6 mx-auto w-full flex flex-col gap-4">
+      <div className=" flex items-center justify-between">
+        <p className=" text-2xl font-semibold">Notifications</p>
+        <div
+          onClick={() => setNotificationData([])}
+          className=" ml-auto px-3 flex items-center gap-1 py-1.5 border border-primary-red rounded-md bg-primary-red/10 hover:bg-primary-red/20 duration-200 text-primary-red font-medium cursor-pointer"
+        >
+          <X size={20} />
+          <p>Clear All</p>
+        </div>
+      </div>
       <Accordion
         type="single"
         collapsible
@@ -371,27 +401,6 @@ function UserNotification() {
     </div>
   );
 }
-
-const notificationData = [
-  {
-    title: "Lifestyle",
-    OfferDescription: "Flat Rs 1,000 Off on Smart Phones Above Rs. 10,000",
-    offerValidity: "Valid till 26nd Mar",
-    image: "./hero-small.png",
-  },
-  {
-    title: "Metro Shoes",
-    OfferDescription: "Flat 25% Off on shirts and Trousers",
-    offerValidity: "Valid till 22nd Mar",
-    image: "./hero-small.png",
-  },
-  {
-    title: "Happy Shoppy",
-    OfferDescription: "Flat 50% Off on all items",
-    offerValidity: "Valid till 28th Mar",
-    image: "./hero-small.png",
-  },
-];
 
 const favouriteStoreData = [
   {
@@ -464,7 +473,10 @@ function NotificationStoreCard({
 
 function UserFavorite() {
   return (
-    <div className=" mt-6 sm:mt-12 mx-auto w-full flex flex-col gap-4">
+    <div className="mt-6 mx-auto w-full flex flex-col gap-4">
+      <div className=" flex items-center justify-between">
+        <p className=" text-2xl font-semibold">Favorite Stores</p>
+      </div>
       {favouriteStoreData.map((item, index) => (
         <FavouriteStoreCard key={index} {...item} />
       ))}

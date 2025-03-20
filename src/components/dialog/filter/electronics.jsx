@@ -33,8 +33,26 @@ const ElectronicsMenu = ({
     });
   }
 
-  function handleApplyChange() {
-    console.log(selectedItems);
+  function handleTitleSelect(items, title) {
+    if (selectedItems.includes(title)) {
+      setSelectedItems((prevSelected) => {
+        return prevSelected.filter((item) => item !== title);
+      });
+      items.map((item) => {
+        setSelectedItems((prevSelected) => {
+          return prevSelected.filter((filterItem) => filterItem !== item.name);
+        });
+      });
+    } else {
+      setSelectedItems((prevSelected) => {
+        return [...prevSelected, title];
+      });
+      items.map((item) => {
+        setSelectedItems((prevSelected) => {
+          return [...prevSelected, item.name];
+        });
+      });
+    }
   }
 
   useEffect(() => {
@@ -94,9 +112,19 @@ const ElectronicsMenu = ({
             >
               {Menus[6].subMenu.map((submenu, index) => (
                 <div key={index} className="  space-y-0.5">
-                  <h6 className=" leading-5 py-1 text-left font-semibold text-lg text-primary-red">
-                    {submenu.title}
-                  </h6>
+                  <div className=" w-full flex gap-2">
+                    <input
+                      type="checkbox"
+                      className="size-4 mt-2"
+                      checked={selectedItems.includes(submenu.title)}
+                      onChange={() =>
+                        handleTitleSelect(submenu?.items, submenu.title)
+                      }
+                    />
+                    <h6 className=" leading-5 py-1 text-left font-semibold text-lg text-primary-red">
+                      {submenu.title}
+                    </h6>
+                  </div>
                   {submenu?.items?.map((item, i) => (
                     <div key={i} className=" flex items-center gap-2">
                       <input
@@ -117,7 +145,7 @@ const ElectronicsMenu = ({
                 </div>
               ))}
             </div>
-            <DialogClose className="w-full">
+            {/* <DialogClose className="w-full">
               <div
                 onClick={handleApplyChange}
                 className=" bg-primary-red px-4 py-2 flex items-center gap-2 rounded-md mt-4 text-white text-center font-semibold cursor-pointer w-fit ml-auto"
@@ -129,7 +157,7 @@ const ElectronicsMenu = ({
                   <Check size={20} />
                 )}
               </div>
-            </DialogClose>
+            </DialogClose> */}
           </div>
         </DialogHeader>
       </DialogContent>

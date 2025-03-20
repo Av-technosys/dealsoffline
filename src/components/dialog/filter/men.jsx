@@ -20,7 +20,6 @@ const MenMenu = ({
       .filter(() => false);
   });
 
-  const [selectedItemsLength, setSelectedItemsLength] = useState(0);
   function handleSelect(item) {
     setSelectedItems((prevSelected) => {
       const isAlreadySelected = prevSelected.includes(item);
@@ -30,8 +29,29 @@ const MenMenu = ({
     });
   }
 
+  function handleTitleSelect(items, title) {
+    if (selectedItems.includes(title)) {
+      setSelectedItems((prevSelected) => {
+        return prevSelected.filter((item) => item !== title);
+      });
+      items.map((item) => {
+        setSelectedItems((prevSelected) => {
+          return prevSelected.filter((filterItem) => filterItem !== item.name);
+        });
+      });
+    } else {
+      setSelectedItems((prevSelected) => {
+        return [...prevSelected, title];
+      });
+      items.map((item) => {
+        setSelectedItems((prevSelected) => {
+          return [...prevSelected, item.name];
+        });
+      });
+    }
+  }
+
   useEffect(() => {
-    setSelectedItemsLength(selectedItems.length);
     if (selectedItems.length > 0) {
       setFilterValueList((prev) => ({
         ...prev,
@@ -92,7 +112,9 @@ const MenMenu = ({
                       type="checkbox"
                       className="size-4 mt-2"
                       checked={selectedItems.includes(submenu.title)}
-                      onChange={() => handleSelect(submenu.title)}
+                      onChange={() =>
+                        handleTitleSelect(submenu?.items, submenu.title)
+                      }
                     />
                     <h6 className=" leading-5 py-1 text-left font-semibold text-lg text-primary-red">
                       {submenu.title}

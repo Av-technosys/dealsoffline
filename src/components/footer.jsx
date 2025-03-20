@@ -53,7 +53,7 @@ const Footer = () => {
             <Link href={"/search?filter=Men"}>
               <p className="text-sm">Men</p>
             </Link>
-            <Link href={"/search?filter=women"}>
+            <Link href={"/search?filter=Women"}>
               <p className="text-sm">Women</p>
             </Link>
             <Link href={"/search?filter=Kids"}>
@@ -62,10 +62,10 @@ const Footer = () => {
             <Link href={"/search?filter=Beauty"}>
               <p className="text-sm">Beauty</p>
             </Link>
-            <Link href={"/search?filter=Home Decor"}>
+            <Link href={"/search?filter=Home Decore"}>
               <p className="text-sm">Home Decor</p>
             </Link>
-            <Link href={"/search?filter=Home Appliences"}>
+            <Link href={"/search?filter=Home Appliances"}>
               <p className="text-sm">Home Appliences</p>
             </Link>
             <Link href={"/search?filter=Electronics"}>

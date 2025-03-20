@@ -80,39 +80,8 @@ const Page = () => {
       <div className=" w-full mt-auto">
         <Footer />
       </div>
-
-      {/* <div className="h-60"></div> */}
     </div>
   );
 };
 
 export default Page;
-
-const VendorFooterBarFinal = ({ num }) => {
-  const showBack = num != 1;
-  return (
-    <div className=" w-full max-w-6xl px-4 mx-auto justify-end flex gap-4 items-end">
-      <img
-        src="/swipe-animation.gif"
-        alt="Swipe Animation"
-        className="hidden"
-      />
-      {showBack && (
-        <Link
-          href={`/vendor-dashbord?form=${String(num) - 1}`}
-          className=" flex items-center gap-2 w-fit rounded-md text-primary-red border-primary-red border px-4 py-2"
-        >
-          <p className=" font-semibold">Back</p>
-          <ArrowLeft size={20} />
-        </Link>
-      )}
-      <Link
-        href={"/"}
-        className=" w-fit rounded-md text-white flex items-center gap-2 bg-primary-red px-4 py-2"
-      >
-        <p className=" font-semibold">Finish</p>
-        <CheckCheck color="white" size={20} />
-      </Link>
-    </div>
-  );
-};

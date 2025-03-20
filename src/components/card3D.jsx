@@ -92,7 +92,7 @@ export function Card3DDeals({ frontSide, backSide, className }) {
 
             <div className=" w-full mt-auto flex gap-2 justify-between">
               <Link
-                href="https://www.google.com/maps/dir/26.8852108,75.7905578/World+Trade+Park,+Jawahar+Lal+Nehru+Marg,+Malviya+Nagar,+Jaipur,+Rajasthan+302017/@26.8720727,75.7805495,14z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x396db5d0abb464cf:0x43440aa416c9fdaf!2m2!1d75.8046688!2d26.853021?entry=ttu&g_ep=EgoyMDI1MDMxMi4wIKXMDSoJLDEwMjExNDUzSAFQAw%3D%3D"
+                href={`https://www.google.com/maps/search/${storeName}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className=" flex gap-1 items-center"

@@ -21,7 +21,7 @@ import UserLoginProvider from "@/components/userLoginProvider";
 import { Check, X } from "lucide-react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 
 const Page = () => {
   const [isCreateUser, setIsCreateUser] = React.useState(false);
@@ -30,28 +30,6 @@ const Page = () => {
   const [isCreateOTP, setIsCreateOTP] = React.useState(false);
   const [isUerPassword, setIsUerPassword] = React.useState(false);
 
-  // All the filtered Values
-  const [filterValueList, setFilterValueList] = useState({
-    categories: [],
-    brands: [],
-    locations: [],
-    suggesions: [],
-  });
-
-  const params = useSearchParams();
-
-  useEffect(() => {
-    setFilterValueList({
-      categories: [params.get("filter") || ""],
-      brands: [],
-      locations: [],
-      suggesions: [],
-    });
-  }, [params]);
-
-  useEffect(() => {
-    console.log(filterValueList);
-  }, [filterValueList]);
   return (
     <div>
       <HeroCarousel />
@@ -87,97 +65,9 @@ const Page = () => {
           handleUserLogin={setIsUserLogin}
         />
       </div>
-      <div className="flex flex-col lg:flex-row justify-center">
-        <div className="lg:py-10 px-6 w-full lg:max-w-72 lg:flex flex-col gap-4">
-          <div className="flex flex-col gap-0">
-            <p className="font-semibold mt-12 text-lg">Product Categories</p>
-            <p className=" hidden lg:block text-sm text-gray-600">
-              Select Categories for Shop
-            </p>
-            <div className="flex overflow-x-auto py-3 w-full md:flex-wrap gap-2">
-              <div className="shrink-0">
-                <MenMenu
-                  filterValueList={filterValueList.categories}
-                  setFilterValueList={setFilterValueList}
-                />
-              </div>
-              <div className="shrink-0">
-                <WomenMenu
-                  filterValueList={filterValueList.categories}
-                  setFilterValueList={setFilterValueList}
-                />
-              </div>
-              <div className="shrink-0">
-                <MenuKids
-                  filterValueList={filterValueList.categories}
-                  setFilterValueList={setFilterValueList}
-                />
-              </div>
-              <div className="shrink-0">
-                <BeautyMenu
-                  filterValueList={filterValueList.categories}
-                  setFilterValueList={setFilterValueList}
-                />
-              </div>
-              <div className="shrink-0">
-                <HomeDecoreMenu
-                  filterValueList={filterValueList.categories}
-                  setFilterValueList={setFilterValueList}
-                />
-              </div>
-              <div className="shrink-0">
-                <HomeAppliencesMenu
-                  filterValueList={filterValueList.categories}
-                  setFilterValueList={setFilterValueList}
-                />
-              </div>
-              <div className="shrink-0">
-                <ElectronicsMenu
-                  filterValueList={filterValueList.categories}
-                  setFilterValueList={setFilterValueList}
-                />
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-col mt-3 gap-0">
-            <p className="font-semibold text-lg">Brands</p>
-            <p className=" text-sm text-gray-600">Select your Trusted Brand</p>
-            <div className="flex w-full mt-3 flex-wrap gap-2">
-              <SearchByBrand
-                filterValueList={filterValueList.brands}
-                setFilterValueList={setFilterValueList}
-              />
-            </div>
-
-            <p className="font-semibold mt-8 text-lg">Area/Location</p>
-            <p className=" hidden lg:block text-sm text-gray-600">
-              Explore Shops in your Area
-            </p>
-            <SearchByLoaction
-              filterValueList={filterValueList.locations}
-              setFilterValueList={setFilterValueList}
-            />
-
-            <div className="flex flex-col gap-1 mt-4">
-              <p className="font-semibold text-lg mt-2">Suggested</p>
-              <Suggestions
-                filterValueList={filterValueList.suggesions}
-                setFilterValueList={setFilterValueList}
-              />
-            </div>
-          </div>
-        </div>
-
-        <div className="py-10 max-w-7xl px-6 flex flex-col w-full gap-3">
-          <AllAppliedFilter
-            filterValueList={filterValueList}
-            setFilterValueList={setFilterValueList}
-          />
-          <ProductList />
-          <ProductList />
-          <ProductList />
-        </div>
-      </div>
+      <Suspense fallback={<div>Loading...</div>}>
+        <StoreSection />
+      </Suspense>
 
       <Footer />
     </div>
@@ -185,6 +75,121 @@ const Page = () => {
 };
 
 export default Page;
+
+function StoreSection() {
+  // All the filtered Values
+  const [filterValueList, setFilterValueList] = useState({
+    categories: [],
+    brands: [],
+    locations: [],
+    suggesions: [],
+  });
+
+  const params = useSearchParams();
+
+  useEffect(() => {
+    if (!params.get("filter")) return;
+    setFilterValueList({
+      categories: [params.get("filter")],
+      brands: [],
+      locations: [],
+      suggesions: [],
+    });
+  }, [params]);
+  return (
+    <div className="flex flex-col lg:flex-row justify-center">
+      <div className="lg:py-10 px-6 w-full lg:max-w-72 lg:flex flex-col gap-4">
+        <div className="flex flex-col gap-0">
+          <p className="font-semibold mt-12 text-lg">Product Categories</p>
+          <p className=" hidden lg:block text-sm text-gray-600">
+            Select Categories for Shop
+          </p>
+          <div className="flex overflow-x-auto py-3 w-full md:flex-wrap gap-2">
+            <div className="shrink-0">
+              <MenMenu
+                filterValueList={filterValueList.categories}
+                setFilterValueList={setFilterValueList}
+              />
+            </div>
+            <div className="shrink-0">
+              <WomenMenu
+                filterValueList={filterValueList.categories}
+                setFilterValueList={setFilterValueList}
+              />
+            </div>
+            <div className="shrink-0">
+              <MenuKids
+                filterValueList={filterValueList.categories}
+                setFilterValueList={setFilterValueList}
+              />
+            </div>
+            <div className="shrink-0">
+              <BeautyMenu
+                filterValueList={filterValueList.categories}
+                setFilterValueList={setFilterValueList}
+              />
+            </div>
+            <div className="shrink-0">
+              <HomeDecoreMenu
+                filterValueList={filterValueList.categories}
+                setFilterValueList={setFilterValueList}
+              />
+            </div>
+            <div className="shrink-0">
+              <HomeAppliencesMenu
+                filterValueList={filterValueList.categories}
+                setFilterValueList={setFilterValueList}
+              />
+            </div>
+            <div className="shrink-0">
+              <ElectronicsMenu
+                filterValueList={filterValueList.categories}
+                setFilterValueList={setFilterValueList}
+              />
+            </div>
+          </div>
+        </div>
+        <div className="flex flex-col mt-3 gap-0">
+          <p className="font-semibold text-lg">Brands</p>
+          <p className=" text-sm text-gray-600">Select your Trusted Brand</p>
+          <div className="flex w-full mt-3 flex-wrap gap-2">
+            <SearchByBrand
+              filterValueList={filterValueList.brands}
+              setFilterValueList={setFilterValueList}
+            />
+          </div>
+
+          <p className="font-semibold mt-8 text-lg">Area/Location</p>
+          <p className=" hidden lg:block text-sm text-gray-600">
+            Explore Shops in your Area
+          </p>
+          <SearchByLoaction
+            filterValueList={filterValueList.locations}
+            setFilterValueList={setFilterValueList}
+          />
+
+          <div className="flex flex-col gap-1 mt-4">
+            <p className="font-semibold text-lg mt-2">Suggested</p>
+            <Suggestions
+              filterValueList={filterValueList.suggesions}
+              setFilterValueList={setFilterValueList}
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className="py-10 max-w-7xl px-6 flex flex-col w-full gap-3">
+        <AllAppliedFilter
+          filterValueList={filterValueList}
+          setFilterValueList={setFilterValueList}
+        />
+        <ProductList />
+        <ProductList />
+        <ProductList />
+      </div>
+    </div>
+  );
+}
 
 function Suggestions({ filterValueList, setFilterValueList }) {
   const suggestionList = [
