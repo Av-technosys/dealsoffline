@@ -20,6 +20,7 @@ import NavBar from "@/components/nav/navBar";
 import UserLoginProvider from "@/components/userLoginProvider";
 import { Check, X } from "lucide-react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 const Page = () => {
@@ -36,6 +37,21 @@ const Page = () => {
     locations: [],
     suggesions: [],
   });
+
+  const params = useSearchParams();
+
+  useEffect(() => {
+    setFilterValueList({
+      categories: [params.get("filter") || ""],
+      brands: [],
+      locations: [],
+      suggesions: [],
+    });
+  }, [params]);
+
+  useEffect(() => {
+    console.log(filterValueList);
+  }, [filterValueList]);
   return (
     <div>
       <HeroCarousel />
@@ -260,14 +276,6 @@ function AllAppliedFilter({ filterValueList, setFilterValueList }) {
     }));
   }
 
-  const [allFilter, setAllFilter] = useState([
-    "Women",
-    "Zara",
-    "Vaishali Nagar",
-  ]);
-  function handleRemove(item) {
-    setAllFilter(allFilter.filter((data) => data !== item));
-  }
   return (
     <div className="flex gap-2 flex-wrap items-center">
       {filterValueList.suggesions.map((data) => {

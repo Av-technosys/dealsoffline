@@ -8,7 +8,6 @@ import Footer from "@/components/footer";
 import { HeroCarousel } from "@/components/heroCarousel";
 import NavBar from "@/components/nav/navBar";
 import { ChevronLeftCircle, ChevronRightCircle, MapPin } from "lucide-react";
-import UserLoginProvider from "@/components/userLoginProvider";
 import {
   ChevronLeftCircleIcon,
   ChevronRightCircleIcon,
@@ -343,7 +342,6 @@ function ExploreCategory() {
 }
 
 const DiscountCard = ({ discount, storeName, imageSrc }) => {
-  console.log("imageSrc", imageSrc);
   return (
     <div className="w-60 md:w-64 h-96 rounded-md shrink-0 overflow-hidden relative">
       <img

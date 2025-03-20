@@ -50,25 +50,25 @@ const Footer = () => {
 
           <div className="flex flex-col w-full gap-2 cursor-pointer">
             <p className="font-semibold text-xl">Categories</p>
-            <Link href={"/search"}>
+            <Link href={"/search?filter=Men"}>
               <p className="text-sm">Men</p>
             </Link>
-            <Link href={"/search"}>
+            <Link href={"/search?filter=women"}>
               <p className="text-sm">Women</p>
             </Link>
-            <Link href={"/search"}>
+            <Link href={"/search?filter=Kids"}>
               <p className="text-sm">Kids</p>
             </Link>
-            <Link href={"/search"}>
+            <Link href={"/search?filter=Beauty"}>
               <p className="text-sm">Beauty</p>
             </Link>
-            <Link href={"/search"}>
+            <Link href={"/search?filter=Home Decor"}>
               <p className="text-sm">Home Decor</p>
             </Link>
-            <Link href={"/search"}>
+            <Link href={"/search?filter=Home Appliences"}>
               <p className="text-sm">Home Appliences</p>
             </Link>
-            <Link href={"/search"}>
+            <Link href={"/search?filter=Electronics"}>
               <p className="text-sm">Electronics</p>
             </Link>
           </div>
